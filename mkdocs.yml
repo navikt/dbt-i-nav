@@ -1,0 +1,50 @@
+site_name: dbt i NAV
+site_url: https://navikt.github.io/dbt-i-nav/
+repo_url: https://github.com/navikt/dbt-i-nav
+
+nav:
+  - Installasjon på VDI:
+    - Forutsetninger:
+      - index.md
+      - vdi/python.md
+      - vdi/pip.md
+      - vdi/git.md
+      - vdi/oracle-client-library.md
+    - vdi/dbt.md
+    - Anbefalinger:
+      - vdi/vscode.md
+      - vdi/sqlfluff.md
+    - Tips og triks:
+      - vdi/miljovariabler.md
+  - Arkitektur:
+    - arkitektur/style_guide.md
+
+theme:
+  name: material
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    primary: deep orange
+    scheme: default
+    toggle:
+      icon: material/toggle-switch-off-outline
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    primary: deep orange
+    scheme: slate
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to light mode
+  features:
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.expand
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+
+plugins:
+  - git-revision-date
