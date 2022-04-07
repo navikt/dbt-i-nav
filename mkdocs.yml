@@ -1,6 +1,7 @@
 site_name: dbt i NAV
 site_url: https://navikt.github.io/dbt-i-nav/
 repo_url: https://github.com/navikt/dbt-i-nav
+edit_uri: edit/main/docs/
 
 nav:
   - Installasjon på VDI:
