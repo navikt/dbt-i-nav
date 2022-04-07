@@ -1,5 +1,7 @@
 # Welcome to MkDocs
 
+The documentation is hosted in [navikt.github.io/dbt-i-nav](https://navikt.github.io/dbt-i-nav)
+
 For full documentation visit [mkdocs.org](https://www.mkdocs.org) and [material](https://squidfunk.github.io/mkdocs-material/).
 
 ## Commands
