@@ -19,6 +19,8 @@ nav:
       - vdi/miljovariabler.md
   - Arkitektur:
     - arkitektur/style_guide.md
+  - Prosjekter som bruker dbt:
+    - prosjekter/dvh-sykefravar-dmx.md
 
 theme:
   name: material
