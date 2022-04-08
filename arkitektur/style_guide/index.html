@@ -1,0 +1,1182 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/arkitektur/style_guide/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>Style guide - dbt i NAV</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dbt-stil-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="dbt i NAV" class="md-header__button md-logo" aria-label="dbt i NAV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            dbt i NAV
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Style guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/navikt/dbt-i-nav" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="dbt i NAV" class="md-nav__button md-logo" aria-label="dbt i NAV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    dbt i NAV
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/navikt/dbt-i-nav" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" data-md-state="indeterminate" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Installasjon på VDI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installasjon på VDI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installasjon på VDI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" data-md-state="indeterminate" type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Forutsetninger</a>
+          
+            <label for="__nav_1_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Forutsetninger" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Forutsetninger
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/pip/" class="md-nav__link">
+        PIP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/git/" class="md-nav__link">
+        GIT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/oracle-client-library/" class="md-nav__link">
+        Oracle client library
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/dbt/" class="md-nav__link">
+        DBT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" data-md-state="indeterminate" type="checkbox" id="__nav_1_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Anbefalinger
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Anbefalinger" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Anbefalinger
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/vscode/" class="md-nav__link">
+        Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/sqlfluff/" class="md-nav__link">
+        SQLFluff
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" data-md-state="indeterminate" type="checkbox" id="__nav_1_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          Tips og triks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tips og triks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tips og triks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdi/miljovariabler/" class="md-nav__link">
+        Legge til miljøvariabler
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Arkitektur
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Arkitektur" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Arkitektur
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Style guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Style guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modell-naming" class="md-nav__link">
+    Modell Naming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-konfigurasjon" class="md-nav__link">
+    Model konfigurasjon
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbt-konvensjoner" class="md-nav__link">
+    DBT konvensjoner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester" class="md-nav__link">
+    Tester
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navngivining-og-felt-konvensjoner" class="md-nav__link">
+    Navngivining og felt konvensjoner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cteer" class="md-nav__link">
+    CTEer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-stil-guide" class="md-nav__link">
+    SQL stil guide
+  </a>
+  
+    <nav class="md-nav" aria-label="SQL stil guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eksempel-sql" class="md-nav__link">
+    Eksempel SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-stil-guide" class="md-nav__link">
+    YAML stil guide
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML stil guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eksample-yaml" class="md-nav__link">
+    Eksample YAML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jinja-stil-guide" class="md-nav__link">
+    Jinja stil guide
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Prosjekter som bruker dbt
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prosjekter som bruker dbt" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Prosjekter som bruker dbt
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prosjekter/dvh-sykefravar-dmx/" class="md-nav__link">
+        dvh-sykefravar-dmx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modell-naming" class="md-nav__link">
+    Modell Naming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-konfigurasjon" class="md-nav__link">
+    Model konfigurasjon
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbt-konvensjoner" class="md-nav__link">
+    DBT konvensjoner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester" class="md-nav__link">
+    Tester
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navngivining-og-felt-konvensjoner" class="md-nav__link">
+    Navngivining og felt konvensjoner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cteer" class="md-nav__link">
+    CTEer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-stil-guide" class="md-nav__link">
+    SQL stil guide
+  </a>
+  
+    <nav class="md-nav" aria-label="SQL stil guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eksempel-sql" class="md-nav__link">
+    Eksempel SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-stil-guide" class="md-nav__link">
+    YAML stil guide
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML stil guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eksample-yaml" class="md-nav__link">
+    Eksample YAML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jinja-stil-guide" class="md-nav__link">
+    Jinja stil guide
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/navikt/dbt-i-nav/edit/main/docs/arkitektur/style_guide.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="dbt-stil-guide">DBT Stil Guide<a class="headerlink" href="#dbt-stil-guide" title="Permanent link">&para;</a></h1>
+<p>forket fra https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md</p>
+<h2 id="modell-naming">Modell Naming<a class="headerlink" href="#modell-naming" title="Permanent link">&para;</a></h2>
+<p>Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/intermediate. See følgnede <a href="https://discourse.getdbt.com/t/how-we-structure-our-dbt-projects/355">diskusjon</a>. The navngiving blir som følger:
+<div class="highlight"><pre><span></span><code>├── dbt_project.yml
+└── models
+    ├── marter
+    |   └── core
+    |       ├── mellomlager
+    |       |   ├── mellomlager.yml
+    |       |   ├── posteringer__unionisert.sql
+    |       |   └── posteringer__gruppert.sql
+    |       ├── core.docs
+    |       ├── dim_artskonti
+    |           ├── dim_artskonti.yml
+    |           └── dim_artskonti.sql
+    |       ├── dim_konstnadssteder
+    |           ├── dim_konstnadssteder.yml
+    |           └── dim_konstnadssteder.sql
+    |       └── fak_hovedbok_posteringer
+    |           ├── fak_hovedbok_posteringer.yml
+    |           └── fak_hovedbok_posteringer.sql
+    └── stager
+        └── oebs
+            ├── base
+            |   ├── base.yml
+            |   └── base__oebs_kontoplan.sql
+            ├── src_oebs.yml
+            ├── src_oebs.docs
+            ├── stg_oebs__posteringerslinjer
+            |   ├── stg_oebs__posteringerslinjer.yml
+            |   └── stg_oebs__posteringerslinjer.sql
+            ├── stg_oebs__budjsett_balanser
+            |   ├── stg_oebs__budjsett_balanser.yml
+            |   └── stg_oebs__budjsett_balanser.sql
+</code></pre></div>
+- All objekter oppgis på flertalls form, slik som: <code>stg_oebs__hovedbok_posteringslinjer</code>, <code>stg_oebs__artskonti</code>, etc.
+- Base tabeller prefikses med <code>base__</code>, slik som: <code>base__&lt;source&gt;_&lt;object&gt;</code>
+- Mellomlagringstabeller skal avsluttes med et fortidsverb som indikerer hvilken handling som er gjort på objektet, slik som: <code>hovedbok_posteringslinjer__filtrert_budsjett</code>
+- Datatorg, eller marter, er fordelt mellom fakter (uforandrelig, verb) og dimensjoner (foranderlig, subjekt) og prefikses med <code>fak_</code> og <code>dim_</code>, henholdvis. 
+- Staged strukter inneholder alle kolonner fra rå-tabellen og utvides med avledede kolonner, for å angi naturlig nøkler, hashed nøkler, omdøping av kolonnenavn, etc. </p>
+<h2 id="model-konfigurasjon">Model konfigurasjon<a class="headerlink" href="#model-konfigurasjon" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Model-spesifike attributer (som sort/dist keys) skal spesifiseres i modellen.</li>
+<li>Hvis en spesifikk konfigurasjon som gjelder alle modeller i en folder, burde dette spesifiseres i <code>dbt_project.yml</code>.</li>
+<li>Modell konfigurationer skal spesifiseres slik:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="p">{{</span>
+  <span class="n">config</span><span class="p">(</span>
+    <span class="n">materialized</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span><span class="p">,</span>
+    <span class="n">sort</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span>
+  <span class="p">)</span>
+<span class="p">}}</span>
+</code></pre></div>
+- Marter bør alltid configureres som tabeller - med mindre det er svært gode grunner til å ikke gjøre det. </p>
+<h2 id="dbt-konvensjoner">DBT konvensjoner<a class="headerlink" href="#dbt-konvensjoner" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Kun <code>stg_</code>og <code>base_</code> spør mot <code>source</code>er.</li>
+<li>Alle andre <code>ref</code> andre modeller.</li>
+</ul>
+<h2 id="tester">Tester<a class="headerlink" href="#tester" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Hver underfolder inneholder en <code>.yml</code> fil som tester alle modeller i folderen. Navnestandarden skal være <code>&lt;folder-navn&gt;.yml</code>. </li>
+<li>Som et minimum, skal <code>unique</code> og <code>not_null</code> være testet på primær nøkkeler</li>
+</ul>
+<h2 id="navngivining-og-felt-konvensjoner">Navngivining og felt konvensjoner<a class="headerlink" href="#navngivining-og-felt-konvensjoner" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Skjema, tabell og kolonne nanv skal være <code>snake_case</code>.</li>
+<li>Bruk navn basert på <em>business</em> terminologien, i stedet for kilde terminology.</li>
+<li>Hver model skal ha en primær nøkkel.</li>
+<li>Primær nøkkeler i modellen navngis som <code>pk_&lt;objekt&gt;</code>, altså <code>pk_dim_eperson</code>. </li>
+<li>Fremmed nøkkeler angis som <code>fk_&lt;objekt&gt;</code>, tidsløse enhets nøkkeler angis som <code>ek_&lt;objekt&gt;</code> og naturlige nøkkeler angis som <code>lk_&lt;objekt&gt;</code>. </li>
+<li>For base og stage modeller skal felter være ordnet inne kategorier, fra identifikatorer til tidsstempler tilslutt. </li>
+<li>Tidsstempel kolonner skal væver navngitt som <code>&lt;hendelse&gt;_ts</code>, e.g. <code>lastet_ts</code>, og skal være på UTC. for avvikende tidszoner skal tidzonen indikeres ved suffiks, e.g <code>lastet_ts_pt</code>.</li>
+<li>Boolean verdier og skal oppgis mot <code>er_</code> eller <code>har_</code> og uttrykkes med 1 for <code>Ja</code> og 0 for <code>Nei</code>.</li>
+<li>Beløps kolonner skal ha suffiks <code>_nok</code>for, flyttalls, beløp i kroner, og <code>_orer</code> for heltall beløp i ører.</li>
+<li>Sær norske bokstaver som Æ, Ø, Å skal angis som <code>ae</code>, <code>a</code> og <code>o</code>.</li>
+<li>Unngår reservert word som kolonne navn. </li>
+<li>Bruk samme feltnavn gjennom alle modellene hvor mulig, e.g. nøkkelen til <code>dim_person</code> skal være <code>pk_dim_person</code>og ikke <code>pk_bruker</code>.</li>
+</ul>
+<h2 id="cteer">CTEer<a class="headerlink" href="#cteer" title="Permanent link">&para;</a></h2>
+<p>For mer informasjon om hvorfor vi bruker CTEer, see følgende <a href="https://discourse.getdbt.com/t/why-the-fishtown-sql-style-guide-uses-so-many-ctes/1091">post</a>.</p>
+<ul>
+<li>Alle <code>{{ ref('...') }}</code> settning skal plasseres i en egen CTE, ved toppen av fila. </li>
+<li>Hvor det er mulig, skal en CTE gjøre en og kun en logisk mengde arbeid. </li>
+<li>CTE navn skal være ordrike og beskrive hva denne faktisk gjør. </li>
+<li>CTE er med forvirrende eller avansert logik skal kommenteres like etter at den er definert. 
+<div class="highlight"><pre><span></span><code><span class="k">with</span><span class="w"></span>
+
+<span class="n">hendelser_vask</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">-- Kommentarer</span>
+<span class="w">    </span><span class="c1">-- mer kommentarer</span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</code></pre></div>
+),</li>
+<li>CTEer som gjenbrukes i feller modeller skal tas ut og bli egne modeller. </li>
+<li>Modeller bør avsluttest med en  <code>endelig</code> CTE som selekterer hele det endelig produktet før modelen avslutted <code>SELECT * FROM endelig</code>. </li>
+<li>CTEene skal formatere som følger:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"></span>
+
+<span class="n">hendelser</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="p">),</span><span class="w"></span>
+
+<span class="c1">-- CTE comments go here</span>
+<span class="n">filtrerte_hendelser</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="p">),</span><span class="w"></span>
+
+<span class="n">endelig</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">filtrerte_hendelser</span><span class="w"></span>
+
+<span class="p">),</span><span class="w"></span>
+
+
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">endelig</span><span class="w"></span>
+</code></pre></div>
+<h2 id="sql-stil-guide">SQL stil guide<a class="headerlink" href="#sql-stil-guide" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Sett komma på slutten setningen</li>
+<li>Bruke fire mellom rom for å indentere koden, uten om ved predikatet, som skal være på linje med <code>WHERE</code></li>
+<li>Ingen linjer skal være lenger enn 80 tegn</li>
+<li>All felt navn skal være skrevet med små bokstaver, og alle funksjonsnavn (<code>SELECT</code>, <code>WHERE</code>, <code>LEAD</code>, etc.) med STORE. </li>
+<li>Bruk alltid <code>AS</code>for å aliase tabeller og felt. </li>
+<li>Alle felt skal angis før alle aggregater og vindu funskjoner. </li>
+<li>Aggregering skal skal løses så tidlig som mulig, før en joiner med andre tabeller. </li>
+<li><code>ORDER BY</code>og <code>GROUP BY</code> skal vær angitt med nummer i stedet for kolonne navn (se <a href="https://blog.getdbt.com/write-better-sql-a-defense-of-group-by-1/">følgende</a> for why). Gruppering bør gjøres på kun noen få kolonne verdier. </li>
+<li>Bruk helst <code>UNION ALL</code> fremfor <code>UNIO</code> <a href="http://docs.aws.amazon.com/redshift/latest/dg/c_example_unionall_query.html">*</a></li>
+<li>Unngå bruk tabell alias i <code>JOIN</code> criterer. Det er ofte vanskelig å forstå hvor tabellen "c" kommer fra.</li>
+<li>Hvis en joiner to eller flere tabeller, <em>alltid</em> prefiks kolonenne med et table alias. Hvis en selekterer fra kun en tabell trengs ingen prefiks. </li>
+<li>Skriv eksplisite joins, altså skriv <code>INNER JOIN</code> instead of <code>JOIN</code>). </li>
+<li>
+<p>Bruk <code>LEFT JOIN</code> fremfor <code>RIGHT JOIN</code> </p>
+</li>
+<li>
+<p><em>Ikke optimaliserer for få linjer kode. Nye linjer er billig, hjerner er dyre</em></p>
+</li>
+</ul>
+<h3 id="eksempel-sql">Eksempel SQL<a class="headerlink" href="#eksempel-sql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"></span>
+
+<span class="n">min_data</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">ref</span><span class="p">(</span><span class="s1">&#39;min_data&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"></span>
+
+<span class="p">),</span><span class="w"></span>
+
+<span class="n">en_cte</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">ref</span><span class="p">(</span><span class="s1">&#39;en_cte&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"></span>
+
+<span class="p">),</span><span class="w"></span>
+
+<span class="n">en_cte_agg</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"></span>
+<span class="w">        </span><span class="n">id</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="n">felt_4</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_felt_4</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="k">MAX</span><span class="p">(</span><span class="n">felt_5</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">max_felt_5</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">en_cte</span><span class="w"></span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="p">),</span><span class="w"></span>
+
+<span class="n">endelig</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">DISITNCT</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="n">min_data</span><span class="p">.</span><span class="n">felt_1</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">min_data</span><span class="p">.</span><span class="n">felt_2</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">min_data</span><span class="p">.</span><span class="n">felt_3</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">-- Bruk linjeshift for visuelt separere kalkulasjoner inn i blokker.</span>
+<span class="w">        </span><span class="k">CASE</span><span class="w"></span>
+<span class="w">            </span><span class="k">WHEN</span><span class="w"> </span><span class="n">min_data</span><span class="p">.</span><span class="n">kansellerings_dato</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
+<span class="w">                </span><span class="k">AND</span><span class="w"> </span><span class="n">min_data</span><span class="p">.</span><span class="n">utgangs_dato</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"></span>
+<span class="w">                </span><span class="k">THEN</span><span class="w"> </span><span class="n">utgangsdato_date</span><span class="w"></span>
+<span class="w">            </span><span class="k">WHEN</span><span class="w"> </span><span class="n">my_data</span><span class="p">.</span><span class="n">kansellerings_dato</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
+<span class="w">                </span><span class="k">THEN</span><span class="w"> </span><span class="n">my_data</span><span class="p">.</span><span class="n">start_dato</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span><span class="w"> </span><span class="n">my_data</span><span class="p">.</span><span class="n">kansellerings_date</span><span class="w"></span>
+<span class="w">        </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">kansellerings_dato</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">en_cte_agg</span><span class="p">.</span><span class="n">total_felt_4</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">en_cte_agg</span><span class="p">.</span><span class="n">max_felt_5</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">min_data</span><span class="w"></span>
+<span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">en_cte_agg</span><span class="w">  </span>
+<span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">min_data</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">en_cte_agg</span><span class="p">.</span><span class="n">id</span><span class="w"></span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">min_data</span><span class="p">.</span><span class="n">felt_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">min_data</span><span class="p">.</span><span class="n">felt_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;def&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"></span>
+<span class="w">            </span><span class="n">min_data</span><span class="p">.</span><span class="n">felt_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ghi&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="p">)</span><span class="w"></span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">final</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>Bruk <code>LEFT JOIN</code> fremfor <code>RIGHT JOIN</code>:
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"></span>
+<span class="w">    </span><span class="n">reiser</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">sjaforer</span><span class="p">.</span><span class="n">rating</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">driver_rating</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">passasjerer</span><span class="p">.</span><span class="n">rating</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rider_rating</span><span class="w"></span>
+
+<span class="k">FROM</span><span class="w"> </span><span class="n">resier</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">personer</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sjaforer</span><span class="w"></span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">reiser</span><span class="p">.</span><span class="n">fk_personer_sjaforer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sjaforer</span><span class="p">.</span><span class="n">pk_personer</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">personer</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">passasjerer</span><span class="w"></span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">reiser</span><span class="p">.</span><span class="n">fk_personer_passasjerer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sjaforer</span><span class="p">.</span><span class="n">pk_personer</span><span class="w"></span>
+</code></pre></div></li>
+</ul>
+<h2 id="yaml-stil-guide">YAML stil guide<a class="headerlink" href="#yaml-stil-guide" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Setning indenteres med to mellomrom </li>
+<li>Lister skal være indentert </li>
+<li>Bruk linjeskift for å separere lister når nødvendig. </li>
+<li>Linjer skal ikke være lenger en 80 karakterer </li>
+</ul>
+<h3 id="eksample-yaml">Eksample YAML<a class="headerlink" href="#eksample-yaml" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+
+<span class="nt">models</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hendelser</span><span class="w"></span>
+<span class="w">    </span><span class="nt">columns</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pk_hendelser</span><span class="w"></span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dette er n primærnøkkel</span><span class="w"></span>
+<span class="w">        </span><span class="nt">tests</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unique</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not_null</span><span class="w"></span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hendelse_ts</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Når</span><span class="nv"> </span><span class="s">hendelse</span><span class="nv"> </span><span class="s">skjedde</span><span class="nv"> </span><span class="s">i</span><span class="nv"> </span><span class="s">UTC</span><span class="nv"> </span><span class="s">(eg.</span><span class="nv"> </span><span class="s">2018-01-01</span><span class="nv"> </span><span class="s">12:00:00)&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">tests</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not_null</span><span class="w"></span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fk_brukere</span><span class="w"></span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Brukeren som stå for hendelsen</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">tests</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not_null</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">relationships</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref(&#39;brukere&#39;)</span><span class="w"></span>
+<span class="w">              </span><span class="nt">field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pk_brukere</span><span class="w"></span>
+</code></pre></div>
+<h2 id="jinja-stil-guide">Jinja stil guide<a class="headerlink" href="#jinja-stil-guide" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ved inklusjon av Jinja kode bruk mellomrom på iden av klammene <code>{{ slik }}</code> istedefor <code>{{slik}}</code></li>
+<li>Bruk ny linje for å dele opp logik i Jinja blokker</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2022-04-08
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../vdi/miljovariabler/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Legge til miljøvariabler" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Legge til miljøvariabler
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../prosjekter/dvh-sykefravar-dmx/" class="md-footer__link md-footer__link--next" aria-label="Next: dvh-sykefravar-dmx" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              dvh-sykefravar-dmx
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+    
+  </body>
+</html>
