@@ -53,13 +53,19 @@ dbt --version
 
 ## dbt v1.0.x (uoffisiell)
 
-Last ned prosjektet [patped/dbt-oracle](https://github.com/patped/dbt-oracle) på maskinen din og kjør følgende kommando fra prosjektmappen:
+Last ned prosjektet [patped/dbt-oracle](https://github.com/patped/dbt-oracle).
+
+Kjør følgende kommando fra prosjektmappen **dbt-oracle**:
 
 ```shell
 pip install . --trusted-host pypi.org --trusted-host  files.pythonhosted.org
 ```
 
-Verifiser med `dbt --version`
+Verifiser med:
+
+```shell
+dbt --version
+```
 
 ---
 
@@ -87,7 +93,6 @@ dmx_poc:
       dwhr:
         type: oracle
         host: dm07-scan.adeo.no
-        user: Personlig bruker med proxy. Eks. A123456[DVH_SCHEMA]
         user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
         password: <passord>
         dbname: dwh
@@ -98,7 +103,6 @@ dmx_poc:
       dwhq0:
         type: oracle
         host: dm07-scan.adeo.no
-        user: Personlig bruker med proxy. Eks. A123456[DVH_SCHEMA]
         user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
         password: <passord>
         dbname: dwhq0
@@ -109,7 +113,6 @@ dmx_poc:
         type: oracle
       prod:
         host: dm08-scan.adeo.no
-        user: Personlig bruker med proxy. Eks. A123456[DVH_SCHEMA]
         user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
         password: <passord>
         dbname: dwh
