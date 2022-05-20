@@ -15,7 +15,7 @@
     
     
       
-        <title>PIP - dbt i NAV</title>
+        <title>PIP og oppsett av proxy - dbt i NAV</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pip" class="md-skip">
+        <a href="#pip-og-oppsett-av-proxy" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PIP
+              PIP og oppsett av proxy
             
           </span>
         </div>
@@ -308,9 +308,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PIP og oppsett av proxy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        PIP
+        PIP og oppsett av proxy
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sjekk-om-du-har-pip" class="md-nav__link">
+    Sjekk om du har PIP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sett-opp-config-fil-for-pip" class="md-nav__link">
+    Sett opp config fil for pip
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -614,6 +652,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sjekk-om-du-har-pip" class="md-nav__link">
+    Sjekk om du har PIP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sett-opp-config-fil-for-pip" class="md-nav__link">
+    Sett opp config fil for pip
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -630,7 +690,8 @@
 
 
 
-<h1 id="pip">PIP<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h1>
+<h1 id="pip-og-oppsett-av-proxy">PIP og oppsett av proxy<a class="headerlink" href="#pip-og-oppsett-av-proxy" title="Permanent link">&para;</a></h1>
+<h2 id="sjekk-om-du-har-pip">Sjekk om du har PIP<a class="headerlink" href="#sjekk-om-du-har-pip" title="Permanent link">&para;</a></h2>
 <p>Kjør <code>pip --version</code> for å se om pip er tilgjengelig:</p>
 <div class="highlight"><pre><span></span><code>pip --version
 </code></pre></div>
@@ -662,6 +723,25 @@ Requirement already satisfied: pip <span class="k">in</span> c:<span class="se">
 </div>
 <p>Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre <code>pip --version</code>.</p>
 </div>
+<h2 id="sett-opp-config-fil-for-pip">Sett opp config fil for pip<a class="headerlink" href="#sett-opp-config-fil-for-pip" title="Permanent link">&para;</a></h2>
+<p>Ved å sette opp en pip.ini fil slipper du den lange kommandoen for å installere pakker:
+<div class="highlight"><pre><span></span><code>pip install xxx --trusted-host pypi.org --trusted-host  files.pythonhosted.org
+</code></pre></div>
+Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
+1. Opprett %APPDATA%\pip\pip.ini. Pip leter etter configfiler automatisk på denne globale plasseringen.
+2. Kopier filen webproxynavno.crt fra F:\Sertifikater til en sti lokalt
+3. Innhold i pip.ini:
+<div class="highlight"><pre><span></span><code>[global]
+cert = sti_til_webproxynavno.crt
+trusted-host=
+   pypi.python.org
+   pypi.org
+   files.pythonhosted.org
+proxy = http://webproxy-utvikler.nav.no:8088/
+</code></pre></div>
+4. Nå kan pip oppgraderes med kommandoen
+<div class="highlight"><pre><span></span><code>$ python -m pip install -U pip
+</code></pre></div></p>
 
   <hr>
 <div class="md-source-file">
