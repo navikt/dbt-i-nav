@@ -32,6 +32,6 @@ py --version
     python is not recognized as an internal or external command, operable program, or batch file
     ```
 
-    Python er ikke installer
+    Python er ikke installert
 
     Last ned [Python](https://www.python.org/downloads/windows/)
