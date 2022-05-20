@@ -51,6 +51,7 @@ Ved å sette opp en pip.ini fil slipper du den lange kommandoen for å installer
 pip install xxx --trusted-host pypi.org --trusted-host  files.pythonhosted.org
 ```
 Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
+
 1. Opprett %APPDATA%\pip\pip.ini. Pip leter etter configfiler automatisk på denne globale plasseringen.
 2. Kopier filen webproxynavno.crt fra F:\Sertifikater til en sti lokalt
 3. Innhold i pip.ini:
