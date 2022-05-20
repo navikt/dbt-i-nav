@@ -1,6 +1,6 @@
 # Python
 
-Sjekk om Python er installert med `py --version`
+Sjekk om Python er installert med `py --version`. Python versionen må være >= 3.8.
 
 ```shell
 py --version
@@ -14,6 +14,15 @@ py --version
     ```
 
     Fortsett til [PIP](./pip)
+    
+!!! failure
+    ```shell
+    $ py --version
+
+    Python 3.6.4
+    ```
+
+    Last ned [Python](https://www.python.org/downloads/windows/)
 
 !!! failure
     ```shell
@@ -24,4 +33,4 @@ py --version
 
     Python er ikke installer
 
-    Last ned [Python 3.8.10](https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe)
+    Last ned [Python](https://www.python.org/downloads/windows/)
