@@ -55,15 +55,15 @@ Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
 1. Opprett %APPDATA%\pip\pip.ini. Pip leter etter configfiler automatisk på denne globale plasseringen.
 2. Kopier filen webproxynavno.crt fra F:\Sertifikater til en sti lokalt
 3. Innhold i pip.ini:
-````
-[global]
-cert = sti_til_webproxynavno.crt
-trusted-host=
-   pypi.python.org
-   pypi.org
-   files.pythonhosted.org
-proxy = http://webproxy-utvikler.nav.no:8088/
-````
+    ````
+    [global]
+    cert = sti_til_webproxynavno.crt
+    trusted-host=
+       pypi.python.org
+       pypi.org
+       files.pythonhosted.org
+    proxy = http://webproxy-utvikler.nav.no:8088/
+    ````
 4. Nå kan pip oppgraderes med kommandoen
 ```shell
 $ python -m pip install -U pip
