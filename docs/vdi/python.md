@@ -21,6 +21,7 @@ py --version
 
     Python 3.6.4
     ```
+    For gammel version av Python
 
     Last ned [Python](https://www.python.org/downloads/windows/)
 
