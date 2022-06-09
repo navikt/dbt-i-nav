@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/arkitektur/style_guide/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh-sykefravar-dmx/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/dbt/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/git/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/miljovariabler/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/oracle-client-library/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/pip/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/python/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/sqlfluff/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/vscode/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
