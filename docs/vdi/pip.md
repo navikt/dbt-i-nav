@@ -16,7 +16,7 @@ pip --version
     pip 21.1.1 from c:\users\*****\appdata\local\programs\python\python38\lib\site-packages\pip (python 3.8)
     ```
 
-    Fortsett til [GIT](./git)
+    Fortsett til "Sett opp config fil for pip"
 
 !!! failure
     ```shell
@@ -47,14 +47,16 @@ pip --version
 ## Sett opp config fil for pip
 
 Ved å sette opp en pip.ini fil slipper du den lange kommandoen for å installere pakker:
-```shell
-pip install xxx --trusted-host pypi.org --trusted-host  files.pythonhosted.org
-```
+!!! failure
+    ```shell
+    pip install xxx --trusted-host pypi.org --trusted-host  files.pythonhosted.org
+    ```
 Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
 
-1. Opprett %APPDATA%\pip\pip.ini. Pip leter etter configfiler automatisk på denne globale plasseringen.
-2. Kopier filen webproxynavno.crt fra F:\Sertifikater til en sti lokalt
-3. Innhold i pip.ini:
+1. I mappen %APPDATA%\, opprett mappen pip.
+2. I mappen pip opprett filen pip.ini. Pip leter etter configfiler automatisk på denne globale plasseringen.
+3. Kopier filen webproxynavno.crt fra F:\Sertifikater til en sti lokalt
+4. Innhold i pip.ini:
     ````
     [global]
     cert = sti_til_webproxynavno.crt
