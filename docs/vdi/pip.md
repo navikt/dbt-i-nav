@@ -11,7 +11,7 @@ pip --version
 !!! success
 
     ```shell
-    $ pip --version
+    pip --version
 
     pip 21.1.1 from c:\users\*****\appdata\local\programs\python\python38\lib\site-packages\pip (python 3.8)
     ```
@@ -20,7 +20,7 @@ pip --version
 
 !!! failure
     ```shell
-    $ pip --version
+    pip --version
 
     'pip' is not recognized as an internal or external command, operable program or batch file.
     ```
@@ -68,5 +68,5 @@ Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
     ````
 4. Nå kan pip oppgraderes med kommandoen
 ```shell
-$ python -m pip install -U pip
+python -m pip install -U pip
 ```
