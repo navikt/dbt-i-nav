@@ -74,53 +74,80 @@ dbt --version
 
 Oppsett av dbt for Oracle adapter: https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile.
 
-`profiles.yml` skal opprettes under `C:\Users\<NAV-IDENT>\.dbt\profiles.yml` med følgende innhold:
+`profiles.yml` skal opprettes under `C:\Users\<NAV-IDENT>\.dbt\profiles.yml` med følgende innhold (Dette fungerer for v1.0.7 av dbt-core):
 
 ```yaml
 dmx_poc:
-   target: u1
-   outputs:
-      dwhu1:
-        type: oracle
-        host: dm07-scan.adeo.no
-        user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-        password: <passord>
-        dbname: dwhu1
-        port: 1521
-        service: dwhu1
-        schema: <skjema>
-        threads: 4
-      dwhr:
-        type: oracle
-        host: dm07-scan.adeo.no
-        user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-        password: <passord>
-        dbname: dwh
-        port: 1521
-        service: dwhr
-        schema: <skjema>
-        threads: 4
-      dwhq0:
-        type: oracle
-        host: dm07-scan.adeo.no
-        user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-        password: <passord>
-        dbname: dwhq0
-        port: 1521
-        service: dwhq0
-        schema: <skjema>
-        threads: 4
-        type: oracle
-      prod:
-        host: dm08-scan.adeo.no
-        user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-        password: <passord>
-        dbname: dwh
-        port: 1521
-        service: dwh
-        schema: <skjema>
-        threads: 4
-
+  target: dwhu1
+  outputs:
+    dwhu1:
+      type: oracle
+      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
+      pass: <passord>
+      protocol: tcp
+      host: dm07-scan.adeo.no
+      port: 1521
+      service: dwhu1
+      database: dwhu1
+      schema: <skjema>
+      shardingkey:
+        - skey
+      supershardingkey:
+        - sskey
+      cclass: CONNECTIVITY_CLASS
+      purity: self
+      threads: 4
+    dwhr:
+      type: oracle
+      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
+      pass: <passord>
+      protocol: tcp
+      host: dm07-scan.adeo.no
+      port: 1521
+      service: dwh_ha
+      database: dwh
+      schema: <skjema>
+      shardingkey:
+        - skey
+      supershardingkey:
+        - sskey
+      cclass: CONNECTIVITY_CLASS
+      purity: self
+      threads: 4
+    dwhq0:
+      type: oracle
+      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
+      pass: <passord>
+      protocol: tcp
+      host: dm07-scan.adeo.no
+      port: 1521
+      service: dwhq0
+      database: dwhq0
+      schema: <skjema>
+      shardingkey:
+        - skey
+      supershardingkey:
+        - sskey
+      cclass: CONNECTIVITY_CLASS
+      purity: self
+      threads: 4
+    prod:
+      type: oracle
+      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
+      pass: <passord>
+      protocol: tcp
+      host: dm08-scan.adeo.no
+      port: 1521
+      service: DWH_HA
+      database: DWH
+      schema: <skjema>
+      shardingkey:
+        - skey
+      supershardingkey:
+        - sskey
+      cclass: CONNECTIVITY_CLASS
+      purity: self
+      threads: 4
 ```
 
 Etter profilen er på plass kan du verifisere at dbt fungerer ved å kjøre `dbt debug` fra prosjektmappen.
