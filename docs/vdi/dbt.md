@@ -1,6 +1,6 @@
 # DBT
 
-Det finnes en offisiell oracle adapter for dbt v1.x
+Det finnes en offisiell [oracle adapter](https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile) for dbt v1.x. Gjerne start med å ta en titt på denne installasjonsguiden først.
 
 ## Installasjon
 
