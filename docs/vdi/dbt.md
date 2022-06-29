@@ -1,8 +1,8 @@
 # DBT
 
-Vi har nå to versoner av dbt for oracle. Den "offisielle" som kjører dbt v0.19.x og "uoffisielle" for dbt v1.0.x Har du ikke noe forhold til den uoffisielle anbefaler vi at du bruker den offisielle.
+Det finnes en offisiell oracle adapter for dbt v1.x
 
-## dbt v0.19.x
+## Installasjon
 
 dbt kan installeres sammen med oracle adapteren med kommandoen:
 
@@ -51,26 +51,7 @@ dbt --version
     pip install --trusted-host pypi.org --trusted-host  files.pythonhosted.org markupsafe==2.0.1`
     ```
 
-## dbt v1.0.x (uoffisiell)
-
-Last ned prosjektet [patped/dbt-oracle](https://github.com/patped/dbt-oracle).
-
-Kjør følgende kommando fra prosjektmappen **dbt-oracle**:
-
-```shell
-pip install . --trusted-host pypi.org --trusted-host  files.pythonhosted.org
-```
-
-Verifiser med:
-
-```shell
-dbt --version
-```
-
----
-
 ## Opprettelse av profil
-
 
 Oppsett av dbt for Oracle adapter: https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile.
 
