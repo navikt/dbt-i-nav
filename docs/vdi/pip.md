@@ -53,20 +53,17 @@ Ved å sette opp en pip.ini fil slipper du den lange kommandoen for å installer
     ```
 Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
 
-1. I mappen %APPDATA%\, opprett mappen pip.
-2. I mappen pip opprett filen pip.ini. Pip leter etter configfiler automatisk på denne globale plasseringen.
-3. Kopier filen webproxynavno.crt fra F:\Sertifikater til en sti lokalt
-4. Innhold i pip.ini:
-    ````
-    [global]
-    cert = sti_til_webproxynavno.crt
-    trusted-host=
-       pypi.python.org
-       pypi.org
-       files.pythonhosted.org
-    proxy = http://webproxy-utvikler.nav.no:8088/
-    ````
-4. Nå kan pip oppgraderes med kommandoen
+1. I mappen `%APPDATA%\`, opprett mappen `pip`.
+2. I mappen `pip` opprett filen `pip.ini`. Pip leter etter configfiler automatisk på denne globale plasseringen.
+3. Innhold i pip.ini:
+```ini
+[global]
+trusted-host=
+    pypi.python.org
+    pypi.org
+    files.pythonhosted.org
+```
+4. Nå kan pip oppgraderes med kommandoen:
 ```shell
 python -m pip install -U pip
 ```

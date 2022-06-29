@@ -5,5 +5,5 @@ SQLFluff er en linter som hjelper oss med å formattere SQL-koden på en fornuft
 ## Installering av SQLFluff
 
 ```shell
-pip install sqlfluff sqlfluff-templater-dbt --trusted-host pypi.org --trusted-host files.pythonhosted.org
+pip install sqlfluff sqlfluff-templater-dbt
 ```

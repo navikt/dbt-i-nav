@@ -7,7 +7,7 @@ Det finnes en offisiell oracle adapter for dbt v1.x
 dbt kan installeres sammen med oracle adapteren med kommandoen:
 
 ```shell
-pip install dbt-oracle --trusted-host pypi.org --trusted-host  files.pythonhosted.org
+pip install dbt-oracle
 ```
 
 !!! failure Installasjon feiler
@@ -48,7 +48,7 @@ dbt --version
 
     ```shell
     pip uninstall markusafe`
-    pip install --trusted-host pypi.org --trusted-host  files.pythonhosted.org markupsafe==2.0.1`
+    pip install markupsafe==2.0.1`
     ```
 
 ## Opprettelse av profil
