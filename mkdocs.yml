@@ -50,4 +50,4 @@ markdown_extensions:
   - pymdownx.superfences
 
 plugins:
-  - git-revision-date
+  - git-revision-date-localized
