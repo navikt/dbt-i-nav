@@ -13,7 +13,7 @@ pip install dbt-oracle
 !!! failure "Nedlasting feiler"
 
     ```shell
-    $ pip install dbt-oracle --upgrade
+    $ pip install dbt-oracle
     WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)'))': /simple/dbt-oracle/
 
     ...
@@ -69,106 +69,113 @@ dbt --version
 
 ## Opprettelse av profil
 
-Oppsett av dbt for Oracle adapter: https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile.
+Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på
+hemmeligheter. Vi har derfor laget et script som kan ligge i dbt-prosjektet.
+Scriptet må kjøres hver gang en starter en ny terminal eller ønsker å bytte
+target (db). Scriptet vill midlertidlig opprette miljøvariablene som holder på
+target, brukernavn, passord, schema.
 
-`profiles.yml` skal opprettes under `C:\Users\<NAV-IDENT>\.dbt\profiles.yml` med følgende innhold (Dette fungerer for v1.0.7 av dbt-core):
+Scriptet kan lastes ned fra [navikt/dvh-sykefravar-dmx/setup_db_user.ps1](https://github.com/navikt/dvh-sykefravar-dmx/blob/main/setup_db_user.ps1).
+
+`profiles.yml` skal opprettes under `C:\Users\<NAV-IDENT>\.dbt\profiles.yml` med følgende innhold:
 
 ```yaml
-dmx_poc:
-  target: dwhu1
+<navn på dbt prosjekt>:
+  target: "{{env_var('DBT_DB_TARGET')}}"
   outputs:
     dwhu1:
       type: oracle
-      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-      pass: <passord>
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASSWORD')}}"
       protocol: tcp
       host: dm07-scan.adeo.no
       port: 1521
       service: dwhu1
       database: dwhu1
-      schema: <skjema>
-      shardingkey:
-        - skey
-      supershardingkey:
-        - sskey
-      cclass: CONNECTIVITY_CLASS
-      purity: self
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
     dwhr:
       type: oracle
-      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-      pass: <passord>
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASSWORD')}}"
       protocol: tcp
       host: dm07-scan.adeo.no
       port: 1521
       service: dwh_ha
       database: dwh
-      schema: <skjema>
-      shardingkey:
-        - skey
-      supershardingkey:
-        - sskey
-      cclass: CONNECTIVITY_CLASS
-      purity: self
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
     dwhq0:
       type: oracle
-      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-      pass: <passord>
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASSWORD')}}"
       protocol: tcp
       host: dm07-scan.adeo.no
       port: 1521
       service: dwhq0
       database: dwhq0
-      schema: <skjema>
-      shardingkey:
-        - skey
-      supershardingkey:
-        - sskey
-      cclass: CONNECTIVITY_CLASS
-      purity: self
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
     prod:
       type: oracle
-      user: <nav-ident[skjema]> Eks. A123456[DVH_SCHEMA]
-      pass: <passord>
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASSWORD')}}"
       protocol: tcp
       host: dm08-scan.adeo.no
       port: 1521
       service: DWH_HA
       database: DWH
-      schema: <skjema>
-      shardingkey:
-        - skey
-      supershardingkey:
-        - sskey
-      cclass: CONNECTIVITY_CLASS
-      purity: self
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
+config:
+  send_anonymous_usage_stats: False
 ```
 
-Etter profilen er på plass kan du verifisere at dbt fungerer ved å kjøre `dbt debug` fra prosjektmappen.
+Etter profilen er på plass kan du verifisere at dbt fungerer ved å kjøre `.\setup_db_user.ps1`
+etterfulgt av `dbt debug` fra prosjektmappen.
 
 !!! success
 
     ```shell
-    $ dbt debug
+    $ .\setup_db_user.ps1
+    Target db: dwhu1
+    Schema: 
 
+    cmdlet Get-Credential at command pipeline position 1
+    Supply values for the following parameters:
+    Credential
+
+    $ dbt debug
+    09:15:08  Running with dbt=1.1.1
+    dbt version: 1.1.1
+    python version: 3.8.10
+    python path: c:\users\****\appdata\local\programs\python\python38\python.exe      
+    os info: Windows-10-10.0.19044-SP0
+    Using profiles.yml file at C:\Users\****\.dbt\profiles.yml
+    Using dbt_project.yml file at C:\Users\****\git\dvh-sykefravar-dmx\dbt_project.yml
+
+    09:15:08  oracle adapter: Running in cx mode
     Configuration:
-      profiles.yml file [OK found and valid]
+      profiles.yml file [OK found and valid]   
       dbt_project.yml file [OK found and valid]
 
     Required dependencies:
     - git [OK found]
 
     Connection:
-      user: ****[DVH_SYFO]
+      user: ****
       database: dwhu1
-      schema: dvh_syfo
+      schema: ****
+      protocol: tcp
       host: dm07-scan.adeo.no
       port: 1521
+      tns_name: None
       service: dwhu1
       connection_string: None
+      shardingkey: []
+      supershardingkey: []
+      cclass: None
+      purity: None
       Connection test: [OK connection ok]
 
     All checks passed!
