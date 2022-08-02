@@ -730,7 +730,7 @@
 </code></pre></div>
 <div class="admonition failure">
 <p class="admonition-title">Nedlasting feiler</p>
-<div class="highlight"><pre><span></span><code>$ pip install dbt-oracle --upgrade
+<div class="highlight"><pre><span></span><code>$ pip install dbt-oracle
 WARNING: Retrying <span class="o">(</span>Retry<span class="o">(</span><span class="nv">total</span><span class="o">=</span><span class="m">4</span>, <span class="nv">connect</span><span class="o">=</span>None, <span class="nv">read</span><span class="o">=</span>None, <span class="nv">redirect</span><span class="o">=</span>None, <span class="nv">status</span><span class="o">=</span>None<span class="o">))</span> after connection broken by <span class="s1">&#39;SSLError(SSLCertVerificationError(1, &#39;</span><span class="o">[</span>SSL: CERTIFICATE_VERIFY_FAILED<span class="o">]</span> certificate verify failed: unable to get <span class="nb">local</span> issuer certificate <span class="o">(</span>_ssl.c:1131<span class="o">)</span><span class="s1">&#39;))&#39;</span>: /simple/dbt-oracle/
 
 ...
@@ -775,100 +775,106 @@ Plugins:
 <p>Fortsett med <a href="#opprettelse-av-profil">opprettelse av profil</a></p>
 </div>
 <h2 id="opprettelse-av-profil">Opprettelse av profil<a class="headerlink" href="#opprettelse-av-profil" title="Permanent link">&para;</a></h2>
-<p>Oppsett av dbt for Oracle adapter: https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile.</p>
-<p><code>profiles.yml</code> skal opprettes under <code>C:\Users\&lt;NAV-IDENT&gt;\.dbt\profiles.yml</code> med følgende innhold (Dette fungerer for v1.0.7 av dbt-core):</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dmx_poc</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhu1</span><span class="w"></span>
+<p>Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på
+hemmeligheter. Vi har derfor laget et script som kan ligge i dbt-prosjektet.
+Scriptet må kjøres hver gang en starter en ny terminal eller ønsker å bytte
+target (db). Scriptet vill midlertidlig opprette miljøvariablene som holder på
+target, brukernavn, passord, schema.</p>
+<p>Scriptet kan lastes ned fra <a href="https://github.com/navikt/dvh-sykefravar-dmx/blob/main/setup_db_user.ps1">navikt/dvh-sykefravar-dmx/setup_db_user.ps1</a>.</p>
+<p><code>profiles.yml</code> skal opprettes under <code>C:\Users\&lt;NAV-IDENT&gt;\.dbt\profiles.yml</code> med følgende innhold:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;navn på dbt prosjekt&gt;</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_TARGET&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">outputs</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">dwhu1</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;nav-ident[skjema]&gt; Eks. A123456[DVH_SCHEMA]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;passord&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
 <span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhu1</span><span class="w"></span>
 <span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhu1</span><span class="w"></span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;skjema&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">shardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">supershardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sskey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">cclass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CONNECTIVITY_CLASS</span><span class="w"></span>
-<span class="w">      </span><span class="nt">purity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">self</span><span class="w"></span>
+<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 <span class="w">    </span><span class="nt">dwhr</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;nav-ident[skjema]&gt; Eks. A123456[DVH_SCHEMA]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;passord&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
 <span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwh_ha</span><span class="w"></span>
 <span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwh</span><span class="w"></span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;skjema&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">shardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">supershardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sskey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">cclass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CONNECTIVITY_CLASS</span><span class="w"></span>
-<span class="w">      </span><span class="nt">purity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">self</span><span class="w"></span>
+<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 <span class="w">    </span><span class="nt">dwhq0</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;nav-ident[skjema]&gt; Eks. A123456[DVH_SCHEMA]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;passord&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
 <span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhq0</span><span class="w"></span>
 <span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhq0</span><span class="w"></span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;skjema&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">shardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">supershardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sskey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">cclass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CONNECTIVITY_CLASS</span><span class="w"></span>
-<span class="w">      </span><span class="nt">purity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">self</span><span class="w"></span>
+<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 <span class="w">    </span><span class="nt">prod</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;nav-ident[skjema]&gt; Eks. A123456[DVH_SCHEMA]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;passord&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm08-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
 <span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DWH_HA</span><span class="w"></span>
 <span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DWH</span><span class="w"></span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;skjema&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">shardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">supershardingkey</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sskey</span><span class="w"></span>
-<span class="w">      </span><span class="nt">cclass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CONNECTIVITY_CLASS</span><span class="w"></span>
-<span class="w">      </span><span class="nt">purity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">self</span><span class="w"></span>
+<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
+<span class="nt">config</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">send_anonymous_usage_stats</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </code></pre></div>
-<p>Etter profilen er på plass kan du verifisere at dbt fungerer ved å kjøre <code>dbt debug</code> fra prosjektmappen.</p>
+<p>Etter profilen er på plass kan du verifisere at dbt fungerer ved å kjøre <code>.\setup_db_user.ps1</code>
+etterfulgt av <code>dbt debug</code> fra prosjektmappen.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<div class="highlight"><pre><span></span><code>$ dbt debug
+<div class="highlight"><pre><span></span><code>$ .<span class="se">\s</span>etup_db_user.ps1
+Target db: dwhu1
+Schema: 
 
+cmdlet Get-Credential at <span class="nb">command</span> pipeline position <span class="m">1</span>
+Supply values <span class="k">for</span> the following parameters:
+Credential
+
+$ dbt debug
+<span class="m">09</span>:15:08  Running with <span class="nv">dbt</span><span class="o">=</span><span class="m">1</span>.1.1
+dbt version: <span class="m">1</span>.1.1
+python version: <span class="m">3</span>.8.10
+python path: c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\p</span>ython.exe      
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:<span class="se">\U</span>sers<span class="se">\*</span>***<span class="se">\.</span>dbt<span class="se">\p</span>rofiles.yml
+Using dbt_project.yml file at C:<span class="se">\U</span>sers<span class="se">\*</span>***<span class="se">\g</span>it<span class="se">\d</span>vh-sykefravar-dmx<span class="se">\d</span>bt_project.yml
+
+<span class="m">09</span>:15:08  oracle adapter: Running <span class="k">in</span> cx mode
 Configuration:
-  profiles.yml file <span class="o">[</span>OK found and valid<span class="o">]</span>
+  profiles.yml file <span class="o">[</span>OK found and valid<span class="o">]</span>   
   dbt_project.yml file <span class="o">[</span>OK found and valid<span class="o">]</span>
 
 Required dependencies:
 - git <span class="o">[</span>OK found<span class="o">]</span>
 
 Connection:
-  user: ****<span class="o">[</span>DVH_SYFO<span class="o">]</span>
+  user: ****
   database: dwhu1
-  schema: dvh_syfo
+  schema: ****
+  protocol: tcp
   host: dm07-scan.adeo.no
   port: <span class="m">1521</span>
+  tns_name: None
   service: dwhu1
   connection_string: None
+  shardingkey: <span class="o">[]</span>
+  supershardingkey: <span class="o">[]</span>
+  cclass: None
+  purity: None
   Connection test: <span class="o">[</span>OK connection ok<span class="o">]</span>
 
 All checks passed!
@@ -899,7 +905,7 @@ https://docs.getdbt.com/docs/configure-your-profile
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 1, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2022</span>
       
     
   </small>
