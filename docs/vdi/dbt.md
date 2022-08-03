@@ -72,8 +72,8 @@ dbt --version
 Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på
 hemmeligheter. Vi har derfor laget et script som kan ligge i dbt-prosjektet.
 Scriptet må kjøres hver gang en starter en ny terminal eller ønsker å bytte
-target (db). Scriptet vill midlertidlig opprette miljøvariablene som holder på
-target, brukernavn, passord, schema.
+target (db). Scriptet vill midlertidlig opprette miljøvariablene i terminal-sesjonen for
+target, brukernavn, passord og schema.
 
 Scriptet kan lastes ned fra [navikt/dvh-sykefravar-dmx/setup_db_user.ps1](https://github.com/navikt/dvh-sykefravar-dmx/blob/main/setup_db_user.ps1).
 
