@@ -781,52 +781,48 @@ Scriptet må kjøres hver gang en starter en ny terminal eller ønsker å bytte
 target (db). Scriptet vill midlertidlig opprette miljøvariablene i terminal-sesjonen for
 target, brukernavn, passord og schema.</p>
 <p>Scriptet kan lastes ned fra <a href="https://github.com/navikt/dvh-sykefravar-dmx/blob/main/setup_db_user.ps1">navikt/dvh-sykefravar-dmx/setup_db_user.ps1</a>.</p>
-<p><code>profiles.yml</code> skal opprettes under <code>C:\Users\&lt;NAV-IDENT&gt;\.dbt\profiles.yml</code> med følgende innhold:</p>
+<p><code>profiles.yml</code> skal opprettes i på toppnivå i dbt-prosjektmappen med følgende innhold:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;navn på dbt prosjekt&gt;</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_TARGET&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">outputs</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">dwhu1</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
 <span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
 <span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhu1</span><span class="w"></span>
-<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhu1</span><span class="w"></span>
 <span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 <span class="w">    </span><span class="nt">dwhr</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
 <span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
-<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwh_ha</span><span class="w"></span>
-<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwh</span><span class="w"></span>
+<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhr</span><span class="w"></span>
 <span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 <span class="w">    </span><span class="nt">dwhq0</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
 <span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
 <span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhq0</span><span class="w"></span>
-<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhq0</span><span class="w"></span>
 <span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 <span class="w">    </span><span class="nt">prod</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span><span class="w"></span>
 <span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASSWORD&#39;)}}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span><span class="w"></span>
 <span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm08-scan.adeo.no</span><span class="w"></span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span><span class="w"></span>
 <span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwh_ha</span><span class="w"></span>
-<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwh</span><span class="w"></span>
 <span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 <span class="nt">config</span><span class="p">:</span><span class="w"></span>
