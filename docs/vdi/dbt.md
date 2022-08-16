@@ -123,8 +123,8 @@ Scriptet kan lastes ned fra [navikt/dvh-sykefravar-dmx/setup_db_user.ps1](https:
       protocol: tcp
       host: dm08-scan.adeo.no
       port: 1521
-      service: DWH_HA
-      database: DWH
+      service: dwh_ha
+      database: dwh
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
 config:
