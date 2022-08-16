@@ -77,7 +77,7 @@ target, brukernavn, passord og schema.
 
 Scriptet kan lastes ned fra [navikt/dvh-sykefravar-dmx/setup_db_user.ps1](https://github.com/navikt/dvh-sykefravar-dmx/blob/main/setup_db_user.ps1).
 
-`profiles.yml` skal opprettes under `C:\Users\<NAV-IDENT>\.dbt\profiles.yml` med følgende innhold:
+`profiles.yml` skal opprettes i på toppnivå i dbt-prosjektmappen med følgende innhold:
 
 ```yaml
 <navn på dbt prosjekt>:
@@ -86,49 +86,46 @@ Scriptet kan lastes ned fra [navikt/dvh-sykefravar-dmx/setup_db_user.ps1](https:
     dwhu1:
       type: oracle
       user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASSWORD')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
       protocol: tcp
       host: dm07-scan.adeo.no
       port: 1521
       service: dwhu1
-      database: dwhu1
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
     dwhr:
       type: oracle
       user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASSWORD')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
       protocol: tcp
       host: dm07-scan.adeo.no
       port: 1521
-      service: dwh_ha
-      database: dwh
+      service: dwhr
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
     dwhq0:
       type: oracle
       user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASSWORD')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
       protocol: tcp
       host: dm07-scan.adeo.no
       port: 1521
       service: dwhq0
-      database: dwhq0
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
     prod:
       type: oracle
       user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASSWORD')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
       protocol: tcp
       host: dm08-scan.adeo.no
       port: 1521
       service: dwh_ha
-      database: dwh
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 4
 config:
   send_anonymous_usage_stats: False
+
 ```
 
 Etter profilen er på plass kan du verifisere at dbt fungerer ved å kjøre `.\setup_db_user.ps1`
