@@ -64,16 +64,91 @@ dbt --version
     Plugins:
       - oracle: 0.19.1
     ```
+## Teste dbt installasjonen
 
-    Fortsett med [opprettelse av profil](#opprettelse-av-profil)
+Etter at dbt er på plass kan du verifisere at dbt fungerer ved å kjøre `.\setup_db_user.ps1`
+etterfulgt av `dbt debug` fra prosjektmappen. Er det et nytt prosjekt må du
+opprette [opprette profiles.yml](#opprettelse-av-profilesyml-i-et-nytt-dbt-prosjekt) først.
 
-## Opprettelse av profil
+`.\setup_db_user.ps1` må kjøres hver gang en starter en ny terminal eller
+ønsker å bytte target (db). Scriptet vill midlertidlig opprette miljøvariablene
+i terminal-sesjonen for target, brukernavn, passord, schema og peke dbt mot
+profiles.yml i prosjektmappen.
+
+!!! success
+
+    ```shell
+    $ .\setup_db_user.ps1
+    Target db: dwhu1
+    Schema: 
+
+    cmdlet Get-Credential at command pipeline position 1
+    Supply values for the following parameters:
+    Credential
+
+    $ dbt debug
+    09:15:08  Running with dbt=1.1.1
+    dbt version: 1.1.1
+    python version: 3.8.10
+    python path: c:\users\****\appdata\local\programs\python\python38\python.exe      
+    os info: Windows-10-10.0.19044-SP0
+    Using profiles.yml file at C:\Users\****\git\dvh-sykefravar-dmx\profiles.yml
+    Using dbt_project.yml file at C:\Users\****\git\dvh-sykefravar-dmx\dbt_project.yml
+
+    09:15:08  oracle adapter: Running in cx mode
+    Configuration:
+      profiles.yml file [OK found and valid]   
+      dbt_project.yml file [OK found and valid]
+
+    Required dependencies:
+    - git [OK found]
+
+    Connection:
+      user: ****
+      database: dwhu1
+      schema: ****
+      protocol: tcp
+      host: dm07-scan.adeo.no
+      port: 1521
+      tns_name: None
+      service: dwhu1
+      connection_string: None
+      shardingkey: []
+      supershardingkey: []
+      cclass: None
+      purity: None
+      Connection test: [OK connection ok]
+
+    All checks passed!
+    ```
+
+    DBT er nå klart til bruk.
+
+!!! error
+
+    ```shell
+    Connection test: [ERROR]
+
+    2 checks failed:
+    Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+    dbt was unable to connect to the specified database.
+    The database returned the following error:
+
+      >Database Error
+      DPI-1047: Cannot locate a 64-bit Oracle Client library: "failed to get message for Windows Error 126". See https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html for help
+
+    Check your database credentials and try again. For more information, visit:
+    https://docs.getdbt.com/docs/configure-your-profile
+    ```
+
+    [Oracle client library](oracle-client-library.md) er mest sannsynlig ikke installert.
+
+## Opprettelse av profiles.yml i et nytt dbt prosjekt
 
 Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på
-hemmeligheter. Vi har derfor laget et script som kan ligge i dbt-prosjektet.
-Scriptet må kjøres hver gang en starter en ny terminal eller ønsker å bytte
-target (db). Scriptet vill midlertidlig opprette miljøvariablene i terminal-sesjonen for
-target, brukernavn, passord og schema.
+hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
+dbt-prosjektet.
 
 Scriptet kan lastes ned fra [navikt/dvh-sykefravar-dmx/setup_db_user.ps1](https://github.com/navikt/dvh-sykefravar-dmx/blob/main/setup_db_user.ps1).
 
@@ -128,74 +203,4 @@ config:
 
 ```
 
-Etter profilen er på plass kan du verifisere at dbt fungerer ved å kjøre `.\setup_db_user.ps1`
-etterfulgt av `dbt debug` fra prosjektmappen.
-
-!!! success
-
-    ```shell
-    $ .\setup_db_user.ps1
-    Target db: dwhu1
-    Schema: 
-
-    cmdlet Get-Credential at command pipeline position 1
-    Supply values for the following parameters:
-    Credential
-
-    $ dbt debug
-    09:15:08  Running with dbt=1.1.1
-    dbt version: 1.1.1
-    python version: 3.8.10
-    python path: c:\users\****\appdata\local\programs\python\python38\python.exe      
-    os info: Windows-10-10.0.19044-SP0
-    Using profiles.yml file at C:\Users\****\.dbt\profiles.yml
-    Using dbt_project.yml file at C:\Users\****\git\dvh-sykefravar-dmx\dbt_project.yml
-
-    09:15:08  oracle adapter: Running in cx mode
-    Configuration:
-      profiles.yml file [OK found and valid]   
-      dbt_project.yml file [OK found and valid]
-
-    Required dependencies:
-    - git [OK found]
-
-    Connection:
-      user: ****
-      database: dwhu1
-      schema: ****
-      protocol: tcp
-      host: dm07-scan.adeo.no
-      port: 1521
-      tns_name: None
-      service: dwhu1
-      connection_string: None
-      shardingkey: []
-      supershardingkey: []
-      cclass: None
-      purity: None
-      Connection test: [OK connection ok]
-
-    All checks passed!
-    ```
-
-    DBT er nå installert og klart til bruk.
-
-!!! error
-
-    ```shell
-    Connection test: [ERROR]
-
-    2 checks failed:
-    Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
-
-    dbt was unable to connect to the specified database.
-    The database returned the following error:
-
-      >Database Error
-      DPI-1047: Cannot locate a 64-bit Oracle Client library: "failed to get message for Windows Error 126". See https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html for help
-
-    Check your database credentials and try again. For more information, visit:
-    https://docs.getdbt.com/docs/configure-your-profile
-    ```
-
-    [Oracle client library](oracle-client-library.md) er mest sannsynlig ikke installert.
+Etter profilen er på plass prosjektmappen kan du [teste at dbt fungerer](#teste-dbt-installasjonen)
