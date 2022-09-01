@@ -13,7 +13,7 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
 ```
 ├── dbt_project.yml
 └── models
-    ├── marter
+    ├── marts
     |   └── core
     |       ├── mellomlager
     |       |   ├── mellomlager.yml
@@ -29,7 +29,7 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
     |       └── fak_hovedbok_posteringer
     |           ├── fak_hovedbok_posteringer.yml
     |           └── fak_hovedbok_posteringer.sql
-    └── stager
+    └── staging
         └── oebs
             ├── base
             |   ├── base.yml
@@ -43,10 +43,10 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
             |   ├── stg_oebs__budjsett_balanser.yml
             |   └── stg_oebs__budjsett_balanser.sql
 ```
-- All objekter oppgis på flertalls form, slik som: `stg_oebs__hovedbok_posteringslinjer`, `stg_oebs__artskonti`, etc.
-- Base tabeller prefikses med `base__`, slik som: `base__<source>_<object>`
+- All objekter oppgis på flertallsform, slik som: `stg_oebs__hovedbok_posteringslinjer`, `stg_oebs__artskonti`, etc.
+- Basetabeller prefikses med `base__`, slik som: `base__<source>_<object>`
 - Mellomlagringstabeller skal avsluttes med et fortidsverb som indikerer hvilken handling som er gjort på objektet, slik som: `hovedbok_posteringslinjer__filtrert_budsjett`
-- Datatorg, eller marter, er fordelt mellom fakter (uforandrelig, verb) og dimensjoner (foranderlig, subjekt) og prefikses med `fak_` og `dim_`, henholdvis. 
+- Datatorg, eller marter, er fordelt mellom faktaer (uforandelig, verb) og dimensjoner (foranderlig, subjekt) og prefikses med `fak_` og `dim_`, henholdvis. 
 - Staged strukter inneholder alle kolonner fra rå-tabellen og utvides med avledede kolonner, for å angi naturlig nøkler, hashed nøkler, omdøping av kolonnenavn, etc. 
 
 ## Model konfigurasjon
@@ -79,7 +79,7 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
 * Skjema, tabell og kolonne nanv skal være `snake_case`.
 * Bruk navn basert på _business_ terminologien, i stedet for kilde terminology.
 * Hver model skal ha en primær nøkkel.
-* Primær nøkkeler i modellen navngis som `pk_<objekt>`, altså `pk_dim_eperson`. 
+* Primær nøkkeler i modellen navngis som `pk_<objekt>`, altså `pk_dim_person`. 
 * Fremmed nøkkeler angis som `fk_<objekt>`, tidsløse enhets nøkkeler angis som `ek_<objekt>` og naturlige nøkkeler angis som `lk_<objekt>`. 
 * For base og stage modeller skal felter være ordnet inne kategorier, fra identifikatorer til tidsstempler tilslutt. 
 * Tidsstempel kolonner skal væver navngitt som `<hendelse>_ts`, e.g. `lastet_ts`, og skal være på UTC. for avvikende tidszoner skal tidzonen indikeres ved suffiks, e.g `lastet_ts_pt`.
@@ -91,7 +91,7 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
 
 ## CTEer
 
-For mer informasjon om hvorfor vi bruker CTEer, see følgende [post](https://discourse.getdbt.com/t/why-the-fishtown-sql-style-guide-uses-so-many-ctes/1091).
+For mer informasjon om hvorfor vi bruker CTEer, see følgende [post](https://discourse.getdbt.com/t/why-the-fishtown-sql-style-guide-uses-so-many-ctes/1091). Kortversjonen er at det hjelper oss å samle kildene øverst, gjøre enkle transformasjoner og joiner i midten og se resultatet nederst. Oracle skal støtte passthrough slik at masse wither på rad ikke påvirker ytelsen.
 
 - Alle `{{ ref('...') }}` settning skal plasseres i en egen CTE, ved toppen av fila. 
 - Hvor det er mulig, skal en CTE gjøre en og kun en logisk mengde arbeid. 
