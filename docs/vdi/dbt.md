@@ -145,7 +145,16 @@ profiles.yml i prosjektmappen.
 
     [Oracle client library](oracle-client-library.md) er mest sannsynlig ikke installert.
 
-## Opprettelse av profiles.yml i et nytt dbt prosjekt
+## Opprettelse av et nytt dbt prosjekt
+
+Quoting av databasenavn må aktiveres i `dbt_project.yml` siden databasenenavnene
+til dvh-databasene er med små bokstaver (eks. dwhu1). For å skru på quoting må
+følgende settes i `dbt_project.yml`:
+
+```shell
+quoting:
+  database: true
+```
 
 Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på
 hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
@@ -204,7 +213,7 @@ config:
 
 ```
 
-Etter profilen er på plass prosjektmappen kan du [teste at dbt fungerer](#teste-dbt-installasjonen)
+Når profilen er på plass i prosjektmappen kan du [teste at dbt fungerer](#teste-dbt-installasjonen).
 
 ## Oppsett for dbt pakker (dbt deps)
 
