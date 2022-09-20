@@ -2,7 +2,7 @@
 
 1. Installering av GIT - har du den allerede er det flott.
    - Denne finner du på felles disken under programvare. programvare\git\. Installer f.eks Git-2.30.2-64-bit. Legg installasjon directory inn i miljøvariabel  PATH. F.eks `C:\Users\<brukernavn>\AppData\Local\GitHubDesktop\bin`
-2. Dette steget er sannsynligvis ikke nødvendig, utføres kun om det oppstår problemer i senere steg. Oppdatere miljøvariabler slik at utviklingsimaget kan kommunisere med Github. Dette er beskrevet i https://confluence.adeo.no/pages/viewpage.action?pageId=272519832 punkt 10c
+2. Dette steget er sannsynligvis ikke nødvendig, og utføres kun om det oppstår problemer i senere steg. Oppdatere miljøvariabler slik at utviklingsimaget kan kommunisere med Github. Dette er beskrevet i https://confluence.adeo.no/pages/viewpage.action?pageId=272519832 punkt 10c
    - Følgende legges inn som miljø variabler
    - https_proxy til http://webproxy-utvikler.nav.no:8088
    - http_proxy: http://155.55.60.117:8088/
