@@ -44,11 +44,11 @@ pip --version
 
     Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre `pip --version`.
 
-## Oppsett for sertifikater til pip
+## Oppsett av sertifikater til pip
 
-Til vanlig bruker Python/pip sitt eget sertifikat for å validere at vi laster ned
-pakker via pip o.l. fra riktig server. Siden VDI bruker en webproxy for å
-kommunisere med omverdenen vill vi få en feilmeling ved `dbt deps`.
+Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
+pakker fra riktig server. Siden VDI bruker en webproxy for å
+kommunisere med omverdenen vill vi få en feilmeling ved `pip install xxx`.
 
 !!! error
     ```shell
@@ -59,8 +59,8 @@ kommunisere med omverdenen vill vi få en feilmeling ved `dbt deps`.
     local issuer certificate (_ssl.c:1108)')))
     ```
 
-For å fikse feilen kan vi installere en pakkene `setuptools-scm` og `pip-system-certs` som får
-Python til å bruke Windows Certificate Store istedenfor.
+For å fikse feilen kan vi installere pakkene `setuptools-scm` og `pip-system-certs` som får
+pip til å bruke Windows Certificate Store istedenfor.
 
 ```shell
 pip install setuptools-scm pip-system-certs --trusted-host pypi.org --trusted-host  files.pythonhosted.org
