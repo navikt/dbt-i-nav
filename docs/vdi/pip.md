@@ -1,4 +1,4 @@
-# PIP og oppsett av proxy
+# PIP og oppsett av sertifikater
 
 ## Sjekk om du har PIP
 
@@ -44,26 +44,24 @@ pip --version
 
     Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre `pip --version`.
 
-## Sett opp config fil for pip
+## Oppsett for sertifikater til pip
 
-Ved å sette opp en pip.ini fil slipper du den lange kommandoen for å installere pakker:
-!!! failure
+Til vanlig bruker Python/pip sitt eget sertifikat for å validere at vi laster ned
+pakker via pip o.l. fra riktig server. Siden VDI bruker en webproxy for å
+kommunisere med omverdenen vill vi få en feilmeling ved `dbt deps`.
+
+!!! error
     ```shell
-    pip install xxx --trusted-host pypi.org --trusted-host  files.pythonhosted.org
+    13:42:24  Encountered an error: External connection exception occurred:
+    HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded
+    with url: /api/v1/index.json (Caused by SSLError(SSLCertVerificationError(1,
+    '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get
+    local issuer certificate (_ssl.c:1108)')))
     ```
-Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
 
-1. Skriv inn `%APPDATA%\` i adressefeltet i Windows Utforsker og opprett opprett mappen `pip`.
-2. I mappen `pip` opprett filen `pip.ini`. Pip leter etter configfiler automatisk på denne globale plasseringen.
-3. Innhold i pip.ini:
-```ini
-[global]
-trusted-host=
-    pypi.python.org
-    pypi.org
-    files.pythonhosted.org
-```
-4. Nå kan pip oppgraderes med kommandoen:
+For å fikse feilen kan vi installere en pakkene `setuptools-scm` og `pip-system-certs` som får
+Python til å bruke Windows Certificate Store istedenfor.
+
 ```shell
-python -m pip install -U pip
+pip install setuptools-scm pip-system-certs --trusted-host pypi.org --trusted-host  files.pythonhosted.org
 ```

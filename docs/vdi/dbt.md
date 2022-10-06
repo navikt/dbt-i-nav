@@ -215,33 +215,3 @@ config:
 
 Når profilen er på plass i prosjektmappen kan du [teste at dbt fungerer](#teste-dbt-installasjonen).
 
-## Oppsett for dbt pakker (dbt deps)
-
-Til vanlig bruker Python sitt eget sertifikat for å validere at vi laster ned
-pakker via pip o.l. fra riktig server. Siden VDI bruker en webproxy for å
-kommunisere med omverdenen vill vi få en feilmeling ved `dbt deps`.
-
-!!! error
-    ```shell
-    13:42:24  Encountered an error: External connection exception occurred:
-    HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded
-    with url: /api/v1/index.json (Caused by SSLError(SSLCertVerificationError(1,
-    '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get
-    local issuer certificate (_ssl.c:1108)')))
-    ```
-
-For å fikse feilen kan vi installere en pakke ved navn `pip-system-certs` som får
-Python til å bruke Windows Certificate Store istedenfor.
-
-```shell
-pip install pip-system-certs
-```
-
-Av sikkerhetshensyn bør du nå slette `%APPDATA%\pip\pip.ini` opprettet i [Sett opp config fil for pip](../pip/#sett-opp-config-fil-for-pip)
-
-Verifiser at dbt deps fungerer ved å kjøre:
-
-```shell
-dbt clean
-dbt deps
-```
