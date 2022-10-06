@@ -53,7 +53,7 @@ Ved å sette opp en pip.ini fil slipper du den lange kommandoen for å installer
     ```
 Disse argumentene kan isteden skrives inn i en pip.ini fil på følgende vis:
 
-1. I mappen `%APPDATA%\`, opprett mappen `pip`.
+1. Skriv inn `%APPDATA%\` i adressefeltet i Windows Utforsker og opprett opprett mappen `pip`.
 2. I mappen `pip` opprett filen `pip.ini`. Pip leter etter configfiler automatisk på denne globale plasseringen.
 3. Innhold i pip.ini:
 ```ini
