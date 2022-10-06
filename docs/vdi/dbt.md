@@ -29,41 +29,7 @@ pip install dbt-oracle
 !!! failure "Installasjon feiler"
     I noen tilfeller har vi opplevd at [Microsoft Visual C++](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16microsoft-visual-c) mangler.
 
-!!! failure "Installasjon feiler"
 
-    ```py
-    *** stack trace ****
-
-    ImportError: cannot import name 'soft_unicode' from 'markupsafe' (c:\users\****\appdata\local\programs\python\python38\lib\site-packages\markupsafe\__init__.py)
-    ```
-
-    markupsafe nedgraderes til versjon 2.0.1
-
-    ```shell
-    pip uninstall markusafe`
-    pip install markupsafe==2.0.1`
-    ```
-
-Verifiser med `dbt --version`
-
-```shell
-dbt --version
-```
-
-!!! success
-
-    ```shell
-    $ dbt --version
-
-    installed version: 0.19.2
-    latest version: 1.0.0
-
-    Your version of dbt is out of date! You can find instructions for upgrading here:
-    https://docs.getdbt.com/docs/installation
-
-    Plugins:
-      - oracle: 0.19.1
-    ```
 
 ## Teste dbt installasjonen
 
