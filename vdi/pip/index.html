@@ -376,8 +376,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oppsett-for-sertifikater-til-pip" class="md-nav__link">
-    Oppsett for sertifikater til pip
+  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
+    Oppsett av sertifikater til pip
   </a>
   
 </li>
@@ -702,8 +702,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oppsett-for-sertifikater-til-pip" class="md-nav__link">
-    Oppsett for sertifikater til pip
+  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
+    Oppsett av sertifikater til pip
   </a>
   
 </li>
@@ -761,10 +761,10 @@ Requirement already satisfied: pip <span class="k">in</span> c:<span class="se">
 </div>
 <p>Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre <code>pip --version</code>.</p>
 </div>
-<h2 id="oppsett-for-sertifikater-til-pip">Oppsett for sertifikater til pip<a class="headerlink" href="#oppsett-for-sertifikater-til-pip" title="Permanent link">&para;</a></h2>
-<p>Til vanlig bruker Python/pip sitt eget sertifikat for å validere at vi laster ned
-pakker via pip o.l. fra riktig server. Siden VDI bruker en webproxy for å
-kommunisere med omverdenen vill vi få en feilmeling ved <code>dbt deps</code>.</p>
+<h2 id="oppsett-av-sertifikater-til-pip">Oppsett av sertifikater til pip<a class="headerlink" href="#oppsett-av-sertifikater-til-pip" title="Permanent link">&para;</a></h2>
+<p>Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
+pakker fra riktig server. Siden VDI bruker en webproxy for å
+kommunisere med omverdenen vill vi få en feilmeling ved <code>pip install xxx</code>.</p>
 <div class="admonition error">
 <p class="admonition-title">Error</p>
 <div class="highlight"><pre><span></span><code><span class="m">13</span>:42:24  Encountered an error: External connection exception occurred:
@@ -774,8 +774,8 @@ with url: /api/v1/index.json <span class="o">(</span>Caused by SSLError<span cla
 <span class="s1">local issuer certificate (_ssl.c:1108)&#39;</span><span class="o">)))</span>
 </code></pre></div>
 </div>
-<p>For å fikse feilen kan vi installere en pakkene <code>setuptools-scm</code> og <code>pip-system-certs</code> som får
-Python til å bruke Windows Certificate Store istedenfor.</p>
+<p>For å fikse feilen kan vi installere pakkene <code>setuptools-scm</code> og <code>pip-system-certs</code> som får
+pip til å bruke Windows Certificate Store istedenfor.</p>
 <div class="highlight"><pre><span></span><code>pip install setuptools-scm pip-system-certs --trusted-host pypi.org --trusted-host  files.pythonhosted.org
 </code></pre></div>
 
