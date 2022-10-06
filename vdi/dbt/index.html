@@ -334,7 +334,7 @@
   
     <li class="md-nav__item">
       <a href="../pip/" class="md-nav__link">
-        PIP og oppsett av proxy
+        PIP og oppsett av sertifikater
       </a>
     </li>
   
@@ -432,13 +432,6 @@
         <li class="md-nav__item">
   <a href="#opprettelse-av-et-nytt-dbt-prosjekt" class="md-nav__link">
     Opprettelse av et nytt dbt prosjekt
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oppsett-for-dbt-pakker-dbt-deps" class="md-nav__link">
-    Oppsett for dbt pakker (dbt deps)
   </a>
   
 </li>
@@ -727,13 +720,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#oppsett-for-dbt-pakker-dbt-deps" class="md-nav__link">
-    Oppsett for dbt pakker (dbt deps)
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -937,35 +923,13 @@ dbt-prosjektet.</p>
 <span class="w">  </span><span class="nt">send_anonymous_usage_stats</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </code></pre></div>
 <p>Når profilen er på plass i prosjektmappen kan du <a href="#teste-dbt-installasjonen">teste at dbt fungerer</a>.</p>
-<h2 id="oppsett-for-dbt-pakker-dbt-deps">Oppsett for dbt pakker (dbt deps)<a class="headerlink" href="#oppsett-for-dbt-pakker-dbt-deps" title="Permanent link">&para;</a></h2>
-<p>Til vanlig bruker Python sitt eget sertifikat for å validere at vi laster ned
-pakker via pip o.l. fra riktig server. Siden VDI bruker en webproxy for å
-kommunisere med omverdenen vill vi få en feilmeling ved <code>dbt deps</code>.</p>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<div class="highlight"><pre><span></span><code><span class="m">13</span>:42:24  Encountered an error: External connection exception occurred:
-HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">&#39;hub.getdbt.com&#39;</span>, <span class="nv">port</span><span class="o">=</span><span class="m">443</span><span class="o">)</span>: Max retries exceeded
-with url: /api/v1/index.json <span class="o">(</span>Caused by SSLError<span class="o">(</span>SSLCertVerificationError<span class="o">(</span><span class="m">1</span>,
-<span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get</span>
-<span class="s1">local issuer certificate (_ssl.c:1108)&#39;</span><span class="o">)))</span>
-</code></pre></div>
-</div>
-<p>For å fikse feilen kan vi installere en pakke ved navn <code>pip-system-certs</code> som får
-Python til å bruke Windows Certificate Store istedenfor.</p>
-<div class="highlight"><pre><span></span><code>pip install pip-system-certs
-</code></pre></div>
-<p>Av sikkerhetshensyn bør du nå slette <code>%APPDATA%\pip\pip.ini</code> opprettet i <a href="../pip/#sett-opp-config-fil-for-pip">Sett opp config fil for pip</a></p>
-<p>Verifiser at dbt deps fungerer ved å kjøre:</p>
-<div class="highlight"><pre><span></span><code>dbt clean
-dbt deps
-</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 10, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 6, 2022</span>
       
     
   </small>
