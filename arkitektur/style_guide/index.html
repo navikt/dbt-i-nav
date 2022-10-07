@@ -953,7 +953,7 @@
 <li>Tidsstempel kolonner skal væver navngitt som <code>&lt;hendelse&gt;_ts</code>, e.g. <code>lastet_ts</code>, og skal være på UTC. for avvikende tidszoner skal tidzonen indikeres ved suffiks, e.g <code>lastet_ts_pt</code>.</li>
 <li>Boolean verdier og skal oppgis mot <code>er_</code> eller <code>har_</code> og uttrykkes med 1 for <code>Ja</code> og 0 for <code>Nei</code>.</li>
 <li>Beløps kolonner skal ha suffiks <code>_nok</code>for, flyttalls, beløp i kroner, og <code>_orer</code> for heltall beløp i ører.</li>
-<li>Sær norske bokstaver som Æ, Ø, Å skal angis som <code>ae</code>, <code>a</code> og <code>o</code>.</li>
+<li>Sær norske bokstaver som Æ, Ø, Å skal angis som <code>ae</code>, <code>o</code> og <code>a</code>.</li>
 <li>Unngår reservert word som kolonne navn. </li>
 <li>Bruk samme feltnavn gjennom alle modellene hvor mulig, e.g. nøkkelen til <code>dim_person</code> skal være <code>pk_dim_person</code>og ikke <code>pk_bruker</code>.</li>
 </ul>
@@ -1012,7 +1012,7 @@
 <li>Alle felt skal angis før alle aggregater og vindu funskjoner. </li>
 <li>Aggregering skal skal løses så tidlig som mulig, før en joiner med andre tabeller. </li>
 <li><code>ORDER BY</code>og <code>GROUP BY</code> skal vær angitt med nummer i stedet for kolonne navn (se <a href="https://blog.getdbt.com/write-better-sql-a-defense-of-group-by-1/">følgende</a> for why). Gruppering bør gjøres på kun noen få kolonne verdier. </li>
-<li>Bruk helst <code>UNION ALL</code> fremfor <code>UNIO</code> <a href="http://docs.aws.amazon.com/redshift/latest/dg/c_example_unionall_query.html">*</a></li>
+<li>Bruk helst <code>UNION ALL</code> fremfor <code>UNION</code> <a href="http://docs.aws.amazon.com/redshift/latest/dg/c_example_unionall_query.html">*</a></li>
 <li>Unngå bruk tabell alias i <code>JOIN</code> criterer. Det er ofte vanskelig å forstå hvor tabellen "c" kommer fra.</li>
 <li>Hvis en joiner to eller flere tabeller, <em>alltid</em> prefiks kolonenne med et table alias. Hvis en selekterer fra kun en tabell trengs ingen prefiks. </li>
 <li>Skriv eksplisite joins, altså skriv <code>INNER JOIN</code> instead of <code>JOIN</code>). </li>
@@ -1141,7 +1141,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 7, 2022</span>
       
     
   </small>
