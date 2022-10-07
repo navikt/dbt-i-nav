@@ -85,7 +85,7 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
 * Tidsstempel kolonner skal væver navngitt som `<hendelse>_ts`, e.g. `lastet_ts`, og skal være på UTC. for avvikende tidszoner skal tidzonen indikeres ved suffiks, e.g `lastet_ts_pt`.
 * Boolean verdier og skal oppgis mot `er_` eller `har_` og uttrykkes med 1 for `Ja` og 0 for `Nei`.
 * Beløps kolonner skal ha suffiks `_nok`for, flyttalls, beløp i kroner, og `_orer` for heltall beløp i ører.
-* Sær norske bokstaver som Æ, Ø, Å skal angis som `ae`, `a` og `o`.
+* Sær norske bokstaver som Æ, Ø, Å skal angis som `ae`, `o` og `a`.
 * Unngår reservert word som kolonne navn. 
 * Bruk samme feltnavn gjennom alle modellene hvor mulig, e.g. nøkkelen til `dim_person` skal være `pk_dim_person`og ikke `pk_bruker`.
 
@@ -148,7 +148,7 @@ SELECT * FROM endelig
 - Alle felt skal angis før alle aggregater og vindu funskjoner. 
 - Aggregering skal skal løses så tidlig som mulig, før en joiner med andre tabeller. 
 - `ORDER BY`og `GROUP BY` skal vær angitt med nummer i stedet for kolonne navn (se [følgende](https://blog.getdbt.com/write-better-sql-a-defense-of-group-by-1/) for why). Gruppering bør gjøres på kun noen få kolonne verdier. 
-- Bruk helst `UNION ALL` fremfor `UNIO` [*](http://docs.aws.amazon.com/redshift/latest/dg/c_example_unionall_query.html)
+- Bruk helst `UNION ALL` fremfor `UNION` [*](http://docs.aws.amazon.com/redshift/latest/dg/c_example_unionall_query.html)
 - Unngå bruk tabell alias i `JOIN` criterer. Det er ofte vanskelig å forstå hvor tabellen "c" kommer fra.
 - Hvis en joiner to eller flere tabeller, _alltid_ prefiks kolonenne med et table alias. Hvis en selekterer fra kun en tabell trengs ingen prefiks. 
 - Skriv eksplisite joins, altså skriv `INNER JOIN` instead of `JOIN`). 
