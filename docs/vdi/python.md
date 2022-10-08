@@ -13,7 +13,7 @@ py --version
     Python 3.8.10
     ```
 
-    Fortsett til [PIP](./pip)
+    Fortsett til [PIP](pip.md)
     
 !!! failure
     ```shell

@@ -21,10 +21,7 @@ pip install dbt-oracle
     Could not fetch URL https://pypi.org/simple/dbt-oracle/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/dbt-oracle/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
     ```
 
-    [pip.ini config](pip.md#sett-opp-config-fil-for-pip) er mest sannsynlig plassert på feil sted. Du kan verifisere at pip.ini ikke fungere ved å installere dbt-oracle med `trusted-host` parametere:
-    ```shell
-    pip install dbt-oracle --upgrade  --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org
-    ```
+    Sjekk om du har gjort [oppsett av sertifikater til pip](pip.md#oppsett-av-sertifikater-til-pip).
 
 !!! failure "Installasjon feiler"
     I noen tilfeller har vi opplevd at [Microsoft Visual C++](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16microsoft-visual-c) mangler.
