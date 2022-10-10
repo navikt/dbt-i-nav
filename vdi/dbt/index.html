@@ -755,9 +755,7 @@ WARNING: Retrying <span class="o">(</span>Retry<span class="o">(</span><span cla
 
 Could not fetch URL https://pypi.org/simple/dbt-oracle/: There was a problem confirming the ssl certificate: HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">&#39;pypi.org&#39;</span>, <span class="nv">port</span><span class="o">=</span><span class="m">443</span><span class="o">)</span>: Max retries exceeded with url: /simple/dbt-oracle/ <span class="o">(</span>Caused by SSLError<span class="o">(</span>SSLCertVerificationError<span class="o">(</span><span class="m">1</span>, <span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)&#39;</span><span class="o">)))</span>
 </code></pre></div>
-<p><a href="../pip/#sett-opp-config-fil-for-pip">pip.ini config</a> er mest sannsynlig plassert på feil sted. Du kan verifisere at pip.ini ikke fungere ved å installere dbt-oracle med <code>trusted-host</code> parametere:
-<div class="highlight"><pre><span></span><code>pip install dbt-oracle --upgrade  --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org
-</code></pre></div></p>
+<p>Sjekk om du har gjort <a href="../pip/#oppsett-av-sertifikater-til-pip">oppsett av sertifikater til pip</a>.</p>
 </div>
 <div class="admonition failure">
 <p class="admonition-title">Installasjon feiler</p>
@@ -901,7 +899,7 @@ dbt-prosjektet.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 6, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 8, 2022</span>
       
     
   </small>
