@@ -32,7 +32,7 @@ pip install dbt-oracle
 
 Etter at dbt er på plass kan du verifisere at dbt fungerer ved å kjøre `.\setup_db_user.ps1`
 etterfulgt av `dbt debug` fra prosjektmappen. Er det et nytt prosjekt må du
-opprette [opprette profiles.yml](#opprettelse-av-profilesyml-i-et-nytt-dbt-prosjekt) først.
+[opprette profiles.yml](#opprettelse-av-profilesyml-i-et-nytt-dbt-prosjekt) først.
 
 `.\setup_db_user.ps1` må kjøres hver gang en starter en ny terminal eller
 ønsker å bytte target (db). Scriptet vill midlertidlig opprette miljøvariablene
