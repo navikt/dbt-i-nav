@@ -24,7 +24,7 @@ pip install dbt-oracle
     Sjekk om du har gjort [oppsett av sertifikater til pip](pip.md#oppsett-av-sertifikater-til-pip).
 
 !!! failure "Installasjon feiler"
-    I noen tilfeller har vi opplevd at [Microsoft Visual C++](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16microsoft-visual-c) mangler.
+    I noen tilfeller har vi opplevd at [Microsoft Visual C++]( https://visualstudio.microsoft.com/visual-cpp-build-tools/) mangler.
 
 
 
