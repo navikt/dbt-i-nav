@@ -6,7 +6,7 @@ Les mer [her](https://docs.getdbt.com/docs/collaborate/documentation#adding-desc
 
 ## Persist docs
 dbt-oracle har støtte for å skrive kommentarer til databasen. Som andre konfig,  kan det settes på prosjektnivå, mappenivå eller modellnivå. For å sette det på prosjektnivå, legg til følgende i `dbt_project.yml`
-```
+```yml
 models:
   +persist_docs:
     relation: true
