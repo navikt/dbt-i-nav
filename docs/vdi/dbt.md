@@ -27,6 +27,89 @@ pip install dbt-oracle
     I noen tilfeller har vi opplevd at [Microsoft Visual C++]( https://visualstudio.microsoft.com/visual-cpp-build-tools/) mangler.
 
 
+## Opprette nytt dbt prosjekt for Oracle
+
+Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i [dvh_template](https://github.com/navikt/dvh_template) for bruk av dbt til komponentskjemaer. dbt prosjektet ligger da under mappen [dbt](https://github.com/navikt/dvh_template/tree/master/dbt).
+
+
+- For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i [dvh_template](https://github.com/navikt/dvh_template).
+- For eksisterende komponentrepoer, ta en kopi av [dbt](https://github.com/navikt/dvh_template/tree/master/dbt) og lim inn i roten til komponentrepoet.
+
+Se [dokumentasjon](https://github.com/navikt/dvh_template/tree/master/dbt) for å ta i bruk prosjektet for detaljer.
+
+Hvis du ikke ønsker å ta i bruk standardprosjektet, men heller kjøre `dbt init` er det noen ting som kan skape uforståelige feilmeldinger:
+
+### Quoting
+Quoting av databasenavn må aktiveres i `dbt_project.yml` siden databasenenavnene til dvh-databasene er med små bokstaver (eks. dwhu1). Hvis ikke dette gjøres kommer det feilmeling som sier noe slikt som `approximate match`
+
+For å skru på quoting må
+følgende settes i `dbt_project.yml`:
+
+```shell
+quoting:
+  database: true
+```
+
+### Hemmeligheter ved kjøring fra utviklerimage
+Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på 
+hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
+dbt-prosjektet.
+
+Scriptet kan lastes ned fra [navikt/dvh_template/dbt/setup_db_user.ps1](https://github.com/navikt/dvh_template/blob/master/dbt/setup_db_user.ps1).
+
+`profiles.yml` skal opprettes i på toppnivå i dbt-prosjektmappen med følgende innhold:
+
+```yaml
+<navn på dbt prosjekt>:
+target: "{{env_var('DBT_DB_TARGET')}}"
+  outputs:
+    U:
+      type: oracle
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
+      protocol: tcp
+      host: dm07-scan.adeo.no
+      port: 1521
+      service: dwhu1
+      database: dwhu1
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
+      threads: 4
+    R:
+      type: oracle
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
+      protocol: tcp
+      host: dm07-scan.adeo.no
+      port: 1521
+      service: dwhr
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
+      threads: 4
+    Q:
+      type: oracle
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
+      protocol: tcp
+      host: dm07-scan.adeo.no
+      port: 1521
+      service: dwhq0
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
+      threads: 4
+    P:
+      type: oracle
+      user: "{{env_var('DBT_DB_USER')}}"
+      pass: "{{env_var('DBT_DB_PASS')}}"
+      protocol: tcp
+      host: dm08-scan.adeo.no
+      port: 1521
+      service: dwh_ha
+      schema: "{{env_var('DBT_DB_SCHEMA')}}"
+      threads: 4
+config:
+  send_anonymous_usage_stats: False
+
+```
+
+Når profilen er på plass i prosjektmappen kan du [teste at dbt fungerer](#teste-dbt-installasjonen).
 
 ## Teste dbt installasjonen
 
@@ -107,74 +190,3 @@ profiles.yml i prosjektmappen.
     ```
 
     [Oracle client library](oracle-client-library.md) er mest sannsynlig ikke installert.
-
-## Opprettelse av et nytt dbt prosjekt
-
-Quoting av databasenavn må aktiveres i `dbt_project.yml` siden databasenenavnene
-til dvh-databasene er med små bokstaver (eks. dwhu1). For å skru på quoting må
-følgende settes i `dbt_project.yml`:
-
-```shell
-quoting:
-  database: true
-```
-
-Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på
-hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
-dbt-prosjektet.
-
-Scriptet kan lastes ned fra [navikt/dvh-sykefravar-dmx/setup_db_user.ps1](https://github.com/navikt/dvh-sykefravar-dmx/blob/main/setup_db_user.ps1).
-
-`profiles.yml` skal opprettes i på toppnivå i dbt-prosjektmappen med følgende innhold:
-
-```yaml
-<navn på dbt prosjekt>:
-  target: "{{env_var('DBT_DB_TARGET')}}"
-  outputs:
-    dwhu1:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm07-scan.adeo.no
-      port: 1521
-      service: dwhu1
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-    dwhr:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm07-scan.adeo.no
-      port: 1521
-      service: dwhr
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-    dwhq0:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm07-scan.adeo.no
-      port: 1521
-      service: dwhq0
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-    prod:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm08-scan.adeo.no
-      port: 1521
-      service: dwh_ha
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-config:
-  send_anonymous_usage_stats: False
-
-```
-
-Når profilen er på plass i prosjektmappen kan du [teste at dbt fungerer](#teste-dbt-installasjonen).
-
