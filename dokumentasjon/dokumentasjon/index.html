@@ -14,10 +14,10 @@
         <link rel="prev" href="../../arkitektur/style_guide/">
       
       
-        <link rel="next" href="../../prosjekter/dvh-sykefravar-dmx/">
+        <link rel="next" href="../../feilsoking/feilsoking/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6b71719e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9c788c91.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
@@ -657,8 +657,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tabelldokumentasjon" class="md-nav__link">
+    Tabelldokumentasjon
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persist-docs" class="md-nav__link">
+    Persist docs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overskrive-overview" class="md-nav__link">
     Overskrive overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployere-dokumentasjon" class="md-nav__link">
+    Deployere dokumentasjon
   </a>
   
 </li>
@@ -702,12 +723,67 @@
       
       
         <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Feilsøking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Feilsøking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Feilsøking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../feilsoking/feilsoking/" class="md-nav__link">
+        Feilsøking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
           Prosjekter som bruker dbt
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Prosjekter som bruker dbt" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Prosjekter som bruker dbt
         </label>
@@ -760,8 +836,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tabelldokumentasjon" class="md-nav__link">
+    Tabelldokumentasjon
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persist-docs" class="md-nav__link">
+    Persist docs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overskrive-overview" class="md-nav__link">
     Overskrive overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployere-dokumentasjon" class="md-nav__link">
+    Deployere dokumentasjon
   </a>
   
 </li>
@@ -786,16 +883,27 @@
 
 
 <h1 id="dokumentasjon">Dokumentasjon<a class="headerlink" href="#dokumentasjon" title="Permanent link">&para;</a></h1>
+<h2 id="tabelldokumentasjon">Tabelldokumentasjon<a class="headerlink" href="#tabelldokumentasjon" title="Permanent link">&para;</a></h2>
+<p>Tabellene konfigureres og dokumenteres i <code>yml</code> filene i hver mappe i prosjektet. Kommentarer kan settes på både tabellnivå og kolonnenivå.
+Les mer <a href="https://docs.getdbt.com/docs/collaborate/documentation#adding-descriptions-to-your-project">her</a>.</p>
+<h2 id="persist-docs">Persist docs<a class="headerlink" href="#persist-docs" title="Permanent link">&para;</a></h2>
+<p>dbt-oracle har støtte for å skrive kommentarer til databasen. Som andre konfig,  kan det settes på prosjektnivå, mappenivå eller modellnivå. For å sette det på prosjektnivå, legg til følgende i <code>dbt_project.yml</code>
+<div class="highlight"><pre><span></span><code>models:
+  +persist_docs:
+    relation: true
+    columns: true
+</code></pre></div></p>
 <h2 id="overskrive-overview">Overskrive overview<a class="headerlink" href="#overskrive-overview" title="Permanent link">&para;</a></h2>
 <p>Komponentdokumentasjonen kan integreres i dbt dokumentasjonen. I <code>dbt/models</code> folderen må det opprettes
 en <code>overview.md</code> fil. Bruk gjerne <a href="https://github.com/navikt/dbt-i-nav/tree/main/docs/dokumentasjon/overview.md">overview.md</a> som mal</p>
+<h2 id="deployere-dokumentasjon">Deployere dokumentasjon<a class="headerlink" href="#deployere-dokumentasjon" title="Permanent link">&para;</a></h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 13, 2023</span>
       
     
   </small>
