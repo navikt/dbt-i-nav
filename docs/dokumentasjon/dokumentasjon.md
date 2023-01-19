@@ -13,6 +13,29 @@ models:
     columns: true
 ```
 
+En ting å være oppmerksom på når ``persist_docs`` er aktivert er at kolonnenavn i modellen må være det samme som definert i yml filen.
+
+!!! failure "ORA-00904"
+
+    ```shell
+    ORA-00904: "KOLONNE": invalid identifier
+    ```
+
+    ```sql
+    SELECT
+      kolonne
+    FROM ...
+    ```
+
+    ```yaml
+    - name: kolonne_navn
+      description: ...
+    ```
+
+    Her har Oracle forsøkt å skrive kommentar til en kolonne som ikke eksisterer. Sammenlign modell og yml fil og sjekk at navnet på kolonnen er lik.
+
+
+
 ## Overskrive overview
 Komponentdokumentasjonen kan integreres i dbt dokumentasjonen. I `dbt/models` folderen må det opprettes
 en `overview.md` fil. Bruk gjerne [overview.md](https://github.com/navikt/dbt-i-nav/tree/main/docs/dokumentasjon/overview.md) som mal
