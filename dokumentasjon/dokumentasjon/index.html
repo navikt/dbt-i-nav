@@ -17,7 +17,7 @@
         <link rel="next" href="../../feilsoking/feilsoking/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9c788c91.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
@@ -161,7 +161,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -893,6 +893,20 @@ Les mer <a href="https://docs.getdbt.com/docs/collaborate/documentation#adding-d
     relation: true
     columns: true
 </code></pre></div></p>
+<p>En ting å være oppmerksom på når <code>persist_docs</code> er aktivert er at kolonnenavn i modellen må være det samme som definert i yml filen.</p>
+<div class="admonition failure">
+<p class="admonition-title">ORA-00904</p>
+<div class="highlight"><pre><span></span><code>ORA-00904:<span class="w"> </span><span class="s2">&quot;KOLONNE&quot;</span>:<span class="w"> </span>invalid<span class="w"> </span>identifier
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
+<span class="w">  </span><span class="n">kolonne</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kolonne_navn</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</code></pre></div>
+<p>Her har Oracle forsøkt å skrive kommentar til en kolonne som ikke eksisterer. Sammenlign modell og yml fil og sjekk at navnet på kolonnen er lik.</p>
+</div>
 <h2 id="overskrive-overview">Overskrive overview<a class="headerlink" href="#overskrive-overview" title="Permanent link">&para;</a></h2>
 <p>Komponentdokumentasjonen kan integreres i dbt dokumentasjonen. I <code>dbt/models</code> folderen må det opprettes
 en <code>overview.md</code> fil. Bruk gjerne <a href="https://github.com/navikt/dbt-i-nav/tree/main/docs/dokumentasjon/overview.md">overview.md</a> som mal</p>
@@ -903,7 +917,7 @@ en <code>overview.md</code> fil. Bruk gjerne <a href="https://github.com/navikt/
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 13, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2023</span>
       
     
   </small>
@@ -948,7 +962,7 @@ en <code>overview.md</code> fil. Bruk gjerne <a href="https://github.com/navikt/
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>
