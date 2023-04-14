@@ -928,8 +928,35 @@ Could<span class="w"> </span>not<span class="w"> </span>fetch<span class="w"> </
 </div>
 <div class="admonition failure">
 <p class="admonition-title">Installasjon feiler</p>
-<p>I noen tilfeller har vi opplevd at <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Microsoft Visual C++</a> mangler.</p>
+<p>I noen tilfeller har vi opplevd at <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Microsoft Visual C++</a> mangler.
+Feilmeldingen kan se slik ut:</p>
+<div class="highlight"><pre><span></span><code>...
+Building<span class="w"> </span>wheels<span class="w"> </span><span class="k">for</span><span class="w"> </span>collected<span class="w"> </span>packages:<span class="w"> </span>cx-Oracle
+Building<span class="w"> </span>wheel<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle<span class="w"> </span><span class="o">(</span>pyproject.toml<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>error
+error:<span class="w"> </span>subprocess-exited-with-error
+
+×<span class="w"> </span>Building<span class="w"> </span>wheel<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle<span class="w"> </span><span class="o">(</span>pyproject.toml<span class="o">)</span><span class="w"> </span>did<span class="w"> </span>not<span class="w"> </span>run<span class="w"> </span>successfully.
+│<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>code:<span class="w"> </span><span class="m">1</span>
+╰─&gt;<span class="w"> </span><span class="o">[</span><span class="m">8</span><span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>output<span class="o">]</span>
+<span class="w">      </span>C:<span class="se">\U</span>sers<span class="se">\R</span>A_S167159<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp<span class="se">\p</span>ip-build-env-lh09agh5<span class="se">\o</span>verlay<span class="se">\L</span>ib<span class="se">\s</span>ite-packages<span class="se">\s</span>etuptools<span class="se">\c</span>onfig<span class="se">\e</span>xpand.py:144:<span class="w"> </span>UserWarning:<span class="w"> </span>File<span class="w"> </span><span class="s1">&#39;C:\\Users\\RA_S167159\\AppData\\Local\\Temp\\pip-install-ki6mcccg\\cx-oracle_5a1e160a6cb5498187fe05d5b5637d8c\\README.md&#39;</span><span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>found
+<span class="w">        </span>warnings.warn<span class="o">(</span>f<span class="s2">&quot;File {path!r} cannot be found&quot;</span><span class="o">)</span>
+<span class="w">    </span>pip_system_certs:<span class="w"> </span>ERROR:<span class="w"> </span>could<span class="w"> </span>not<span class="w"> </span>register<span class="w"> </span>module:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">&#39;wrapt&#39;</span>
+<span class="w">    </span>running<span class="w"> </span>bdist_wheel
+<span class="w">    </span>running<span class="w"> </span>build
+<span class="w">    </span>running<span class="w"> </span>build_ext
+<span class="w">    </span>building<span class="w"> </span><span class="s1">&#39;cx_Oracle&#39;</span><span class="w"> </span>extension
+<span class="w">    </span>error:<span class="w"> </span>Microsoft<span class="w"> </span>Visual<span class="w"> </span>C++<span class="w"> </span><span class="m">14</span>.0<span class="w"> </span>or<span class="w"> </span>greater<span class="w"> </span>is<span class="w"> </span>required.<span class="w"> </span>Get<span class="w"> </span>it<span class="w"> </span>with<span class="w"> </span><span class="s2">&quot;Microsoft C++ Build Tools&quot;</span>:<span class="w"> </span>https://visualstudio.microsoft.com/visual-cpp-build-tools/
+<span class="w">    </span><span class="o">[</span>end<span class="w"> </span>of<span class="w"> </span>output<span class="o">]</span>
+
+note:<span class="w"> </span>This<span class="w"> </span>error<span class="w"> </span>originates<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>subprocess,<span class="w"> </span>and<span class="w"> </span>is<span class="w"> </span>likely<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>problem<span class="w"> </span>with<span class="w"> </span>pip.
+ERROR:<span class="w"> </span>Failed<span class="w"> </span>building<span class="w"> </span>wheel<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle
+Failed<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>cx-Oracle
+ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>build<span class="w"> </span>wheels<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle,<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>required<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>pyproject.toml-based<span class="w"> </span>projects
+...
+</code></pre></div>
 </div>
+<p>Last ned og installer Build Tools. Følg gjerne guiden her: <a href="https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html">Fixed: Microsoft Visual C++ 14.0 Is Required Error</a>  <br />
+Husk å restarte VDI etter installasjon.</p>
 <h2 id="opprette-nytt-dbt-prosjekt-for-oracle">Opprette nytt dbt prosjekt for Oracle<a class="headerlink" href="#opprette-nytt-dbt-prosjekt-for-oracle" title="Permanent link">&para;</a></h2>
 <p>Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i <a href="https://github.com/navikt/dvh_template">dvh_template</a> for bruk av dbt til komponentskjemaer. dbt prosjektet ligger da under mappen <a href="https://github.com/navikt/dvh_template/tree/master/dbt">dbt</a>.</p>
 <ul>
@@ -1078,7 +1105,7 @@ https://docs.getdbt.com/docs/configure-your-profile
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 13, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 14, 2023</span>
       
     
   </small>
