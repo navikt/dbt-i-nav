@@ -5,42 +5,44 @@ edit_uri: edit/main/docs/
 
 nav:
   - Installasjon på VDI:
-    - Forutsetninger:
-      - index.md
-      - vdi/python.md
-      - vdi/pip.md
-      - vdi/git.md
-      - vdi/oracle-client-library.md
-    - vdi/dbt.md
-    - Anbefalinger:
-      - vdi/vscode.md
-      - vdi/sqlfluff.md
-    - Tips og triks:
-      - vdi/miljovariabler.md
+      - Forutsetninger:
+          - index.md
+          - vdi/python.md
+          - vdi/pip.md
+          - vdi/git.md
+          - vdi/oracle-client-library.md
+      - vdi/dbt.md
+      - Anbefalinger:
+          - vdi/vscode.md
+          - vdi/sqlfluff.md
+      - Tips og triks:
+          - vdi/miljovariabler.md
   - Arkitektur:
-    - arkitektur/style_guide.md
+      - arkitektur/style_guide.md
   - Dokumentasjon:
-    - dokumentasjon/dokumentasjon.md
+      - dokumentasjon/dokumentasjon.md
   - Feilsøking:
-    - feilsoking/feilsoking.md
+      - feilsoking/feilsoking.md
   - Prosjekter som bruker dbt:
-    - prosjekter/dvh-sykefravar-dmx.md
+      - prosjekter/dvh-sykefravar-dmx.md
+      - Nystøl:
+          - prosjekter/nystol/vdl-regnskapsdata.md
 
 theme:
   name: material
   palette:
-  - media: "(prefers-color-scheme: light)"
-    primary: deep orange
-    scheme: default
-    toggle:
-      icon: material/toggle-switch-off-outline
-      name: Switch to dark mode
-  - media: "(prefers-color-scheme: dark)"
-    primary: deep orange
-    scheme: slate
-    toggle:
-      icon: material/toggle-switch
-      name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: deep orange
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: deep orange
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
   features:
     - navigation.tracking
     - navigation.indexes
