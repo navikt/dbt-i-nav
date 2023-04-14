@@ -52,8 +52,9 @@ pip install dbt-oracle
     ERROR: Could not build wheels for cx-Oracle, which is required to install pyproject.toml-based projects
     ...
     ```
-Last ned og installer Build Tools. Følg gjerne guiden her: [Fixed: Microsoft Visual C++ 14.0 Is Required Error](  https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html )    
-Husk å restarte VDI etter installasjon.
+    Last ned og installer Build Tools. Følg gjerne guiden her: [Fixed: Microsoft Visual C++ 14.0 Is Required Error](  https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html )    
+    Husk å restarte VDI etter installasjon.
+
 ## Opprette nytt dbt prosjekt for Oracle
 
 Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i [dvh_template](https://github.com/navikt/dvh_template) for bruk av dbt til komponentskjemaer. dbt prosjektet ligger da under mappen [dbt](https://github.com/navikt/dvh_template/tree/master/dbt).
