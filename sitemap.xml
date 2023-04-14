@@ -31,6 +31,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://navikt.github.io/dbt-i-nav/prosjekter/nystol/vdl-regnskapsdata/</loc>
+         <lastmod>2023-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/dbt/</loc>
          <lastmod>2023-04-14</lastmod>
          <changefreq>daily</changefreq>
