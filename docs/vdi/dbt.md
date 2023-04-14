@@ -25,8 +25,35 @@ pip install dbt-oracle
 
 !!! failure "Installasjon feiler"
     I noen tilfeller har vi opplevd at [Microsoft Visual C++]( https://visualstudio.microsoft.com/visual-cpp-build-tools/) mangler.
+    Feilmeldingen kan se slik ut:
+    
+    ```shell
+    ...
+    Building wheels for collected packages: cx-Oracle
+    Building wheel for cx-Oracle (pyproject.toml) ... error
+    error: subprocess-exited-with-error
+    
+    × Building wheel for cx-Oracle (pyproject.toml) did not run successfully.
+    │ exit code: 1
+    ╰─> [8 lines of output]
+          C:\Users\RA_S167159\AppData\Local\Temp\pip-build-env-lh09agh5\overlay\Lib\site-packages\setuptools\config\expand.py:144: UserWarning: File 'C:\\Users\\RA_S167159\\AppData\\Local\\Temp\\pip-install-ki6mcccg\\cx-oracle_5a1e160a6cb5498187fe05d5b5637d8c\\README.md' cannot be found
+            warnings.warn(f"File {path!r} cannot be found")
+        pip_system_certs: ERROR: could not register module: No module named 'wrapt'
+        running bdist_wheel
+        running build
+        running build_ext
+        building 'cx_Oracle' extension
+        error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+        [end of output]
 
-
+    note: This error originates from a subprocess, and is likely not a problem with pip.
+    ERROR: Failed building wheel for cx-Oracle
+    Failed to build cx-Oracle
+    ERROR: Could not build wheels for cx-Oracle, which is required to install pyproject.toml-based projects
+    ...
+    ```
+Last ned og installer Build Tools. Følg gjerne guiden her: [Fixed: Microsoft Visual C++ 14.0 Is Required Error](  https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html )    
+Husk å restarte VDI etter installasjon.
 ## Opprette nytt dbt prosjekt for Oracle
 
 Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i [dvh_template](https://github.com/navikt/dvh_template) for bruk av dbt til komponentskjemaer. dbt prosjektet ligger da under mappen [dbt](https://github.com/navikt/dvh_template/tree/master/dbt).
