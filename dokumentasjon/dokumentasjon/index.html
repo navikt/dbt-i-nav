@@ -17,7 +17,7 @@
         <link rel="next" href="../../feilsoking/feilsoking/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -61,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
   
     
     
@@ -115,25 +115,31 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
+      
+        <form class="md-header__option" data-md-component="palette">
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </label>
+            
           
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+              </label>
+            
           
-        
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-      </form>
+        </form>
+      
     
     
     
@@ -970,7 +976,7 @@ en <code>overview.md</code> fil. Bruk gjerne <a href="https://github.com/navikt/
 <h2 id="deployere-dokumentasjon">Deployere dokumentasjon<a class="headerlink" href="#deployere-dokumentasjon" title="Permanent link">&para;</a></h2>
 <p>Hver gang kommandoen dbt docs kjøres, genereres det tre filer i <code>target</code> mappa under dbt prosjektmappa: <code>index.hml</code>, <code>catalog.json</code> og <code>manifest.json</code>. Disse filene er statiske og inneholder alt som trengs for å publisere en versjon av dokumentasjonen på en webserver.</p>
 <p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">Github pages</a> har slik støtte. Publsiering til github pages kan gjøres på flere måter, men kanskje enklest er det å bruke en github action:</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># Simple workflow for dbt docs content to GitHub Pages</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Simple workflow for dbt docs content to GitHub Pages</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy dbt docs to GitHub Pages</span>
 
 <span class="nt">on</span><span class="p">:</span>
@@ -1011,19 +1017,21 @@ en <code>overview.md</code> fil. Bruk gjerne <a href="https://github.com/navikt/
 <span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deployment</span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/deploy-pages@v1</span>
 </code></pre></div>
-1. Impoementer overstående github action i .workflow
-2. Kjør kommandoen <code>dbt docs generate</code>
-3. Lag en docs mappe på roten av repoet, hvis det ikke allerede finnes.
-4. Kopier over filene <code>index.hml</code>, <code>catalog.json</code> og <code>manifest.json</code> fra target mappen til docs mappen.
-5. Commit og push til main branchen.
-6. Docen blir automatisk publisert av github action, til url spesifisert av jobben.</p>
+<ol>
+<li>Importer overstående github action i .workflow</li>
+<li>Kjør kommandoen <code>dbt docs generate</code></li>
+<li>Lag en docs mappe på roten av repoet, hvis det ikke allerede finnes.</li>
+<li>Kopier over filene <code>index.hml</code>, <code>catalog.json</code> og <code>manifest.json</code> fra target mappen til docs mappen.</li>
+<li>Commit og push til main branchen.</li>
+<li>Docen blir automatisk publisert av github action, til url spesifisert av jobben.</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 25, 2023</span>
       
     
   </small>
