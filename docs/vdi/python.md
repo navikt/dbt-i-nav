@@ -1,6 +1,10 @@
 # Python
 
-Sjekk om Python er installert med `py --version`. Python versionen må være >= 3.8 og < 3.11. 3.11 er ikke støttet av dbt på nåværende tidspunkt
+
+
+Sjekk om Python er installert med `py --version`. Python versionen må være >= 3.8 og < 3.11. 3.11 er ikke støttet av dbt på nåværende tidspunkt.
+
+Last eventuelt ned python [3.10.x](https://www.python.org/downloads/) og installer ved å følge installsjonsveiviseren.
 
 ```shell
 py --version
