@@ -88,7 +88,8 @@ jobs:
         uses: actions/deploy-pages@v1
 
 ```
-1. Impoementer overstående github action i .workflow
+
+1. Importer overstående github action i .workflow
 2. Kjør kommandoen `dbt docs generate`
 3. Lag en docs mappe på roten av repoet, hvis det ikke allerede finnes.
 4. Kopier over filene `index.hml`, `catalog.json` og `manifest.json` fra target mappen til docs mappen.
