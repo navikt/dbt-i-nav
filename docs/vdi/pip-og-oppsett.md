@@ -1,8 +1,16 @@
-# PIP og oppsett av sertifikater
+# PIP og oppsett av python med dbt
+Vi har laget et ferdig [oppsett](https://github.com/navikt/dvh_template/tree/dbt_template) av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på [dvh_template](https://github.com/navikt/dvh_template) eller [amd_template](https://github.com/navikt/dvh_template/tree/amd_template) avhengig av preferanse for komponentoppsett på github. Deretter må [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template) merges inn for å få integrert dbt prosjektet.
 
-## Sjekk om du har PIP
+Følgende script (også på [github](https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1)) installerer et virtuelt python miljø kun for dette prosjektet. 
+```shell
+pip --version
+```
 
-Kjør `pip --version` for å se om pip er tilgjengelig:
+
+## Feilsøk: Sjekk om du har PIP
+
+Har du installert python, så har du nesten sikkert også pip.
+Men dersom overstående feiler, kjør `pip --version` for å se om pip er tilgjengelig:
 
 ```shell
 pip --version
