@@ -8,27 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/vdi/pip/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/vdi/pip-og-oppsett/">
       
       
-        <link rel="prev" href="../python/">
-      
-      
-        <link rel="next" href="../git/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>PIP og oppsett av sertifikater - dbt i NAV</title>
+        <title>PIP og oppsett av python med dbt - dbt i NAV</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -73,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pip-og-oppsett-av-sertifikater" class="md-skip">
+        <a href="#pip-og-oppsett-av-python-med-dbt" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PIP og oppsett av sertifikater
+              PIP og oppsett av python med dbt
             
           </span>
         </div>
@@ -242,16 +238,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
       
       
         
@@ -270,7 +266,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Installasjon på VDI
@@ -281,16 +277,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
       
       
         
@@ -319,7 +315,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           Forutsetninger
@@ -346,59 +342,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          PIP og oppsett av sertifikater
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        PIP og oppsett av sertifikater
+    <li class="md-nav__item">
+      <a href="../pip.md" class="md-nav__link">
+        None
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sjekk-om-du-har-pip" class="md-nav__link">
-    Sjekk om du har PIP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
-    Oppsett av sertifikater til pip
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -886,8 +834,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sjekk-om-du-har-pip" class="md-nav__link">
-    Sjekk om du har PIP
+  <a href="#feilsk-sjekk-om-du-har-pip" class="md-nav__link">
+    Feilsøk: Sjekk om du har PIP
   </a>
   
 </li>
@@ -917,9 +865,14 @@
   
 
 
-<h1 id="pip-og-oppsett-av-sertifikater">PIP og oppsett av sertifikater<a class="headerlink" href="#pip-og-oppsett-av-sertifikater" title="Permanent link">&para;</a></h1>
-<h2 id="sjekk-om-du-har-pip">Sjekk om du har PIP<a class="headerlink" href="#sjekk-om-du-har-pip" title="Permanent link">&para;</a></h2>
-<p>Kjør <code>pip --version</code> for å se om pip er tilgjengelig:</p>
+<h1 id="pip-og-oppsett-av-python-med-dbt">PIP og oppsett av python med dbt<a class="headerlink" href="#pip-og-oppsett-av-python-med-dbt" title="Permanent link">&para;</a></h1>
+<p>Vi har laget et ferdig <a href="https://github.com/navikt/dvh_template/tree/dbt_template">oppsett</a> av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på <a href="https://github.com/navikt/dvh_template">dvh_template</a> eller <a href="https://github.com/navikt/dvh_template/tree/amd_template">amd_template</a> avhengig av preferanse for komponentoppsett på github. Deretter må <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a> merges inn for å få integrert dbt prosjektet.</p>
+<p>Følgende script (også på <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1">github</a>) installerer et virtuelt python miljø kun for dette prosjektet. 
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
+</code></pre></div></p>
+<h2 id="feilsk-sjekk-om-du-har-pip">Feilsøk: Sjekk om du har PIP<a class="headerlink" href="#feilsk-sjekk-om-du-har-pip" title="Permanent link">&para;</a></h2>
+<p>Har du installert python, så har du nesten sikkert også pip.
+Men dersom overstående feiler, kjør <code>pip --version</code> for å se om pip er tilgjengelig:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
 </code></pre></div>
 <div class="admonition success">
@@ -973,7 +926,7 @@ pip til å bruke Windows Certificate Store istedenfor.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 6, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 25, 2023</span>
       
     
   </small>
@@ -1018,7 +971,7 @@ pip til å bruke Windows Certificate Store istedenfor.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>

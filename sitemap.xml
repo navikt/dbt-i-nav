@@ -2,77 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/arkitektur/style_guide/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/dokumentasjon/dokumentasjon/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/dokumentasjon/overview/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/feilsoking/feilsoking/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh-sykefravar-dmx/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/nystol/vdl-regnskapsdata/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/dbt/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/git/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/miljovariabler/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/oracle-client-library/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://navikt.github.io/dbt-i-nav/vdi/pip/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <loc>https://navikt.github.io/dbt-i-nav/vdi/pip-og-oppsett/</loc>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/python/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/sqlfluff/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/vscode/</loc>
-         <lastmod>2023-04-25</lastmod>
+         <lastmod>2023-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
