@@ -956,6 +956,10 @@ Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<spa
 <p>Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre <code>pip --version</code>.</p>
 </div>
 <h2 id="oppsett-av-sertifikater-til-pip">Oppsett av sertifikater til pip<a class="headerlink" href="#oppsett-av-sertifikater-til-pip" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dette steget skjer automatisk under kjøring av <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1">setup_python_env.ps1</a> og er ikke lenger nødvendig.</p>
+</div>
 <p>Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
 pakker fra riktig server. Siden VDI bruker en webproxy for å
 kommunisere med omverdenen vill vi få en feilmeling ved <code>pip install xxx</code>.</p>
@@ -978,7 +982,7 @@ pip til å bruke Windows Certificate Store istedenfor.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2023</span>
       
     
   </small>
