@@ -54,6 +54,9 @@ pip --version
 
 ## Oppsett av sertifikater til pip
 
+!!! note
+    Dette steget skjer automatisk under kjøring av [setup_python_env.ps1](https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1) og er ikke lenger nødvendig.
+
 Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
 pakker fra riktig server. Siden VDI bruker en webproxy for å
 kommunisere med omverdenen vill vi få en feilmeling ved `pip install xxx`.
