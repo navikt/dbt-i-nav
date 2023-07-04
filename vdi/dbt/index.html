@@ -17,7 +17,7 @@
         <link rel="next" href="../vscode/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
@@ -1020,12 +1020,12 @@ Last ned og installer Build Tools. Følg gjerne guiden her: <a href="https://www
 Husk å restarte VDI etter installasjon.</p>
 </div>
 <h2 id="opprette-nytt-dbt-prosjekt-for-oracle">Opprette nytt dbt prosjekt for Oracle<a class="headerlink" href="#opprette-nytt-dbt-prosjekt-for-oracle" title="Permanent link">&para;</a></h2>
-<p>Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i <a href="https://github.com/navikt/dvh_template">dvh_template</a> for bruk av dbt til komponentskjemaer. dbt prosjektet ligger da under mappen <a href="https://github.com/navikt/dvh_template/tree/master/dbt">dbt</a>.</p>
+<p>Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i repo <a href="https://github.com/navikt/dvh_template">dvh_template</a> for bruk av dbt til komponentskjemaer. dbt prosjektet ligger i en egen branch <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a>.</p>
 <ul>
-<li>For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i <a href="https://github.com/navikt/dvh_template">dvh_template</a>.</li>
-<li>For eksisterende komponentrepoer, ta en kopi av <a href="https://github.com/navikt/dvh_template/tree/master/dbt">dbt</a> og lim inn i roten til komponentrepoet.</li>
+<li>For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a>.</li>
+<li>For eksisterende komponentrepoer, ta en kopi av <a href="https://github.com/navikt/dvh_template/tree/dbt_template/dbt">dbt</a>  og lim inn i roten til komponentrepoet.</li>
 </ul>
-<p>Se <a href="https://github.com/navikt/dvh_template/tree/master/dbt">dokumentasjon</a> for å ta i bruk prosjektet for detaljer.</p>
+<p>Se <a href="https://github.com/navikt/dvh_template/blob/dbt_template/README.md">dokumentasjon</a> for å ta i bruk prosjektet for detaljer.</p>
 <p>Hvis du ikke ønsker å ta i bruk standardprosjektet, men heller kjøre <code>dbt init</code> er det noen ting som kan skape uforståelige feilmeldinger:</p>
 <h3 id="quoting">Quoting<a class="headerlink" href="#quoting" title="Permanent link">&para;</a></h3>
 <p>Quoting av databasenavn må aktiveres i <code>dbt_project.yml</code> siden databasenenavnene til dvh-databasene er med små bokstaver (eks. dwhu1). Hvis ikke dette gjøres kommer det feilmeling som sier noe slikt som <code>approximate match</code></p>
@@ -1039,53 +1039,11 @@ følgende settes i <code>dbt_project.yml</code>:</p>
 hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
 dbt-prosjektet.</p>
 <p>Scriptet kan lastes ned fra <a href="https://github.com/navikt/dvh_template/blob/master/dbt/setup_db_user.ps1">navikt/dvh_template/dbt/setup_db_user.ps1</a>.</p>
-<p><code>profiles.yml</code> skal opprettes i på toppnivå i dbt-prosjektmappen med følgende innhold:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;navn på dbt prosjekt&gt;</span><span class="p">:</span>
-<span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_TARGET&#39;)}}&quot;</span>
-<span class="w">  </span><span class="nt">outputs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">U</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
-<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span>
-<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span>
-<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhu1</span>
-<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhu1</span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="w">    </span><span class="nt">R</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
-<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span>
-<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span>
-<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhr</span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="w">    </span><span class="nt">Q</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
-<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm07-scan.adeo.no</span>
-<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span>
-<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwhq0</span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="w">    </span><span class="nt">P</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_USER&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PASS&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
-<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dm08-scan.adeo.no</span>
-<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1521</span>
-<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dwh_ha</span>
-<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_SCHEMA&#39;)}}&quot;</span>
-<span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="nt">config</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">send_anonymous_usage_stats</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<p><code>profiles.yml</code> skal opprettes i på toppnivå i dbt-prosjektmappen, eksempel <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/profiles.yml">navikt/dvh_template/dbt/profiles.yml</a>
+Merk at navn på profil er profilnavnet det henvises til i  <code>dbt_project.yml</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;navn på profil&gt;</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_TARGET&#39;)}}&quot;</span>
+<span class="w w-Error"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <p>Når profilen er på plass i prosjektmappen kan du <a href="#teste-dbt-installasjonen">teste at dbt fungerer</a>.</p>
 <h2 id="teste-dbt-installasjonen">Teste dbt installasjonen<a class="headerlink" href="#teste-dbt-installasjonen" title="Permanent link">&para;</a></h2>
@@ -1099,7 +1057,7 @@ profiles.yml i prosjektmappen.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>.<span class="se">\s</span>etup_db_user.ps1
-Target<span class="w"> </span>db:<span class="w"> </span>dwhu1
+Target<span class="w"> </span>db:<span class="w"> </span>U<span class="w"> </span>&lt;eventuelt<span class="w"> </span>Q,R<span class="w"> </span>eller<span class="w"> </span>P&gt;
 Schema:<span class="w"> </span>
 
 cmdlet<span class="w"> </span>Get-Credential<span class="w"> </span>at<span class="w"> </span><span class="nb">command</span><span class="w"> </span>pipeline<span class="w"> </span>position<span class="w"> </span><span class="m">1</span>
@@ -1167,7 +1125,7 @@ https://docs.getdbt.com/docs/configure-your-profile
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 14, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 4, 2023</span>
       
     
   </small>
@@ -1209,10 +1167,10 @@ https://docs.getdbt.com/docs/configure-your-profile
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>
