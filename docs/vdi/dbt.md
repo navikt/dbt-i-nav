@@ -57,13 +57,13 @@ pip install dbt-oracle
 
 ## Opprette nytt dbt prosjekt for Oracle
 
-Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i [dvh_template](https://github.com/navikt/dvh_template) for bruk av dbt til komponentskjemaer. dbt prosjektet ligger da under mappen [dbt](https://github.com/navikt/dvh_template/tree/master/dbt).
+Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i repo [dvh_template](https://github.com/navikt/dvh_template) for bruk av dbt til komponentskjemaer. dbt prosjektet ligger i en egen branch [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template).
 
 
-- For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i [dvh_template](https://github.com/navikt/dvh_template).
-- For eksisterende komponentrepoer, ta en kopi av [dbt](https://github.com/navikt/dvh_template/tree/master/dbt) og lim inn i roten til komponentrepoet.
+- For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template).
+- For eksisterende komponentrepoer, ta en kopi av [dbt](https://github.com/navikt/dvh_template/tree/dbt_template/dbt)  og lim inn i roten til komponentrepoet.
 
-Se [dokumentasjon](https://github.com/navikt/dvh_template/tree/master/dbt) for å ta i bruk prosjektet for detaljer.
+Se [dokumentasjon](https://github.com/navikt/dvh_template/blob/dbt_template/README.md) for å ta i bruk prosjektet for detaljer.
 
 Hvis du ikke ønsker å ta i bruk standardprosjektet, men heller kjøre `dbt init` er det noen ting som kan skape uforståelige feilmeldinger:
 
@@ -85,55 +85,13 @@ dbt-prosjektet.
 
 Scriptet kan lastes ned fra [navikt/dvh_template/dbt/setup_db_user.ps1](https://github.com/navikt/dvh_template/blob/master/dbt/setup_db_user.ps1).
 
-`profiles.yml` skal opprettes i på toppnivå i dbt-prosjektmappen med følgende innhold:
+`profiles.yml` skal opprettes i på toppnivå i dbt-prosjektmappen, eksempel [navikt/dvh_template/dbt/profiles.yml](https://github.com/navikt/dvh_template/blob/dbt_template/dbt/profiles.yml)
+Merk at navn på profil er profilnavnet det henvises til i  `dbt_project.yml`
 
 ```yaml
-<navn på dbt prosjekt>:
-target: "{{env_var('DBT_DB_TARGET')}}"
-  outputs:
-    U:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm07-scan.adeo.no
-      port: 1521
-      service: dwhu1
-      database: dwhu1
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-    R:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm07-scan.adeo.no
-      port: 1521
-      service: dwhr
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-    Q:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm07-scan.adeo.no
-      port: 1521
-      service: dwhq0
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-    P:
-      type: oracle
-      user: "{{env_var('DBT_DB_USER')}}"
-      pass: "{{env_var('DBT_DB_PASS')}}"
-      protocol: tcp
-      host: dm08-scan.adeo.no
-      port: 1521
-      service: dwh_ha
-      schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
-config:
-  send_anonymous_usage_stats: False
+<navn på profil>:
+  target: "{{env_var('DBT_DB_TARGET')}}"
+ ...
 
 ```
 
@@ -154,7 +112,7 @@ profiles.yml i prosjektmappen.
 
     ```shell
     $ .\setup_db_user.ps1
-    Target db: dwhu1
+    Target db: U <eventuelt Q,R eller P>
     Schema: 
 
     cmdlet Get-Credential at command pipeline position 1
