@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+         <loc>https://navikt.github.io/dbt-i-nav/</loc>
+         <lastmod>2023-08-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://navikt.github.io/dbt-i-nav/arkitektur/style_guide/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
@@ -36,17 +41,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://navikt.github.io/dbt-i-nav/vdi/</loc>
-         <lastmod>2023-08-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/dbt/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/vdi/git/</loc>
+         <lastmod>2023-08-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://navikt.github.io/dbt-i-nav/vdi/installere/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
