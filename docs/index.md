@@ -19,21 +19,23 @@ Før du går gjennom detaljene på hvordan dbt bør settes opp er det lurt å bl
 
 Det er sterkt anbefalt å starte med å gå gjennom [fundamentals kurset](https://courses.getdbt.com/courses/fundamentals) til dbt labs. Dette kurset bruker dbt cloud, men mesteparten av innholdet kan overføres til dbt-core. Bruk gjerne GCP dev miljøet til teamet for å sette opp testprosjektet i BigQuery, men husk på å slette ressursene i etterkant
 
+### Designprinsipper
+
+[How to design a dbt model from scratch](https://towardsdatascience.com/how-to-design-a-dbt-model-from-scratch-8c72c7684203). Hvordan bør du tenke nå du designer nye modeller med dbt? Det er fort gjort å bomme på første forsøk, og det koster mye tid.
+
+### Dimensjonsmodellering
+
+Kimball er fortsatt relevant med dbt. 
+[Building a Kimball dimensional model with dbt](https://docs.getdbt.com/blog/kimball-dimensional-model)
+
 ### Bok
 
 Det er nylig (juni 2023) lansert en bok om 
-[Data Engineering with dbt](https://learning.oreilly.com/library/view/-/9781803246284/). Boken inneholder instroduksjon til data engineering generelt og endelt om ulike skydatabaser i tillegg til grunnleggende bruk av dbt.
-
-Kanskje den mest interessante delen er kapittel 8 som omhandler testing med dbt.
-
-
-### Designprinsipper
-
-Hvordan bør du tenke nå du designer nye modeller med dbt? Det er fort gjort å bomme på første forsøk.
-
-[How to design a dbt model from scratch](https://towardsdatascience.com/how-to-design-a-dbt-model-from-scratch-8c72c7684203)
+[Data Engineering with dbt](https://learning.oreilly.com/library/view/-/9781803246284/). Boken inneholder instroduksjon til data engineering generelt og endelt om ulike skydatabaser i tillegg til grunnleggende bruk av dbt. Kanskje den mest interessante delen er kapittel 8 som omhandler testing med dbt.
 
 ### Nyttige lenker
+
+dbt's egne guider: [Lessons](https://www.getdbt.com/dbt-learn/lessons/)
 
 Community basert samling av lenker: [awsome-dbt](https://github.com/Hiflylabs/awesome-dbt)
 
