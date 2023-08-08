@@ -6,7 +6,7 @@ edit_uri: edit/main/docs/
 nav:
   - Installasjon på VDI:
       - Forutsetninger:
-          - index.md
+          - vdi/index.md
           - vdi/python.md
           - vdi/pip-og-oppsett.md
           - vdi/git.md
