@@ -4,7 +4,7 @@ repo_url: https://github.com/navikt/dbt-i-nav
 edit_uri: edit/main/docs/
 
 nav:
-  - Intro:
+  - Introduksjon til dbt:
       - index.md
   - Installasjon på VDI:
       - Forutsetninger:
