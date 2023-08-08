@@ -902,15 +902,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bok" class="md-nav__link">
-    Bok
+  <a href="#designprinsipper" class="md-nav__link">
+    Designprinsipper
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#designprinsipper" class="md-nav__link">
-    Designprinsipper
+  <a href="#dimensjonsmodellering" class="md-nav__link">
+    Dimensjonsmodellering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bok" class="md-nav__link">
+    Bok
   </a>
   
 </li>
@@ -963,14 +970,16 @@ For å nå on-prem Oracle må vi som kjent benytte utviklerimage. Denne guiden t
 <p>Før du går gjennom detaljene på hvordan dbt bør settes opp er det lurt å bli kjent med hvordan dbt fungerer. Nedenfor er det et knippe nyttige lenker som hjelper deg med å komme igang og lære de viktigste kommandoene og funksjonene i dbt.</p>
 <h3 id="kurs-dbt-fundamentals">Kurs - dbt fundamentals<a class="headerlink" href="#kurs-dbt-fundamentals" title="Permanent link">&para;</a></h3>
 <p>Det er sterkt anbefalt å starte med å gå gjennom <a href="https://courses.getdbt.com/courses/fundamentals">fundamentals kurset</a> til dbt labs. Dette kurset bruker dbt cloud, men mesteparten av innholdet kan overføres til dbt-core. Bruk gjerne GCP dev miljøet til teamet for å sette opp testprosjektet i BigQuery, men husk på å slette ressursene i etterkant</p>
+<h3 id="designprinsipper">Designprinsipper<a class="headerlink" href="#designprinsipper" title="Permanent link">&para;</a></h3>
+<p><a href="https://towardsdatascience.com/how-to-design-a-dbt-model-from-scratch-8c72c7684203">How to design a dbt model from scratch</a>. Hvordan bør du tenke nå du designer nye modeller med dbt? Det er fort gjort å bomme på første forsøk, og det koster mye tid.</p>
+<h3 id="dimensjonsmodellering">Dimensjonsmodellering<a class="headerlink" href="#dimensjonsmodellering" title="Permanent link">&para;</a></h3>
+<p>Kimball er fortsatt relevant med dbt. 
+<a href="https://docs.getdbt.com/blog/kimball-dimensional-model">Building a Kimball dimensional model with dbt</a></p>
 <h3 id="bok">Bok<a class="headerlink" href="#bok" title="Permanent link">&para;</a></h3>
 <p>Det er nylig (juni 2023) lansert en bok om 
-<a href="https://learning.oreilly.com/library/view/-/9781803246284/">Data Engineering with dbt</a>. Boken inneholder instroduksjon til data engineering generelt og endelt om ulike skydatabaser i tillegg til grunnleggende bruk av dbt.</p>
-<p>Kanskje den mest interessante delen er kapittel 8 som omhandler testing med dbt.</p>
-<h3 id="designprinsipper">Designprinsipper<a class="headerlink" href="#designprinsipper" title="Permanent link">&para;</a></h3>
-<p>Hvordan bør du tenke nå du designer nye modeller med dbt? Det er fort gjort å bomme på første forsøk.</p>
-<p><a href="https://towardsdatascience.com/how-to-design-a-dbt-model-from-scratch-8c72c7684203">How to design a dbt model from scratch</a></p>
+<a href="https://learning.oreilly.com/library/view/-/9781803246284/">Data Engineering with dbt</a>. Boken inneholder instroduksjon til data engineering generelt og endelt om ulike skydatabaser i tillegg til grunnleggende bruk av dbt. Kanskje den mest interessante delen er kapittel 8 som omhandler testing med dbt.</p>
 <h3 id="nyttige-lenker">Nyttige lenker<a class="headerlink" href="#nyttige-lenker" title="Permanent link">&para;</a></h3>
+<p>dbt's egne guider: <a href="https://www.getdbt.com/dbt-learn/lessons/">Lessons</a></p>
 <p>Community basert samling av lenker: <a href="https://github.com/Hiflylabs/awesome-dbt">awsome-dbt</a></p>
 <h2 id="hvorfor-skal-jeg-bruke-dbt-jeg-kan-jo-kjre-sql-med-python">Hvorfor skal jeg bruke dbt? Jeg kan jo kjøre SQL med Python<a class="headerlink" href="#hvorfor-skal-jeg-bruke-dbt-jeg-kan-jo-kjre-sql-med-python" title="Permanent link">&para;</a></h2>
 <p>Det er riktig. Dersom du bare skal kjøre noen enkle SQL spørringer er det kanskje like greit å sette opp en Pythonjobb som kjører SQLen for deg. Men med en gang antall spørringer eller kompleksiteten på spørringene øker vil dbt hjelpe med med å strukturere koden og holde oversikt over rekkefølgen. Det er ikke uvanlig at en komponent består av 30 eller flere SQL filer som avhenger av hverandre.</p>
