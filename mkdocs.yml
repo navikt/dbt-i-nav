@@ -26,6 +26,10 @@ nav:
   - Feilsøking:
       - feilsoking/feilsoking.md
   - Prosjekter som bruker dbt:
+      - prosjekter/dvh_arb_cv.md
+      - prosjekter/dvh_arb_permittering.md
+      - prosjekter/dvh_arb_person.md
+      - prosjekter/dvh_arb_styrke_ssb.md
       - prosjekter/dvh-sykefravar-dmx.md
       - Nystøl:
           - prosjekter/nystol/vdl-regnskapsdata.md

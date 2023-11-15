@@ -60,10 +60,9 @@ pip install dbt-oracle
 Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i repo [dvh_template](https://github.com/navikt/dvh_template) for bruk av dbt til komponentskjemaer. dbt prosjektet ligger i en egen branch [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template).
 
 
-- For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template).
+- For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i [dbt-template](https://github.com/navikt/dbt-template/).
 - For eksisterende komponentrepoer, ta en kopi av [dbt](https://github.com/navikt/dvh_template/tree/dbt_template/dbt)  og lim inn i roten til komponentrepoet.
 
-Se [dokumentasjon](https://github.com/navikt/dvh_template/blob/dbt_template/README.md) for å ta i bruk prosjektet for detaljer.
 
 Hvis du ikke ønsker å ta i bruk standardprosjektet, men heller kjøre `dbt init` er det noen ting som kan skape uforståelige feilmeldinger:
 
