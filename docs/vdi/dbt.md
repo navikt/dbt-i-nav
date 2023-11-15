@@ -83,7 +83,7 @@ Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde
 hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
 dbt-prosjektet.
 
-Scriptet kan lastes ned fra [navikt/dvh_template/dbt/setup_db_user.ps1](https://github.com/navikt/dvh_template/blob/master/dbt/setup_db_user.ps1).
+Scriptet kan lastes ned fra [navikt/dvh_template/dbt/setup_db_user.ps1](https://github.com/navikt/dvh_template/blob/dvh_template/dbt/setup_dbt_env.ps1).
 
 `profiles.yml` skal opprettes i på toppnivå i dbt-prosjektmappen, eksempel [navikt/dvh_template/dbt/profiles.yml](https://github.com/navikt/dvh_template/blob/dbt_template/dbt/profiles.yml)
 Merk at navn på profil er profilnavnet det henvises til i  `dbt_project.yml`
