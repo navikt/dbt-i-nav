@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/vdi/sqlfluff/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/pip-og-oppsett/">
       
       
-        <link rel="prev" href="../vscode/">
+        <link rel="prev" href="../python/">
       
       
-        <link rel="next" href="../miljovariabler/">
+        <link rel="next" href="../git/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>SQLFluff - dbt i NAV</title>
+        <title>PIP og oppsett av python med dbt - dbt i NAV</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sqlfluff" class="md-skip">
+        <a href="#pip-og-oppsett-av-python-med-dbt" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQLFluff
+              PIP og oppsett av python med dbt
             
           </span>
         </div>
@@ -354,6 +354,8 @@
                 
   
   
+    
+  
   
     
     
@@ -372,14 +374,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -393,7 +393,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Forutsetninger
@@ -444,9 +444,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../pip-og-oppsett/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PIP og oppsett av python med dbt
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -455,6 +475,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#feilsk-sjekk-om-du-har-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feilsøk: Sjekk om du har PIP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppsett av sertifikater til pip
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -532,8 +590,6 @@
                 
   
   
-    
-  
   
     
     
@@ -546,12 +602,14 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -565,7 +623,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Anbefalinger
@@ -596,29 +654,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    SQLFluff
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sqlfluff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -627,35 +665,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installering-av-sqlfluff" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installering av SQLFluff
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1231,9 +1240,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installering-av-sqlfluff" class="md-nav__link">
+  <a href="#feilsk-sjekk-om-du-har-pip" class="md-nav__link">
     <span class="md-ellipsis">
-      Installering av SQLFluff
+      Feilsøk: Sjekk om du har PIP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppsett av sertifikater til pip
     </span>
   </a>
   
@@ -1257,10 +1275,64 @@
   
 
 
-<h1 id="sqlfluff">SQLFluff<a class="headerlink" href="#sqlfluff" title="Permanent link">&para;</a></h1>
-<p>SQLFluff er en linter som hjelper oss med å formattere SQL-koden på en fornuftig måte.</p>
-<h2 id="installering-av-sqlfluff">Installering av SQLFluff<a class="headerlink" href="#installering-av-sqlfluff" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>sqlfluff<span class="w"> </span>sqlfluff-templater-dbt
+<h1 id="pip-og-oppsett-av-python-med-dbt">PIP og oppsett av python med dbt<a class="headerlink" href="#pip-og-oppsett-av-python-med-dbt" title="Permanent link">&para;</a></h1>
+<p>Vi har laget et ferdig <a href="https://github.com/navikt/dvh_template/tree/dbt_template">oppsett</a> av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på <a href="https://github.com/navikt/dvh_template">dvh_template</a> eller <a href="https://github.com/navikt/dvh_template/tree/amd_template">amd_template</a> avhengig av preferanse for komponentoppsett på github. Deretter må <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a> merges inn for å få integrert dbt prosjektet.</p>
+<p>Følgende script (også på <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1">github</a>) installerer et virtuelt python miljø kun for dette prosjektet. 
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
+</code></pre></div></p>
+<h2 id="feilsk-sjekk-om-du-har-pip">Feilsøk: Sjekk om du har PIP<a class="headerlink" href="#feilsk-sjekk-om-du-har-pip" title="Permanent link">&para;</a></h2>
+<p>Har du installert python, så har du nesten sikkert også pip.
+Men dersom overstående feiler, kjør <code>pip --version</code> for å se om pip er tilgjengelig:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
+
+pip<span class="w"> </span><span class="m">21</span>.1.1<span class="w"> </span>from<span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>****<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="se">\p</span>ip<span class="w"> </span><span class="o">(</span>python<span class="w"> </span><span class="m">3</span>.8<span class="o">)</span>
+</code></pre></div>
+<p>Fortsett til "Sett opp config fil for pip"</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Failure</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
+
+<span class="s1">&#39;pip&#39;</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>recognized<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>internal<span class="w"> </span>or<span class="w"> </span>external<span class="w"> </span>command,<span class="w"> </span>operable<span class="w"> </span>program<span class="w"> </span>or<span class="w"> </span>batch<span class="w"> </span>file.
+</code></pre></div>
+<p>Kjør <code>py -3 -m ensurepip</code> for å se om pip allerede eksisterer.</p>
+<div class="highlight"><pre><span></span><code>Looking<span class="w"> </span><span class="k">in</span><span class="w"> </span>links:<span class="w"> </span>c:<span class="se">\U</span>sers<span class="se">\*</span>***<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp<span class="se">\t</span>mp4r6s0n91
+Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>setuptools<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">58</span>.1.0<span class="o">)</span>
+Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>pip<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">21</span>.2.4<span class="o">)</span>
+</code></pre></div>
+<p>I dette tilfelle må miljøvariabelen <code>PATH</code> oppdateres. Bruk gjerne <code>Fil utforsker</code> for å finne riktig path men normalt ligger PIP under:</p>
+<div class="highlight"><pre><span></span><code>c:<span class="se">\u</span>sers<span class="se">\&lt;</span>brukernavn&gt;<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\s</span>cripts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Se <a href="../miljovariabler/">legg til miljøvariabler</a> hvis du ikke vet hvordan du oppdatere <code>PATH</code>.</p>
+</div>
+<p>Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre <code>pip --version</code>.</p>
+</div>
+<h2 id="oppsett-av-sertifikater-til-pip">Oppsett av sertifikater til pip<a class="headerlink" href="#oppsett-av-sertifikater-til-pip" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dette steget skjer automatisk under kjøring av <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1">setup_python_env.ps1</a> og er ikke lenger nødvendig.</p>
+</div>
+<p>Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
+pakker fra riktig server. Siden VDI bruker en webproxy for å
+kommunisere med omverdenen vill vi få en feilmeling ved <code>pip install xxx</code>.</p>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<div class="highlight"><pre><span></span><code><span class="m">13</span>:42:24<span class="w">  </span>Encountered<span class="w"> </span>an<span class="w"> </span>error:<span class="w"> </span>External<span class="w"> </span>connection<span class="w"> </span>exception<span class="w"> </span>occurred:
+HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">&#39;hub.getdbt.com&#39;</span>,<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">443</span><span class="o">)</span>:<span class="w"> </span>Max<span class="w"> </span>retries<span class="w"> </span>exceeded
+with<span class="w"> </span>url:<span class="w"> </span>/api/v1/index.json<span class="w"> </span><span class="o">(</span>Caused<span class="w"> </span>by<span class="w"> </span>SSLError<span class="o">(</span>SSLCertVerificationError<span class="o">(</span><span class="m">1</span>,
+<span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get</span>
+<span class="s1">local issuer certificate (_ssl.c:1108)&#39;</span><span class="o">)))</span>
+</code></pre></div>
+</div>
+<p>For å fikse feilen kan vi installere pakkene <code>setuptools-scm</code> og <code>pip-system-certs</code> som får
+pip til å bruke Windows Certificate Store istedenfor.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>setuptools-scm<span class="w"> </span>pip-system-certs<span class="w"> </span>--trusted-host<span class="w"> </span>pypi.org<span class="w"> </span>--trusted-host<span class="w">  </span>files.pythonhosted.org
 </code></pre></div>
 
   <hr>
@@ -1268,7 +1340,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 22, 2023</span>
       
     
   </small>

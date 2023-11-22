@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/vdi/oracle-client-library/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/git/">
       
       
-        <link rel="prev" href="../git/">
+        <link rel="prev" href="../pip-og-oppsett/">
       
       
-        <link rel="next" href="../dbt/">
+        <link rel="next" href="../oracle-client-library/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Oracle client library - dbt i NAV</title>
+        <title>GIT - dbt i NAV</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#oracle-client-library" class="md-skip">
+        <a href="#git" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Oracle client library
+              GIT
             
           </span>
         </div>
@@ -464,26 +464,6 @@
                 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    GIT
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -499,12 +479,32 @@
         
   
   <span class="md-ellipsis">
-    Oracle client library
+    GIT
   </span>
   
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracle-client-library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oracle client library
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1201,26 +1201,25 @@
   
 
 
-<h1 id="oracle-client-library">Oracle client library<a class="headerlink" href="#oracle-client-library" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Dette steget utgår hvis du bruker thin mode (tynnklient som ikke trenger klientbiblioteket. Introdusert i dbt-oracle 1.1.1). Det anbefales å bruke thin mode, da kjøring av kode går en del raskere.</p>
-</div>
-<p>Dette finnes på fellesdisken og mappen programvare\oracle\ og kan kopieres lokalt. Det er er instantclient-basiclite-windows som benyttes.</p>
-<p>Oppdater <code>PATH</code> miljøvariabelen med path til oracle client library. Eksmpel:</p>
-<div class="highlight"><pre><span></span><code>C:<span class="se">\d</span>ata<span class="se">\i</span>nstantclient-basiclite-windows<span class="se">\i</span>nstantclient_19_11
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Se <a href="../miljovariabler/">legg til miljøvariabler</a> hvis du ikke vet hvordan du oppdatere PATH.</p>
-</div>
+<h1 id="git">GIT<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+<ol>
+<li>Installering av GIT - har du den allerede er det flott.</li>
+<li>Denne finner du på felles disken under programvare. programvare\git. Installer f.eks Git-2.30.2-64-bit. Legg installasjon directory inn i miljøvariabel  PATH. F.eks <code>C:\Users\&lt;brukernavn&gt;\AppData\Local\GitHubDesktop\bin</code></li>
+<li>Dette steget er sannsynligvis ikke nødvendig, og utføres kun om det oppstår problemer i senere steg. Oppdatere miljøvariabler slik at utviklingsimaget kan kommunisere med Github. Dette er beskrevet i https://confluence.adeo.no/pages/viewpage.action?pageId=272519832 punkt 10c</li>
+<li>Følgende legges inn som miljø variabler</li>
+<li>https_proxy til http://webproxy-utvikler.nav.no:8088</li>
+<li>http_proxy: http://155.55.60.117:8088/</li>
+<li>no_proxy: localhost,127.0.0.1,*.adeo.no,.local,.adeo.no,.nav.no,.aetat.no,.devillo.no,.oera.no,devel</li>
+<li>Opprett et PAT (personal access token) som du må bruke som passord ved autentisering. Se https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token Alternativt kan du bruke <a href="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop">GitHub Dekstop</a> som setter dette opp for deg automatisk.</li>
+<li>Clone repositoriet du skal jobbe med. Husk å bruke PAT opprettet i punkt 3. som passord om du ikke bruker GitHub Desktop.</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 22, 2023</span>
       
     
   </small>

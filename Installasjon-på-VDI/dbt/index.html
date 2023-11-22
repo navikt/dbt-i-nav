@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/vdi/git/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/dbt/">
       
       
-        <link rel="prev" href="../pip-og-oppsett/">
+        <link rel="prev" href="../oracle-client-library/">
       
       
-        <link rel="next" href="../oracle-client-library/">
+        <link rel="next" href="../vscode/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>GIT - dbt i NAV</title>
+        <title>DBT - dbt i NAV</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git" class="md-skip">
+        <a href="#dbt" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GIT
+              DBT
             
           </span>
         </div>
@@ -354,8 +354,6 @@
                 
   
   
-    
-  
   
     
     
@@ -374,12 +372,14 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -393,7 +393,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Forutsetninger
@@ -464,18 +464,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -484,7 +475,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -522,9 +512,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../dbt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    DBT
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -533,6 +543,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installasjon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installasjon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opprette-nytt-dbt-prosjekt-for-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opprette nytt dbt prosjekt for Oracle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opprette nytt dbt prosjekt for Oracle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quoting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quoting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hemmeligheter-ved-kjring-fra-utviklerimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hemmeligheter ved kjøring fra utviklerimage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste-dbt-installasjonen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teste dbt installasjonen
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1185,6 +1266,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installasjon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installasjon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opprette-nytt-dbt-prosjekt-for-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opprette nytt dbt prosjekt for Oracle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opprette nytt dbt prosjekt for Oracle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quoting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quoting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hemmeligheter-ved-kjring-fra-utviklerimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hemmeligheter ved kjøring fra utviklerimage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste-dbt-installasjonen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teste dbt installasjonen
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1201,25 +1341,160 @@
   
 
 
-<h1 id="git">GIT<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
-<ol>
-<li>Installering av GIT - har du den allerede er det flott.</li>
-<li>Denne finner du på felles disken under programvare. programvare\git. Installer f.eks Git-2.30.2-64-bit. Legg installasjon directory inn i miljøvariabel  PATH. F.eks <code>C:\Users\&lt;brukernavn&gt;\AppData\Local\GitHubDesktop\bin</code></li>
-<li>Dette steget er sannsynligvis ikke nødvendig, og utføres kun om det oppstår problemer i senere steg. Oppdatere miljøvariabler slik at utviklingsimaget kan kommunisere med Github. Dette er beskrevet i https://confluence.adeo.no/pages/viewpage.action?pageId=272519832 punkt 10c</li>
-<li>Følgende legges inn som miljø variabler</li>
-<li>https_proxy til http://webproxy-utvikler.nav.no:8088</li>
-<li>http_proxy: http://155.55.60.117:8088/</li>
-<li>no_proxy: localhost,127.0.0.1,*.adeo.no,.local,.adeo.no,.nav.no,.aetat.no,.devillo.no,.oera.no,devel</li>
-<li>Opprett et PAT (personal access token) som du må bruke som passord ved autentisering. Se https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token Alternativt kan du bruke <a href="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop">GitHub Dekstop</a> som setter dette opp for deg automatisk.</li>
-<li>Clone repositoriet du skal jobbe med. Husk å bruke PAT opprettet i punkt 3. som passord om du ikke bruker GitHub Desktop.</li>
-</ol>
+<h1 id="dbt">DBT<a class="headerlink" href="#dbt" title="Permanent link">&para;</a></h1>
+<p>Det finnes en offisiell <a href="https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile">oracle adapter</a> for dbt v1.x. Gjerne start med å ta en titt på denne installasjonsguiden først.</p>
+<h2 id="installasjon">Installasjon<a class="headerlink" href="#installasjon" title="Permanent link">&para;</a></h2>
+<p>dbt kan installeres sammen med oracle adapteren med kommandoen:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>dbt-oracle
+</code></pre></div>
+<div class="admonition failure">
+<p class="admonition-title">Nedlasting feiler</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>dbt-oracle
+WARNING:<span class="w"> </span>Retrying<span class="w"> </span><span class="o">(</span>Retry<span class="o">(</span><span class="nv">total</span><span class="o">=</span><span class="m">4</span>,<span class="w"> </span><span class="nv">connect</span><span class="o">=</span>None,<span class="w"> </span><span class="nv">read</span><span class="o">=</span>None,<span class="w"> </span><span class="nv">redirect</span><span class="o">=</span>None,<span class="w"> </span><span class="nv">status</span><span class="o">=</span>None<span class="o">))</span><span class="w"> </span>after<span class="w"> </span>connection<span class="w"> </span>broken<span class="w"> </span>by<span class="w"> </span><span class="s1">&#39;SSLError(SSLCertVerificationError(1, &#39;</span><span class="o">[</span>SSL:<span class="w"> </span>CERTIFICATE_VERIFY_FAILED<span class="o">]</span><span class="w"> </span>certificate<span class="w"> </span>verify<span class="w"> </span>failed:<span class="w"> </span>unable<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span><span class="nb">local</span><span class="w"> </span>issuer<span class="w"> </span>certificate<span class="w"> </span><span class="o">(</span>_ssl.c:1131<span class="o">)</span><span class="s1">&#39;))&#39;</span>:<span class="w"> </span>/simple/dbt-oracle/
+
+...
+
+Could<span class="w"> </span>not<span class="w"> </span>fetch<span class="w"> </span>URL<span class="w"> </span>https://pypi.org/simple/dbt-oracle/:<span class="w"> </span>There<span class="w"> </span>was<span class="w"> </span>a<span class="w"> </span>problem<span class="w"> </span>confirming<span class="w"> </span>the<span class="w"> </span>ssl<span class="w"> </span>certificate:<span class="w"> </span>HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">&#39;pypi.org&#39;</span>,<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">443</span><span class="o">)</span>:<span class="w"> </span>Max<span class="w"> </span>retries<span class="w"> </span>exceeded<span class="w"> </span>with<span class="w"> </span>url:<span class="w"> </span>/simple/dbt-oracle/<span class="w"> </span><span class="o">(</span>Caused<span class="w"> </span>by<span class="w"> </span>SSLError<span class="o">(</span>SSLCertVerificationError<span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)&#39;</span><span class="o">)))</span>
+</code></pre></div>
+<p>Sjekk om du har gjort <a href="../pip-og-oppsett/#oppsett-av-sertifikater-til-pip">oppsett av sertifikater til pip</a>.</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Installasjon feiler</p>
+<p>I noen tilfeller har vi opplevd at <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Microsoft Visual C++</a> mangler.
+Feilmeldingen kan se slik ut:</p>
+<p><div class="highlight"><pre><span></span><code>...
+Building<span class="w"> </span>wheels<span class="w"> </span><span class="k">for</span><span class="w"> </span>collected<span class="w"> </span>packages:<span class="w"> </span>cx-Oracle
+Building<span class="w"> </span>wheel<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle<span class="w"> </span><span class="o">(</span>pyproject.toml<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>error
+error:<span class="w"> </span>subprocess-exited-with-error
+
+×<span class="w"> </span>Building<span class="w"> </span>wheel<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle<span class="w"> </span><span class="o">(</span>pyproject.toml<span class="o">)</span><span class="w"> </span>did<span class="w"> </span>not<span class="w"> </span>run<span class="w"> </span>successfully.
+│<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>code:<span class="w"> </span><span class="m">1</span>
+╰─&gt;<span class="w"> </span><span class="o">[</span><span class="m">8</span><span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>output<span class="o">]</span>
+<span class="w">      </span>C:<span class="se">\U</span>sers<span class="se">\R</span>A_S167159<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp<span class="se">\p</span>ip-build-env-lh09agh5<span class="se">\o</span>verlay<span class="se">\L</span>ib<span class="se">\s</span>ite-packages<span class="se">\s</span>etuptools<span class="se">\c</span>onfig<span class="se">\e</span>xpand.py:144:<span class="w"> </span>UserWarning:<span class="w"> </span>File<span class="w"> </span><span class="s1">&#39;C:\\Users\\RA_S167159\\AppData\\Local\\Temp\\pip-install-ki6mcccg\\cx-oracle_5a1e160a6cb5498187fe05d5b5637d8c\\README.md&#39;</span><span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>found
+<span class="w">        </span>warnings.warn<span class="o">(</span>f<span class="s2">&quot;File {path!r} cannot be found&quot;</span><span class="o">)</span>
+<span class="w">    </span>pip_system_certs:<span class="w"> </span>ERROR:<span class="w"> </span>could<span class="w"> </span>not<span class="w"> </span>register<span class="w"> </span>module:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">&#39;wrapt&#39;</span>
+<span class="w">    </span>running<span class="w"> </span>bdist_wheel
+<span class="w">    </span>running<span class="w"> </span>build
+<span class="w">    </span>running<span class="w"> </span>build_ext
+<span class="w">    </span>building<span class="w"> </span><span class="s1">&#39;cx_Oracle&#39;</span><span class="w"> </span>extension
+<span class="w">    </span>error:<span class="w"> </span>Microsoft<span class="w"> </span>Visual<span class="w"> </span>C++<span class="w"> </span><span class="m">14</span>.0<span class="w"> </span>or<span class="w"> </span>greater<span class="w"> </span>is<span class="w"> </span>required.<span class="w"> </span>Get<span class="w"> </span>it<span class="w"> </span>with<span class="w"> </span><span class="s2">&quot;Microsoft C++ Build Tools&quot;</span>:<span class="w"> </span>https://visualstudio.microsoft.com/visual-cpp-build-tools/
+<span class="w">    </span><span class="o">[</span>end<span class="w"> </span>of<span class="w"> </span>output<span class="o">]</span>
+
+note:<span class="w"> </span>This<span class="w"> </span>error<span class="w"> </span>originates<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>subprocess,<span class="w"> </span>and<span class="w"> </span>is<span class="w"> </span>likely<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>problem<span class="w"> </span>with<span class="w"> </span>pip.
+ERROR:<span class="w"> </span>Failed<span class="w"> </span>building<span class="w"> </span>wheel<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle
+Failed<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>cx-Oracle
+ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>build<span class="w"> </span>wheels<span class="w"> </span><span class="k">for</span><span class="w"> </span>cx-Oracle,<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>required<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>pyproject.toml-based<span class="w"> </span>projects
+...
+</code></pre></div>
+Last ned og installer Build Tools. Følg gjerne guiden her: <a href="https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html">Fixed: Microsoft Visual C++ 14.0 Is Required Error</a>  <br />
+Husk å restarte VDI etter installasjon.</p>
+</div>
+<h2 id="opprette-nytt-dbt-prosjekt-for-oracle">Opprette nytt dbt prosjekt for Oracle<a class="headerlink" href="#opprette-nytt-dbt-prosjekt-for-oracle" title="Permanent link">&para;</a></h2>
+<p>Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i repo <a href="https://github.com/navikt/dvh_template">dvh_template</a> for bruk av dbt til komponentskjemaer. dbt prosjektet ligger i en egen branch <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a>.</p>
+<ul>
+<li>For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i <a href="https://github.com/navikt/dbt-template/">dbt-template</a>.</li>
+<li>For eksisterende komponentrepoer, ta en kopi av <a href="https://github.com/navikt/dvh_template/tree/dbt_template/dbt">dbt</a>  og lim inn i roten til komponentrepoet.</li>
+</ul>
+<p>Hvis du ikke ønsker å ta i bruk standardprosjektet, men heller kjøre <code>dbt init</code> er det noen ting som kan skape uforståelige feilmeldinger:</p>
+<h3 id="quoting">Quoting<a class="headerlink" href="#quoting" title="Permanent link">&para;</a></h3>
+<p>Quoting av databasenavn må aktiveres i <code>dbt_project.yml</code> siden databasenenavnene til dvh-databasene er med små bokstaver (eks. dwhu1). Hvis ikke dette gjøres kommer det feilmeling som sier noe slikt som <code>approximate match</code></p>
+<p>For å skru på quoting må
+følgende settes i <code>dbt_project.yml</code>:</p>
+<div class="highlight"><pre><span></span><code>quoting:
+<span class="w">  </span>database:<span class="w"> </span><span class="nb">true</span>
+</code></pre></div>
+<h3 id="hemmeligheter-ved-kjring-fra-utviklerimage">Hemmeligheter ved kjøring fra utviklerimage<a class="headerlink" href="#hemmeligheter-ved-kjring-fra-utviklerimage" title="Permanent link">&para;</a></h3>
+<p>Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på 
+hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
+dbt-prosjektet.</p>
+<p>Scriptet kan lastes ned fra <a href="https://github.com/navikt/dbt-template/blob/main/dbt/setup_dbt_env.ps1">navikt/dvh_template/dbt/setup_db_user.ps1</a>.</p>
+<p><code>profiles.yml</code> skal opprettes i på toppnivå i dbt-prosjektmappen, eksempel <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/profiles.yml">navikt/dvh_template/dbt/profiles.yml</a>
+Merk at navn på profil er profilnavnet det henvises til i  <code>dbt_project.yml</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;navn på profil&gt;</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_TARGET&#39;)}}&quot;</span>
+<span class="w w-Error"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</code></pre></div>
+<p>Når profilen er på plass i prosjektmappen kan du <a href="#teste-dbt-installasjonen">teste at dbt fungerer</a>.</p>
+<h2 id="teste-dbt-installasjonen">Teste dbt installasjonen<a class="headerlink" href="#teste-dbt-installasjonen" title="Permanent link">&para;</a></h2>
+<p>Etter at dbt er på plass kan du verifisere at dbt fungerer ved å kjøre <code>.\setup_db_user.ps1</code>
+etterfulgt av <code>dbt debug</code> fra prosjektmappen. Er det et nytt prosjekt må du
+<a href="#opprettelse-av-profilesyml-i-et-nytt-dbt-prosjekt">opprette profiles.yml</a> først.</p>
+<p><code>.\setup_db_user.ps1</code> må kjøres hver gang en starter en ny terminal eller
+ønsker å bytte target (db). Scriptet vill midlertidlig opprette miljøvariablene
+i terminal-sesjonen for target, brukernavn, passord, schema og peke dbt mot
+profiles.yml i prosjektmappen.</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>.<span class="se">\s</span>etup_db_user.ps1
+Target<span class="w"> </span>db:<span class="w"> </span>U<span class="w"> </span>&lt;eventuelt<span class="w"> </span>Q,R<span class="w"> </span>eller<span class="w"> </span>P&gt;
+Schema:<span class="w"> </span>
+
+cmdlet<span class="w"> </span>Get-Credential<span class="w"> </span>at<span class="w"> </span><span class="nb">command</span><span class="w"> </span>pipeline<span class="w"> </span>position<span class="w"> </span><span class="m">1</span>
+Supply<span class="w"> </span>values<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>parameters:
+Credential
+
+$<span class="w"> </span>dbt<span class="w"> </span>debug
+<span class="m">09</span>:15:08<span class="w">  </span>Running<span class="w"> </span>with<span class="w"> </span><span class="nv">dbt</span><span class="o">=</span><span class="m">1</span>.1.1
+dbt<span class="w"> </span>version:<span class="w"> </span><span class="m">1</span>.1.1
+python<span class="w"> </span>version:<span class="w"> </span><span class="m">3</span>.8.10
+python<span class="w"> </span>path:<span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\p</span>ython.exe<span class="w">      </span>
+os<span class="w"> </span>info:<span class="w"> </span>Windows-10-10.0.19044-SP0
+Using<span class="w"> </span>profiles.yml<span class="w"> </span>file<span class="w"> </span>at<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\*</span>***<span class="se">\g</span>it<span class="se">\d</span>vh-sykefravar-dmx<span class="se">\p</span>rofiles.yml
+Using<span class="w"> </span>dbt_project.yml<span class="w"> </span>file<span class="w"> </span>at<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\*</span>***<span class="se">\g</span>it<span class="se">\d</span>vh-sykefravar-dmx<span class="se">\d</span>bt_project.yml
+
+<span class="m">09</span>:15:08<span class="w">  </span>oracle<span class="w"> </span>adapter:<span class="w"> </span>Running<span class="w"> </span><span class="k">in</span><span class="w"> </span>cx<span class="w"> </span>mode
+Configuration:
+<span class="w">  </span>profiles.yml<span class="w"> </span>file<span class="w"> </span><span class="o">[</span>OK<span class="w"> </span>found<span class="w"> </span>and<span class="w"> </span>valid<span class="o">]</span><span class="w">   </span>
+<span class="w">  </span>dbt_project.yml<span class="w"> </span>file<span class="w"> </span><span class="o">[</span>OK<span class="w"> </span>found<span class="w"> </span>and<span class="w"> </span>valid<span class="o">]</span>
+
+Required<span class="w"> </span>dependencies:
+-<span class="w"> </span>git<span class="w"> </span><span class="o">[</span>OK<span class="w"> </span>found<span class="o">]</span>
+
+Connection:
+<span class="w">  </span>user:<span class="w"> </span>****
+<span class="w">  </span>database:<span class="w"> </span>dwhu1
+<span class="w">  </span>schema:<span class="w"> </span>****
+<span class="w">  </span>protocol:<span class="w"> </span>tcp
+<span class="w">  </span>host:<span class="w"> </span>dm07-scan.adeo.no
+<span class="w">  </span>port:<span class="w"> </span><span class="m">1521</span>
+<span class="w">  </span>tns_name:<span class="w"> </span>None
+<span class="w">  </span>service:<span class="w"> </span>dwhu1
+<span class="w">  </span>connection_string:<span class="w"> </span>None
+<span class="w">  </span>shardingkey:<span class="w"> </span><span class="o">[]</span>
+<span class="w">  </span>supershardingkey:<span class="w"> </span><span class="o">[]</span>
+<span class="w">  </span>cclass:<span class="w"> </span>None
+<span class="w">  </span>purity:<span class="w"> </span>None
+<span class="w">  </span>Connection<span class="w"> </span>test:<span class="w"> </span><span class="o">[</span>OK<span class="w"> </span>connection<span class="w"> </span>ok<span class="o">]</span>
+
+All<span class="w"> </span>checks<span class="w"> </span>passed!
+</code></pre></div>
+<p>DBT er nå klart til bruk.</p>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<div class="highlight"><pre><span></span><code>Connection<span class="w"> </span>test:<span class="w"> </span><span class="o">[</span>ERROR<span class="o">]</span>
+
+<span class="m">2</span><span class="w"> </span>checks<span class="w"> </span>failed:
+Error<span class="w"> </span>from<span class="w"> </span>git<span class="w"> </span>--help:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>command,<span class="w"> </span>ensure<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>user<span class="err">&#39;</span>s<span class="w"> </span>PATH<span class="w"> </span>and<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>user<span class="w"> </span>has<span class="w"> </span>permissions<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>it:<span class="w"> </span><span class="s2">&quot;git&quot;</span>
+
+dbt<span class="w"> </span>was<span class="w"> </span>unable<span class="w"> </span>to<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>specified<span class="w"> </span>database.
+The<span class="w"> </span>database<span class="w"> </span>returned<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>error:
+
+<span class="w">  </span>&gt;Database<span class="w"> </span>Error
+<span class="w">  </span>DPI-1047:<span class="w"> </span>Cannot<span class="w"> </span>locate<span class="w"> </span>a<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>Oracle<span class="w"> </span>Client<span class="w"> </span>library:<span class="w"> </span><span class="s2">&quot;failed to get message for Windows Error 126&quot;</span>.<span class="w"> </span>See<span class="w"> </span>https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span>
+
+Check<span class="w"> </span>your<span class="w"> </span>database<span class="w"> </span>credentials<span class="w"> </span>and<span class="w"> </span>try<span class="w"> </span>again.<span class="w"> </span>For<span class="w"> </span>more<span class="w"> </span>information,<span class="w"> </span>visit:
+https://docs.getdbt.com/docs/configure-your-profile
+</code></pre></div>
+<p><a href="../oracle-client-library/">Oracle client library</a> er mest sannsynlig ikke installert.</p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 22, 2023</span>
       
     
   </small>
