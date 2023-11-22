@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://navikt.github.io/dbt-i-nav/intro/intro/</loc>
+         <lastmod>2023-11-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh-sykefravar-dmx/</loc>
          <lastmod>2023-11-22</lastmod>
          <changefreq>daily</changefreq>
