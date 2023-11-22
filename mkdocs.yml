@@ -8,17 +8,17 @@ nav:
       - index.md
   - Installasjon på VDI:
       - Forutsetninger:
-          - vdi/installere.md
-          - vdi/python.md
-          - vdi/pip-og-oppsett.md
-          - vdi/git.md
-          - vdi/oracle-client-library.md
-      - vdi/dbt.md
+          - Installasjon-på-VDI/installere.md
+          - Installasjon-på-VDI/python.md
+          - Installasjon-på-VDI/pip-og-oppsett.md
+          - Installasjon-på-VDI/git.md
+          - Installasjon-på-VDI/oracle-client-library.md
+      - Installasjon-på-VDI/dbt.md
       - Anbefalinger:
-          - vdi/vscode.md
-          - vdi/sqlfluff.md
+          - Installasjon-på-VDI/vscode.md
+          - Installasjon-på-VDI/sqlfluff.md
       - Tips og triks:
-          - vdi/miljovariabler.md
+          - Installasjon-på-VDI/miljovariabler.md
   - Arkitektur:
       - arkitektur/style_guide.md
   - Dokumentasjon:
