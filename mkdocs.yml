@@ -23,6 +23,7 @@ nav:
       - arkitektur/style_guide.md
   - Dokumentasjon:
       - dokumentasjon/dokumentasjon.md
+      - dokumentasjon/overview.md
   - Feilsøking:
       - feilsoking/feilsoking.md
   - Prosjekter som bruker dbt:
