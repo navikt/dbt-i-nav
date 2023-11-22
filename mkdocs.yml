@@ -6,8 +6,8 @@ edit_uri: edit/main/docs/
 nav:
   - Introduksjon til dbt: 'index.md'
   - Installasjon på VDI:
+      - 'Installasjon-på-VDI/installere.md'
       - Forutsetninger:
-          - Installasjon-på-VDI/installere.md
           - Installasjon-på-VDI/python.md
           - Installasjon-på-VDI/pip-og-oppsett.md
           - Installasjon-på-VDI/git.md
