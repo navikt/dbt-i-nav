@@ -1331,18 +1331,22 @@
 <p>Bruk https://code.visualstudio.com/download, velg Windows versjonen. Last ned, pakk ut og start programmet code. Følg instruksjonene ved innstalleringen.</p>
 <h2 id="anbefalte-extensions">Anbefalte extensions<a class="headerlink" href="#anbefalte-extensions" title="Permanent link">&para;</a></h2>
 <h3 id="dbt-power-user">dbt Power User<a class="headerlink" href="#dbt-power-user" title="Permanent link">&para;</a></h3>
-<p>https://github.com/AltimateAI/vscode-dbt-power-user</p>
-<p>dbt Power User gir oss en rekke nyttige verktøy, som f.eks.:
-- Auto-complete dbt code
-- SQL validator
-- Column lineage
-- Preview query results</p>
+<p>dbt Power User gir oss en rekke nyttige verktøy, som f.eks.:</p>
+<ul>
+<li>lekker lineage vist i VS Code </li>
+<li>Auto-complete dbt code</li>
+<li>SQL validator</li>
+<li>Preview query results</li>
+<li>en rekke snarveier, blant annet via egne knapper</li>
+<li>visning av generert SQL-kode (slipper å lete den frem i target-mappen)</li>
+</ul>
+<p><a href="https://github.com/AltimateAI/vscode-dbt-power-user">dbt Power User på GitHub</a></p>
 <h4 id="installasjon-og-oppsett">Installasjon og oppsett<a class="headerlink" href="#installasjon-og-oppsett" title="Permanent link">&para;</a></h4>
-<p>Installeres via VS Code Marketplace, følg installasjonsrutinene til Altimate: https://docs.myaltimate.com/</p>
+<p>Installeres via VS Code Marketplace, følg installasjonsrutinene til <a href="https://docs.myaltimate.com/">Altimate</a></p>
 <p>Utover standardinstallasjon må følgende hensyn tas for bruk på VDI Utvikler og mot Oracle DVH:</p>
 <p><strong>NB!</strong> dbt Power User krever at man setter opp miljøvariabler med credentials via PowerShell, <strong>før</strong> VS Code startes opp i samme PowerShell-sesjon.
 (Espen jobber med et PowerShell script som skal gjøre denne operasjonen enklere)</p>
-<p>Preview query-template må endres til: <code>select * from ({query})\n where ROWNUM &lt;= {limit}</code>, ref. https://docs.myaltimate.com/setup/optConfig/#dbtquerytemplate-for-oracle</p>
+<p>Preview query-template må endres til: <code>select * from ({query})\n where ROWNUM &lt;= {limit}</code>, ref. <a href="https://docs.myaltimate.com/setup/optConfig/#dbtquerytemplate-for-oracle">#dbtquerytemplate-for-oracle</a></p>
 <h4 id="erfaringer-feil-som-har-oppstatt-ved-bruk-av-dbt-power-user">Erfaringer - feil som har oppstått ved bruk av dbt Power User:<a class="headerlink" href="#erfaringer-feil-som-har-oppstatt-ved-bruk-av-dbt-power-user" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Hele dbt-prosjektet blir validert når prosjekt-mappen åpnes. Eventuelle initielle imports som er lagt inn i dbt_run.py, som f.eks. <code>from google.cloud import secretmanager</code>, vil gi feil i VDI Utvikler. Begrens initielle imports til grunnleggende behov.</li>
