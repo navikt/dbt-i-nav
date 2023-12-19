@@ -8,12 +8,12 @@ Bruk https://code.visualstudio.com/download, velg Windows versjonen. Last ned, p
 
 dbt Power User gir oss en rekke nyttige verktøy, som f.eks.:
 
-- lekker lineage vist i VS Code 
+- Lekker lineage vist i VS Code 
 - Auto-complete dbt code
 - SQL validator
 - Preview query results
-- en rekke snarveier, blant annet via egne knapper
-- visning av generert SQL-kode (slipper å lete den frem i target-mappen)
+- En rekke snarveier, blant annet via egne knapper
+- Visning av generert SQL-kode (slipper å lete den frem i target-mappen)
 
 [dbt Power User på GitHub](https://github.com/AltimateAI/vscode-dbt-power-user)
 
@@ -26,22 +26,27 @@ dbt Power User krever at man setter opp **miljøvariabler** med credentials via 
 
 Eksempel på hvordan man kan sette opp miljøvariabler i forkant via PowerShell:
 
-1. lukk eventuelle eksisterende sesjoner av VS Code
-2. start PowerShell i dbt-mappen i aktuelt dbt-prosjekt. Trykk på dbt-mappen, hold deretter inne Shift-tasten og høyreklikk på mappen. Velg `Åpne PowerShell-vindu her` (eller tilsvarende tekst på engelsk om du er litt mer internasjonal)
+1. Lukk eventuelle eksisterende sesjoner av VS Code
+2. Start PowerShell i dbt-mappen i aktuelt dbt-prosjekt. Trykk på dbt-mappen, hold deretter inne Shift-tasten og høyreklikk på mappen. Velg `Åpne PowerShell-vindu her` (eller tilsvarende tekst på engelsk om du er litt mer internasjonal)
 
     ![Åpne mappe i Powershell](vscode/aapne_i_powershell.png)
 
-3. kjør `.\setup_dbt_env.ps1` + enter i PowerShell-vinduet som åpnet seg (skriv setup + trykk på TAB for auto-complete)
+3. Kjør `.\setup_dbt_env.ps1` + enter i PowerShell-vinduet som åpnet seg (skriv setup + trykk på TAB for auto-complete)
 
     ![Kjør .\setup_dbt_env](vscode/setup_dbt_env.png)
 
-4. start VS Code fra samme PowerShell-vindu som `.\setup_dbt_env.ps1` ble kjørt i, `code .` + enter
+4. Start VS Code fra samme PowerShell-vindu som `.\setup_dbt_env.ps1` ble kjørt i, `code .` + enter
 
     ![Start VS Code](vscode/start_vscode.png)
 
 (Espen jobber med et PowerShell script som skal gjøre denne operasjonen enklere)
 
-**Preview query**-template må endres til: `select * from ({query})\n where ROWNUM <= {limit}`, ref. [#dbtquerytemplate-for-oracle](https://docs.myaltimate.com/setup/optConfig/#dbtquerytemplate-for-oracle)
+**Preview query**-template må endres for Oracle-bruk:  
+1. Åpne Settings ved å trykke `CTRL + ,`
+2. Søk etter `dbt.queryTemplate`
+3. Endre skript til `select * from ({query}) where ROWNUM <= {limit}`
+
+Ref.: [#dbtquerytemplate-for-oracle](https://docs.myaltimate.com/setup/optConfig/#dbtquerytemplate-for-oracle)
 
 
 #### Erfaringer - feil som har oppstått ved bruk av dbt Power User:
