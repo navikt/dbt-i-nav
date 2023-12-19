@@ -1363,12 +1363,12 @@
 <h3 id="dbt-power-user">dbt Power User<a class="headerlink" href="#dbt-power-user" title="Permanent link">&para;</a></h3>
 <p>dbt Power User gir oss en rekke nyttige verktøy, som f.eks.:</p>
 <ul>
-<li>lekker lineage vist i VS Code </li>
+<li>Lekker lineage vist i VS Code </li>
 <li>Auto-complete dbt code</li>
 <li>SQL validator</li>
 <li>Preview query results</li>
-<li>en rekke snarveier, blant annet via egne knapper</li>
-<li>visning av generert SQL-kode (slipper å lete den frem i target-mappen)</li>
+<li>En rekke snarveier, blant annet via egne knapper</li>
+<li>Visning av generert SQL-kode (slipper å lete den frem i target-mappen)</li>
 </ul>
 <p><a href="https://github.com/AltimateAI/vscode-dbt-power-user">dbt Power User på GitHub</a></p>
 <h4 id="installasjon-og-oppsett">Installasjon og oppsett<a class="headerlink" href="#installasjon-og-oppsett" title="Permanent link">&para;</a></h4>
@@ -1377,22 +1377,26 @@
 <p>dbt Power User krever at man setter opp <strong>miljøvariabler</strong> med credentials via PowerShell, <strong>før</strong> VS Code startes opp i samme PowerShell-sesjon.</p>
 <p>Eksempel på hvordan man kan sette opp miljøvariabler i forkant via PowerShell:</p>
 <ol>
-<li>lukk eventuelle eksisterende sesjoner av VS Code</li>
+<li>Lukk eventuelle eksisterende sesjoner av VS Code</li>
 <li>
-<p>start PowerShell i dbt-mappen i aktuelt dbt-prosjekt. Trykk på dbt-mappen, hold deretter inne Shift-tasten og høyreklikk på mappen. Velg <code>Åpne PowerShell-vindu her</code> (eller tilsvarende tekst på engelsk om du er litt mer internasjonal)</p>
+<p>Start PowerShell i dbt-mappen i aktuelt dbt-prosjekt. Trykk på dbt-mappen, hold deretter inne Shift-tasten og høyreklikk på mappen. Velg <code>Åpne PowerShell-vindu her</code> (eller tilsvarende tekst på engelsk om du er litt mer internasjonal)</p>
 <p><img alt="Åpne mappe i Powershell" src="aapne_i_powershell.png" /></p>
 </li>
 <li>
-<p>kjør <code>.\setup_dbt_env.ps1</code> + enter i PowerShell-vinduet som åpnet seg (skriv setup + trykk på TAB for auto-complete)</p>
+<p>Kjør <code>.\setup_dbt_env.ps1</code> + enter i PowerShell-vinduet som åpnet seg (skriv setup + trykk på TAB for auto-complete)</p>
 <p><img alt="Kjør .\setup_dbt_env" src="setup_dbt_env.png" /></p>
 </li>
 <li>
-<p>start VS Code fra samme PowerShell-vindu som <code>.\setup_dbt_env.ps1</code> ble kjørt i, <code>code .</code> + enter</p>
+<p>Start VS Code fra samme PowerShell-vindu som <code>.\setup_dbt_env.ps1</code> ble kjørt i, <code>code .</code> + enter</p>
 <p><img alt="Start VS Code" src="start_vscode.png" /></p>
 </li>
 </ol>
 <p>(Espen jobber med et PowerShell script som skal gjøre denne operasjonen enklere)</p>
-<p><strong>Preview query</strong>-template må endres til: <code>select * from ({query})\n where ROWNUM &lt;= {limit}</code>, ref. <a href="https://docs.myaltimate.com/setup/optConfig/#dbtquerytemplate-for-oracle">#dbtquerytemplate-for-oracle</a></p>
+<p><strong>Preview query</strong>-template må endres for Oracle-bruk:<br />
+1. Åpne Settings ved å trykke <code>CTRL + ,</code>
+2. Søk etter <code>dbt.queryTemplate</code>
+3. Endre skript til <code>select * from ({query}) where ROWNUM &lt;= {limit}</code></p>
+<p>Ref.: <a href="https://docs.myaltimate.com/setup/optConfig/#dbtquerytemplate-for-oracle">#dbtquerytemplate-for-oracle</a></p>
 <h4 id="erfaringer-feil-som-har-oppstatt-ved-bruk-av-dbt-power-user">Erfaringer - feil som har oppstått ved bruk av dbt Power User:<a class="headerlink" href="#erfaringer-feil-som-har-oppstatt-ved-bruk-av-dbt-power-user" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Hele dbt-prosjektet blir validert når prosjekt-mappen åpnes. Eventuelle initielle imports som er lagt inn i dbt_run.py, som f.eks. <code>from google.cloud import secretmanager</code>, vil gi feil i VDI Utvikler. Begrens initielle imports til grunnleggende behov.</li>
@@ -1417,7 +1421,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 19, 2023</span>
   </span>
 
     
