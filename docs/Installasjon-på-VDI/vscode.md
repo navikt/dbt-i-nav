@@ -28,8 +28,8 @@ Det finnes et skript [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/
 
 Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. F.eks.:
 
-```shell
-start_vscode_dbt.ps1 c:\\sti\\til\\dbt-prosjekt\\ skjemanavn
+```powershell
+start_vscode_dbt.ps1 c:\sti\til\dbt-prosjekt\ skjemanavn
 ```
 
 (Her må `c:\sti\til\dbt-prosjekt\` peke på mappen som inneholder `dbt_project.yml`)
