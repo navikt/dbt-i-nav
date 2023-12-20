@@ -1,7 +1,8 @@
 # Path to wher you would like to place the python virtual env
 $dbtEnv_path = "C:\datavarehus\.dbtenv"
-# Database schema
-$schema = <schema>
+
+
+
 
 #Function to set up a virtual env for dbt
 function Add-dbtenv {
@@ -26,6 +27,16 @@ if ($args[0]) {
   Write-Host "Missing dbt project path. Add c:\path\to\project\ as argument to this script"
   exit
 }
+
+#Database schema
+if ($args[1]) { 
+    # Database schema
+    $schema = $args[1].ToUpper()
+    Write-Host "Setting schema to: $schema"
+  } else {
+    Write-Host "Missing scheam. Pass schema as second argument this script."
+    exit
+  }
 
 
 Try {
@@ -96,4 +107,4 @@ Remove-Item -Path Env:https_proxy
 $env:ORA_PYTHON_DRIVER_TYPE = "thin"
 echo "ORA_PYTHON_DRIVER_TYPE: $env:ORA_PYTHON_DRIVER_TYPE"
 
-code ../
+code .
