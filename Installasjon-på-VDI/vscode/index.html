@@ -1393,12 +1393,12 @@
 <p>Installeres via VS Code Marketplace, følg installasjonsrutinene til <a href="https://docs.myaltimate.com/">Altimate</a></p>
 <h5 id="utover-standardinstallasjon-ma-flgende-hensyn-tas-for-bruk-pa-vdi-utvikler-og-mot-oracle-dvh">Utover standardinstallasjon må følgende hensyn tas for bruk på VDI Utvikler og mot Oracle DVH:<a class="headerlink" href="#utover-standardinstallasjon-ma-flgende-hensyn-tas-for-bruk-pa-vdi-utvikler-og-mot-oracle-dvh" title="Permanent link">&para;</a></h5>
 <p>dbt Power User krever at man setter opp <strong>miljøvariabler</strong> med credentials via PowerShell, <strong>før</strong> VS Code startes opp i samme PowerShell-sesjon.</p>
-<p>Det finnes et skript <a href="https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1">start_vscode_dbt.ps1</a> i dette repoet som setter opp miljøvariable, oppretter ptyhon miljø hvis det ikke finnes fra før, og starter Visual Studtio Code som forenkler denne prosessen.</p>
+<p>Det finnes et skript <a href="https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1">start_vscode_dbt.ps1</a> i dette repoet som setter opp miljøvariable, oppretter python miljø hvis det ikke finnes fra før, og starter Visual Studtio Code som forenkler denne prosessen.</p>
 <p>Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. F.eks.:</p>
 <div class="highlight"><pre><span></span><code>start_vscode_dbt.ps1<span class="w"> </span>c:<span class="se">\s</span>ti<span class="se">\t</span>il<span class="se">\d</span>bt-prosjekt<span class="se">\ </span>skjemanavn
 </code></pre></div>
 <p>(Her må <code>\c:\sti\til\dbt-prosjekt\</code> peke på mappen som inneholder <code>dbt_project.yml</code>)</p>
-<p>Ideen er at man kan legge skriptet et sted på utviklerimage, f.eks. <code>c:\datavarehus\start_vscode_dbt.ps1</code>, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.</p>
+<p>Ideen er at man kan legge skriptet et faststed på utviklerimage: <code>c:\dbt\start_vscode_dbt.ps1</code>, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.</p>
 <p>For slikt oppsett, gjør følgende per komponent/dbt prosjekt du har:</p>
 <ol>
 <li>
@@ -1410,7 +1410,7 @@
 <p><img alt="Høyreklikk" src="egenskaper.png" /></p>
 </li>
 <li>
-<p>Fyll inn følgende tekst i <code>Mål</code>: <code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -ExecutionPolicy Bypass -File "C:\datavarehus\start_vscode_dbt.ps1" c:\sti\til\dbt-prosjekt\  skjemanavn</code></p>
+<p>Fyll inn følgende tekst i <code>Mål</code>: <code>powershell.exe -noexit -ExecutionPolicy Bypass -File "C:\dbt\start_vscode_dbt.ps1" c:\sti\til\dbt-prosjekt\  databaseskjemanavn</code></p>
 <p><img alt="Mål" src="maal.png" /></p>
 </li>
 <li>
