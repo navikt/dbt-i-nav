@@ -36,7 +36,7 @@ start_vscode_dbt.ps1 c:\sti\til\dbt-prosjekt\ skjemanavn
 
 Ideen er at man kan legge skriptet et sted på utviklerimage, f.eks. `c:\datavarehus\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.
 
-For slikt oppsett, gjør følgende:
+For slikt oppsett, gjør følgende per komponent/dbt prosjekt du har:
 
 1. Høyreklikk - hold - dra over skrivebordet - slipp. Velg `Lag snarveier her`.
 

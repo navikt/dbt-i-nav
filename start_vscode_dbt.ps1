@@ -1,7 +1,7 @@
 # Path to wher you would like to place the python virtual env
 $dbtEnv_path = "C:\datavarehus\.dbtenv"
 
-
+ 
 
 
 #Function to set up a virtual env for dbt
@@ -15,9 +15,22 @@ function Add-dbtenv {
   # Latest pip
   python -m pip install --upgrade pip
   # Install the latest dbt
-  python -m pip install -r requirements.txt
+  python -m pip install -r https://raw.githubusercontent.com/navikt/dbt-i-nav/main/requirements.txt
 }
 
+#Check if environment exists
+$dbtEnv_exists = Test-Path -Path $dbtEnv_path
+if (-Not $dbtEnv_exists) {
+  Add-dbtenv
+}
+Else{
+  if ((Read-Host -Prompt "Update $dbtEnv_path`? (y/n)") -eq "y") {
+    Add-dbtenv
+  }
+  Else {
+    iex $dbtEnv_path"/Scripts/activate.ps1"
+  }
+}
 
 #path to dbt folder
 if ($args[0]) {
@@ -34,7 +47,7 @@ if ($args[1]) {
     $schema = $args[1].ToUpper()
     Write-Host "Setting schema to: $schema"
   } else {
-    Write-Host "Missing scheam. Pass schema as second argument this script."
+    Write-Host "Missing schema. Pass schema as second argument this script."
     exit
   }
 
@@ -85,19 +98,7 @@ $env:DBT_ENV_SECRET_PASS = $creds.GetNetworkCredential().password
 
 
 
-#Check if environment exists
-$dbtEnv_exists = Test-Path -Path $dbtEnv_path
-if (-Not $dbtEnv_exists) {
-  Add-dbtenv
-}
-Else{
-  if ((Read-Host -Prompt "Update .dbtenv? (y/n)") -eq "y") {
-    Add-dbtenv
-  }
-  Else {
-    iex $dbtEnv_path"/Scripts/activate.ps1"
-  }
-}
+
 
 iex $dbtEnv_path"/Scripts/activate.ps1"
 dbt deps
@@ -107,4 +108,10 @@ Remove-Item -Path Env:https_proxy
 $env:ORA_PYTHON_DRIVER_TYPE = "thin"
 echo "ORA_PYTHON_DRIVER_TYPE: $env:ORA_PYTHON_DRIVER_TYPE"
 
-code .
+$git_repo_detected = Test-Path -Path $dbtPath"\.git"
+
+if ($git_repo_detected) {
+    code .
+} else {
+    code ..
+}
