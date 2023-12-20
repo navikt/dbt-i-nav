@@ -88,7 +88,7 @@ Else{
   }
 }
 
-
+iex $dbtEnv_path"/Scripts/activate.ps1"
 dbt deps
 
 # midlertidig fiks for thin client fra utviklerimage
