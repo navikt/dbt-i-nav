@@ -24,22 +24,39 @@ Installeres via VS Code Marketplace, følg installasjonsrutinene til [Altimate](
 
 dbt Power User krever at man setter opp **miljøvariabler** med credentials via PowerShell, **før** VS Code startes opp i samme PowerShell-sesjon.
 
-Eksempel på hvordan man kan sette opp miljøvariabler i forkant via PowerShell:
+Det finnes et skript [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1) i dette repoet som setter opp miljøvariable, oppretter ptyhon miljø hvis det ikke finnes fra før, og starter Visual Studtio Code som forenkler denne prosessen.
 
-1. Lukk eventuelle eksisterende sesjoner av VS Code
-2. Start PowerShell i dbt-mappen i aktuelt dbt-prosjekt. Trykk på dbt-mappen, hold deretter inne Shift-tasten og høyreklikk på mappen. Velg `Åpne PowerShell-vindu her` (eller tilsvarende tekst på engelsk om du er litt mer internasjonal)
+Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. F.eks.:
 
-    ![Åpne mappe i Powershell](vscode/aapne_i_powershell.png)
+```shell
+start_vscode_dbt.ps1 c:\sti\til\dbt-prosjekt\ skjemanavn
+```
 
-3. Kjør `.\setup_dbt_env.ps1` + enter i PowerShell-vinduet som åpnet seg (skriv setup + trykk på TAB for auto-complete)
+(Her må `\c:\sti\til\dbt-prosjekt\` peke på mappen som inneholder `dbt_project.yml`)
 
-    ![Kjør .\setup_dbt_env](vscode/setup_dbt_env.png)
+Ideen er at man kan legge skriptet et sted på utviklerimage, f.eks. `c:\datavarehus\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.
 
-4. Start VS Code fra samme PowerShell-vindu som `.\setup_dbt_env.ps1` ble kjørt i, `code .` + enter
+For slikt oppsett, gjør følgende:
 
-    ![Start VS Code](vscode/start_vscode.png)
+1. Høyreklikk - hold - dra over skrivebordet - slipp. Velg `Lag snarveier her`.
 
-(Espen jobber med et PowerShell script som skal gjøre denne operasjonen enklere)
+    ![Lag snarvei](vscode/lag_snarvei.png)
+
+2. Høyreklikk på den nye snarveien og velg `Egenskaper`
+
+    ![Høyreklikk](vscode/egenskaper.png)
+
+3. Fyll inn følgende tekst i `Mål`: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -ExecutionPolicy Bypass -File "C:\datavarehus\start_vscode_dbt.ps1" c:\sti\til\dbt-prosjekt\  skjemanavn`
+
+    ![Mål](vscode/maal.png)
+
+4. Endre navn på snarvei til noe mer passende:
+    
+    ![Endre navn](vscode/endre_navn.png)
+
+
+
+##### Oracle oppsett for Preview query
 
 **Preview query**-template må endres for Oracle-bruk:  
 1. Åpne Settings ved å trykke `CTRL + ,`
