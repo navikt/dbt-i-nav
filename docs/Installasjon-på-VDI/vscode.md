@@ -29,10 +29,10 @@ Det finnes et skript [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/
 Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. F.eks.:
 
 ```shell
-start_vscode_dbt.ps1 c:\sti\til\dbt-prosjekt\ skjemanavn
+start_vscode_dbt.ps1 c:\\sti\\til\\dbt-prosjekt\\ skjemanavn
 ```
 
-(Her må `\c:\sti\til\dbt-prosjekt\` peke på mappen som inneholder `dbt_project.yml`)
+(Her må `c:\sti\til\dbt-prosjekt\` peke på mappen som inneholder `dbt_project.yml`)
 
 Ideen er at man kan legge skriptet et faststed på utviklerimage: `c:\dbt\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.
 
