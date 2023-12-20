@@ -24,7 +24,7 @@ Installeres via VS Code Marketplace, følg installasjonsrutinene til [Altimate](
 
 dbt Power User krever at man setter opp **miljøvariabler** med credentials via PowerShell, **før** VS Code startes opp i samme PowerShell-sesjon.
 
-Det finnes et skript [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1) i dette repoet som setter opp miljøvariable, oppretter ptyhon miljø hvis det ikke finnes fra før, og starter Visual Studtio Code som forenkler denne prosessen.
+Det finnes et skript [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1) i dette repoet som setter opp miljøvariable, oppretter python miljø hvis det ikke finnes fra før, og starter Visual Studtio Code som forenkler denne prosessen.
 
 Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. F.eks.:
 
@@ -34,7 +34,7 @@ start_vscode_dbt.ps1 c:\sti\til\dbt-prosjekt\ skjemanavn
 
 (Her må `\c:\sti\til\dbt-prosjekt\` peke på mappen som inneholder `dbt_project.yml`)
 
-Ideen er at man kan legge skriptet et sted på utviklerimage, f.eks. `c:\datavarehus\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.
+Ideen er at man kan legge skriptet et faststed på utviklerimage: `c:\dbt\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.
 
 For slikt oppsett, gjør følgende per komponent/dbt prosjekt du har:
 
@@ -46,7 +46,7 @@ For slikt oppsett, gjør følgende per komponent/dbt prosjekt du har:
 
     ![Høyreklikk](vscode/egenskaper.png)
 
-3. Fyll inn følgende tekst i `Mål`: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -ExecutionPolicy Bypass -File "C:\datavarehus\start_vscode_dbt.ps1" c:\sti\til\dbt-prosjekt\  skjemanavn`
+3. Fyll inn følgende tekst i `Mål`: `powershell.exe -noexit -ExecutionPolicy Bypass -File "C:\dbt\start_vscode_dbt.ps1" c:\sti\til\dbt-prosjekt\  databaseskjemanavn`
 
     ![Mål](vscode/maal.png)
 
