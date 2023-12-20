@@ -1395,9 +1395,9 @@
 <p>dbt Power User krever at man setter opp <strong>miljøvariabler</strong> med credentials via PowerShell, <strong>før</strong> VS Code startes opp i samme PowerShell-sesjon.</p>
 <p>Det finnes et skript <a href="https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1">start_vscode_dbt.ps1</a> i dette repoet som setter opp miljøvariable, oppretter python miljø hvis det ikke finnes fra før, og starter Visual Studtio Code som forenkler denne prosessen.</p>
 <p>Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. F.eks.:</p>
-<div class="highlight"><pre><span></span><code>start_vscode_dbt.ps1<span class="w"> </span>c:<span class="se">\s</span>ti<span class="se">\t</span>il<span class="se">\d</span>bt-prosjekt<span class="se">\ </span>skjemanavn
+<div class="highlight"><pre><span></span><code>start_vscode_dbt.ps1<span class="w"> </span>c:<span class="se">\\</span>sti<span class="se">\\</span>til<span class="se">\\</span>dbt-prosjekt<span class="se">\\</span><span class="w"> </span>skjemanavn
 </code></pre></div>
-<p>(Her må <code>\c:\sti\til\dbt-prosjekt\</code> peke på mappen som inneholder <code>dbt_project.yml</code>)</p>
+<p>(Her må <code>c:\sti\til\dbt-prosjekt\</code> peke på mappen som inneholder <code>dbt_project.yml</code>)</p>
 <p>Ideen er at man kan legge skriptet et faststed på utviklerimage: <code>c:\dbt\start_vscode_dbt.ps1</code>, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.</p>
 <p>For slikt oppsett, gjør følgende per komponent/dbt prosjekt du har:</p>
 <ol>
