@@ -34,7 +34,7 @@ start_vscode_dbt.ps1 c:\sti\til\dbt-prosjekt\ skjemanavn
 
 (Her må `c:\sti\til\dbt-prosjekt\` peke på mappen som inneholder `dbt_project.yml`)
 
-Ideen er at man kan legge skriptet et faststed på utviklerimage: `c:\dbt\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk.
+Ideen er at man kan legge skriptet i en mappe i utviklerimage, feks: `c:\dbt\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk. .dbtenv legger seg i samme mappe som skriptet.
 
 For slikt oppsett, gjør følgende per komponent/dbt prosjekt du har:
 
