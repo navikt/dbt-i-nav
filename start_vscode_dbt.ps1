@@ -1,5 +1,5 @@
 # Path to wher you would like to place the python virtual env
-$dbtEnv_path = "C:\dbt\.dbtenv"
+$dbtEnv_path = ".dbtenv"
 
  
 
