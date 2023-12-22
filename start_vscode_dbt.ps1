@@ -97,10 +97,6 @@ $env:DBT_ENV_SECRET_PASS = $creds.GetNetworkCredential().password
 
 
 
-
-
-
-iex $dbtEnv_path"/Scripts/activate.ps1"
 dbt deps
 
 # midlertidig fiks for thin client fra utviklerimage
