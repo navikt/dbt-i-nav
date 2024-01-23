@@ -22,37 +22,26 @@ Installeres via VS Code Marketplace, følg installasjonsrutinene til [Altimate](
 
 ##### Utover standardinstallasjon må følgende hensyn tas for bruk på VDI Utvikler og mot Oracle DVH:
 
-dbt Power User krever at man setter opp **miljøvariabler** med credentials via PowerShell, **før** VS Code startes opp i samme PowerShell-sesjon.
+dbt Power User krever at man setter opp **miljøvariabler** med credentials via PowerShell, **før** VS Code startes opp i samme PowerShell-sesjon. Dette gjøre med skriptet [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1)
 
-Det finnes et skript [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1) i dette repoet som setter opp miljøvariable, oppretter python miljø hvis det ikke finnes fra før, og starter Visual Studtio Code som forenkler denne prosessen.
+Følg denne guiden for å sette opp Visual Studio Code med riktige miljøvariable:
 
-Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. F.eks.:
+1. Klon dette repoet: https://github.com/navikt/dbt-i-nav/ til en lokal mappe på utivklerimage/VDI
 
-```powershell
-start_vscode_dbt.ps1 c:\sti\til\dbt-prosjekt\ skjemanavn
-```
-
-(Her må `c:\sti\til\dbt-prosjekt\` peke på mappen som inneholder `dbt_project.yml`)
-
-Ideen er at man kan legge skriptet i en mappe i utviklerimage, feks: `c:\dbt\start_vscode_dbt.ps1`, og lage snarveier på skrivebordet til hvert av prosjektene, slik at miljøet for hvert prosjekt kan startes opp med et dobbeltklikk. .dbtenv legger seg i samme mappe som skriptet.
-
-For slikt oppsett, gjør følgende per komponent/dbt prosjekt du har:
-
-1. Høyreklikk - hold - dra over skrivebordet - slipp. Velg `Lag snarveier her`.
-
+2. Lag en snarvei på skrivebordet til [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1) som nå ligger lokalt på VDI (inne i mappen du nettopp klonet) slik:
     ![Lag snarvei](vscode/lag_snarvei.png)
 
-2. Høyreklikk på den nye snarveien og velg `Egenskaper`
-
+3. Høyreklikk på den nye snarveien og velg `Egenskaper`
     ![Høyreklikk](vscode/egenskaper.png)
 
-3. Fyll inn følgende tekst i `Mål`: `powershell.exe -noexit -ExecutionPolicy Bypass -File "C:\dbt\start_vscode_dbt.ps1" c:\sti\til\dbt-prosjekt\  databaseskjemanavn`
-
+4. Skriptet er generelt og krever at stien til et gyldig dbt-prosjekt settes som argument i tillegg til schemanavnet dbt skal bruke som proxy. Fyll derfor inn følgende tekst i `Mål`: `powershell.exe -noexit -ExecutionPolicy Bypass -File "C:\sti til dbt-i-nav\start_vscode_dbt.ps1" c:\sti\til\dbt-prosjekt\  databaseskjemanavn` og juster i forhold til stiene på ditt image.
     ![Mål](vscode/maal.png)
 
-4. Endre navn på snarvei til noe mer passende:
-    
-    ![Endre navn](vscode/endre_navn.png)
+5. Kopier snarveien og endre stiene for hvert dbt prosjekt du vil sette opp
+
+6. Start Visual Stusdio Code ved å dobbeltklikke på snarveien.
+
+7. Det hender skriptet oppdateres, så det er lurt å hente siste kode fra github innimellom.
 
 
 
