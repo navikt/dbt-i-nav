@@ -1,4 +1,4 @@
-dvh_arb_reg:
+"fyll inn profiles-navn fra dbt_project.yml":
   target: "{{env_var('DBT_DB_TARGET')}}"
   outputs:
     U:
