@@ -1,4 +1,4 @@
 dbt-oracle==1.7.1
-dbt-core==1.7.4
+dbt-core==1.7.7
 sqlfluff==2.3.5
 sqlfluff-templater-dbt==2.3.5
