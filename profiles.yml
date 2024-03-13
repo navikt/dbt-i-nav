@@ -6,9 +6,9 @@
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: dm07-scan.adeo.no
+      host: dmv07-scan.adeo.no
       port: 1521
-      service: dwhu1
+      service: ccdwhu1_ha
       database: dwhu1
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 10
