@@ -274,3 +274,34 @@ models:
 
 * Ved inklusjon av Jinja kode bruk mellomrom på iden av klammene `{{ slik }}` istedefor `{{slik}}`
 * Bruk ny linje for å dele opp logik i Jinja blokker
+
+
+### Farger i lineage
+
+I lineagen får source-blobber en lys grønn farge, mens alt annet blir lys blå.
+I `.yml`-filene kan dette endres med `node_color`-attributten under `+docs` til en modell eller en mappe.
+For å skille enklere mellom staging, intermediate og marts har vi valgt følgende som en standard, men dette kan du endre som du vil:
+
+
+<File name='dbt_project.yml'>
+
+```yml
+# i dbt_project.yml
+version: 2
+
+models:
+  ...
+    staging:
+      +docs:
+        node_color: '#054710' # mørk grønn farge
+
+    intermediate:
+      +docs:
+        node_color: '#0E4870' # mørk blå farge
+
+    marts: # standard dbt-lyseblå-farge
+    ...
+```
+
+`node_color`-attributten støtter både fargenavn (`red`) og hex-koder med anførselstegn (`"#cd7f32"`).
+Se https://docs.getdbt.com/reference/resource-configs/docs for mer informasjon.
