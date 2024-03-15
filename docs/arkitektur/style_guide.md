@@ -276,19 +276,15 @@ models:
 * Bruk ny linje for å dele opp logik i Jinja blokker
 
 
-### Farger i lineage
+## Farger i lineage
 
 I lineagen får source-blobber en lys grønn farge, mens alt annet blir lys blå.
 I `.yml`-filene kan dette endres med `node_color`-attributten under `+docs` til en modell eller en mappe.
 For å skille enklere mellom staging, intermediate og marts har vi valgt følgende som en standard, men dette kan du endre som du vil:
 
 
-<File name='dbt_project.yml'>
-
-```yml
+```yaml
 # i dbt_project.yml
-version: 2
-
 models:
   ...
     staging:
