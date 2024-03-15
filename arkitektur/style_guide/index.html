@@ -868,20 +868,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jinja stil guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#farger-i-lineage" class="md-nav__link">
     <span class="md-ellipsis">
       Farger i lineage
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1430,20 +1424,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jinja stil guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#farger-i-lineage" class="md-nav__link">
     <span class="md-ellipsis">
       Farger i lineage
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1724,26 +1712,23 @@
 <li>Ved inklusjon av Jinja kode bruk mellomrom på iden av klammene <code>{{ slik }}</code> istedefor <code>{{slik}}</code></li>
 <li>Bruk ny linje for å dele opp logik i Jinja blokker</li>
 </ul>
-<h3 id="farger-i-lineage">Farger i lineage<a class="headerlink" href="#farger-i-lineage" title="Permanent link">&para;</a></h3>
+<h2 id="farger-i-lineage">Farger i lineage<a class="headerlink" href="#farger-i-lineage" title="Permanent link">&para;</a></h2>
 <p>I lineagen får source-blobber en lys grønn farge, mens alt annet blir lys blå.
 I <code>.yml</code>-filene kan dette endres med <code>node_color</code>-attributten under <code>+docs</code> til en modell eller en mappe.
 For å skille enklere mellom staging, intermediate og marts har vi valgt følgende som en standard, men dette kan du endre som du vil:</p>
-<p><File name='dbt_project.yml'></p>
-<div class="highlight"><pre><span></span><code># i dbt_project.yml
-version: 2
+<div class="highlight"><pre><span></span><code><span class="c1"># i dbt_project.yml</span>
+<span class="nt">models</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">staging</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="nt">+docs</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">node_color</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#054710&#39;</span><span class="w"> </span><span class="c1"># mørk grønn farge</span>
 
-models:
-  ...
-    staging:
-      +docs:
-        node_color: &#39;#054710&#39; # mørk grønn farge
+<span class="w">  </span><span class="w w-Error">  </span><span class="nt">intermediate</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">+docs</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">node_color</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#0E4870&#39;</span><span class="w"> </span><span class="c1"># mørk blå farge</span>
 
-    intermediate:
-      +docs:
-        node_color: &#39;#0E4870&#39; # mørk blå farge
-
-    marts: # standard dbt-lyseblå-farge
-    ...
+<span class="w">    </span><span class="nt">marts</span><span class="p">:</span><span class="w"> </span><span class="c1"># standard dbt-lyseblå-farge</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <p><code>node_color</code>-attributten støtter både fargenavn (<code>red</code>) og hex-koder med anførselstegn (<code>"#cd7f32"</code>).
 Se https://docs.getdbt.com/reference/resource-configs/docs for mer informasjon.</p>
