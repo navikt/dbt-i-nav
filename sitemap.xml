@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/dbt-power-user/</loc>
+         <lastmod>2024-04-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/dbt/</loc>
          <lastmod>2024-04-04</lastmod>
          <changefreq>daily</changefreq>
