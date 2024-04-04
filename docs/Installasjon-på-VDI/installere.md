@@ -6,7 +6,7 @@ For å installere dbt må du ha følgende installert:
 
 - [Python 3.10.x](python.md)
 - [PIP og oppsett av dbt-miljø](pip-og-oppsett.md)
-- [GIT / GitHub Desktop](git.md)
+- [Git / GitHub Desktop](git.md)
 - [Oracle client library](oracle-client-library.md)
 
 ## Anbefalinger
