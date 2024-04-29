@@ -1,5 +1,9 @@
 # DBT
 
+## Oppsett av dbt prosjekter
+Vi har laget et ferdig [oppsett](https://github.com/navikt/dvh_template/tree/dbt_template) av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på [dvh_template](https://github.com/navikt/dvh_template) eller [amd_template](https://github.com/navikt/dvh_template/tree/amd_template) avhengig av preferanse for komponentoppsett på github. Deretter må [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template) merges inn for å få integrert dbt prosjektet.
+
+
 Det finnes en offisiell [oracle adapter](https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile) for dbt v1.x. Gjerne start med å ta en titt på denne installasjonsguiden først.
 
 ## Installasjon

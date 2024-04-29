@@ -6,8 +6,16 @@ Sjekk om Python er installert med `py --version`. dbt-versjon 1.4 og senere stø
 
 Last eventuelt ned python [3.11.x](https://www.python.org/downloads/) og installer ved å følge installsjonsveiviseren.
 
+Gå til Windows "Ledetekst"/"Command prompt" og skriv følgende.
+
 ```shell
 py --version
+```
+
+Hvis py ikke fungerer, kan det hende at det heter python:
+
+```shell
+python --version
 ```
 
 !!! success

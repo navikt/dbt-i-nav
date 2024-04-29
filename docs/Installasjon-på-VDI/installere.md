@@ -1,8 +1,16 @@
-# Installere DBT på VDI
+# Installere dbt-oracle på VDI
 
 ## Forutsetninger
 
-For å installere dbt må du ha følgende installert:
+For å kunne utvikle dbt mot oracle må man ha tilgang til utviklerimage som er et VDI som kjører i i NAV datahall. Dette er for å kunne få kontakt med Oracle databaser. Du må også har fått en eller felere databasebrukere og det er nyttig å kunne koble seg opp mot databasene med SQL Developer. Se følgende lenker:
+
+- [Utviklerimage](https://confluence.adeo.no/x/LCQSF)
+- [SQL Developer med databasebruker](https://confluence.adeo.no/x/pIzzFg)
+
+
+## Installasjon av dbt-oracle
+
+For å installere dbt-core for Oracle må du installere følgende:
 
 - [Python 3.11.x](python.md)
 - [PIP og oppsett av dbt-miljø](pip-og-oppsett.md)
