@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
     
     
       
-        <title>PIP og oppsett av python med dbt - dbt i NAV</title>
+        <title>PIP og og tilgang til PyPI - dbt i NAV</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pip-og-oppsett-av-python-med-dbt" class="md-skip">
+        <a href="#pip-og-og-tilgang-til-pypi" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PIP og oppsett av python med dbt
+              PIP og og tilgang til PyPI
             
           </span>
         </div>
@@ -324,7 +324,7 @@
         
   
   <span class="md-ellipsis">
-    Installere DBT på VDI
+    Installere dbt-oracle på VDI
   </span>
   
 
@@ -422,7 +422,7 @@
           
   
   <span class="md-ellipsis">
-    PIP og oppsett av python med dbt
+    PIP og og tilgang til PyPI
   </span>
   
 
@@ -433,7 +433,7 @@
         
   
   <span class="md-ellipsis">
-    PIP og oppsett av python med dbt
+    PIP og og tilgang til PyPI
   </span>
   
 
@@ -458,15 +458,6 @@
   <a href="#feilsk-sjekk-om-du-har-pip" class="md-nav__link">
     <span class="md-ellipsis">
       Feilsøk: Sjekk om du har PIP
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Oppsett av sertifikater til pip
     </span>
   </a>
   
@@ -1222,15 +1213,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Oppsett av sertifikater til pip
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1249,11 +1231,9 @@
   
 
 
-<h1 id="pip-og-oppsett-av-python-med-dbt">PIP og oppsett av python med dbt<a class="headerlink" href="#pip-og-oppsett-av-python-med-dbt" title="Permanent link">&para;</a></h1>
-<p>Vi har laget et ferdig <a href="https://github.com/navikt/dvh_template/tree/dbt_template">oppsett</a> av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på <a href="https://github.com/navikt/dvh_template">dvh_template</a> eller <a href="https://github.com/navikt/dvh_template/tree/amd_template">amd_template</a> avhengig av preferanse for komponentoppsett på github. Deretter må <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a> merges inn for å få integrert dbt prosjektet.</p>
-<p>Følgende script (også på <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1">github</a>) installerer et virtuelt python miljø kun for dette prosjektet. 
+<h1 id="pip-og-og-tilgang-til-pypi">PIP og og tilgang til PyPI<a class="headerlink" href="#pip-og-og-tilgang-til-pypi" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="feilsk-sjekk-om-du-har-pip">Feilsøk: Sjekk om du har PIP<a class="headerlink" href="#feilsk-sjekk-om-du-har-pip" title="Permanent link">&para;</a></h2>
 <p>Har du installert python, så har du nesten sikkert også pip.
 Men dersom overstående feiler, kjør <code>pip --version</code> for å se om pip er tilgjengelig:</p>
@@ -1275,11 +1255,11 @@ pip<span class="w"> </span><span class="m">21</span>.1.1<span class="w"> </span>
 </code></pre></div>
 <p>Kjør <code>py -3 -m ensurepip</code> for å se om pip allerede eksisterer.</p>
 <div class="highlight"><pre><span></span><code>Looking<span class="w"> </span><span class="k">in</span><span class="w"> </span>links:<span class="w"> </span>c:<span class="se">\U</span>sers<span class="se">\*</span>***<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp<span class="se">\t</span>mp4r6s0n91
-Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>setuptools<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">58</span>.1.0<span class="o">)</span>
-Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>pip<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">21</span>.2.4<span class="o">)</span>
+Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>setuptools<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ythonXX<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">58</span>.1.0<span class="o">)</span>
+Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>pip<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ythonXX<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">21</span>.2.4<span class="o">)</span>
 </code></pre></div>
 <p>I dette tilfelle må miljøvariabelen <code>PATH</code> oppdateres. Bruk gjerne <code>Fil utforsker</code> for å finne riktig path men normalt ligger PIP under:</p>
-<div class="highlight"><pre><span></span><code>c:<span class="se">\u</span>sers<span class="se">\&lt;</span>brukernavn&gt;<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\s</span>cripts
+<div class="highlight"><pre><span></span><code>c:<span class="se">\u</span>sers<span class="se">\&lt;</span>brukernavn&gt;<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ythonXX<span class="se">\s</span>cripts
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1287,27 +1267,6 @@ Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<spa
 </div>
 <p>Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre <code>pip --version</code>.</p>
 </div>
-<h2 id="oppsett-av-sertifikater-til-pip">Oppsett av sertifikater til pip<a class="headerlink" href="#oppsett-av-sertifikater-til-pip" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Dette steget skjer automatisk under kjøring av <a href="https://github.com/navikt/dvh_template/blob/dbt_template/dbt/setup_python_env.ps1">setup_python_env.ps1</a> og er ikke lenger nødvendig.</p>
-</div>
-<p>Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
-pakker fra riktig server. Siden VDI bruker en webproxy for å
-kommunisere med omverdenen vill vi få en feilmeling ved <code>pip install xxx</code>.</p>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<div class="highlight"><pre><span></span><code><span class="m">13</span>:42:24<span class="w">  </span>Encountered<span class="w"> </span>an<span class="w"> </span>error:<span class="w"> </span>External<span class="w"> </span>connection<span class="w"> </span>exception<span class="w"> </span>occurred:
-HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">&#39;hub.getdbt.com&#39;</span>,<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">443</span><span class="o">)</span>:<span class="w"> </span>Max<span class="w"> </span>retries<span class="w"> </span>exceeded
-with<span class="w"> </span>url:<span class="w"> </span>/api/v1/index.json<span class="w"> </span><span class="o">(</span>Caused<span class="w"> </span>by<span class="w"> </span>SSLError<span class="o">(</span>SSLCertVerificationError<span class="o">(</span><span class="m">1</span>,
-<span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get</span>
-<span class="s1">local issuer certificate (_ssl.c:1108)&#39;</span><span class="o">)))</span>
-</code></pre></div>
-</div>
-<p>For å fikse feilen kan vi installere pakkene <code>setuptools-scm</code> og <code>pip-system-certs</code> som får
-pip til å bruke Windows Certificate Store istedenfor.</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>setuptools-scm<span class="w"> </span>pip-system-certs<span class="w"> </span>--trusted-host<span class="w"> </span>pypi.org<span class="w"> </span>--trusted-host<span class="w">  </span>files.pythonhosted.org
-</code></pre></div>
 
 
 
@@ -1328,7 +1287,7 @@ pip til å bruke Windows Certificate Store istedenfor.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 22, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 29, 2024</span>
   </span>
 
     
@@ -1378,7 +1337,7 @@ pip til å bruke Windows Certificate Store istedenfor.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
       
     
   </body>

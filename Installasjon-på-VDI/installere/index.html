@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
     
     
       
-        <title>Installere DBT på VDI - dbt i NAV</title>
+        <title>Installere dbt-oracle på VDI - dbt i NAV</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installere-dbt-pa-vdi" class="md-skip">
+        <a href="#installere-dbt-oracle-pa-vdi" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installere DBT på VDI
+              Installere dbt-oracle på VDI
             
           </span>
         </div>
@@ -333,7 +333,7 @@
           
   
   <span class="md-ellipsis">
-    Installere DBT på VDI
+    Installere dbt-oracle på VDI
   </span>
   
 
@@ -344,7 +344,7 @@
         
   
   <span class="md-ellipsis">
-    Installere DBT på VDI
+    Installere dbt-oracle på VDI
   </span>
   
 
@@ -369,6 +369,15 @@
   <a href="#forutsetninger" class="md-nav__link">
     <span class="md-ellipsis">
       Forutsetninger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installasjon-av-dbt-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installasjon av dbt-oracle
     </span>
   </a>
   
@@ -471,7 +480,7 @@
         
   
   <span class="md-ellipsis">
-    PIP og oppsett av python med dbt
+    PIP og og tilgang til PyPI
   </span>
   
 
@@ -1223,6 +1232,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installasjon-av-dbt-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installasjon av dbt-oracle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#anbefalinger" class="md-nav__link">
     <span class="md-ellipsis">
       Anbefalinger
@@ -1249,9 +1267,15 @@
   
 
 
-<h1 id="installere-dbt-pa-vdi">Installere DBT på VDI<a class="headerlink" href="#installere-dbt-pa-vdi" title="Permanent link">&para;</a></h1>
+<h1 id="installere-dbt-oracle-pa-vdi">Installere dbt-oracle på VDI<a class="headerlink" href="#installere-dbt-oracle-pa-vdi" title="Permanent link">&para;</a></h1>
 <h2 id="forutsetninger">Forutsetninger<a class="headerlink" href="#forutsetninger" title="Permanent link">&para;</a></h2>
-<p>For å installere dbt må du ha følgende installert:</p>
+<p>For å kunne utvikle dbt mot oracle må man ha tilgang til utviklerimage som er et VDI som kjører i i NAV datahall. Dette er for å kunne få kontakt med Oracle databaser. Du må også har fått en eller felere databasebrukere og det er nyttig å kunne koble seg opp mot databasene med SQL Developer. Se følgende lenker:</p>
+<ul>
+<li><a href="https://confluence.adeo.no/x/LCQSF">Utviklerimage</a></li>
+<li><a href="https://confluence.adeo.no/x/pIzzFg">SQL Developer med databasebruker</a></li>
+</ul>
+<h2 id="installasjon-av-dbt-oracle">Installasjon av dbt-oracle<a class="headerlink" href="#installasjon-av-dbt-oracle" title="Permanent link">&para;</a></h2>
+<p>For å installere dbt-core for Oracle må du installere følgende:</p>
 <ul>
 <li><a href="../python/">Python 3.11.x</a></li>
 <li><a href="../pip-og-oppsett/">PIP og oppsett av dbt-miljø</a></li>
@@ -1284,7 +1308,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 4, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 29, 2024</span>
   </span>
 
     
@@ -1334,7 +1358,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
       
     
   </body>
