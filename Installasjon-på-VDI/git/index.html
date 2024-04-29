@@ -1177,14 +1177,9 @@
 
 <h1 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
 <ol>
-<li>Installering av Git - har du den allerede er det flott.</li>
-<li>Denne finner du på felles disken under programvare. programvare\git. Installer f.eks Git-2.30.2-64-bit. Legg installasjon directory inn i miljøvariabel  PATH. F.eks <code>C:\Users\&lt;brukernavn&gt;\AppData\Local\GitHubDesktop\bin</code></li>
-<li>Dette steget er sannsynligvis ikke nødvendig, og utføres kun om det oppstår problemer i senere steg. Oppdatere miljøvariabler slik at utviklingsimaget kan kommunisere med Github. Dette er beskrevet i https://confluence.adeo.no/pages/viewpage.action?pageId=272519832 punkt 10c</li>
-<li>Følgende legges inn som miljø variabler</li>
-<li>https_proxy til http://webproxy-utvikler.nav.no:8088</li>
-<li>http_proxy: http://155.55.60.117:8088/</li>
-<li>no_proxy: localhost,127.0.0.1,*.adeo.no,.local,.adeo.no,.nav.no,.aetat.no,.devillo.no,.oera.no,devel</li>
-<li>Opprett et PAT (personal access token) som du må bruke som passord ved autentisering. Se https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token Alternativt kan du bruke <a href="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop">GitHub Dekstop</a> som setter dette opp for deg automatisk.</li>
+<li>Installering av Git på Utviklerimage - har du den allerede er det flott.</li>
+<li>Denne finner du på <code>F:</code> (fellesdisken) under programvare. programvare\git. Installer siste versjon ved å sortere på dato. Etter å ha fulgt installsjonsguiden (trykk på next, next, next ...) må du legge inn installasjon directory i miljøvariabel  PATH. F.eks <code>C:\Users\&lt;brukernavn&gt;\AppData\Local\GitHubDesktop\bin</code>. (Tips: <a href="../miljovariabler/">legg til miljøvariabler</a>)</li>
+<li>Følg <a href="https://confluence.adeo.no/x/xZCrF">guiden på confluence</a> og <a href="../miljovariabler/">legg til miljøvariabler</a> der det kreves.</li>
 <li>Clone repositoriet du skal jobbe med. Husk å bruke PAT opprettet i punkt 3. som passord om du ikke bruker GitHub Desktop.</li>
 </ol>
 
@@ -1207,7 +1202,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 4, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 29, 2024</span>
   </span>
 
     
