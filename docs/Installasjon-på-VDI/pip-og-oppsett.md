@@ -23,7 +23,7 @@ pip --version
     pip 21.1.1 from c:\users\*****\appdata\local\programs\python\python38\lib\site-packages\pip (python 3.8)
     ```
 
-    Fortsett til "Sett opp config fil for pip"
+    Fortsett til [Git / GitHub Desktop](git.md)
 
 !!! failure
     ```shell
