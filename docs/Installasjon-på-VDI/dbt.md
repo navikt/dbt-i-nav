@@ -1,8 +1,34 @@
 # DBT
 
-## Oppsett av dbt prosjekter
-Vi har laget et ferdig [oppsett](https://github.com/navikt/dvh_template/tree/dbt_template) av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på [dvh_template](https://github.com/navikt/dvh_template) eller [amd_template](https://github.com/navikt/dvh_template/tree/amd_template) avhengig av preferanse for komponentoppsett på github. Deretter må [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template) merges inn for å få integrert dbt prosjektet.
 
+## Oppsett av dbt prosjekter
+Vi har laget et ferdig [oppsett](https://github.com/navikt/dbt-template) av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på [dvh_template](https://github.com/navikt/dvh_template). Deretter må [dbt_template](https://github.com/navikt/dbt-template) kopieres inn for å få integrert dbt prosjektet.
+
+
+
+Resten av denne siden omhandler manuelt oppsett av dbt-oracle uten virteul. Følg denne guiden hvis du ikke ønsker automatisk oppsett i Visual Studio Code. 
+
+## Oppsett av sertifikater til pip
+
+Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
+pakker fra riktig server. Siden VDI bruker en webproxy for å
+kommunisere med omverdenen vill vi få en feilmeling ved `pip install xxx`.
+
+!!! error
+    ```shell
+    13:42:24  Encountered an error: External connection exception occurred:
+    HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded
+    with url: /api/v1/index.json (Caused by SSLError(SSLCertVerificationError(1,
+    '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get
+    local issuer certificate (_ssl.c:1108)')))
+    ```
+
+For å fikse feilen kan vi installere pakkene `setuptools-scm` og `pip-system-certs` som får
+pip til å bruke Windows Certificate Store istedenfor.
+
+```shell
+pip install setuptools-scm pip-system-certs --trusted-host pypi.org --trusted-host  files.pythonhosted.org
+```
 
 Det finnes en offisiell [oracle adapter](https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile) for dbt v1.x. Gjerne start med å ta en titt på denne installasjonsguiden først.
 
@@ -59,14 +85,7 @@ pip install dbt-oracle
     Last ned og installer Build Tools. Følg gjerne guiden her: [Fixed: Microsoft Visual C++ 14.0 Is Required Error](  https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html )    
     Husk å restarte VDI etter installasjon.
 
-## Opprette nytt dbt prosjekt for Oracle
-
-Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i repo [dvh_template](https://github.com/navikt/dvh_template) for bruk av dbt til komponentskjemaer. dbt prosjektet ligger i en egen branch [dbt_template](https://github.com/navikt/dvh_template/tree/dbt_template).
-
-
-- For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i [dbt-template](https://github.com/navikt/dbt-template/).
-- For eksisterende komponentrepoer, ta en kopi av [dbt](https://github.com/navikt/dvh_template/tree/dbt_template/dbt)  og lim inn i roten til komponentrepoet.
-
+## Opprette nytt dbt prosjekt for Oracle fra scratc
 
 Hvis du ikke ønsker å ta i bruk standardprosjektet, men heller kjøre `dbt init` er det noen ting som kan skape uforståelige feilmeldinger:
 
