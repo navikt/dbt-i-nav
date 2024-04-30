@@ -506,6 +506,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppsett av sertifikater til pip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installasjon" class="md-nav__link">
     <span class="md-ellipsis">
       Installasjon
@@ -515,13 +524,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#opprette-nytt-dbt-prosjekt-for-oracle" class="md-nav__link">
+  <a href="#opprette-nytt-dbt-prosjekt-for-oracle-fra-scratc" class="md-nav__link">
     <span class="md-ellipsis">
-      Opprette nytt dbt prosjekt for Oracle
+      Opprette nytt dbt prosjekt for Oracle fra scratc
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Opprette nytt dbt prosjekt for Oracle">
+    <nav class="md-nav" aria-label="Opprette nytt dbt prosjekt for Oracle fra scratc">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1265,6 +1274,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#oppsett-av-sertifikater-til-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppsett av sertifikater til pip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installasjon" class="md-nav__link">
     <span class="md-ellipsis">
       Installasjon
@@ -1274,13 +1292,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#opprette-nytt-dbt-prosjekt-for-oracle" class="md-nav__link">
+  <a href="#opprette-nytt-dbt-prosjekt-for-oracle-fra-scratc" class="md-nav__link">
     <span class="md-ellipsis">
-      Opprette nytt dbt prosjekt for Oracle
+      Opprette nytt dbt prosjekt for Oracle fra scratc
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Opprette nytt dbt prosjekt for Oracle">
+    <nav class="md-nav" aria-label="Opprette nytt dbt prosjekt for Oracle fra scratc">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1335,7 +1353,25 @@
 
 <h1 id="dbt">DBT<a class="headerlink" href="#dbt" title="Permanent link">&para;</a></h1>
 <h2 id="oppsett-av-dbt-prosjekter">Oppsett av dbt prosjekter<a class="headerlink" href="#oppsett-av-dbt-prosjekter" title="Permanent link">&para;</a></h2>
-<p>Vi har laget et ferdig <a href="https://github.com/navikt/dvh_template/tree/dbt_template">oppsett</a> av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på <a href="https://github.com/navikt/dvh_template">dvh_template</a> eller <a href="https://github.com/navikt/dvh_template/tree/amd_template">amd_template</a> avhengig av preferanse for komponentoppsett på github. Deretter må <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a> merges inn for å få integrert dbt prosjektet.</p>
+<p>Vi har laget et ferdig <a href="https://github.com/navikt/dbt-template">oppsett</a> av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på <a href="https://github.com/navikt/dvh_template">dvh_template</a>. Deretter må <a href="https://github.com/navikt/dbt-template">dbt_template</a> kopieres inn for å få integrert dbt prosjektet.</p>
+<p>Resten av denne siden omhandler manuelt oppsett av dbt-oracle uten virteul. Følg denne guiden hvis du ikke ønsker automatisk oppsett i Visual Studio Code. </p>
+<h2 id="oppsett-av-sertifikater-til-pip">Oppsett av sertifikater til pip<a class="headerlink" href="#oppsett-av-sertifikater-til-pip" title="Permanent link">&para;</a></h2>
+<p>Til vanlig bruker pip sitt eget sertifikat for å validere at vi laster ned
+pakker fra riktig server. Siden VDI bruker en webproxy for å
+kommunisere med omverdenen vill vi få en feilmeling ved <code>pip install xxx</code>.</p>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<div class="highlight"><pre><span></span><code><span class="m">13</span>:42:24<span class="w">  </span>Encountered<span class="w"> </span>an<span class="w"> </span>error:<span class="w"> </span>External<span class="w"> </span>connection<span class="w"> </span>exception<span class="w"> </span>occurred:
+HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">&#39;hub.getdbt.com&#39;</span>,<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">443</span><span class="o">)</span>:<span class="w"> </span>Max<span class="w"> </span>retries<span class="w"> </span>exceeded
+with<span class="w"> </span>url:<span class="w"> </span>/api/v1/index.json<span class="w"> </span><span class="o">(</span>Caused<span class="w"> </span>by<span class="w"> </span>SSLError<span class="o">(</span>SSLCertVerificationError<span class="o">(</span><span class="m">1</span>,
+<span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get</span>
+<span class="s1">local issuer certificate (_ssl.c:1108)&#39;</span><span class="o">)))</span>
+</code></pre></div>
+</div>
+<p>For å fikse feilen kan vi installere pakkene <code>setuptools-scm</code> og <code>pip-system-certs</code> som får
+pip til å bruke Windows Certificate Store istedenfor.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>setuptools-scm<span class="w"> </span>pip-system-certs<span class="w"> </span>--trusted-host<span class="w"> </span>pypi.org<span class="w"> </span>--trusted-host<span class="w">  </span>files.pythonhosted.org
+</code></pre></div>
 <p>Det finnes en offisiell <a href="https://docs.getdbt.com/reference/warehouse-profiles/oracle-profile">oracle adapter</a> for dbt v1.x. Gjerne start med å ta en titt på denne installasjonsguiden først.</p>
 <h2 id="installasjon">Installasjon<a class="headerlink" href="#installasjon" title="Permanent link">&para;</a></h2>
 <p>dbt kan installeres sammen med oracle adapteren med kommandoen:</p>
@@ -1383,12 +1419,7 @@ ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> <
 Last ned og installer Build Tools. Følg gjerne guiden her: <a href="https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html">Fixed: Microsoft Visual C++ 14.0 Is Required Error</a>  <br />
 Husk å restarte VDI etter installasjon.</p>
 </div>
-<h2 id="opprette-nytt-dbt-prosjekt-for-oracle">Opprette nytt dbt prosjekt for Oracle<a class="headerlink" href="#opprette-nytt-dbt-prosjekt-for-oracle" title="Permanent link">&para;</a></h2>
-<p>Oppsettet av nytt prosjekt er forenklet og tilpasset datavarehus. Det er laget eksempelprosjekt i repo <a href="https://github.com/navikt/dvh_template">dvh_template</a> for bruk av dbt til komponentskjemaer. dbt prosjektet ligger i en egen branch <a href="https://github.com/navikt/dvh_template/tree/dbt_template">dbt_template</a>.</p>
-<ul>
-<li>For nye komponenter er det bare å opprette nytt github repo med utgangspunkt i <a href="https://github.com/navikt/dbt-template/">dbt-template</a>.</li>
-<li>For eksisterende komponentrepoer, ta en kopi av <a href="https://github.com/navikt/dvh_template/tree/dbt_template/dbt">dbt</a>  og lim inn i roten til komponentrepoet.</li>
-</ul>
+<h2 id="opprette-nytt-dbt-prosjekt-for-oracle-fra-scratc">Opprette nytt dbt prosjekt for Oracle fra scratc<a class="headerlink" href="#opprette-nytt-dbt-prosjekt-for-oracle-fra-scratc" title="Permanent link">&para;</a></h2>
 <p>Hvis du ikke ønsker å ta i bruk standardprosjektet, men heller kjøre <code>dbt init</code> er det noen ting som kan skape uforståelige feilmeldinger:</p>
 <h3 id="quoting">Quoting<a class="headerlink" href="#quoting" title="Permanent link">&para;</a></h3>
 <p>Quoting av databasenavn må aktiveres i <code>dbt_project.yml</code> siden databasenenavnene til dvh-databasene er med små bokstaver (eks. dwhu1). Hvis ikke dette gjøres kommer det feilmeling som sier noe slikt som <code>approximate match</code></p>
@@ -1502,7 +1533,7 @@ https://docs.getdbt.com/docs/configure-your-profile
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 29, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2024</span>
   </span>
 
     
