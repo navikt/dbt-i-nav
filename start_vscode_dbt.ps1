@@ -77,7 +77,7 @@ if ($dbt_project_file) {
 
 
 $env:DBT_PROFILES_DIR = $dbtPath
-
+$env:DBT_PROJECT_DIR = $dbtPath
 
 
 
