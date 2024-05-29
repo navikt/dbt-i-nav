@@ -89,7 +89,9 @@ $target = $target.ToUpper()
 #Database creds
 $creds = Get-Credential
 $username = $creds.Username
-$username += "[$schema]"
+If ($username.ToUpper() -ne $schema.ToUpper()) {
+	$username += "[$schema]"
+}
 
 $env:DBT_DB_SCHEMA = $schema
 $env:DBT_DB_TARGET = $target
