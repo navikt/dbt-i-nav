@@ -20,7 +20,7 @@
       host: "{{env_var('DBT_DB_DSN', 'dm07-scan.adeo.no')}}"
       port: 1521
       service: dwhr
-      database: dwhr
+      database: dwhpr
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 10
     Q:
@@ -42,8 +42,6 @@
       host: "{{env_var('DBT_DB_DSN', 'dm08-scan.adeo.no')}}"
       port: 1521
       service: dwh_ha
-      database: dwh_ha
+      database: dwhpr
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 10
-config:
-  send_anonymous_usage_stats: False
