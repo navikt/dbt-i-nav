@@ -47,8 +47,8 @@ if ($args[1]) {
     $schema = $args[1].ToUpper()
     Write-Host "Setting schema to: $schema"
   } else {
-    Write-Host "Missing schema. Pass schema as second argument this script."
-    exit
+    Write-Host "Missing schema. Assuming self-proxy."
+    # exit
   }
 
 
@@ -88,7 +88,7 @@ $target = $target.ToUpper()
 #Database creds
 $creds = Get-Credential
 $username = $creds.Username
-If ($username.ToUpper() -ne $schema.ToUpper()) {
+If ($schema) {
 	$username += "[$schema]"
 }
 
