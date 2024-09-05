@@ -18,4 +18,4 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org) and [material]
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
-When creating a new site you need to add it under `nav` in `mkdocs.yml`. See [doc](https://www.mkdocs.org/user-guide/configuration/#nav) for more info.
+When creating a new site you need to add it under `nav` in `mkdocs.yml`. See [doc](https://www.mkdocs.org/user-guide/configuration/#nav) for more info.XYZ
