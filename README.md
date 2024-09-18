@@ -4,8 +4,27 @@ The documentation is hosted in [navikt.github.io/dbt-i-nav](https://navikt.githu
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org) and [material](https://squidfunk.github.io/mkdocs-material/).
 
+## Installation
+
+### Requirements
+
+* python v3
+
+### macOS / Linux
+
+```shell
+make
+```
+
+### Windows
+
+```shell
+pip install -r requirements-doc.txt
+```
+
 ## Commands
 
+* `source .venv/bin/activate` - Activates venv on macOS / Linux
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
