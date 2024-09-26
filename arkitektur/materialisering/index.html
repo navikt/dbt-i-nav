@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/prosjekter/dvh_arb_cv/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/arkitektur/materialisering/">
       
       
-        <link rel="prev" href="../../feilsoking/feilsoking/">
+        <link rel="prev" href="../../Installasjon-p%C3%A5-VDI/miljovariabler/">
       
       
-        <link rel="next" href="../dvh_arb_permittering/">
+        <link rel="next" href="../style_guide/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>dvh_arb_cv - dbt i NAV</title>
+        <title>Materialiseringsstrategier - dbt i NAV</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dvh_arb_cv" class="md-skip">
+        <a href="#materialiseringsstrategier" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              dvh_arb_cv
+              Materialiseringsstrategier
             
           </span>
         </div>
@@ -670,8 +670,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -682,13 +684,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -702,7 +702,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Arkitektur
@@ -713,10 +713,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../arkitektur/materialisering/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -725,6 +734,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -737,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../arkitektur/style_guide/" class="md-nav__link">
+      <a href="../style_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -923,10 +933,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -945,11 +953,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -963,7 +973,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Prosjekter som bruker dbt
@@ -974,30 +984,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    dvh_arb_cv
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../prosjekter/dvh_arb_cv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,44 +996,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#formal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Formål
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dokumentasjon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dokumentasjon
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1056,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dvh_arb_permittering/" class="md-nav__link">
+      <a href="../../prosjekter/dvh_arb_permittering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1077,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dvh_arb_person/" class="md-nav__link">
+      <a href="../../prosjekter/dvh_arb_person/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1098,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dvh_arb_styrke_ssb/" class="md-nav__link">
+      <a href="../../prosjekter/dvh_arb_styrke_ssb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1119,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dvh-sykefravar-dmx/" class="md-nav__link">
+      <a href="../../prosjekter/dvh-sykefravar-dmx/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1181,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nystol/vdl-regnskapsdata/" class="md-nav__link">
+      <a href="../../prosjekter/nystol/vdl-regnskapsdata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1230,32 +1182,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#formal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Formål
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dokumentasjon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dokumentasjon
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1272,22 +1198,19 @@
   
 
 
-<h1 id="dvh_arb_cv">dvh_arb_cv<a class="headerlink" href="#dvh_arb_cv" title="Permanent link">&para;</a></h1>
-<p>Eies av <a href="https://teamkatalog.nav.no/team/d7936d5d-26d7-455a-b96c-fdc6bdcd80c2">A-Team</a></p>
-<hr />
-<h2 id="formal">Formål<a class="headerlink" href="#formal" title="Permanent link">&para;</a></h2>
-<p>Siste versjon av CV-elementer og jobbønsker per person registrert arbeidssøker NAV.</p>
-<h2 id="dokumentasjon">Dokumentasjon<a class="headerlink" href="#dokumentasjon" title="Permanent link">&para;</a></h2>
-<ul>
-<li>dbt: <a href="https://laughing-carnival-d6ceecb1.pages.github.io/#!/overview">dvh_arb_cv</a></li>
-<li>GitHub: <a href="https://github.com/navikt/dvh_arb_cv">navikt/dvh_arb_cv</a></li>
-<li>Confluence:<ul>
-<li><a href="https://confluence.adeo.no/display/DVH/dvh_arb_cv+-+data+fra+Arbeidsplassen.no+-+CV">dvh_arb_cv - data fra Arbeidsplassen.no - CV</a></li>
-</ul>
-</li>
-</ul>
-<hr />
-<p>slack: <a href="https://nav-it.slack.com/archives/C8XSXBF3P">#dv-a-team</a></p>
+<h1 id="materialiseringsstrategier">Materialiseringsstrategier<a class="headerlink" href="#materialiseringsstrategier" title="Permanent link">&para;</a></h1>
+<p><a href="https://docs.getdbt.com/docs/build/materializations">Hva er materialiseringer i dbt?</a>. dbt-oracle støtter alle former for materialisering.</p>
+<p>Generelt er det en god ide å følge <a href="https://docs.getdbt.com/best-practices/materializations/5-best-practices">Best practices for materializations</a> fra dbt labs.</p>
+<p>Det er likevel noen avvik:
+1. Staging modeller bør hovedsakelig være views.
+    - Men pseduonymisering skal skje så tidlig som mulig, og derfor er det nødvendig at kilder som inneholder personnøkler blir lastet inkrementelt. Det er ofte et krav om at rådata blir slettet etter 6 måneder.
+2. Intermediate ved kompleks logikk. Kjør views når du kan. Når views går for tregt, har du tre valg:
+    1. Kjøre table materialiseringer. tabeller blir droppet, purget og rekjørt med alt innhold fra spørringen i modellfilen. Ikke lurt ved ved større mengder data, både ytelsesmessig og lagring i flere lag.
+    2. Incrememental. Tabellen bevares og nye endrede rader blir lagt til med merge.
+    3. Delta last med table models ... trenger POC
+3. Marts skal være stabil. Det er her alle spørringer fra konsumenter kjøres, og det er viktig for basen å opparbeide statistikk på spørringer som kjører ofte.
+    - materialized_view er for MVP og små datamengder, jher er ikke ytelse noe problem.
+    - For løsninger med større datamenger, kjør inkrementell last med partisjonering og indeksering.</p>
 
 
 
@@ -1308,7 +1231,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 15, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2024</span>
   </span>
 
     

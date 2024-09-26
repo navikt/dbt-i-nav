@@ -2,90 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/dbt-power-user/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/dbt/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/git/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/installere/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/miljovariabler/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/oracle-client-library/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/pip-og-oppsett/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/python/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/sqlfluff/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/vscode/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
+    </url>
+    <url>
+         <loc>https://navikt.github.io/dbt-i-nav/arkitektur/materialisering/</loc>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/arkitektur/style_guide/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/dokumentasjon/dokumentasjon/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/dokumentasjon/overview/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/feilsoking/feilsoking/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh-sykefravar-dmx/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh_arb_cv/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh_arb_permittering/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh_arb_person/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh_arb_styrke_ssb/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/dvh_arb_tiltak/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
     <url>
          <loc>https://navikt.github.io/dbt-i-nav/prosjekter/nystol/vdl-regnskapsdata/</loc>
-         <lastmod>2024-09-05</lastmod>
+         <lastmod>2024-09-26</lastmod>
     </url>
 </urlset>
