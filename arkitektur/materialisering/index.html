@@ -1215,7 +1215,11 @@
 </li>
 <li>Marts skal være stabil. Det er her alle spørringer fra konsumenter kjøres, og det er viktig for basen å opparbeide statistikk på spørringer som kjører ofte.<ul>
 <li>materialized_view er for MVP og små datamengder, jher er ikke ytelse noe problem.</li>
-<li>For løsninger med større datamenger, kjør inkrementell last med partisjonering og indeksering. </li>
+<li>For løsninger med større datamenger, kjør inkrementell last med partisjonering og indeksering.</li>
+</ul>
+</li>
+<li>Skal du skrive om en gammel løsning til dbt? Ikke skriv om løpet og sats på at alt skal blir 100% likt. Du kan veære sikekr på at data (oppslag mot avhengigheter) har endret seg siden forrige gang dataene har blitt kjørt opp. Spesielt med tanke på at patching og rekjøring med forskjellig logikk har blitt gjort gjennom tidene.<ul>
+<li>Bruk tidligere target-tabell som kilde til dbt og kjør en union all. Ny last bør da være inkrementelt over en initlast fra gammel targettabell.</li>
 </ul>
 </li>
 </ol>
