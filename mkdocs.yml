@@ -19,6 +19,7 @@ nav:
       - Tips og triks:
           - Installasjon-på-VDI/miljovariabler.md
   - Arkitektur:
+      - arkitektur/materialisering.md
       - arkitektur/style_guide.md
   - Dokumentasjon:
       - dokumentasjon/dokumentasjon.md
