@@ -5,35 +5,38 @@ edit_uri: edit/main/docs/
 
 nav:
   - Introduksjon til dbt: 'index.md'
-  - Installasjon på VDI:
-      - 'Installasjon-på-VDI/installere.md'
-      - Forutsetninger:
-          - Installasjon-på-VDI/python.md
-          - Installasjon-på-VDI/pip-og-oppsett.md
-          - Installasjon-på-VDI/git.md
-          - Installasjon-på-VDI/dbt.md
-      - Anbefalinger:
-          - Installasjon-på-VDI/vscode.md
-          - Installasjon-på-VDI/dbt-power-user.md         
-          - Installasjon-på-VDI/sqlfluff.md
-      - Tips og triks:
-          - Installasjon-på-VDI/miljovariabler.md
+  - Oracle:
+    - Installasjon på VDI:
+        - 'Installasjon-på-VDI/installere.md'
+        - Forutsetninger:
+            - Installasjon-på-VDI/python.md
+            - Installasjon-på-VDI/pip-og-oppsett.md
+            - Installasjon-på-VDI/git.md
+            - Installasjon-på-VDI/dbt.md
+
+        - Tips og triks:
+            - Installasjon-på-VDI/miljovariabler.md
+        - feilsoking/feilsoking.md
   - Arkitektur:
       - arkitektur/materialisering.md
       - arkitektur/style_guide.md
   - Dokumentasjon:
+      - dokumentasjon/index.md
       - dokumentasjon/dokumentasjon.md
       - dokumentasjon/overview.md
-  - Feilsøking:
-      - feilsoking/feilsoking.md
+  - Anbefalinger:
+      - Installasjon-på-VDI/vscode.md
+      - Installasjon-på-VDI/dbt-power-user.md
+      - Installasjon-på-VDI/sqlfluff.md
   - Prosjekter som bruker dbt:
+      - prosjekter/index.md
       - prosjekter/dvh_arb_cv.md
       - prosjekter/dvh_arb_permittering.md
       - prosjekter/dvh_arb_person.md
       - prosjekter/dvh_arb_styrke_ssb.md
       - prosjekter/dvh-sykefravar-dmx.md
-      - Nystøl:
-          - prosjekter/nystol/vdl-regnskapsdata.md
+      - prosjekter/nystol/vdl-regnskapsdata.md
+      - prosjekter/bomlo-dbt.md
 
 theme:
   name: material

@@ -6,7 +6,7 @@ Vi har laget et ferdig [oppsett](https://github.com/navikt/dbt-template) av et d
 
 
 
-Resten av denne siden omhandler manuelt oppsett av dbt-oracle uten virteul. Følg denne guiden hvis du ikke ønsker automatisk oppsett i Visual Studio Code. 
+Resten av denne siden omhandler manuelt oppsett av dbt-oracle uten virteul. Følg denne guiden hvis du ikke ønsker automatisk oppsett i Visual Studio Code.
 
 ## Oppsett av sertifikater til pip
 
@@ -51,18 +51,18 @@ pip install dbt-oracle
     Could not fetch URL https://pypi.org/simple/dbt-oracle/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/dbt-oracle/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
     ```
 
-    Sjekk om du har gjort [oppsett av sertifikater til pip](pip-og-oppsett.md#oppsett-av-sertifikater-til-pip).
+    Sjekk om du har gjort [oppsett av sertifikater til pip](#oppsett-av-sertifikater-til-pip).
 
 !!! failure "Installasjon feiler"
     I noen tilfeller har vi opplevd at [Microsoft Visual C++]( https://visualstudio.microsoft.com/visual-cpp-build-tools/) mangler.
     Feilmeldingen kan se slik ut:
-    
+
     ```shell
     ...
     Building wheels for collected packages: cx-Oracle
     Building wheel for cx-Oracle (pyproject.toml) ... error
     error: subprocess-exited-with-error
-    
+
     × Building wheel for cx-Oracle (pyproject.toml) did not run successfully.
     │ exit code: 1
     ╰─> [8 lines of output]
@@ -82,7 +82,7 @@ pip install dbt-oracle
     ERROR: Could not build wheels for cx-Oracle, which is required to install pyproject.toml-based projects
     ...
     ```
-    Last ned og installer Build Tools. Følg gjerne guiden her: [Fixed: Microsoft Visual C++ 14.0 Is Required Error](  https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html )    
+    Last ned og installer Build Tools. Følg gjerne guiden her: [Fixed: Microsoft Visual C++ 14.0 Is Required Error](  https://www.partitionwizard.com/partitionmanager/microsoft-visual-c-14-is-required.html )
     Husk å restarte VDI etter installasjon.
 
 ## Opprette nytt dbt prosjekt for Oracle fra scratc
@@ -101,7 +101,7 @@ quoting:
 ```
 
 ### Hemmeligheter ved kjøring fra utviklerimage
-Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på 
+Av sikkerhetshensyn anbefaler vi og oracle å bruke miljøvariabler for å holde på
 hemmeligheter. Vi har derfor laget et script og profiles.yml som kan ligge i
 dbt-prosjektet.
 
@@ -135,7 +135,7 @@ profiles.yml i prosjektmappen.
     ```shell
     $ .\setup_db_user.ps1
     Target db: U <eventuelt Q,R eller P>
-    Schema: 
+    Schema:
 
     cmdlet Get-Credential at command pipeline position 1
     Supply values for the following parameters:
@@ -145,14 +145,14 @@ profiles.yml i prosjektmappen.
     09:15:08  Running with dbt=1.1.1
     dbt version: 1.1.1
     python version: 3.8.10
-    python path: c:\users\****\appdata\local\programs\python\python38\python.exe      
+    python path: c:\users\****\appdata\local\programs\python\python38\python.exe
     os info: Windows-10-10.0.19044-SP0
     Using profiles.yml file at C:\Users\****\git\dvh-sykefravar-dmx\profiles.yml
     Using dbt_project.yml file at C:\Users\****\git\dvh-sykefravar-dmx\dbt_project.yml
 
     09:15:08  oracle adapter: Running in cx mode
     Configuration:
-      profiles.yml file [OK found and valid]   
+      profiles.yml file [OK found and valid]
       dbt_project.yml file [OK found and valid]
 
     Required dependencies:
