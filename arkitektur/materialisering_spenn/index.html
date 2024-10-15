@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/Installasjon-p%C3%A5-VDI/pip-og-oppsett/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/arkitektur/materialisering_spenn/">
       
       
-        <link rel="prev" href="../python/">
-      
-      
-        <link rel="next" href="../git/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>PIP og og tilgang til PyPI - dbt i NAV</title>
+        <title>Materialiseringsstrategi i Team Spenn - dbt i NAV</title>
       
     
     
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pip-og-og-tilgang-til-pypi" class="md-skip">
+        <a href="#materialiseringsstrategi-i-team-spenn" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PIP og og tilgang til PyPI
+              Materialiseringsstrategi i Team Spenn
             
           </span>
         </div>
@@ -270,8 +266,6 @@
       
   
   
-    
-  
   
   
     
@@ -282,11 +276,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -300,7 +296,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Oracle
@@ -311,10 +307,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -329,11 +323,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -347,7 +343,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Installasjon på VDI
@@ -361,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installere/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/installere/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,10 +375,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -397,11 +391,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_2" >
         
           
           <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
@@ -415,7 +411,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1_2">
             <span class="md-nav__icon md-icon"></span>
             Forutsetninger
@@ -429,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -447,30 +443,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    PIP og og tilgang til PyPI
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Installasjon-p%C3%A5-VDI/pip-og-oppsett/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,35 +455,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#feilsk-sjekk-om-du-har-pip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Feilsøk: Sjekk om du har PIP
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -520,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -541,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dbt/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/dbt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -611,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../miljovariabler/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/miljovariabler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -719,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../arkitektur/materialisering/" class="md-nav__link">
+      <a href="../materialisering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -740,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../arkitektur/style_guide/" class="md-nav__link">
+      <a href="../style_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -919,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -940,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dbt-power-user/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/dbt-power-user/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -961,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sqlfluff/" class="md-nav__link">
+      <a href="../../Installasjon-p%C3%A5-VDI/sqlfluff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1230,9 +1177,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#feilsk-sjekk-om-du-har-pip" class="md-nav__link">
+  <a href="#mer-om-var-incremental-materialisering-i-marts" class="md-nav__link">
     <span class="md-ellipsis">
-      Feilsøk: Sjekk om du har PIP
+      Mer om vår incremental-materialisering i Marts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utfordringer-med-materialized-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utfordringer med materialized view
     </span>
   </a>
   
@@ -1256,42 +1212,62 @@
   
 
 
-<h1 id="pip-og-og-tilgang-til-pypi">PIP og og tilgang til PyPI<a class="headerlink" href="#pip-og-og-tilgang-til-pypi" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
-</code></pre></div>
-<h2 id="feilsk-sjekk-om-du-har-pip">Feilsøk: Sjekk om du har PIP<a class="headerlink" href="#feilsk-sjekk-om-du-har-pip" title="Permanent link">&para;</a></h2>
-<p>Har du installert python, så har du nesten sikkert også pip.
-Men dersom overstående feiler, kjør <code>pip --version</code> for å se om pip er tilgjengelig:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
-</code></pre></div>
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
+<h1 id="materialiseringsstrategi-i-team-spenn">Materialiseringsstrategi i Team Spenn<a class="headerlink" href="#materialiseringsstrategi-i-team-spenn" title="Permanent link">&para;</a></h1>
+<p>Formålet med denne strategien er å unngå droppe og deretter opprette datavarehusobjekter hver gang et dbt-løp kjøres da dette er ugunstig mhp. DMO. Derfor har <code>table</code>-materialisering blitt faset ut i våre prosjekter. Følgende materialiseringer blir derfor tatt i bruk på tvers av våre dbt-løp:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Materialisering</th>
+<th>Kommentar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Staging</strong></td>
+<td><code>ephemeral</code></td>
+<td>Staging-modellene blir materialisert som <code>ephemeral</code> fordi de kun fungerer som simple transformasjoner som ikke skal eksponeres for sluttbrukeren. Det er heller ikke behov for å lagre dataene fysisk.</td>
+</tr>
+<tr>
+<td><strong>Intermediate</strong></td>
+<td><code>view</code></td>
+<td>Intermediate-modellene blir materialisert som <code>view</code> fordi de har kompleks logikk og kjører ikke for tregt.</td>
+</tr>
+<tr>
+<td><strong>Marts</strong></td>
+<td><code>incremental</code> og <code>view</code></td>
+<td>Faktatabeller og aggregater (både brede og åpne aggregater som skal deles og konsumeres) blir materialisert som hhv. <code>incremental</code> og <code>view</code>. Faktatabeller, som ofte inneholder store datamengder, blir materialisert som <code>incremental</code> for å redusere kjøre- og lagringstiden. Aggregater blir materialisert som <code>view</code>, og ikke som <code>incremental</code>, da de ikke inneholder mye data og mangler unike nøkler. Hvis aggregatene begynner å ta for lang tid å kjøre som <code>view</code>, kan de alternativt materialiseres som <code>incremental</code> (gitt at duplikater ikke er et problem for modellen og/eller at <code>unique_key</code> eksisterer) eller som <code>materialized view</code> (se utfordringer nevnt nedenfor).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mer-om-var-incremental-materialisering-i-marts">Mer om vår incremental-materialisering i Marts<a class="headerlink" href="#mer-om-var-incremental-materialisering-i-marts" title="Permanent link">&para;</a></h2>
+<p>Vi bruker <code>unique_key</code>-konfigurasjonen for å finne rader fra en tidligere kjøring med samme unike ID. Dette gjør det mulig å oppdatere eksisterende rader i stedet for å legge dem til som nye:</p>
+<p><div class="highlight"><pre><span></span><code><span class="err">{{</span>
+<span class="w">  </span><span class="n">config</span><span class="p">(</span>
+<span class="w">    </span><span class="n">materialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;incremental&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">unique_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;kolonne_1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kolonne_2&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="n">merge_exclude_columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;kolonne_1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kolonne_2&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...],</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="err">}}</span>
 
-pip<span class="w"> </span><span class="m">21</span>.1.1<span class="w"> </span>from<span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>****<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ython38<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="se">\p</span>ip<span class="w"> </span><span class="o">(</span>python<span class="w"> </span><span class="m">3</span>.8<span class="o">)</span>
+<span class="k">select</span><span class="w"> </span><span class="p">...</span>
 </code></pre></div>
-<p>Fortsett til <a href="../git/">Git / GitHub Desktop</a></p>
-</div>
-<div class="admonition failure">
-<p class="admonition-title">Failure</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
-
-<span class="s1">&#39;pip&#39;</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>recognized<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>internal<span class="w"> </span>or<span class="w"> </span>external<span class="w"> </span>command,<span class="w"> </span>operable<span class="w"> </span>program<span class="w"> </span>or<span class="w"> </span>batch<span class="w"> </span>file.
-</code></pre></div>
-<p>Kjør <code>py -3 -m ensurepip</code> for å se om pip allerede eksisterer.</p>
-<div class="highlight"><pre><span></span><code>Looking<span class="w"> </span><span class="k">in</span><span class="w"> </span>links:<span class="w"> </span>c:<span class="se">\U</span>sers<span class="se">\*</span>***<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp<span class="se">\t</span>mp4r6s0n91
-Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>setuptools<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ythonXX<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">58</span>.1.0<span class="o">)</span>
-Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>pip<span class="w"> </span><span class="k">in</span><span class="w"> </span>c:<span class="se">\u</span>sers<span class="se">\*</span>***<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ythonXX<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="w"> </span><span class="o">(</span><span class="m">21</span>.2.4<span class="o">)</span>
-</code></pre></div>
-<p>I dette tilfelle må miljøvariabelen <code>PATH</code> oppdateres. Bruk gjerne <code>Fil utforsker</code> for å finne riktig path men normalt ligger PIP under:</p>
-<div class="highlight"><pre><span></span><code>c:<span class="se">\u</span>sers<span class="se">\&lt;</span>brukernavn&gt;<span class="se">\a</span>ppdata<span class="se">\l</span>ocal<span class="se">\p</span>rograms<span class="se">\p</span>ython<span class="se">\p</span>ythonXX<span class="se">\s</span>cripts
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Se <a href="../miljovariabler/">legg til miljøvariabler</a> hvis du ikke vet hvordan du oppdatere <code>PATH</code>.</p>
-</div>
-<p>Husk at du må lukke og åpne cmd (ledetekst) etter path variabel er lagt inn. Du kan nå verifisere at pip er tilgjengelig ved å kjøre <code>pip --version</code>.</p>
-</div>
+For å legge til nye rader benytter vi <code>is_incremental()</code>-makroen:
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="p">...</span>
+<span class="k">where</span><span class="w"> </span>
+<span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_incremental</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<span class="n">kolonne_dato_kilde</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">kolonne_dato_target</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="err">}}</span><span class="p">)</span>
+<span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+</code></pre></div></p>
+<h2 id="utfordringer-med-materialized-view">Utfordringer med materialized view<a class="headerlink" href="#utfordringer-med-materialized-view" title="Permanent link">&para;</a></h2>
+<p>Vi forsøkte å materialisere aggregatene våre som <code>materialized view</code>, men støtte på flere begrensninger:
+- Modeller som bruker denne materialiseringen krever <code>materialized view log</code> på parent-/master-modeller.
+- Modeller som bruker denne materialiseringen blir automatisk satt til "forced refresh" i Oracle - se tabell 5-3 under <a href="https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-materialized-views.html#GUID-11109A1B-1E8A-4F10-9BB3-DEB4D1AAEC36">seksjon 5.3.7 "About refresh Options for Materialized Views"</a> for refresh-definisjoner.
+- Det er flere restriksjoner for "fast refresh" på <code>materialized view</code>:
+  - 5.3.7.4 "General Restrictions on Fast Refresh"
+  - 5.3.7.5 "Restrictions on Fast Refresh on Materialized Views with Joins Only"
+  - 5.3.7.6 "Restrictions on Fast Refresh on Materialized Views with Aggregates"</p>
 
 
 
@@ -1312,7 +1288,7 @@ Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<spa
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 29, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 15, 2024</span>
   </span>
 
     
