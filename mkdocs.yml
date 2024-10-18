@@ -18,6 +18,7 @@ nav:
         - feilsoking/feilsoking.md
   - Arkitektur:
       - arkitektur/materialisering.md
+      - arkitektur/materialisering_spenn.md
       - arkitektur/style_guide.md
   - Dokumentasjon:
       - dokumentasjon/index.md
