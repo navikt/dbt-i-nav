@@ -1376,8 +1376,8 @@
 <p><div class="highlight"><pre><span></span><code><span class="err">{{</span>
 <span class="w">  </span><span class="n">config</span><span class="p">(</span>
 <span class="w">    </span><span class="n">materialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;incremental&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">unique_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;kolonne_1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kolonne_2&#39;</span><span class="p">],</span>
-<span class="w">    </span><span class="n">merge_exclude_columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;kolonne_1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kolonne_2&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...],</span>
+<span class="w">    </span><span class="n">unique_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;fk_person1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;aarmnd&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="n">merge_exclude_columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;fk_person1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;aarmnd&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...],</span>
 <span class="w">    </span><span class="p">...</span>
 <span class="w">  </span><span class="p">)</span>
 <span class="err">}}</span>
@@ -1388,17 +1388,21 @@ For å legge til nye rader benytter vi <code>is_incremental()</code>-makroen:
 <div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="p">...</span>
 <span class="k">where</span><span class="w"> </span>
 <span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_incremental</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
-<span class="n">kolonne_dato_kilde</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">kolonne_dato_target</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="err">}}</span><span class="p">)</span>
+<span class="n">aarmnd</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">aarmnd</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="err">}}</span><span class="p">)</span>
 <span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
 </code></pre></div></p>
 <h2 id="utfordringer-med-materialized-view">Utfordringer med materialized view<a class="headerlink" href="#utfordringer-med-materialized-view" title="Permanent link">&para;</a></h2>
-<p>Vi forsøkte å materialisere aggregatene våre som <code>materialized view</code>, men støtte på flere begrensninger:
-- Modeller som bruker denne materialiseringen krever <code>materialized view log</code> på parent-/master-modeller.
-- Modeller som bruker denne materialiseringen blir automatisk satt til "forced refresh" i Oracle - se tabell 5-3 under <a href="https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-materialized-views.html#GUID-11109A1B-1E8A-4F10-9BB3-DEB4D1AAEC36">seksjon 5.3.7 "About refresh Options for Materialized Views"</a> for refresh-definisjoner.
-- Det er flere restriksjoner for "fast refresh" på <code>materialized view</code>:
-  - 5.3.7.4 "General Restrictions on Fast Refresh"
-  - 5.3.7.5 "Restrictions on Fast Refresh on Materialized Views with Joins Only"
-  - 5.3.7.6 "Restrictions on Fast Refresh on Materialized Views with Aggregates"</p>
+<p>Vi forsøkte å materialisere våre aggregater som <code>materialized view</code>, men støtte på flere begrensninger:</p>
+<ol>
+<li>Modeller som bruker denne materialiseringen krever <code>materialized view log</code> på parent-/master-modeller.</li>
+<li>Modeller som bruker denne materialiseringen blir automatisk satt til "forced refresh" i Oracle - se tabell 5-3 under <a href="https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-materialized-views.html#GUID-11109A1B-1E8A-4F10-9BB3-DEB4D1AAEC36">seksjon 5.3.7 "About refresh Options for Materialized Views"</a> for refresh-definisjoner.</li>
+<li>Det er flere restriksjoner for "fast refresh" på <code>materialized view</code>:<ul>
+<li>5.3.7.4 "General Restrictions on Fast Refresh"</li>
+<li>5.3.7.5 "Restrictions on Fast Refresh on Materialized Views with Joins Only"</li>
+<li>5.3.7.6 "Restrictions on Fast Refresh on Materialized Views with Aggregates"</li>
+</ul>
+</li>
+</ol>
 
 
 
@@ -1419,7 +1423,7 @@ For å legge til nye rader benytter vi <code>is_incremental()</code>-makroen:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 15, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 19, 2024</span>
   </span>
 
     
