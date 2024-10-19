@@ -1367,7 +1367,7 @@
 <tr>
 <td><strong>Marts</strong></td>
 <td><code>incremental</code> og <code>view</code></td>
-<td>Faktatabeller og aggregater (både brede og åpne aggregater som skal deles og konsumeres) blir materialisert som hhv. <code>incremental</code> og <code>view</code>. Faktatabeller, som ofte inneholder store datamengder, blir materialisert som <code>incremental</code> for å redusere kjøre- og lagringstiden. Aggregater blir materialisert som <code>view</code>, og ikke som <code>incremental</code>, da de ikke inneholder mye data og mangler unike nøkler. Hvis aggregatene begynner å ta for lang tid å kjøre som <code>view</code>, kan de alternativt materialiseres som <code>incremental</code> (gitt at duplikater ikke er et problem for modellen og/eller at <code>unique_key</code> eksisterer) eller som <code>materialized view</code> (se utfordringer nevnt nedenfor).</td>
+<td>Faktatabeller, som ofte inneholder store datamengder, blir materialisert som <code>incremental</code> for å redusere kjøre- og lagringstiden. Aggregater (både brede og åpne aggregater som skal deles og konsumeres) blir materialisert som <code>view</code> da de ikke inneholder mye data og mangler unike nøkler. Hvis aggregatene begynner å ta for lang tid å kjøre som <code>view</code>, kan de alternativt materialiseres som <code>incremental</code> (gitt at duplikater ikke er et problem for modellen og/eller at <code>unique_key</code> eksisterer) eller som <code>materialized view</code> (se utfordringer nevnt nedenfor).</td>
 </tr>
 </tbody>
 </table>
