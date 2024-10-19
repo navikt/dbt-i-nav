@@ -16,8 +16,8 @@ Vi bruker `unique_key`-konfigurasjonen for å finne rader fra en tidligere kjør
 {{
   config(
     materialized = 'incremental',
-    unique_key = ['kolonne_1', 'kolonne_2'],
-    merge_exclude_columns = ['kolonne_1', 'kolonne_2', ...],
+    unique_key = ['fk_person1', 'aarmnd'],
+    merge_exclude_columns = ['fk_person1', 'aarmnd', ...],
     ...
   )
 }}
@@ -29,16 +29,17 @@ For å legge til nye rader benytter vi `is_incremental()`-makroen:
 select ...
 where 
 {% if is_incremental() %}
-kolonne_dato_kilde > (select max(kolonne_dato_target) from {{ this }})
+aarmnd > (select max(aarmnd) from {{ this }})
 {% endif %}
 ```
 
 ## Utfordringer med materialized view
 
-Vi forsøkte å materialisere aggregatene våre som `materialized view`, men støtte på flere begrensninger:
-- Modeller som bruker denne materialiseringen krever `materialized view log` på parent-/master-modeller.
-- Modeller som bruker denne materialiseringen blir automatisk satt til "forced refresh" i Oracle - se tabell 5-3 under [seksjon 5.3.7 "About refresh Options for Materialized Views"](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-materialized-views.html#GUID-11109A1B-1E8A-4F10-9BB3-DEB4D1AAEC36) for refresh-definisjoner.
-- Det er flere restriksjoner for "fast refresh" på `materialized view`:
-  - 5.3.7.4 "General Restrictions on Fast Refresh"
-  - 5.3.7.5 "Restrictions on Fast Refresh on Materialized Views with Joins Only"
-  - 5.3.7.6 "Restrictions on Fast Refresh on Materialized Views with Aggregates"
+Vi forsøkte å materialisere våre aggregater som `materialized view`, men støtte på flere begrensninger:
+
+1. Modeller som bruker denne materialiseringen krever `materialized view log` på parent-/master-modeller.
+2. Modeller som bruker denne materialiseringen blir automatisk satt til "forced refresh" i Oracle - se tabell 5-3 under [seksjon 5.3.7 "About refresh Options for Materialized Views"](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-materialized-views.html#GUID-11109A1B-1E8A-4F10-9BB3-DEB4D1AAEC36) for refresh-definisjoner.
+3. Det er flere restriksjoner for "fast refresh" på `materialized view`:
+    - 5.3.7.4 "General Restrictions on Fast Refresh"
+    - 5.3.7.5 "Restrictions on Fast Refresh on Materialized Views with Joins Only"
+    - 5.3.7.6 "Restrictions on Fast Refresh on Materialized Views with Aggregates"
