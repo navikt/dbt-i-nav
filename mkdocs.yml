@@ -39,6 +39,10 @@ nav:
       - prosjekter/bomlo-dbt.md
   - Arkiv:
       - Installasjon-på-VDI/dbt.md
+  - Airflow:
+      - airflow og dbt_run/airflow.md
+      - airflow og dbt_run/dbt_operator.md
+      - airflow og dbt_run/dbt_run.md
 
 theme:
   name: material
