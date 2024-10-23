@@ -14,3 +14,17 @@ Operatoren er avhengig av 2 airflow-variabler:
 from dbt.cli.main import dbtRunner
 ```
 Om du bytter ut `subprocess` med `dbtRunner` så vil du få logget dbt-kjøringen din live i airflow.
+
+
+### JSON-struktur for hemmeligheter i GSM - Google Secret Manager
+
+```json
+{
+    "DB_USER": "<DB_USER>", 
+    "DB_SCHEMA": "<DB_SCHEMA>", 
+    "DB_PASSWORD": "<DB_PASSWORD>", 
+    "DB_DSN": "<DB_DSN>"
+}
+```
+
+Det viktige her er at DB_USER, DB_SCHEMA, DB_PASSWORD, DB_DSN er de samme som du bruker i [dbt_run](dbt_run.md).
