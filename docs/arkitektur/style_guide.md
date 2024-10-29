@@ -276,11 +276,11 @@ models:
 * Bruk ny linje for å dele opp logik i Jinja blokker
 
 
-## Farger i lineage
+## Visuell skille på modeller med tags og farger i lineage
 
 I lineagen får source-blobber en lys grønn farge, mens alt annet blir lys blå.
 I `.yml`-filene kan dette endres med `node_color`-attributten under `+docs` til en modell eller en mappe.
-For å skille enklere mellom staging, intermediate og marts har vi valgt følgende som en standard, men dette kan du endre som du vil:
+For å skille enklere mellom staging, intermediate og marts har vi valgt følgende som en standard, men dette kan du endre som du vil. For å navigere enklere i lineagen bruker team Spenn en kombinasjon av farger og tags, som vist nedenfor:
 
 
 ```yaml
@@ -289,15 +289,39 @@ models:
   ...
     staging:
       +docs:
-        node_color: '#054710' # mørk grønn farge
+        node_color: '#33aa5f'
 
     intermediate:
       +docs:
-        node_color: '#0E4870' # mørk blå farge
+        node_color: '#d57448'
+      daglig:
+        +tags: 'daglig'
+      maanedlig:
+        +tags: 'maanedlig'
 
-    marts: # standard dbt-lyseblå-farge
-    ...
+    marts:
+      daglig:
+        +tags: 'daglig'
+        +docs:
+          node_color: '#56b4e9'
+
+      maanedlig:
+        +tags: 'maanedlig'
+        aggregater_aapen:
+          +docs:
+            node_color: '#368da8'
+        aggregater_bred:
+          +docs:
+            node_color: '#3386e0'
+        detaljer:
+          +docs:
+            node_color: '#8a2be2'
+
+snapshots:
+  ...
+      +tags: ['daglig', 'snapshot']
+    +docs:
+      node_color: '#e6b400' 
 ```
 
-`node_color`-attributten støtter både fargenavn (`red`) og hex-koder med anførselstegn (`"#cd7f32"`).
-Se https://docs.getdbt.com/reference/resource-configs/docs for mer informasjon.
+Tags brukes også til å kjøre kun daglige/månedlige modeller, men er også kjekt å filtrere på i lineage.
