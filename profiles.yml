@@ -28,9 +28,9 @@
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: "{{env_var('DBT_DB_DSN', 'dm07-scan.adeo.no')}}"
+      host: "{{env_var('DBT_DB_DSN', 'dmv34-scan.adeo.no')}}"
       port: 1521
-      service: dwhr
+      service: dwhr_ha
       database: dwhpr
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
       threads: 10
