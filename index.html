@@ -1769,32 +1769,32 @@
 <p>I dbt (Data Build Tool) finnes det flere materialiseringsstrategier som kan brukes til å definere hvordan data skal lagres og behandles. Her er noen av de vanligste:</p>
 <h3 id="1-view">1. <strong>View</strong><a class="headerlink" href="#1-view" title="Permanent link">&para;</a></h3>
 <p><strong>Fordeler</strong>:
-- <strong>Rask oppdatering</strong>: Dataene er alltid oppdatert fordi visningen henter data direkte fra kildetabellene hver gang den kjøres.
-- <strong>Lite lagringsbehov</strong>: Siden visninger ikke lagrer data fysisk, krever de mindre lagringsplass.</p>
+* <strong>Rask oppdatering</strong>: Dataene er alltid oppdatert fordi visningen henter data direkte fra kildetabellene hver gang den kjøres.
+* <strong>Lite lagringsbehov</strong>: Siden visninger ikke lagrer data fysisk, krever de mindre lagringsplass.</p>
 <p><strong>Ulemper</strong>:
-- <strong>Ytelse</strong>: Kan være tregere ved komplekse spørringer, siden dataene må hentes og behandles hver gang visningen kjøres.
-- <strong>Avhengighet</strong>: Avhenger av at kildetabellene er tilgjengelige og oppdaterte.</p>
+* <strong>Ytelse</strong>: Kan være tregere ved komplekse spørringer, siden dataene må hentes og behandles hver gang visningen kjøres.
+* <strong>Avhengighet</strong>: Avhenger av at kildetabellene er tilgjengelige og oppdaterte.</p>
 <h3 id="2-table">2. <strong>Table</strong><a class="headerlink" href="#2-table" title="Permanent link">&para;</a></h3>
 <p><strong>Fordeler</strong>:
-- <strong>Ytelse</strong>: Bedre ytelse for komplekse spørringer, siden dataene er forhåndsberegnet og lagret.
-- <strong>Stabilitet</strong>: Dataene er lagret fysisk, noe som gjør dem mindre avhengige av kildetabellenes tilgjengelighet.</p>
+* <strong>Ytelse</strong>: Bedre ytelse for komplekse spørringer, siden dataene er forhåndsberegnet og lagret.
+* <strong>Stabilitet</strong>: Dataene er lagret fysisk, noe som gjør dem mindre avhengige av kildetabellenes tilgjengelighet.</p>
 <p><strong>Ulemper</strong>:
-- <strong>Lagringsbehov</strong>: Krever mer lagringsplass, siden dataene lagres fysisk.
-- <strong>Oppdatering</strong>: Dataene må oppdateres regelmessig for å sikre at de er oppdaterte, og tabellen lages på nytt ved hver kjøring (CTAS).</p>
+* <strong>Lagringsbehov</strong>: Krever mer lagringsplass, siden dataene lagres fysisk.
+* <strong>Oppdatering</strong>: Dataene må oppdateres regelmessig for å sikre at de er oppdaterte, og tabellen lages på nytt ved hver kjøring (CTAS).</p>
 <h3 id="3-incremental">3. <strong>Incremental</strong><a class="headerlink" href="#3-incremental" title="Permanent link">&para;</a></h3>
 <p><strong>Fordeler</strong>:
-- <strong>Effektivitet</strong>: Bare nye eller endrede data behandles, noe som reduserer belastningen på systemet.
-- <strong>Ytelse</strong>: Raskere oppdateringer sammenlignet med fullstendige oppdateringer av hele tabellen.</p>
+* <strong>Effektivitet</strong>: Bare nye eller endrede data behandles, noe som reduserer belastningen på systemet.
+* <strong>Ytelse</strong>: Raskere oppdateringer sammenlignet med fullstendige oppdateringer av hele tabellen.</p>
 <p><strong>Ulemper</strong>:
-- <strong>Kompleksitet</strong>: Krever mer kompleks logikk for å håndtere inkrementelle oppdateringer.
-- <strong>Feilhåndtering</strong>: Kan være utfordrende å håndtere feil og sikre at alle data er korrekte.</p>
+* <strong>Kompleksitet</strong>: Krever mer kompleks logikk for å håndtere inkrementelle oppdateringer.
+* <strong>Feilhåndtering</strong>: Kan være utfordrende å håndtere feil og sikre at alle data er korrekte.</p>
 <h3 id="4-ephemeral">4. <strong>Ephemeral</strong><a class="headerlink" href="#4-ephemeral" title="Permanent link">&para;</a></h3>
 <p><strong>Fordeler</strong>:
-- <strong>Fleksibilitet</strong>: Brukes til å lage midlertidige tabeller som kun eksisterer under kjøringen av en spørring.
-- <strong>Ingen lagringsbehov</strong>: Krever ingen lagringsplass, siden dataene ikke lagres fysisk.</p>
+* <strong>Fleksibilitet</strong>: Brukes til å lage midlertidige tabeller som kun eksisterer under kjøringen av en spørring.
+* <strong>Ingen lagringsbehov</strong>: Krever ingen lagringsplass, siden dataene ikke lagres fysisk.</p>
 <p><strong>Ulemper</strong>:
-- <strong>Ytelse</strong>: Kan påvirke ytelsen hvis de brukes i komplekse spørringer, siden dataene må behandles hver gang spørringen kjøres.
-- <strong>Begrenset bruk</strong>: Egner seg best for midlertidige transformasjoner og ikke for lagring av data.</p>
+* <strong>Ytelse</strong>: Kan påvirke ytelsen hvis de brukes i komplekse spørringer, siden dataene må behandles hver gang spørringen kjøres.
+* <strong>Begrenset bruk</strong>: Egner seg best for midlertidige transformasjoner og ikke for lagring av data.</p>
 <h2 id="dbt-core-eller-dbt-cloud-hos-nav">dbt-core eller dbt-cloud hos NAV<a class="headerlink" href="#dbt-core-eller-dbt-cloud-hos-nav" title="Permanent link">&para;</a></h2>
 <p>dbt kommer både i som open source i form av <a href="https://docs.getdbt.com/docs/core/installation"><code>dbt-core</code></a> og i en egen cloud versjon, <a href="https://www.getdbt.com/product/dbt-cloud/"><code>dbt cloud</code></a>. Cloud versjonen støtter kun skydatabaser som feks. BigQuery og Snowflake. dbt Cloud kan derfor ikke brukes mot Oracle onprem databasen til datavarehus. For datasett som befinner seg på datamarkedsplassen i BigQuery, kan dbt Cloud være en mulighet. </p>
 <p>For Oracle on-prem benytter vi dbt-oracle som er en python pakke som baserer seg på dbt-core. Oracle er ikke offisielt støttet av dbt, men Oracle har tatt ansvar for community connectoren og og blir aktiv vedlikeholdt og fortløpende oppdatert til siste versjon av dbt-core. 
