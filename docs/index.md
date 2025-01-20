@@ -49,39 +49,39 @@ I dbt (Data Build Tool) finnes det flere materialiseringsstrategier som kan bruk
 
 ### 1. **View**
 **Fordeler**:
-- **Rask oppdatering**: Dataene er alltid oppdatert fordi visningen henter data direkte fra kildetabellene hver gang den kjøres.
-- **Lite lagringsbehov**: Siden visninger ikke lagrer data fysisk, krever de mindre lagringsplass.
+* **Rask oppdatering**: Dataene er alltid oppdatert fordi visningen henter data direkte fra kildetabellene hver gang den kjøres.
+* **Lite lagringsbehov**: Siden visninger ikke lagrer data fysisk, krever de mindre lagringsplass.
 
 **Ulemper**:
-- **Ytelse**: Kan være tregere ved komplekse spørringer, siden dataene må hentes og behandles hver gang visningen kjøres.
-- **Avhengighet**: Avhenger av at kildetabellene er tilgjengelige og oppdaterte.
+* **Ytelse**: Kan være tregere ved komplekse spørringer, siden dataene må hentes og behandles hver gang visningen kjøres.
+* **Avhengighet**: Avhenger av at kildetabellene er tilgjengelige og oppdaterte.
 
 ### 2. **Table**
 **Fordeler**:
-- **Ytelse**: Bedre ytelse for komplekse spørringer, siden dataene er forhåndsberegnet og lagret.
-- **Stabilitet**: Dataene er lagret fysisk, noe som gjør dem mindre avhengige av kildetabellenes tilgjengelighet.
+* **Ytelse**: Bedre ytelse for komplekse spørringer, siden dataene er forhåndsberegnet og lagret.
+* **Stabilitet**: Dataene er lagret fysisk, noe som gjør dem mindre avhengige av kildetabellenes tilgjengelighet.
 
 **Ulemper**:
-- **Lagringsbehov**: Krever mer lagringsplass, siden dataene lagres fysisk.
-- **Oppdatering**: Dataene må oppdateres regelmessig for å sikre at de er oppdaterte, og tabellen lages på nytt ved hver kjøring (CTAS).
+* **Lagringsbehov**: Krever mer lagringsplass, siden dataene lagres fysisk.
+* **Oppdatering**: Dataene må oppdateres regelmessig for å sikre at de er oppdaterte, og tabellen lages på nytt ved hver kjøring (CTAS).
 
 ### 3. **Incremental**
 **Fordeler**:
-- **Effektivitet**: Bare nye eller endrede data behandles, noe som reduserer belastningen på systemet.
-- **Ytelse**: Raskere oppdateringer sammenlignet med fullstendige oppdateringer av hele tabellen.
+* **Effektivitet**: Bare nye eller endrede data behandles, noe som reduserer belastningen på systemet.
+* **Ytelse**: Raskere oppdateringer sammenlignet med fullstendige oppdateringer av hele tabellen.
 
 **Ulemper**:
-- **Kompleksitet**: Krever mer kompleks logikk for å håndtere inkrementelle oppdateringer.
-- **Feilhåndtering**: Kan være utfordrende å håndtere feil og sikre at alle data er korrekte.
+* **Kompleksitet**: Krever mer kompleks logikk for å håndtere inkrementelle oppdateringer.
+* **Feilhåndtering**: Kan være utfordrende å håndtere feil og sikre at alle data er korrekte.
 
 ### 4. **Ephemeral**
 **Fordeler**:
-- **Fleksibilitet**: Brukes til å lage midlertidige tabeller som kun eksisterer under kjøringen av en spørring.
-- **Ingen lagringsbehov**: Krever ingen lagringsplass, siden dataene ikke lagres fysisk.
+* **Fleksibilitet**: Brukes til å lage midlertidige tabeller som kun eksisterer under kjøringen av en spørring.
+* **Ingen lagringsbehov**: Krever ingen lagringsplass, siden dataene ikke lagres fysisk.
 
 **Ulemper**:
-- **Ytelse**: Kan påvirke ytelsen hvis de brukes i komplekse spørringer, siden dataene må behandles hver gang spørringen kjøres.
-- **Begrenset bruk**: Egner seg best for midlertidige transformasjoner og ikke for lagring av data.
+* **Ytelse**: Kan påvirke ytelsen hvis de brukes i komplekse spørringer, siden dataene må behandles hver gang spørringen kjøres.
+* **Begrenset bruk**: Egner seg best for midlertidige transformasjoner og ikke for lagring av data.
 
 
 
