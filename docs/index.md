@@ -1,6 +1,9 @@
 # Introduksjon til dbt
 
-Data Build Tool (dbt) er et åpen kildekode-verktøy som hjelper dataanalytikere og data engineers med å transformere data mer effektivt. dbt fokuserer på transformasjonsdelen (T) i ETL-prosessen (Extract, Transform, Load). Det lar brukere skrive SQL-spørringer for å definere hvordan data skal transformeres. dbt sørger for at SQLene blir kjørt i riktig rekkefølge slik at sluttproduktet blir oppdatert korrekt.
+Data Build Tool (dbt) er et åpen kildekode-verktøy som hjelper dataanalytikere og data engineers med å transformere data mer effektivt. dbt fokuserer på transformasjonsdelen (T) i ETL-prosessen (Extract, Transform, Load). Det lar brukere skrive SQL-spørringer for å definere hvordan data skal transformeres. dbt sørger for at SQLene blir kjørt i riktig rekkefølge slik at sluttproduktet blir oppdatert korrekt. dbt tar seg da av DML og DDL ved å håndtere transaksjoner, opprettelse og sletting av tabeller, med mer. Det er ikke noe behov for å ha kjennskap til Python for å komme i gang med dbt.
+
+dbt Labs har en egen fin introduksjonsside: [What is dbt? (dbt Labs)](https://docs.getdbt.com/docs/introduction)  
+
 
 ## Det er mange fordeler med å bruke dbt (Data Build Tool) for datatransformasjon:
 
@@ -13,25 +16,30 @@ Data Build Tool (dbt) er et åpen kildekode-verktøy som hjelper dataanalytikere
 
 ## Hva skiller dbt fra tradisjonelle ETL-verktøy?
 
-1. **Fokus på transformasjon**:
-    * **dbt**: Fokuserer utelukkende på transformasjonsdelen av dataflyten, og tilrettelegging av data for analyse. Dette forutsetter at data allerede er lastet til databasen.
-    * **Tradisjonelle ETL-verktøy**: Håndterer hele prosessen fra utvinning (Extract) til lasting (Load). De er ideelle for miljøer hvor data må hentes fra ulike kilder, transformeres etter komplekse forretningsregler, og deretter lastes inn i flere destinasjoner.
+### 1. **Fokus på transformasjon**:
 
-2. **Brukervennlighet**:
-    * **dbt**: Bruker en SQL-sentrisk tilnærming, noe som gjør det enkelt for dataanalytikere og utviklere som allerede er kjent med SQL.
-    * **Tradisjonelle ETL-verktøy**: Mange ETL-verktøy tilbyr et grafisk brukergrensesnitt, noe som gjør det enklere for ikke-tekniske brukere å designe og administrere dataflyter. 
+* **dbt**: Fokuserer utelukkende på transformasjonsdelen av dataflyten, og tilrettelegging av data for analyse. Dette forutsetter at data allerede er lastet til databasen.
+* **Tradisjonelle ETL-verktøy**: Håndterer hele prosessen fra utvinning (Extract) til lasting (Load). De er ideelle for miljøer hvor data må hentes fra ulike kilder, transformeres etter komplekse forretningsregler, og deretter lastes inn i flere destinasjoner.
 
-3. **Modularitet og gjenbruk**:
-    * **dbt**: Oppmuntrer til modularitet ved å la brukere bryte ned komplekse transformasjoner i mindre modeller. Dette gjør det enklere å vedlikeholde og gjenbruke kode.
-    * **Tradisjonelle ETL-verktøy**: Har ofte komplekse grensesnitt og proprietære språk, noe som kan være utfordrende hvis man ikke er kjent med dem.
+### 2. **Brukervennlighet**:
 
-4. **Testing og dokumentasjon**:
-    * **dbt**: Inkluderer innebygde funksjoner for testing og dokumentasjon, noe som sikrer at datamodellene er godt dokumentert og pålitelige.
-    * **Tradisjonelle ETL-verktøy**: Kan kreve mer manuell innsats for å oppnå samme nivå av testing og dokumentasjon.
+* **dbt**: Bruker en SQL-sentrisk tilnærming, noe som gjør det enkelt for dataanalytikere og utviklere som allerede er kjent med SQL.
+* **Tradisjonelle ETL-verktøy**: Mange ETL-verktøy tilbyr et grafisk brukergrensesnitt, noe som gjør det enklere for ikke-tekniske brukere å designe og administrere dataflyter. 
 
-5. **Skalerbarhet**:
-    * **dbt**: Kan håndtere store datamengder og komplekse transformasjoner, noe som gjør det egnet for både små og store organisasjoner.
-    * **Tradisjonelle ETL-verktøy**: Bygget for å skalere og kan håndtere enterprise-nivå databehandlingsbehov.
+### 3. **Modularitet og gjenbruk**:
+
+* **dbt**: Oppmuntrer til modularitet ved å la brukere bryte ned komplekse transformasjoner i mindre modeller. Dette gjør det enklere å vedlikeholde og gjenbruke kode.
+* **Tradisjonelle ETL-verktøy**: Har ofte komplekse grensesnitt og proprietære språk, noe som kan være utfordrende hvis man ikke er kjent med dem.
+
+### 4. **Testing og dokumentasjon**:
+
+* **dbt**: Inkluderer innebygde funksjoner for testing og dokumentasjon, noe som sikrer at datamodellene er godt dokumentert og pålitelige.
+* **Tradisjonelle ETL-verktøy**: Kan kreve mer manuell innsats for å oppnå samme nivå av testing og dokumentasjon.
+
+### 5. **Skalerbarhet**:
+
+* **dbt**: Kan håndtere store datamengder og komplekse transformasjoner, noe som gjør det egnet for både små og store organisasjoner.
+* **Tradisjonelle ETL-verktøy**: Bygget for å skalere og kan håndtere enterprise-nivå databehandlingsbehov.
 
 **Referanser**:
 
@@ -48,38 +56,50 @@ Data Build Tool (dbt) er et åpen kildekode-verktøy som hjelper dataanalytikere
 I dbt (Data Build Tool) finnes det flere materialiseringsstrategier som kan brukes til å definere hvordan data skal lagres og behandles. Her er noen av de vanligste:
 
 ### 1. **View**
+
 **Fordeler**:
+
 * **Rask oppdatering**: Dataene er alltid oppdatert fordi visningen henter data direkte fra kildetabellene hver gang den kjøres.
 * **Lite lagringsbehov**: Siden visninger ikke lagrer data fysisk, krever de mindre lagringsplass.
 
 **Ulemper**:
+
 * **Ytelse**: Kan være tregere ved komplekse spørringer, siden dataene må hentes og behandles hver gang visningen kjøres.
 * **Avhengighet**: Avhenger av at kildetabellene er tilgjengelige og oppdaterte.
 
 ### 2. **Table**
+
 **Fordeler**:
+
 * **Ytelse**: Bedre ytelse for komplekse spørringer, siden dataene er forhåndsberegnet og lagret.
 * **Stabilitet**: Dataene er lagret fysisk, noe som gjør dem mindre avhengige av kildetabellenes tilgjengelighet.
 
 **Ulemper**:
+
 * **Lagringsbehov**: Krever mer lagringsplass, siden dataene lagres fysisk.
 * **Oppdatering**: Dataene må oppdateres regelmessig for å sikre at de er oppdaterte, og tabellen lages på nytt ved hver kjøring (CTAS).
 
 ### 3. **Incremental**
+
 **Fordeler**:
+
 * **Effektivitet**: Bare nye eller endrede data behandles, noe som reduserer belastningen på systemet.
 * **Ytelse**: Raskere oppdateringer sammenlignet med fullstendige oppdateringer av hele tabellen.
 
 **Ulemper**:
+
 * **Kompleksitet**: Krever mer kompleks logikk for å håndtere inkrementelle oppdateringer.
 * **Feilhåndtering**: Kan være utfordrende å håndtere feil og sikre at alle data er korrekte.
 
 ### 4. **Ephemeral**
+
 **Fordeler**:
+
 * **Fleksibilitet**: Brukes til å lage midlertidige tabeller som kun eksisterer under kjøringen av en spørring.
 * **Ingen lagringsbehov**: Krever ingen lagringsplass, siden dataene ikke lagres fysisk.
 
 **Ulemper**:
+
 * **Ytelse**: Kan påvirke ytelsen hvis de brukes i komplekse spørringer, siden dataene må behandles hver gang spørringen kjøres.
 * **Begrenset bruk**: Egner seg best for midlertidige transformasjoner og ikke for lagring av data.
 
@@ -89,8 +109,9 @@ I dbt (Data Build Tool) finnes det flere materialiseringsstrategier som kan bruk
 
 dbt kommer både i som open source i form av [``dbt-core``](https://docs.getdbt.com/docs/core/installation) og i en egen cloud versjon, [``dbt cloud``](https://www.getdbt.com/product/dbt-cloud/). Cloud versjonen støtter kun skydatabaser som feks. BigQuery og Snowflake. dbt Cloud kan derfor ikke brukes mot Oracle onprem databasen til datavarehus. For datasett som befinner seg på datamarkedsplassen i BigQuery, kan dbt Cloud være en mulighet. 
 
-For Oracle on-prem benytter vi dbt-oracle som er en python pakke som baserer seg på dbt-core. Oracle er ikke offisielt støttet av dbt, men Oracle har tatt ansvar for community connectoren og og blir aktiv vedlikeholdt og fortløpende oppdatert til siste versjon av dbt-core. 
-For å nå on-prem Oracle brukes i dag VDI Utvikler, men Knast skal erstatte denne løsningen.
+For Oracle on-prem benytter vi dbt-oracle som er en python-pakke som baserer seg på dbt-core. Oracle er ikke offisielt støttet av dbt, men Oracle har tatt ansvar for community connectoren og og blir aktiv vedlikeholdt og fortløpende oppdatert til siste versjon av dbt-core. 
+
+For å nå on-prem Oracle brukes i dag VDI Utvikler, men Knast skal erstatte denne løsningen. Det vil bli tilrettelagt oppsett for Knast som skal gjøre det enkelt å komme i gang med dbt. 
 
 ## Lenker
 
