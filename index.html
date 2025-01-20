@@ -312,6 +312,57 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Hva skiller dbt fra tradisjonelle ETL-verktøy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fokus-pa-transformasjon" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Fokus på transformasjon:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-brukervennlighet" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Brukervennlighet:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-modularitet-og-gjenbruk" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Modularitet og gjenbruk:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-testing-og-dokumentasjon" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Testing og dokumentasjon:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-skalerbarhet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Skalerbarhet:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1565,6 +1616,57 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Hva skiller dbt fra tradisjonelle ETL-verktøy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fokus-pa-transformasjon" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Fokus på transformasjon:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-brukervennlighet" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Brukervennlighet:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-modularitet-og-gjenbruk" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Modularitet og gjenbruk:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-testing-og-dokumentasjon" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Testing og dokumentasjon:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-skalerbarhet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Skalerbarhet:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1715,7 +1817,8 @@
 
 
 <h1 id="introduksjon-til-dbt">Introduksjon til dbt<a class="headerlink" href="#introduksjon-til-dbt" title="Permanent link">&para;</a></h1>
-<p>Data Build Tool (dbt) er et åpen kildekode-verktøy som hjelper dataanalytikere og data engineers med å transformere data mer effektivt. dbt fokuserer på transformasjonsdelen (T) i ETL-prosessen (Extract, Transform, Load). Det lar brukere skrive SQL-spørringer for å definere hvordan data skal transformeres. dbt sørger for at SQLene blir kjørt i riktig rekkefølge slik at sluttproduktet blir oppdatert korrekt.</p>
+<p>Data Build Tool (dbt) er et åpen kildekode-verktøy som hjelper dataanalytikere og data engineers med å transformere data mer effektivt. dbt fokuserer på transformasjonsdelen (T) i ETL-prosessen (Extract, Transform, Load). Det lar brukere skrive SQL-spørringer for å definere hvordan data skal transformeres. dbt sørger for at SQLene blir kjørt i riktig rekkefølge slik at sluttproduktet blir oppdatert korrekt. dbt tar seg da av DML og DDL ved å håndtere transaksjoner, opprettelse og sletting av tabeller, med mer. Det er ikke noe behov for å ha kjennskap til Python for å komme i gang med dbt.</p>
+<p>dbt Labs har en egen fin introduksjonsside: <a href="https://docs.getdbt.com/docs/introduction">What is dbt? (dbt Labs)</a>  </p>
 <h2 id="det-er-mange-fordeler-med-a-bruke-dbt-data-build-tool-for-datatransformasjon">Det er mange fordeler med å bruke dbt (Data Build Tool) for datatransformasjon:<a class="headerlink" href="#det-er-mange-fordeler-med-a-bruke-dbt-data-build-tool-for-datatransformasjon" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Modularisering og gjenbruk</strong>: dbt lar deg skrive SQL-spørringer som moduler, noe som gjør det enklere å vedlikeholde og gjenbruke kode.</li>
@@ -1725,80 +1828,84 @@
 <li><strong>Skalerbarhet</strong>: dbt kan håndtere store datamengder og komplekse transformasjoner, noe som gjør det egnet for både små og store organisasjoner.</li>
 </ol>
 <h2 id="hva-skiller-dbt-fra-tradisjonelle-etl-verkty">Hva skiller dbt fra tradisjonelle ETL-verktøy?<a class="headerlink" href="#hva-skiller-dbt-fra-tradisjonelle-etl-verkty" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Fokus på transformasjon</strong>:</p>
+<h3 id="1-fokus-pa-transformasjon">1. <strong>Fokus på transformasjon</strong>:<a class="headerlink" href="#1-fokus-pa-transformasjon" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>dbt</strong>: Fokuserer utelukkende på transformasjonsdelen av dataflyten, og tilrettelegging av data for analyse. Dette forutsetter at data allerede er lastet til databasen.</li>
 <li><strong>Tradisjonelle ETL-verktøy</strong>: Håndterer hele prosessen fra utvinning (Extract) til lasting (Load). De er ideelle for miljøer hvor data må hentes fra ulike kilder, transformeres etter komplekse forretningsregler, og deretter lastes inn i flere destinasjoner.</li>
 </ul>
-</li>
-<li>
-<p><strong>Brukervennlighet</strong>:</p>
+<h3 id="2-brukervennlighet">2. <strong>Brukervennlighet</strong>:<a class="headerlink" href="#2-brukervennlighet" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>dbt</strong>: Bruker en SQL-sentrisk tilnærming, noe som gjør det enkelt for dataanalytikere og utviklere som allerede er kjent med SQL.</li>
 <li><strong>Tradisjonelle ETL-verktøy</strong>: Mange ETL-verktøy tilbyr et grafisk brukergrensesnitt, noe som gjør det enklere for ikke-tekniske brukere å designe og administrere dataflyter. </li>
 </ul>
-</li>
-<li>
-<p><strong>Modularitet og gjenbruk</strong>:</p>
+<h3 id="3-modularitet-og-gjenbruk">3. <strong>Modularitet og gjenbruk</strong>:<a class="headerlink" href="#3-modularitet-og-gjenbruk" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>dbt</strong>: Oppmuntrer til modularitet ved å la brukere bryte ned komplekse transformasjoner i mindre modeller. Dette gjør det enklere å vedlikeholde og gjenbruke kode.</li>
 <li><strong>Tradisjonelle ETL-verktøy</strong>: Har ofte komplekse grensesnitt og proprietære språk, noe som kan være utfordrende hvis man ikke er kjent med dem.</li>
 </ul>
-</li>
-<li>
-<p><strong>Testing og dokumentasjon</strong>:</p>
+<h3 id="4-testing-og-dokumentasjon">4. <strong>Testing og dokumentasjon</strong>:<a class="headerlink" href="#4-testing-og-dokumentasjon" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>dbt</strong>: Inkluderer innebygde funksjoner for testing og dokumentasjon, noe som sikrer at datamodellene er godt dokumentert og pålitelige.</li>
 <li><strong>Tradisjonelle ETL-verktøy</strong>: Kan kreve mer manuell innsats for å oppnå samme nivå av testing og dokumentasjon.</li>
 </ul>
-</li>
-<li>
-<p><strong>Skalerbarhet</strong>:</p>
+<h3 id="5-skalerbarhet">5. <strong>Skalerbarhet</strong>:<a class="headerlink" href="#5-skalerbarhet" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>dbt</strong>: Kan håndtere store datamengder og komplekse transformasjoner, noe som gjør det egnet for både små og store organisasjoner.</li>
 <li><strong>Tradisjonelle ETL-verktøy</strong>: Bygget for å skalere og kan håndtere enterprise-nivå databehandlingsbehov.</li>
 </ul>
-</li>
-</ol>
 <p><strong>Referanser</strong>:</p>
 <p><a href="https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools">https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools</a></p>
 <p><a href="https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs">https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs</a></p>
 <h2 id="hvilke-typer-materialiseringer-brukes-i-dbt">Hvilke typer materialiseringer brukes i dbt?<a class="headerlink" href="#hvilke-typer-materialiseringer-brukes-i-dbt" title="Permanent link">&para;</a></h2>
 <p>I dbt (Data Build Tool) finnes det flere materialiseringsstrategier som kan brukes til å definere hvordan data skal lagres og behandles. Her er noen av de vanligste:</p>
 <h3 id="1-view">1. <strong>View</strong><a class="headerlink" href="#1-view" title="Permanent link">&para;</a></h3>
-<p><strong>Fordeler</strong>:
-* <strong>Rask oppdatering</strong>: Dataene er alltid oppdatert fordi visningen henter data direkte fra kildetabellene hver gang den kjøres.
-* <strong>Lite lagringsbehov</strong>: Siden visninger ikke lagrer data fysisk, krever de mindre lagringsplass.</p>
-<p><strong>Ulemper</strong>:
-* <strong>Ytelse</strong>: Kan være tregere ved komplekse spørringer, siden dataene må hentes og behandles hver gang visningen kjøres.
-* <strong>Avhengighet</strong>: Avhenger av at kildetabellene er tilgjengelige og oppdaterte.</p>
+<p><strong>Fordeler</strong>:</p>
+<ul>
+<li><strong>Rask oppdatering</strong>: Dataene er alltid oppdatert fordi visningen henter data direkte fra kildetabellene hver gang den kjøres.</li>
+<li><strong>Lite lagringsbehov</strong>: Siden visninger ikke lagrer data fysisk, krever de mindre lagringsplass.</li>
+</ul>
+<p><strong>Ulemper</strong>:</p>
+<ul>
+<li><strong>Ytelse</strong>: Kan være tregere ved komplekse spørringer, siden dataene må hentes og behandles hver gang visningen kjøres.</li>
+<li><strong>Avhengighet</strong>: Avhenger av at kildetabellene er tilgjengelige og oppdaterte.</li>
+</ul>
 <h3 id="2-table">2. <strong>Table</strong><a class="headerlink" href="#2-table" title="Permanent link">&para;</a></h3>
-<p><strong>Fordeler</strong>:
-* <strong>Ytelse</strong>: Bedre ytelse for komplekse spørringer, siden dataene er forhåndsberegnet og lagret.
-* <strong>Stabilitet</strong>: Dataene er lagret fysisk, noe som gjør dem mindre avhengige av kildetabellenes tilgjengelighet.</p>
-<p><strong>Ulemper</strong>:
-* <strong>Lagringsbehov</strong>: Krever mer lagringsplass, siden dataene lagres fysisk.
-* <strong>Oppdatering</strong>: Dataene må oppdateres regelmessig for å sikre at de er oppdaterte, og tabellen lages på nytt ved hver kjøring (CTAS).</p>
+<p><strong>Fordeler</strong>:</p>
+<ul>
+<li><strong>Ytelse</strong>: Bedre ytelse for komplekse spørringer, siden dataene er forhåndsberegnet og lagret.</li>
+<li><strong>Stabilitet</strong>: Dataene er lagret fysisk, noe som gjør dem mindre avhengige av kildetabellenes tilgjengelighet.</li>
+</ul>
+<p><strong>Ulemper</strong>:</p>
+<ul>
+<li><strong>Lagringsbehov</strong>: Krever mer lagringsplass, siden dataene lagres fysisk.</li>
+<li><strong>Oppdatering</strong>: Dataene må oppdateres regelmessig for å sikre at de er oppdaterte, og tabellen lages på nytt ved hver kjøring (CTAS).</li>
+</ul>
 <h3 id="3-incremental">3. <strong>Incremental</strong><a class="headerlink" href="#3-incremental" title="Permanent link">&para;</a></h3>
-<p><strong>Fordeler</strong>:
-* <strong>Effektivitet</strong>: Bare nye eller endrede data behandles, noe som reduserer belastningen på systemet.
-* <strong>Ytelse</strong>: Raskere oppdateringer sammenlignet med fullstendige oppdateringer av hele tabellen.</p>
-<p><strong>Ulemper</strong>:
-* <strong>Kompleksitet</strong>: Krever mer kompleks logikk for å håndtere inkrementelle oppdateringer.
-* <strong>Feilhåndtering</strong>: Kan være utfordrende å håndtere feil og sikre at alle data er korrekte.</p>
+<p><strong>Fordeler</strong>:</p>
+<ul>
+<li><strong>Effektivitet</strong>: Bare nye eller endrede data behandles, noe som reduserer belastningen på systemet.</li>
+<li><strong>Ytelse</strong>: Raskere oppdateringer sammenlignet med fullstendige oppdateringer av hele tabellen.</li>
+</ul>
+<p><strong>Ulemper</strong>:</p>
+<ul>
+<li><strong>Kompleksitet</strong>: Krever mer kompleks logikk for å håndtere inkrementelle oppdateringer.</li>
+<li><strong>Feilhåndtering</strong>: Kan være utfordrende å håndtere feil og sikre at alle data er korrekte.</li>
+</ul>
 <h3 id="4-ephemeral">4. <strong>Ephemeral</strong><a class="headerlink" href="#4-ephemeral" title="Permanent link">&para;</a></h3>
-<p><strong>Fordeler</strong>:
-* <strong>Fleksibilitet</strong>: Brukes til å lage midlertidige tabeller som kun eksisterer under kjøringen av en spørring.
-* <strong>Ingen lagringsbehov</strong>: Krever ingen lagringsplass, siden dataene ikke lagres fysisk.</p>
-<p><strong>Ulemper</strong>:
-* <strong>Ytelse</strong>: Kan påvirke ytelsen hvis de brukes i komplekse spørringer, siden dataene må behandles hver gang spørringen kjøres.
-* <strong>Begrenset bruk</strong>: Egner seg best for midlertidige transformasjoner og ikke for lagring av data.</p>
+<p><strong>Fordeler</strong>:</p>
+<ul>
+<li><strong>Fleksibilitet</strong>: Brukes til å lage midlertidige tabeller som kun eksisterer under kjøringen av en spørring.</li>
+<li><strong>Ingen lagringsbehov</strong>: Krever ingen lagringsplass, siden dataene ikke lagres fysisk.</li>
+</ul>
+<p><strong>Ulemper</strong>:</p>
+<ul>
+<li><strong>Ytelse</strong>: Kan påvirke ytelsen hvis de brukes i komplekse spørringer, siden dataene må behandles hver gang spørringen kjøres.</li>
+<li><strong>Begrenset bruk</strong>: Egner seg best for midlertidige transformasjoner og ikke for lagring av data.</li>
+</ul>
 <h2 id="dbt-core-eller-dbt-cloud-hos-nav">dbt-core eller dbt-cloud hos NAV<a class="headerlink" href="#dbt-core-eller-dbt-cloud-hos-nav" title="Permanent link">&para;</a></h2>
 <p>dbt kommer både i som open source i form av <a href="https://docs.getdbt.com/docs/core/installation"><code>dbt-core</code></a> og i en egen cloud versjon, <a href="https://www.getdbt.com/product/dbt-cloud/"><code>dbt cloud</code></a>. Cloud versjonen støtter kun skydatabaser som feks. BigQuery og Snowflake. dbt Cloud kan derfor ikke brukes mot Oracle onprem databasen til datavarehus. For datasett som befinner seg på datamarkedsplassen i BigQuery, kan dbt Cloud være en mulighet. </p>
-<p>For Oracle on-prem benytter vi dbt-oracle som er en python pakke som baserer seg på dbt-core. Oracle er ikke offisielt støttet av dbt, men Oracle har tatt ansvar for community connectoren og og blir aktiv vedlikeholdt og fortløpende oppdatert til siste versjon av dbt-core. 
-For å nå on-prem Oracle brukes i dag VDI Utvikler, men Knast skal erstatte denne løsningen.</p>
+<p>For Oracle on-prem benytter vi dbt-oracle som er en python-pakke som baserer seg på dbt-core. Oracle er ikke offisielt støttet av dbt, men Oracle har tatt ansvar for community connectoren og og blir aktiv vedlikeholdt og fortløpende oppdatert til siste versjon av dbt-core. </p>
+<p>For å nå on-prem Oracle brukes i dag VDI Utvikler, men Knast skal erstatte denne løsningen. Det vil bli tilrettelagt oppsett for Knast som skal gjøre det enkelt å komme i gang med dbt. </p>
 <h2 id="lenker">Lenker<a class="headerlink" href="#lenker" title="Permanent link">&para;</a></h2>
 <p>Før du går gjennom detaljene på hvordan dbt bør settes opp er det lurt å bli kjent med hvordan dbt fungerer. Nedenfor er det et knippe nyttige lenker som hjelper deg med å komme igang og lære de viktigste kommandoene og funksjonene i dbt.</p>
 <h3 id="kurs-dbt-fundamentals">Kurs - dbt fundamentals<a class="headerlink" href="#kurs-dbt-fundamentals" title="Permanent link">&para;</a></h3>
