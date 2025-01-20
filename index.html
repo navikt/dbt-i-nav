@@ -1726,41 +1726,45 @@
 </ol>
 <h2 id="hva-skiller-dbt-fra-tradisjonelle-etl-verkty">Hva skiller dbt fra tradisjonelle ETL-verktøy?<a class="headerlink" href="#hva-skiller-dbt-fra-tradisjonelle-etl-verkty" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Fokus på transformasjon</strong>:</li>
-<li><strong>dbt</strong>: Fokuserer utelukkende på transformasjonsdelen av dataflyten, og tilrettelegging av data for analyse. Dette forutsetter at data allerede er lastet til databasen.</li>
 <li>
-<p><strong>Tradisjonelle ETL-verktøy</strong>: Håndterer hele prosessen fra utvinning (Extract) til lasting (Load). De er ideelle for miljøer hvor data må hentes fra ulike kilder, transformeres etter komplekse forretningsregler, og deretter lastes inn i flere destinasjoner.</p>
+<p><strong>Fokus på transformasjon</strong>:</p>
+<ul>
+<li><strong>dbt</strong>: Fokuserer utelukkende på transformasjonsdelen av dataflyten, og tilrettelegging av data for analyse. Dette forutsetter at data allerede er lastet til databasen.</li>
+<li><strong>Tradisjonelle ETL-verktøy</strong>: Håndterer hele prosessen fra utvinning (Extract) til lasting (Load). De er ideelle for miljøer hvor data må hentes fra ulike kilder, transformeres etter komplekse forretningsregler, og deretter lastes inn i flere destinasjoner.</li>
+</ul>
 </li>
 <li>
 <p><strong>Brukervennlighet</strong>:</p>
-</li>
+<ul>
 <li><strong>dbt</strong>: Bruker en SQL-sentrisk tilnærming, noe som gjør det enkelt for dataanalytikere og utviklere som allerede er kjent med SQL.</li>
-<li>
-<p><strong>Tradisjonelle ETL-verktøy</strong>: Mange ETL-verktøy tilbyr et grafisk brukergrensesnitt, noe som gjør det enklere for ikke-tekniske brukere å designe og administrere dataflyter. </p>
+<li><strong>Tradisjonelle ETL-verktøy</strong>: Mange ETL-verktøy tilbyr et grafisk brukergrensesnitt, noe som gjør det enklere for ikke-tekniske brukere å designe og administrere dataflyter. </li>
+</ul>
 </li>
 <li>
 <p><strong>Modularitet og gjenbruk</strong>:</p>
-</li>
+<ul>
 <li><strong>dbt</strong>: Oppmuntrer til modularitet ved å la brukere bryte ned komplekse transformasjoner i mindre modeller. Dette gjør det enklere å vedlikeholde og gjenbruke kode.</li>
-<li>
-<p><strong>Tradisjonelle ETL-verktøy</strong>: Har ofte komplekse grensesnitt og proprietære språk, noe som kan være utfordrende hvis man ikke er kjent med dem.</p>
+<li><strong>Tradisjonelle ETL-verktøy</strong>: Har ofte komplekse grensesnitt og proprietære språk, noe som kan være utfordrende hvis man ikke er kjent med dem.</li>
+</ul>
 </li>
 <li>
 <p><strong>Testing og dokumentasjon</strong>:</p>
-</li>
+<ul>
 <li><strong>dbt</strong>: Inkluderer innebygde funksjoner for testing og dokumentasjon, noe som sikrer at datamodellene er godt dokumentert og pålitelige.</li>
-<li>
-<p><strong>Tradisjonelle ETL-verktøy</strong>: Kan kreve mer manuell innsats for å oppnå samme nivå av testing og dokumentasjon.</p>
+<li><strong>Tradisjonelle ETL-verktøy</strong>: Kan kreve mer manuell innsats for å oppnå samme nivå av testing og dokumentasjon.</li>
+</ul>
 </li>
 <li>
 <p><strong>Skalerbarhet</strong>:</p>
-</li>
+<ul>
 <li><strong>dbt</strong>: Kan håndtere store datamengder og komplekse transformasjoner, noe som gjør det egnet for både små og store organisasjoner.</li>
 <li><strong>Tradisjonelle ETL-verktøy</strong>: Bygget for å skalere og kan håndtere enterprise-nivå databehandlingsbehov.</li>
+</ul>
+</li>
 </ol>
 <p><strong>Referanser</strong>:</p>
-<p>https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools</p>
-<p>https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs</p>
+<p><a href="https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools">https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools</a></p>
+<p><a href="https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs">https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs</a></p>
 <h2 id="hvilke-typer-materialiseringer-brukes-i-dbt">Hvilke typer materialiseringer brukes i dbt?<a class="headerlink" href="#hvilke-typer-materialiseringer-brukes-i-dbt" title="Permanent link">&para;</a></h2>
 <p>I dbt (Data Build Tool) finnes det flere materialiseringsstrategier som kan brukes til å definere hvordan data skal lagres og behandles. Her er noen av de vanligste:</p>
 <h3 id="1-view">1. <strong>View</strong><a class="headerlink" href="#1-view" title="Permanent link">&para;</a></h3>
@@ -1799,7 +1803,7 @@ For å nå on-prem Oracle brukes i dag VDI Utvikler, men Knast skal erstatte den
 <p>Før du går gjennom detaljene på hvordan dbt bør settes opp er det lurt å bli kjent med hvordan dbt fungerer. Nedenfor er det et knippe nyttige lenker som hjelper deg med å komme igang og lære de viktigste kommandoene og funksjonene i dbt.</p>
 <h3 id="kurs-dbt-fundamentals">Kurs - dbt fundamentals<a class="headerlink" href="#kurs-dbt-fundamentals" title="Permanent link">&para;</a></h3>
 <p>Det finnes et <a href="https://courses.getdbt.com/courses/fundamentals">fundamentals kurs</a> hos dbt labs. Dette kurset bruker dbt cloud, men mesteparten av innholdet kan overføres til dbt-core.</p>
-<p>dbt-i-nav jobber med å tilby et kursmiljø basert på GitHub Codespaces og dbt-core, https://github.com/navikt/dbt-i-nav-intro-kurs. Mer info kommer! </p>
+<p>dbt-i-nav jobber med å tilby et kursmiljø basert på GitHub Codespaces og dbt-core, <a href="https://github.com/navikt/dbt-i-nav-intro-kurs">dbt-i-nav-intro-kurs</a>. Mer info kommer! </p>
 <h3 id="designprinsipper">Designprinsipper<a class="headerlink" href="#designprinsipper" title="Permanent link">&para;</a></h3>
 <p><a href="https://towardsdatascience.com/how-to-design-a-dbt-model-from-scratch-8c72c7684203">How to design a dbt model from scratch</a>. Hvordan bør du tenke nå du designer nye modeller med dbt? Det er fort gjort å bomme på første forsøk, og det koster mye tid.</p>
 <h3 id="dimensjonsmodellering">Dimensjonsmodellering<a class="headerlink" href="#dimensjonsmodellering" title="Permanent link">&para;</a></h3>
