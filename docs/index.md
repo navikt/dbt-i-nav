@@ -14,30 +14,32 @@ Data Build Tool (dbt) er et åpen kildekode-verktøy som hjelper dataanalytikere
 ## Hva skiller dbt fra tradisjonelle ETL-verktøy?
 
 1. **Fokus på transformasjon**:
-   - **dbt**: Fokuserer utelukkende på transformasjonsdelen av dataflyten, og tilrettelegging av data for analyse. Dette forutsetter at data allerede er lastet til databasen.
-   - **Tradisjonelle ETL-verktøy**: Håndterer hele prosessen fra utvinning (Extract) til lasting (Load). De er ideelle for miljøer hvor data må hentes fra ulike kilder, transformeres etter komplekse forretningsregler, og deretter lastes inn i flere destinasjoner.
+    * **dbt**: Fokuserer utelukkende på transformasjonsdelen av dataflyten, og tilrettelegging av data for analyse. Dette forutsetter at data allerede er lastet til databasen.
+    * **Tradisjonelle ETL-verktøy**: Håndterer hele prosessen fra utvinning (Extract) til lasting (Load). De er ideelle for miljøer hvor data må hentes fra ulike kilder, transformeres etter komplekse forretningsregler, og deretter lastes inn i flere destinasjoner.
 
 2. **Brukervennlighet**:
-   - **dbt**: Bruker en SQL-sentrisk tilnærming, noe som gjør det enkelt for dataanalytikere og utviklere som allerede er kjent med SQL.
-   - **Tradisjonelle ETL-verktøy**: Mange ETL-verktøy tilbyr et grafisk brukergrensesnitt, noe som gjør det enklere for ikke-tekniske brukere å designe og administrere dataflyter. 
+    * **dbt**: Bruker en SQL-sentrisk tilnærming, noe som gjør det enkelt for dataanalytikere og utviklere som allerede er kjent med SQL.
+    * **Tradisjonelle ETL-verktøy**: Mange ETL-verktøy tilbyr et grafisk brukergrensesnitt, noe som gjør det enklere for ikke-tekniske brukere å designe og administrere dataflyter. 
 
 3. **Modularitet og gjenbruk**:
-   - **dbt**: Oppmuntrer til modularitet ved å la brukere bryte ned komplekse transformasjoner i mindre modeller. Dette gjør det enklere å vedlikeholde og gjenbruke kode.
-   - **Tradisjonelle ETL-verktøy**: Har ofte komplekse grensesnitt og proprietære språk, noe som kan være utfordrende hvis man ikke er kjent med dem.
+    * **dbt**: Oppmuntrer til modularitet ved å la brukere bryte ned komplekse transformasjoner i mindre modeller. Dette gjør det enklere å vedlikeholde og gjenbruke kode.
+    * **Tradisjonelle ETL-verktøy**: Har ofte komplekse grensesnitt og proprietære språk, noe som kan være utfordrende hvis man ikke er kjent med dem.
 
 4. **Testing og dokumentasjon**:
-   - **dbt**: Inkluderer innebygde funksjoner for testing og dokumentasjon, noe som sikrer at datamodellene er godt dokumentert og pålitelige.
-   - **Tradisjonelle ETL-verktøy**: Kan kreve mer manuell innsats for å oppnå samme nivå av testing og dokumentasjon.
+    * **dbt**: Inkluderer innebygde funksjoner for testing og dokumentasjon, noe som sikrer at datamodellene er godt dokumentert og pålitelige.
+    * **Tradisjonelle ETL-verktøy**: Kan kreve mer manuell innsats for å oppnå samme nivå av testing og dokumentasjon.
 
 5. **Skalerbarhet**:
-   - **dbt**: Kan håndtere store datamengder og komplekse transformasjoner, noe som gjør det egnet for både små og store organisasjoner.
-   - **Tradisjonelle ETL-verktøy**: Bygget for å skalere og kan håndtere enterprise-nivå databehandlingsbehov.
+    * **dbt**: Kan håndtere store datamengder og komplekse transformasjoner, noe som gjør det egnet for både små og store organisasjoner.
+    * **Tradisjonelle ETL-verktøy**: Bygget for å skalere og kan håndtere enterprise-nivå databehandlingsbehov.
 
 **Referanser**:
 
-https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools
+[https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools](https://learn.growdataskills.com/blog/DBT_vs_Traditional_ETL_Tools)
 
-https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs
+
+[https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs](https://celerdata.com/glossary/dbt-or-traditional-etl-which-fits-your-needs
+)
 
 
 
@@ -98,7 +100,7 @@ Før du går gjennom detaljene på hvordan dbt bør settes opp er det lurt å bl
 
 Det finnes et [fundamentals kurs](https://courses.getdbt.com/courses/fundamentals) hos dbt labs. Dette kurset bruker dbt cloud, men mesteparten av innholdet kan overføres til dbt-core.
 
-dbt-i-nav jobber med å tilby et kursmiljø basert på GitHub Codespaces og dbt-core, https://github.com/navikt/dbt-i-nav-intro-kurs. Mer info kommer! 
+dbt-i-nav jobber med å tilby et kursmiljø basert på GitHub Codespaces og dbt-core, [dbt-i-nav-intro-kurs](https://github.com/navikt/dbt-i-nav-intro-kurs). Mer info kommer! 
 
 ### Designprinsipper
 
