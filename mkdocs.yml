@@ -16,6 +16,14 @@ nav:
         - Tips og triks:
             - Installasjon-på-VDI/miljovariabler.md
         - feilsoking/feilsoking.md
+    - dbt i Knast:
+        - dbt i Knast/Hva-er-Knast.md
+        - dbt i Knast/kjøre-regler.md
+        - dbt i Knast/komme-i-gang.md
+        - dbt i Knast/SQL-developer.md
+        - dbt i Knast/installer-python-pakker.md
+        - dbt i Knast/dbt-power-user.md
+        - dbt i Knast/hemmligheter.md
   - Arkitektur:
       - arkitektur/materialisering.md
       - arkitektur/materialisering_spenn.md
