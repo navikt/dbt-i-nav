@@ -2,20 +2,15 @@
 $dbtEnv_path = ".dbtenv"
 
  
-
-
 #Function to set up a virtual env for dbt
 function Add-dbtenv {
-  # Create environment (https://docs.python.org/3/library/venv.html)
-  python -m venv $dbtEnv_path
+  # Create new venv, clear if it exists
+  Write-Host "Creating new dbt environment in $dbtEnv_path"
+  py -m venv $dbtEnv_path --clear
   # And activate
-  iex $dbtEnv_path"/Scripts/activate.ps1"
-  # Install these packages to forsce python to use Windows Certificate Store.
-  python -m pip install setuptools-scm pip-system-certs --trusted-host pypi.org --trusted-host  files.pythonhosted.org
-  # Latest pip
-  python -m pip install --upgrade pip
+  Invoke-Expression $dbtEnv_path"/Scripts/activate.ps1"
   # Install the latest dbt
-  python -m pip install -r https://raw.githubusercontent.com/navikt/dbt-i-nav/main/requirements.txt
+  python -m pip install --upgrade pip -r https://raw.githubusercontent.com/navikt/dbt-i-nav/main/requirements.txt
 }
 
 #Check if environment exists
@@ -24,11 +19,11 @@ if (-Not $dbtEnv_exists) {
   Add-dbtenv
 }
 Else{
-  if ((Read-Host -Prompt "Update $dbtEnv_path`? (y/n)") -eq "y") {
+  if ((Read-Host -Prompt "Gjenopprett $dbtEnv_path`? (y/n)") -eq "y") {
     Add-dbtenv
   }
   Else {
-    iex $dbtEnv_path"/Scripts/activate.ps1"
+    Invoke-Expression $dbtEnv_path"/Scripts/activate.ps1"
   }
 }
 
@@ -61,8 +56,6 @@ Catch [System.Management.Automation.ItemNotFoundException]{
   Write-Host "Unable to find path:" $dbtPath"."
   exit
 }
-
-
 
 
 $dbt_project_file = Test-Path -Path $dbtPath"\dbt_project.yml"
@@ -104,7 +97,7 @@ dbt deps
 # midlertidig fiks for thin client fra utviklerimage
 Remove-Item -Path Env:https_proxy -ErrorAction SilentlyContinue
 $env:ORA_PYTHON_DRIVER_TYPE = "thin"
-echo "ORA_PYTHON_DRIVER_TYPE: $env:ORA_PYTHON_DRIVER_TYPE"
+Write-Output "ORA_PYTHON_DRIVER_TYPE: $env:ORA_PYTHON_DRIVER_TYPE"
 
 $git_repo_detected = Test-Path -Path $dbtPath"\.git"
 
