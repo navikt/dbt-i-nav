@@ -17,7 +17,7 @@
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: "{{env_var('DBT_DB_DSN', 'dmv07-scan.adeo.no')}}"
+      host: "{{env_var('DBT_DB_DSN', 'dmv04-scan.adeo.no')}}"
       port: 1521
       service: ccdwhu1_ha
       database: dwhu1
