@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/dbt%20i%20Knast/hemmligheter/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/dbt%20i%20Knast/KSM-brukerguide/">
       
       
         <link rel="prev" href="../dbt-power-user/">
@@ -17,19 +17,22 @@
         <link rel="next" href="../../arkitektur/materialisering/">
       
       
+        
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Hemmlighet håndtering - dbt i NAV</title>
+        <title>What is KSM (Knast Secret Manager) - dbt i NAV</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -54,7 +57,6 @@
 
     
     
-    
   </head>
   
   
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hemmlighet-handtering" class="md-skip">
+        <a href="#what-is-ksm-knast-secret-manager" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hemmlighet håndtering
+              What is KSM (Knast Secret Manager)
             
           </span>
         </div>
@@ -193,7 +195,7 @@
         <a href="https://github.com/navikt/dbt-i-nav" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -239,7 +241,7 @@
       <a href="https://github.com/navikt/dbt-i-nav" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -261,9 +263,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Introduksjon til dbt
+  
+
     
   </span>
+  
   
 
       </a>
@@ -302,9 +309,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Oracle
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -313,7 +325,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Oracle
+            
+  
+    Oracle
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -352,9 +368,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Installasjon på VDI
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -363,7 +384,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Installasjon på VDI
+            
+  
+    Installasjon på VDI
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -379,9 +404,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Installere dbt-oracle på VDI
+  
+
     
   </span>
+  
   
 
       </a>
@@ -423,9 +453,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Forutsetninger
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -434,7 +469,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1_2">
             <span class="md-nav__icon md-icon"></span>
-            Forutsetninger
+            
+  
+    Forutsetninger
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -450,9 +489,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Python
+  
+
     
   </span>
+  
   
 
       </a>
@@ -473,9 +517,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     PIP og og tilgang til PyPI
+  
+
     
   </span>
+  
   
 
       </a>
@@ -496,9 +545,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Git
+  
+
     
   </span>
+  
   
 
       </a>
@@ -544,9 +598,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Tips og triks
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -555,7 +614,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1_3">
             <span class="md-nav__icon md-icon"></span>
-            Tips og triks
+            
+  
+    Tips og triks
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -571,9 +634,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Legge til miljøvariabler
+  
+
     
   </span>
+  
   
 
       </a>
@@ -602,9 +670,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Feilsøking
+  
+
     
   </span>
+  
   
 
       </a>
@@ -662,9 +735,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     dbt i Knast
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -673,7 +751,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
-            dbt i Knast
+            
+  
+    dbt i Knast
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -689,9 +771,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Hva er Knast?
+  
+
     
   </span>
+  
   
 
       </a>
@@ -712,9 +799,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Regler ved bruk av Knast for jobbe på DWH
+  
+
     
   </span>
+  
   
 
       </a>
@@ -735,9 +827,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Komme i gang
+  
+
     
   </span>
+  
   
 
       </a>
@@ -758,9 +855,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     SQL Developer i Knast
+  
+
     
   </span>
+  
   
 
       </a>
@@ -781,9 +883,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Installere Python pakker
+  
+
     
   </span>
+  
   
 
       </a>
@@ -804,9 +911,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Power User for dbt
+  
+
     
   </span>
+  
   
 
       </a>
@@ -836,9 +948,14 @@
   
   
   <span class="md-ellipsis">
-    Hemmlighet håndtering
+    
+  
+    What is KSM (Knast Secret Manager)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -896,9 +1013,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Arkitektur
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -907,7 +1029,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Arkitektur
+            
+  
+    Arkitektur
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -923,9 +1049,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Materialiseringsstrategier
+  
+
     
   </span>
+  
   
 
       </a>
@@ -946,9 +1077,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Materialiseringsstrategi i Team Spenn
+  
+
     
   </span>
+  
   
 
       </a>
@@ -969,9 +1105,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Style guide
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1023,9 +1164,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Dokumentasjon
+  
+
     
   </span>
+  
   
 
             </a>
@@ -1040,7 +1186,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Dokumentasjon
+            
+  
+    Dokumentasjon
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1058,9 +1208,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Dokumentasjon
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1081,9 +1236,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1132,9 +1292,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Anbefalinger
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1143,7 +1308,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Anbefalinger
+            
+  
+    Anbefalinger
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1159,9 +1328,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Visual Studio Code
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1182,9 +1356,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     dbt Power User
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1205,9 +1384,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     SQLFluff
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1269,9 +1453,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Prosjekter som bruker dbt
+  
+
     
   </span>
+  
   
 
             </a>
@@ -1286,7 +1475,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Prosjekter som bruker dbt
+            
+  
+    Prosjekter som bruker dbt
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1304,9 +1497,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     dvh_arb_cv
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1327,9 +1525,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     dvh_arb_permittering
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1350,9 +1553,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     dvh_arb_person
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1373,9 +1581,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     dvh_arb_styrke_ssb
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1396,9 +1609,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     dvh-sykefravar-dmx
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1419,9 +1637,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     vdl-regnskapsdata
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1442,9 +1665,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     bomlo-dbt
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1489,9 +1717,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Arkiv
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1500,7 +1733,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Arkiv
+            
+  
+    Arkiv
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1516,9 +1753,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     DBT
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1567,9 +1809,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Airflow
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1578,7 +1825,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Airflow
+            
+  
+    Airflow
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1594,9 +1845,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Airflow
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1617,9 +1873,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Dbt operator
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1640,9 +1901,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Dbt run
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1686,6 +1952,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -1695,12 +1962,87 @@
   
 
 
-<h1 id="hemmlighet-handtering">Hemmlighet håndtering<a class="headerlink" href="#hemmlighet-handtering" title="Permanent link">&para;</a></h1>
-<p>Mer info kommer ...</p>
-<div class="admonition question">
-<p class="admonition-title">Spørsmål?</p>
-<p>Skriv gjerne på <a href="https://nav-it.slack.com/archives/C0859E82VA6">Slack</a></p>
-</div>
+<h1 id="what-is-ksm-knast-secret-manager">What is KSM (Knast Secret Manager)<a class="headerlink" href="#what-is-ksm-knast-secret-manager" title="Permanent link">&para;</a></h1>
+<ul>
+<li>KSM is a tool to use database (only Datavarehus oracle DBs P, U and R) password or secrets in a secure manner. This tool is available on "DBT (Data Build tool)" Knast-image.</li>
+<li>KSM saves encrypted secrets on Google Secret Manager (not on users disk) in users team project which only can be decrypted by a key (master password) generated by user during encryption process. Other team members can only see an encryoted JSON string in GCP team project.</li>
+<li>KSM provides the functionality to automatically integrate DB passwords/secrets required in DBT project, without user needing to provide DB passwords manually.</li>
+<li>If user forgets master password, KSM provides functionality (run "KSM-encrypt-secrets") to regenerate secrets which overwrites previous secrets on Google Secret Manager.</li>
+</ul>
+<h1 id="installation">🚀 Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
+<h1 id="one-time-system-setup">⚙️ One-time System Setup<a class="headerlink" href="#one-time-system-setup" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>⚠️ IMPORTANT:</strong> Run these commands inside your <strong>KNAST terminal</strong></p>
+</blockquote>
+<h3 id="step-1-authenticate-with-google-cloud">Step 1: 🔐 Authenticate with Google Cloud<a class="headerlink" href="#step-1-authenticate-with-google-cloud" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>auth<span class="w"> </span>login<span class="w"> </span>--update-adc
+</code></pre></div>
+<strong>Check if project is set</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project
+</code></pre></div>
+<strong>If project is not set: (enter google cloud project ID where you want to keep encrypt secrets)</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>&lt;your-project-id&gt;
+</code></pre></div></p>
+<h3 id="step-2-enter-encrypt-databasedvh-passwords">Step 2: 🔒 Enter &amp; encrypt database(DVH) passwords<a class="headerlink" href="#step-2-enter-encrypt-databasedvh-passwords" title="Permanent link">&para;</a></h3>
+<h4 id="encrypt-secrets">Encrypt Secrets<a class="headerlink" href="#encrypt-secrets" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>KSM-encrypt-secrets
+</code></pre></div>
+<p><strong>What happens next:</strong>
+<strong>Follow instructions in terminal</strong>
+1. 🔑 Terminal will prompt you to <strong>choose DVH env &amp; enter database password</strong> and <strong>create a master password</strong> (a secure, memorable password you'll use daily to decrypt your database passwords.)
+2. Terminal will prompt you to <strong>choose or enter your preffered Google Cloud Project</strong> to publish the secrets on Google Secret Manager. ⚠️ <strong>Remember:</strong> Always use <strong>project ID</strong> instead of project name.</p>
+<blockquote>
+<p>⚠️ <strong>CRITICAL:</strong> Remember your master password; Keep it safe - <strong>no recovery possible</strong></p>
+</blockquote>
+<h4 id="check-if-script-has-created-the-secret-in-preferred-gcp-project">Check if script has created the secret in preferred GCP project:<a class="headerlink" href="#check-if-script-has-created-the-secret-in-preferred-gcp-project" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Go to your Google Cloud Console</li>
+<li>Go to <strong>Security &gt;&gt; Secret Manager</strong></li>
+<li>Under <strong>Secrets</strong> tab you will a list of secrets owned by you or your team</li>
+<li>Choose your secret (with your <strong>hostname</strong> f.eks. a123456)</li>
+<li>Under <strong>Actions</strong>, click <strong>3 vertical dots</strong> and choose <strong>View secret value</strong> to confirm secret. The same secret JSON should be printed out in your Knast terminal.</li>
+</ol>
+<h1 id="per-repository-setup">🎯 Per-repository setup<a class="headerlink" href="#per-repository-setup" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>⚠️ IMPORTANT:</strong> Go to your workdirectory/home directory (f.eks. <code>/home/user</code>) in the Terminal</p>
+</blockquote>
+<h3 id="step-1-clone-your-dbt-project-repo-or-create-new-dbt-project">Step 1: Clone your dbt-project repo/ or Create new dbt project<a class="headerlink" href="#step-1-clone-your-dbt-project-repo-or-create-new-dbt-project" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-createactivate-virtual-environment">Step 2: 🐍 Create/activate Virtual environment<a class="headerlink" href="#step-2-createactivate-virtual-environment" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-initialize-repository">Step 3: ⚙️ Initialize Repository<a class="headerlink" href="#step-3-initialize-repository" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>repo-init
+</code></pre></div>
+<strong>What repo-init does:</strong>
+- ✅ Places .pth file in venv for Python auto-loading
+- ✅ Verifies cryptography availability
+- ✅ Cleans up stale artifacts safely</p>
+<h3 id="step-4-install-dependencies">Step 4: 📋 Install Dependencies<a class="headerlink" href="#step-4-install-dependencies" title="Permanent link">&para;</a></h3>
+<p><strong>For requirements.txt:</strong>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></p>
+<p><strong>For pyproject.toml:</strong>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>pyproject.toml
+</code></pre></div></p>
+<hr />
+<h1 id="daily-routine-every-workstation-start-or-as-needed">☀️ Daily Routine (Every Workstation Start or as needed)<a class="headerlink" href="#daily-routine-every-workstation-start-or-as-needed" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>🔄 Quick Start:</strong> Run these commands at the beginning of each session within your repo</p>
+</blockquote>
+<h3 id="step-1-activate-virtual-environment">Step 1: 🔐 Activate virtual environment<a class="headerlink" href="#step-1-activate-virtual-environment" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-authenticate-with-gcp">Step 2: 🔐 Authenticate with GCP<a class="headerlink" href="#step-2-authenticate-with-gcp" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>gauth<span class="w">  </span><span class="c1"># GCP authentication</span>
+</code></pre></div>
+<h3 id="step-3-set-master-password">Step 3: 🔑 Set Master Password<a class="headerlink" href="#step-3-set-master-password" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mpass-set
+</code></pre></div>
+<h3 id="step-4-verify-setup-inside-repo">Step 4: ✅ Verify Setup (inside repo)<a class="headerlink" href="#step-4-verify-setup-inside-repo" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>repo-status<span class="w">  </span><span class="c1"># Tests if everything is okay</span>
+</code></pre></div>
+<strong>This command tests:</strong>
+- ✅ Shell integration
+- ✅ Master password caching
+- ✅ Current GCP user &amp; project ID
+- ✅ Authentication details (token + ADC)</p>
+<h1 id="you-are-all-set-to-work-on-your-dbt-project-with-dvh-as-source">🎉 You are all set to work on your dbt project with DVH as source!<a class="headerlink" href="#you-are-all-set-to-work-on-your-dbt-project-with-dvh-as-source" title="Permanent link">&para;</a></h1>
 
 
 
@@ -1721,7 +2063,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 8, 2025 07:45:31 UTC">May 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 21, 2025 18:53:25 UTC">November 21, 2025</span>
   </span>
 
     
@@ -1770,10 +2112,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
