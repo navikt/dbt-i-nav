@@ -23,7 +23,7 @@ nav:
         - dbt i Knast/SQL-developer.md
         - dbt i Knast/installer-python-pakker.md
         - dbt i Knast/dbt-power-user.md
-        - dbt i Knast/hemmligheter.md
+        - dbt i Knast/KSM-brukerguide.md
   - Arkitektur:
       - arkitektur/materialisering.md
       - arkitektur/materialisering_spenn.md
