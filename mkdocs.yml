@@ -19,7 +19,6 @@ nav:
     - dbt i Knast:
         - dbt i Knast/Hva-er-Knast.md
         - dbt i Knast/kjøre-regler.md
-        - dbt i Knast/komme-i-gang.md
         - dbt i Knast/SQL-developer.md
         - dbt i Knast/installer-python-pakker.md
         - dbt i Knast/dbt-power-user.md

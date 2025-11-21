@@ -1,25 +1,4 @@
-# Installere Python pakker
-For å installere python pakker, du må autentisere på pypi proxy. Les følgende om hvordan:
-
-- Kjør følgende kommando i terminal for å aktivere installasjon av python pakker:
-```sh
-$ gcloud auth login --update-adc 
-```
-(følg videre resultat av kommandoen)
-- Kjøre følgende i terminal:
-```sh
-$ pypi-auth
-```
-
-## Ved bruk av "UV"
-
-- Install pakke:
-```sh
-$ uv pip install <pakke-navn>
-```
-
-
-## Ved bruk av Poetry
+# Bruk av Poetry
 
 - Installer Poetry pakke.
 
