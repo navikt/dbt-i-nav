@@ -6,6 +6,7 @@
 
 
 # 🚀 Installation
+### KSM is ready to use out-of-the-box. No need to install or clone any code. Just go ahead and follow the instructions below:
 
 # ⚙️ One-time System Setup
 > **⚠️ IMPORTANT:** Run these commands inside your **KNAST terminal**
@@ -33,6 +34,7 @@ KSM-encrypt-secrets
 **What happens next:**
 **Follow instructions in terminal**
 1. 🔑 Terminal will prompt you to **choose DVH env & enter database password** and **create a master password** (a secure, memorable password you'll use daily to decrypt your database passwords.)
+
 2. Terminal will prompt you to **choose or enter your preffered Google Cloud Project** to publish the secrets on Google Secret Manager. ⚠️ **Remember:** Always use **project ID** instead of project name.
 
 > ⚠️ **CRITICAL:** Remember your master password; Keep it safe - **no recovery possible**
@@ -72,6 +74,16 @@ uv pip install -r requirements.txt
 ```bash
 uv pip install -r pyproject.toml
 ```
+### Step 5: ✅ Verify Setup & dbt version
+```bash
+repo-status  # Tests if everything is okay
+```
+**This command tests:**
+- ✅ Shell integration
+- ✅ Master password caching
+- ✅ Current GCP user & project ID
+- ✅ Authentication details (token + ADC)
+- ✅ Recommended dbt version
 
 ***
 # ☀️ Daily Routine (Every Workstation Start or as needed)
@@ -99,5 +111,6 @@ repo-status  # Tests if everything is okay
 - ✅ Master password caching
 - ✅ Current GCP user & project ID
 - ✅ Authentication details (token + ADC)
+- ✅ Recommended dbt version
 
 # 🎉 You are all set to work on your dbt project with DVH as source!
