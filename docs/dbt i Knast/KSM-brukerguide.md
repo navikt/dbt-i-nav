@@ -32,9 +32,10 @@ KSM-encrypt-secrets
 ```
 
 **What happens next:**
-**Follow instructions in terminal**
-1. 🔑 Terminal will prompt you to **choose DVH env & enter database password** and **create a master password** (a secure, memorable password you'll use daily to decrypt your database passwords.)
 
+**Follow instructions in terminal**
+
+1. 🔑 Terminal will prompt you to **choose DVH env & enter database password** and **create a master password** (a secure, memorable password you'll use daily to decrypt your database passwords.)
 2. Terminal will prompt you to **choose or enter your preffered Google Cloud Project** to publish the secrets on Google Secret Manager. ⚠️ **Remember:** Always use **project ID** instead of project name.
 
 > ⚠️ **CRITICAL:** Remember your master password; Keep it safe - **no recovery possible**
