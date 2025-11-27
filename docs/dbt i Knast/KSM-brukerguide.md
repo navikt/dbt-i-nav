@@ -24,7 +24,7 @@ gcloud config get-value project
 gcloud config set project <your-project-id>
 ```
 
-### Step 2: 🔒 Enter & encrypt database(DVH) passwords 
+### Step 2: 🔒 Enter & Encrypt Database(DVH) Passwords 
 
 #### Encrypt Secrets
 ```bash
@@ -38,7 +38,9 @@ KSM-encrypt-secrets
 1. 🔑 Terminal will prompt you to **choose DVH env & enter database password** and **create a master password** (a secure, memorable password you'll use daily to decrypt your database passwords.)
 2. Terminal will prompt you to **choose or enter your preffered Google Cloud Project** to publish the secrets on Google Secret Manager. ⚠️ **Remember:** Always use **project ID** instead of project name.
 
-> ⚠️ **CRITICAL:** Remember your master password; Keep it safe - **no recovery possible**
+> ⚠️ **INFO:** If you forget your Master Password, you can always create new secret with new Master Password.
+
+> ❌ **CRITICAL:** Do not use KSM to store your DB passwords (KSM is not designed for storage purpose). Keep DB passwords safe in another place. 
 
 #### Check if script has created the secret in preferred GCP project:
 1. Go to your Google Cloud Console
@@ -49,22 +51,15 @@ KSM-encrypt-secrets
 
 
 # 🎯 Per-repository setup
-> **⚠️ IMPORTANT:** Go to your workdirectory/home directory (f.eks. `/home/user`) in the Terminal
 
 ### Step 1: Clone your dbt-project repo/ or Create new dbt project
 
-### Step 2: 🐍 Create/activate Virtual environment
-
-### Step 3: ⚙️ Initialize Repository
+### Step 2: 🐍 Create /activate Virtual environment
 ```bash
-repo-init
+uv venv && source .venv/bin/activate
 ```
-**What repo-init does:**
-- ✅ Places .pth file in venv for Python auto-loading
-- ✅ Verifies cryptography availability
-- ✅ Cleans up stale artifacts safely
 
-### Step 4: 📋 Install Dependencies
+### Step 3: 📋 Install Dependencies (if any)
 
 **For requirements.txt:**
 ```bash
@@ -75,7 +70,8 @@ uv pip install -r requirements.txt
 ```bash
 uv pip install -r pyproject.toml
 ```
-### Step 5: ✅ Verify Setup & dbt version
+
+### Step 4:  ✅ Verify Setup & dbt version
 ```bash
 repo-status  # Tests if everything is okay
 ```
@@ -86,12 +82,23 @@ repo-status  # Tests if everything is okay
 - ✅ Authentication details (token + ADC)
 - ✅ Recommended dbt version
 
+### Step 5: ⚙️ Initialize Repository
+```bash
+repo-init
+```
+**What repo-init does:**
+- ✅ Places .pth file in venv for Python auto-loading
+- ✅ Verifies cryptography availability
+- ✅ Cleans up stale artifacts safely
+
 ***
 # ☀️ Daily Routine (Every Workstation Start or as needed)
 > **🔄 Quick Start:** Run these commands at the beginning of each session within your repo
 
-### Step 1: 🔐 Activate virtual environment
-
+### Step 1: 🔐 Activate virtual environment (go to your dbt project directory in terminal)
+```bash
+source .venv/bin/activate
+```
 
 ### Step 2: 🔐 Authenticate with GCP
 ```bash
@@ -113,5 +120,10 @@ repo-status  # Tests if everything is okay
 - ✅ Current GCP user & project ID
 - ✅ Authentication details (token + ADC)
 - ✅ Recommended dbt version
+
+## Get help about KSM in terminal, run:
+```bash
+KSM-help
+```
 
 # 🎉 You are all set to work on your dbt project with DVH as source!
