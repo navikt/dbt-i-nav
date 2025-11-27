@@ -1954,7 +1954,7 @@
 <strong>If project is not set: (enter google cloud project ID where you want to keep encrypt secrets)</strong>
 <div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>&lt;your-project-id&gt;
 </code></pre></div></p>
-<h3 id="step-2-enter-encrypt-databasedvh-passwords">Step 2: 🔒 Enter &amp; encrypt database(DVH) passwords<a class="headerlink" href="#step-2-enter-encrypt-databasedvh-passwords" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-enter-encrypt-databasedvh-passwords">Step 2: 🔒 Enter &amp; Encrypt Database(DVH) Passwords<a class="headerlink" href="#step-2-enter-encrypt-databasedvh-passwords" title="Permanent link">&para;</a></h3>
 <h4 id="encrypt-secrets">Encrypt Secrets<a class="headerlink" href="#encrypt-secrets" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>KSM-encrypt-secrets
 </code></pre></div>
@@ -1965,7 +1965,8 @@
 <li>Terminal will prompt you to <strong>choose or enter your preffered Google Cloud Project</strong> to publish the secrets on Google Secret Manager. ⚠️ <strong>Remember:</strong> Always use <strong>project ID</strong> instead of project name.</li>
 </ol>
 <blockquote>
-<p>⚠️ <strong>CRITICAL:</strong> Remember your master password; Keep it safe - <strong>no recovery possible</strong></p>
+<p>⚠️ <strong>INFO:</strong> If you forget your Master Password, you can always create new secret with new Master Password.</p>
+<p>❌ <strong>CRITICAL:</strong> Do not use KSM to store your DB passwords (KSM is not designed for storage purpose). Keep DB passwords safe in another place. </p>
 </blockquote>
 <h4 id="check-if-script-has-created-the-secret-in-preferred-gcp-project">Check if script has created the secret in preferred GCP project:<a class="headerlink" href="#check-if-script-has-created-the-secret-in-preferred-gcp-project" title="Permanent link">&para;</a></h4>
 <ol>
@@ -1976,26 +1977,18 @@
 <li>Under <strong>Actions</strong>, click <strong>3 vertical dots</strong> and choose <strong>View secret value</strong> to confirm secret. The same secret JSON should be printed out in your Knast terminal.</li>
 </ol>
 <h1 id="per-repository-setup">🎯 Per-repository setup<a class="headerlink" href="#per-repository-setup" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><strong>⚠️ IMPORTANT:</strong> Go to your workdirectory/home directory (f.eks. <code>/home/user</code>) in the Terminal</p>
-</blockquote>
 <h3 id="step-1-clone-your-dbt-project-repo-or-create-new-dbt-project">Step 1: Clone your dbt-project repo/ or Create new dbt project<a class="headerlink" href="#step-1-clone-your-dbt-project-repo-or-create-new-dbt-project" title="Permanent link">&para;</a></h3>
-<h3 id="step-2-createactivate-virtual-environment">Step 2: 🐍 Create/activate Virtual environment<a class="headerlink" href="#step-2-createactivate-virtual-environment" title="Permanent link">&para;</a></h3>
-<h3 id="step-3-initialize-repository">Step 3: ⚙️ Initialize Repository<a class="headerlink" href="#step-3-initialize-repository" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code>repo-init
+<h3 id="step-2-create-activate-virtual-environment">Step 2: 🐍 Create /activate Virtual environment<a class="headerlink" href="#step-2-create-activate-virtual-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </code></pre></div>
-<strong>What repo-init does:</strong>
-- ✅ Places .pth file in venv for Python auto-loading
-- ✅ Verifies cryptography availability
-- ✅ Cleans up stale artifacts safely</p>
-<h3 id="step-4-install-dependencies">Step 4: 📋 Install Dependencies<a class="headerlink" href="#step-4-install-dependencies" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-install-dependencies-if-any">Step 3: 📋 Install Dependencies (if any)<a class="headerlink" href="#step-3-install-dependencies-if-any" title="Permanent link">&para;</a></h3>
 <p><strong>For requirements.txt:</strong>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div></p>
 <p><strong>For pyproject.toml:</strong>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>pyproject.toml
 </code></pre></div></p>
-<h3 id="step-5-verify-setup-dbt-version">Step 5: ✅ Verify Setup &amp; dbt version<a class="headerlink" href="#step-5-verify-setup-dbt-version" title="Permanent link">&para;</a></h3>
+<h3 id="step-4-verify-setup-dbt-version">Step 4:  ✅ Verify Setup &amp; dbt version<a class="headerlink" href="#step-4-verify-setup-dbt-version" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>repo-status<span class="w">  </span><span class="c1"># Tests if everything is okay</span>
 </code></pre></div>
 <strong>This command tests:</strong>
@@ -2004,12 +1997,21 @@
 - ✅ Current GCP user &amp; project ID
 - ✅ Authentication details (token + ADC)
 - ✅ Recommended dbt version</p>
+<h3 id="step-5-initialize-repository">Step 5: ⚙️ Initialize Repository<a class="headerlink" href="#step-5-initialize-repository" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>repo-init
+</code></pre></div>
+<strong>What repo-init does:</strong>
+- ✅ Places .pth file in venv for Python auto-loading
+- ✅ Verifies cryptography availability
+- ✅ Cleans up stale artifacts safely</p>
 <hr />
 <h1 id="daily-routine-every-workstation-start-or-as-needed">☀️ Daily Routine (Every Workstation Start or as needed)<a class="headerlink" href="#daily-routine-every-workstation-start-or-as-needed" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>🔄 Quick Start:</strong> Run these commands at the beginning of each session within your repo</p>
 </blockquote>
-<h3 id="step-1-activate-virtual-environment">Step 1: 🔐 Activate virtual environment<a class="headerlink" href="#step-1-activate-virtual-environment" title="Permanent link">&para;</a></h3>
+<h3 id="step-1-activate-virtual-environment-go-to-your-dbt-project-directory-in-terminal">Step 1: 🔐 Activate virtual environment (go to your dbt project directory in terminal)<a class="headerlink" href="#step-1-activate-virtual-environment-go-to-your-dbt-project-directory-in-terminal" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
 <h3 id="step-2-authenticate-with-gcp">Step 2: 🔐 Authenticate with GCP<a class="headerlink" href="#step-2-authenticate-with-gcp" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>gauth<span class="w">  </span><span class="c1"># GCP authentication</span>
 </code></pre></div>
@@ -2025,6 +2027,9 @@
 - ✅ Current GCP user &amp; project ID
 - ✅ Authentication details (token + ADC)
 - ✅ Recommended dbt version</p>
+<h2 id="get-help-about-ksm-in-terminal-run">Get help about KSM in terminal, run:<a class="headerlink" href="#get-help-about-ksm-in-terminal-run" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>KSM-help
+</code></pre></div>
 <h1 id="you-are-all-set-to-work-on-your-dbt-project-with-dvh-as-source">🎉 You are all set to work on your dbt project with DVH as source!<a class="headerlink" href="#you-are-all-set-to-work-on-your-dbt-project-with-dvh-as-source" title="Permanent link">&para;</a></h1>
 
 
@@ -2046,7 +2051,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 26, 2025 09:44:34 UTC">November 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2025 10:12:01 UTC">November 27, 2025</span>
   </span>
 
     
