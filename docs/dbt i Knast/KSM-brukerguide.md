@@ -28,7 +28,7 @@ gcloud config set project <your-project-id>
 
 #### Encrypt Secrets
 ```bash
-KSM-encrypt-secrets
+ksm-encrypt-secrets
 ```
 
 **What happens next:**
@@ -123,7 +123,7 @@ repo-status  # Tests if everything is okay
 
 ## Get help about KSM in terminal, run:
 ```bash
-KSM-help
+ksm-help
 ```
 
 # 🎉 You are all set to work on your dbt project with DVH as source!
