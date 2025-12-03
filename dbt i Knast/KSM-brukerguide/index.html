@@ -1978,6 +1978,14 @@
 </ol>
 <h1 id="per-repository-setup">🎯 Per-repository setup<a class="headerlink" href="#per-repository-setup" title="Permanent link">&para;</a></h1>
 <h3 id="step-1-clone-your-dbt-project-repo-or-create-new-dbt-project">Step 1: Clone your dbt-project repo/ or Create new dbt project<a class="headerlink" href="#step-1-clone-your-dbt-project-repo-or-create-new-dbt-project" title="Permanent link">&para;</a></h3>
+<p>You may need to change your profile in order to support the standard knast setup. Check out <a href="https://github.com/navikt/dbt-i-nav/blob/main/profiles.yml">profiles.yml</a> to set the supported format to inject the secrects correctly.</p>
+<p>The following environment variables are set up automatically:</p>
+<ul>
+<li>DBT_DB_TARGET: This is your current environment, run <code>dbt-env</code> to check your active environment (U, R, P ...)</li>
+<li>DBT_ENV_SECRET_USER: Your NAV ident. Tied to your Knast</li>
+<li>DBT_ENV_SECRET_PASS: DB password, encrypted and injected just in time from Google Secret Manager by KSM</li>
+<li>DBT_DB_SCHEMA: Schema is tied to your git root folder name.</li>
+</ul>
 <h3 id="step-2-create-activate-virtual-environment">Step 2: 🐍 Create /activate Virtual environment<a class="headerlink" href="#step-2-create-activate-virtual-environment" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </code></pre></div>
@@ -2051,7 +2059,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2025 12:05:56 UTC">December 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 3, 2025 14:18:50 UTC">December 3, 2025</span>
   </span>
 
     
