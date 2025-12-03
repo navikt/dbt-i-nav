@@ -54,6 +54,15 @@ ksm-encrypt-secrets
 
 ### Step 1: Clone your dbt-project repo/ or Create new dbt project
 
+You may need to change your profile in order to support the standard knast setup. Check out [profiles.yml](https://github.com/navikt/dbt-i-nav/blob/main/profiles.yml) to set the supported format to inject the secrects correctly.
+
+The following environment variables are set up automatically:
+
+* DBT_DB_TARGET: This is your current environment, run ``dbt-env`` to check your active environment (U, R, P ...)
+* DBT_ENV_SECRET_USER: Your NAV ident. Tied to your Knast
+* DBT_ENV_SECRET_PASS: DB password, encrypted and injected just in time from Google Secret Manager by KSM
+* DBT_DB_SCHEMA: Schema is tied to your git root folder name.
+
 ### Step 2: 🐍 Create /activate Virtual environment
 ```bash
 uv venv && source .venv/bin/activate
