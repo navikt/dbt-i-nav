@@ -40,7 +40,6 @@ ksm-encrypt-secrets
 
 > ⚠️ **INFO:** If you forget your Master Password, you can always create new secret with new Master Password.
 
-> ❌ **CRITICAL:** Do not use KSM to store your DB passwords (KSM is not designed for storage purpose). Keep DB passwords safe in another place. 
 
 #### Check if script has created the secret in preferred GCP project:
 1. Go to your Google Cloud Console
