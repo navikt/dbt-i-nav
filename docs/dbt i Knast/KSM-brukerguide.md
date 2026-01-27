@@ -3,7 +3,7 @@
 [TOC]
 
 # 👉 Intro
-- KSM er et verktøy for å håndtere databasepassord (kun Datavarehus oracle-databaser P, U og R) på en sikker måte. Dette verktøyet er tilgjengelig i "DBT (Data Build tool)" Knast-image.
+- KSM er et verktøy for å håndtere databasepassord (kun Datavarehus oracle-databaser P, U og R) på en sikker måte. Dette verktøyet er tilgjengelig i "dbt-ny" Knast-image.
 - KSM lagrer krypterte passord på Google Secret Manager (ikke på din egen disk) i ditt teamprosjekt. Disse kan kun dekrypteres med en nøkkel (hovedpassord) som du selv oppretter under krypteringsprosessen. Andre teammedlemmer kan kun se en kryptert JSON-streng i GCP-teamprosjektet.
 - KSM gjør at databasepassord automatisk blir tilgjengelig for DBT-prosjektet ditt, uten at du må skrive inn passordene manuelt hver gang.
 - Hvis du glemmer hovedpassordet, kan du kjøre "ksm-encrypt-secrets" for å lage nye passord som overskriver de tidligere på Google Secret Manager.
