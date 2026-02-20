@@ -6,7 +6,7 @@
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: "{{env_var('DBT_DB_DSN', '10.51.9.59')}}"
+      host: "{{env_var('DBT_DB_DSN')}}"
       port: 1521
       service: dwh_td
       database: DWH_TD
@@ -17,42 +17,53 @@
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: dmv04-scan.adeo.no
+      host: "{{env_var('DBT_DB_DNS', 'dmv34-scan.adeo.no')}}"
       port: 1521
-      dbname: dwhu1
-      service: ccfdwhu1
+      service: ccdwhu1_ha
+      database: dwhu1
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
+      threads: 10
     R:
       type: oracle
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: dmv04-scan.adeo.no
+      host: "{{env_var('DBT_DB_DNS', 'dmv04-scan.adeo.no')}}"
       port: 1521
-      dbname: dwhpr
       service: dwhr_ha
+      database: dwhpr
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
+      threads: 10
     Q:
       type: oracle
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: "{{env_var('DBT_DB_DSN', 'dmv04-scan.adeo.no')}}"
+      host: "{{env_var('DBT_DB_DNS', 'dmv38-scan.adeo.no')}}"
       port: 1521
       service: ccdwhq0_ha
       database: dwhq0
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
+      threads: 10
     P:
       type: oracle
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
       pass: "{{env_var('DBT_ENV_SECRET_PASS')}}"
       protocol: tcp
-      host: dmv09-scan.adeo.no
+      host:  "{{env_var('DBT_DB_DNS', 'dmv03-scan.adeo.no')}}"
       port: 1521
-      dbname: dwhpr
       service: dwh_ha
+      database: dwhpr
       schema: "{{env_var('DBT_DB_SCHEMA')}}"
-      threads: 4
+      threads: 10
+    knast:
+      host: "{{env_var('DBT_DB_HOST')}}"
+      password: placeholder
+      port: "{{env_var('DBT_DB_PORT')}}"
+      protocol: tcp
+      schema:
+      service: "{{env_var('DBT_ENV_SERVICE')}}"
+      database: "{{env_var('DBT_DB_NAME')}}"
+      threads: 1
+      type: oracle
+      user: "{{env_var('DBT_ENV_SECRET_USER')}}"
