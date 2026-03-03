@@ -21,11 +21,11 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
-        <title>Håndtering av passord i KNAST (Knast Secret Manager) - dbt i NAV</title>
+        <title>KSM – Brukerguide - dbt i NAV</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#handtering-av-passord-i-knast-knast-secret-manager" class="md-skip">
+        <a href="#ksm-brukerguide" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Håndtering av passord i KNAST (Knast Secret Manager)
+              KSM – Brukerguide
             
           </span>
         </div>
@@ -917,6 +917,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KSM – Brukerguide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -924,7 +942,7 @@
   <span class="md-ellipsis">
     
   
-    Håndtering av passord i KNAST (Knast Secret Manager)
+    KSM – Brukerguide
   
 
     
@@ -933,6 +951,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#komponenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Komponenter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oppsett-en-gang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oppsett (én gang)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hvordan-auto-aktivering-fungerer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvordan auto-aktivering fungerer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kjre-dbt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kjøre dbt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bytte-milj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bytte miljø
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ksmenv-configenv-nkkelvariabler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ~/KSM/env-config.env – nøkkelvariabler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feilsking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feilsøking
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1974,6 +2088,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#komponenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Komponenter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oppsett-en-gang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oppsett (én gang)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hvordan-auto-aktivering-fungerer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvordan auto-aktivering fungerer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kjre-dbt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kjøre dbt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bytte-milj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bytte miljø
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ksmenv-configenv-nkkelvariabler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ~/KSM/env-config.env – nøkkelvariabler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feilsking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feilsøking
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1992,126 +2191,117 @@
   
 
 
-<h1 id="handtering-av-passord-i-knast-knast-secret-manager">Håndtering av passord i KNAST (Knast Secret Manager)<a class="headerlink" href="#handtering-av-passord-i-knast-knast-secret-manager" title="Permanent link">&para;</a></h1>
-<div class="toc">
-<ul>
-<li><a href="#handtering-av-passord-i-knast-knast-secret-manager">Håndtering av passord i KNAST (Knast Secret Manager)</a></li>
-<li><a href="#intro">👉 Intro</a></li>
-<li><a href="#installasjon">🚀 Installasjon</a></li>
-<li><a href="#engangsoppsett-av-systemet">⚙️ Engangsoppsett av systemet</a></li>
-<li><a href="#oppsett-per-prosjekt">🎯 Oppsett per prosjekt</a></li>
-<li><a href="#daglig-rutine-ved-oppstart-av-arbeidsstasjon-eller-ved-behov">☀️ Daglig rutine (ved oppstart av arbeidsstasjon eller ved behov)</a><ul>
-<li><a href="#for-a-fa-hjelp-til-ksm-i-terminalen-kjr">For å få hjelp til KSM i terminalen, kjør:</a></li>
-</ul>
-</li>
-<li><a href="#du-er-na-klar-til-a-jobbe-med-dbt-prosjektet-ditt-med-dvh-som-kilde">🎉 Du er nå klar til å jobbe med dbt-prosjektet ditt med DVH som kilde!</a></li>
-</ul>
-</div>
-<h1 id="intro">👉 Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h1>
-<ul>
-<li>KSM er et verktøy for å håndtere databasepassord (kun Datavarehus oracle-databaser P, U og R) på en sikker måte. Dette verktøyet er tilgjengelig i "dbt-ny" Knast-image.</li>
-<li>KSM lagrer krypterte passord på Google Secret Manager (ikke på din egen disk) i ditt teamprosjekt. Disse kan kun dekrypteres med en nøkkel (hovedpassord) som du selv oppretter under krypteringsprosessen. Andre teammedlemmer kan kun se en kryptert JSON-streng i GCP-teamprosjektet.</li>
-<li>KSM gjør at databasepassord automatisk blir tilgjengelig for DBT-prosjektet ditt, uten at du må skrive inn passordene manuelt hver gang.</li>
-<li>Hvis du glemmer hovedpassordet, kan du kjøre "ksm-encrypt-secrets" for å lage nye passord som overskriver de tidligere på Google Secret Manager.</li>
-</ul>
-<h1 id="installasjon">🚀 Installasjon<a class="headerlink" href="#installasjon" title="Permanent link">&para;</a></h1>
-<h3 id="ksm-er-klar-til-bruk-med-en-gang-du-trenger-ikke-installere-eller-laste-ned-noe-bare-flg-instruksjonene-nedenfor">KSM er klar til bruk med en gang. Du trenger ikke installere eller laste ned noe. Bare følg instruksjonene nedenfor:<a class="headerlink" href="#ksm-er-klar-til-bruk-med-en-gang-du-trenger-ikke-installere-eller-laste-ned-noe-bare-flg-instruksjonene-nedenfor" title="Permanent link">&para;</a></h3>
-<h1 id="engangsoppsett-av-systemet">⚙️ Engangsoppsett av systemet<a class="headerlink" href="#engangsoppsett-av-systemet" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><strong>⚠️ VIKTIG:</strong> Kjør disse kommandoene inne i din <strong>KNAST-terminal</strong></p>
-</blockquote>
-<h3 id="steg-1-logg-inn-i-google-cloud">Steg 1: 🔐 Logg inn i Google Cloud<a class="headerlink" href="#steg-1-logg-inn-i-google-cloud" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>auth<span class="w"> </span>login<span class="w"> </span>--update-adc
-</code></pre></div>
-<strong>Sjekk om prosjekt er satt</strong>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project
-</code></pre></div>
-<strong>Hvis prosjekt ikke er satt: (skriv inn Google Cloud prosjekt-ID hvor du ønsker å lagre krypterte passord)</strong>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>&lt;your-project-id&gt;
-</code></pre></div></p>
-<h3 id="steg-2-skriv-inn-og-krypter-databasepassord-dvh">Steg 2: 🔒 Skriv inn og krypter databasepassord (DVH)<a class="headerlink" href="#steg-2-skriv-inn-og-krypter-databasepassord-dvh" title="Permanent link">&para;</a></h3>
-<h4 id="krypter-passord">Krypter passord<a class="headerlink" href="#krypter-passord" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>ksm-encrypt-secrets
-</code></pre></div>
-<p><strong>Følg så instruksjonene i terminalen</strong></p>
-<ol>
-<li>🔑 Terminalen vil be deg om å <strong>velge DVH-miljø og skrive inn databasepassord</strong>, samt <strong>opprette et hovedpassord</strong> (et sikkert og lett å huske passord som du vil bruke daglig for å dekryptere databasepassordene dine.)</li>
-<li>Terminalen vil be deg om å <strong>velge eller skrive inn ditt foretrukne Google Cloud-prosjekt</strong> hvor passordene skal lagres i Google Secret Manager. ⚠️ <strong>Husk:</strong> Bruk alltid <strong>prosjekt-ID</strong> i stedet for prosjektnavn.</li>
-</ol>
-<blockquote>
-<p>⚠️ <strong>INFO:</strong> Hvis du glemmer hovedpassordet, kan du alltid lage nye passord med et nytt hovedpassord.</p>
-</blockquote>
-<h4 id="sjekk-om-skriptet-har-opprettet-passordet-i-nsket-gcp-prosjekt">Sjekk om skriptet har opprettet passordet i ønsket GCP-prosjekt:<a class="headerlink" href="#sjekk-om-skriptet-har-opprettet-passordet-i-nsket-gcp-prosjekt" title="Permanent link">&para;</a></h4>
-<ol>
-<li>Gå til din Google Cloud Console</li>
-<li>Gå til <strong>Security &gt;&gt; Secret Manager</strong></li>
-<li>Under <strong>Secrets</strong>-fanen vil du se en liste over passord som eies av deg eller ditt team</li>
-<li>Velg ditt passord (med ditt <strong>hostname</strong> f.eks. a123456)</li>
-<li>Under <strong>Actions</strong>, klikk på <strong>3 vertikale prikker</strong> og velg <strong>View secret value</strong> for å bekrefte passordet. Den samme JSON-strengen skal skrives ut i Knast-terminalen din.</li>
-</ol>
-<h1 id="oppsett-per-prosjekt">🎯 Oppsett per prosjekt<a class="headerlink" href="#oppsett-per-prosjekt" title="Permanent link">&para;</a></h1>
-<h3 id="steg-1-klon-ditt-dbt-prosjekt-eller-opprett-nytt-dbt-prosjekt">Steg 1: Klon ditt dbt-prosjekt / eller opprett nytt dbt-prosjekt<a class="headerlink" href="#steg-1-klon-ditt-dbt-prosjekt-eller-opprett-nytt-dbt-prosjekt" title="Permanent link">&para;</a></h3>
-<p>Du må muligens endre profilen din for å støtte standard Knast-oppsett. Sjekk ut <a href="https://github.com/navikt/dbt-i-nav/blob/main/profiles.yml">profiles.yml</a> for å sette opp riktig format slik at miljøvariablene settes korrekt.</p>
-<p>Følgende miljøvariabler settes opp automatisk:</p>
-<ul>
-<li>DBT_DB_TARGET: Dette er ditt nåværende miljø, kjør <code>dvh-env</code> for å sjekke ditt aktive miljø (U, R, P ...)</li>
-<li>DBT_ENV_SECRET_USER: Din NAV-ident. Knyttet til din Knast</li>
-<li>DBT_ENV_SECRET_PASS: Databasepassord, kryptert og hentet fra Google Secret Manager av KSM når det trengs</li>
-<li>DBT_DB_SCHEMA: Schema er knyttet til mappenavnet til git-rotmappen din.</li>
-</ul>
-<h3 id="steg-2-opprett-aktiver-virtuelt-milj">Steg 2: 🐍 Opprett / aktiver virtuelt miljø<a class="headerlink" href="#steg-2-opprett-aktiver-virtuelt-milj" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-</code></pre></div>
-<h3 id="steg-3-installer-avhengigheter-hvis-det-finnes-noen">Steg 3: 📋 Installer avhengigheter (hvis det finnes noen)<a class="headerlink" href="#steg-3-installer-avhengigheter-hvis-det-finnes-noen" title="Permanent link">&para;</a></h3>
-<p><strong>For requirements.txt:</strong>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div></p>
-<p><strong>For pyproject.toml:</strong>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>pyproject.toml
-</code></pre></div></p>
-<h3 id="steg-4-bekreft-oppsett-og-dbt-versjon">Steg 4:  ✅ Bekreft oppsett og dbt-versjon<a class="headerlink" href="#steg-4-bekreft-oppsett-og-dbt-versjon" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code>repo-status<span class="w">  </span><span class="c1"># Tester om alt er i orden</span>
-</code></pre></div>
-<strong>Denne kommandoen tester:</strong>
-- ✅ Shell-integrasjon
-- ✅ Hovedpassord-mellomlagring
-- ✅ Nåværende GCP-bruker og prosjekt-ID
-- ✅ Autentiseringsdetaljer (token + ADC)
-- ✅ Anbefalt dbt-versjon</p>
-<h3 id="steg-5-initialiser-prosjektet">Steg 5: ⚙️ Initialiser prosjektet<a class="headerlink" href="#steg-5-initialiser-prosjektet" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code>repo-init
-</code></pre></div>
-<strong>Hva repo-init gjør:</strong>
-- ✅ Plasserer .pth-fil i venv for automatisk lasting av Python
-- ✅ Verifiserer at kryptering er tilgjengelig
-- ✅ Rydder opp i gamle filer på en trygg måte</p>
+<h1 id="ksm-brukerguide">KSM – Brukerguide<a class="headerlink" href="#ksm-brukerguide" title="Permanent link">&para;</a></h1>
+<p>Knast Secret Manager (KSM) injiserer Oracle-credentials automatisk når <code>dbt</code> kjører, uten at brukeren trenger å håndtere passord manuelt.</p>
 <hr />
-<h1 id="daglig-rutine-ved-oppstart-av-arbeidsstasjon-eller-ved-behov">☀️ Daglig rutine (ved oppstart av arbeidsstasjon eller ved behov)<a class="headerlink" href="#daglig-rutine-ved-oppstart-av-arbeidsstasjon-eller-ved-behov" title="Permanent link">&para;</a></h1>
+<h2 id="komponenter">Komponenter<a class="headerlink" href="#komponenter" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Komponent</th>
+<th>Rolle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>knast-secret-manager</code> (ksm)</td>
+<td>Miljøoppsett, logging. Lastes automatisk via <code>.pth</code>-fil.</td>
+</tr>
+<tr>
+<td><code>dbt-oracle-secure</code></td>
+<td>Patcher <code>dbt-oracle</code> med credentials. Lastes automatisk via <code>.pth</code>-fil. Krever ksm.</td>
+</tr>
+<tr>
+<td><code>dvh</code></td>
+<td>Interaktiv kommando for å velge DVH-miljø og venv.</td>
+</tr>
+<tr>
+<td><code>shell-integration.sh</code></td>
+<td>Sources i <code>.bashrc</code>/<code>.profile</code> – aktiverer riktig venv ved terminaloppstart.</td>
+</tr>
+<tr>
+<td><code>~/KSM/env-config.env</code></td>
+<td>Persistert konfig (miljø, schema, DSN etc.). Leses av KSM ved oppstart.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="oppsett-en-gang">Oppsett (én gang)<a class="headerlink" href="#oppsett-en-gang" title="Permanent link">&para;</a></h2>
+<h3 id="1-legg-til-shell-integrasjon-i-bashrc">1. Legg til shell-integrasjon i <code>.bashrc</code><a class="headerlink" href="#1-legg-til-shell-integrasjon-i-bashrc" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/KSM/shell-integration.sh
+</code></pre></div>
+<h3 id="2-velg-dvh-milj-med-dvh">2. Velg DVH-miljø med <code>dvh</code><a class="headerlink" href="#2-velg-dvh-milj-med-dvh" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dvh
+</code></pre></div>
+<p>Velg miljø (f.eks. <code>DVH_PROD</code>, <code>DVH_TEST</code>) og Python-venv. Valget lagres i <code>~/KSM/env-config.env</code>.</p>
 <blockquote>
-<p><strong>🔄 Hurtigstart:</strong> Kjør disse kommandoene i begynnelsen av hver arbeidsøkt i prosjektet ditt</p>
+<p><code>dvh</code> krever <code>gum</code> og <code>jq</code> installert, og at <code>/opt/KSM/tns.json</code> er tilgjengelig.</p>
 </blockquote>
-<h3 id="steg-1-aktiver-virtuelt-milj-ga-til-ditt-dbt-prosjekt-i-terminalen">Steg 1: 🔐 Aktiver virtuelt miljø (gå til ditt dbt-prosjekt i terminalen)<a class="headerlink" href="#steg-1-aktiver-virtuelt-milj-ga-til-ditt-dbt-prosjekt-i-terminalen" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<hr />
+<h2 id="hvordan-auto-aktivering-fungerer">Hvordan auto-aktivering fungerer<a class="headerlink" href="#hvordan-auto-aktivering-fungerer" title="Permanent link">&para;</a></h2>
+<p>Når Python starter (i valgt venv), kjøres <code>.pth</code>-filene i site-packages automatisk:</p>
+<div class="highlight"><pre><span></span><code>dbt-oracle-secure-activate.pth  →  import dbt_oracle_secure.auto
+                                          ↳  import ksm.auto
+                                                ↳  leser ~/KSM/env-config.env
+                                                ↳  setter miljøvariabler
+                                          ↳  installerer Oracle credential-hook
+                                                ↳  trigger: når dbt laster dbt.adapters.oracle.connections
 </code></pre></div>
-<h3 id="steg-2-logg-inn-i-gcp">Steg 2: 🔐 Logg inn i GCP<a class="headerlink" href="#steg-2-logg-inn-i-gcp" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>gauth<span class="w">  </span><span class="c1"># GCP-autentisering</span>
+<p>Ingen manuell konfigurasjon i <code>profiles.yml</code> for credentials – KSM håndterer det.</p>
+<hr />
+<h2 id="kjre-dbt">Kjøre dbt<a class="headerlink" href="#kjre-dbt" title="Permanent link">&para;</a></h2>
+<p>Med <code>dvh</code> kjørt og riktig venv aktivert:</p>
+<div class="highlight"><pre><span></span><code>dbt<span class="w"> </span>debug<span class="w">      </span><span class="c1"># Verifiser tilkobling</span>
+dbt<span class="w"> </span>run<span class="w">        </span><span class="c1"># Kjør modeller</span>
+dbt<span class="w"> </span><span class="nb">test</span><span class="w">       </span><span class="c1"># Kjør tester</span>
 </code></pre></div>
-<h3 id="steg-3-sett-hovedpassord">Steg 3: 🔑 Sett hovedpassord<a class="headerlink" href="#steg-3-sett-hovedpassord" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>mpass-set
+<p>Credentials hentes fra keyring/sockets-backend og injiseres transparent.</p>
+<h3 id="logg">Logg<a class="headerlink" href="#logg" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-f<span class="w"> </span>~/KSM/logs/usage.log
 </code></pre></div>
-<h3 id="steg-4-bekreft-oppsett-inne-i-prosjektet">Steg 4: ✅ Bekreft oppsett (inne i prosjektet)<a class="headerlink" href="#steg-4-bekreft-oppsett-inne-i-prosjektet" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code>repo-status<span class="w">  </span><span class="c1"># Tester om alt er i orden</span>
+<hr />
+<h2 id="bytte-milj">Bytte miljø<a class="headerlink" href="#bytte-milj" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>dvh
 </code></pre></div>
-<strong>Denne kommandoen tester:</strong>
-- ✅ Shell-integrasjon
-- ✅ Masterpassord cache
-- ✅ Nåværende GCP-bruker og prosjekt-ID
-- ✅ Autentiseringsdetaljer (token + ADC)
-- ✅ Anbefalt dbt-versjon</p>
-<h2 id="for-a-fa-hjelp-til-ksm-i-terminalen-kjr">For å få hjelp til KSM i terminalen, kjør:<a class="headerlink" href="#for-a-fa-hjelp-til-ksm-i-terminalen-kjr" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>ksm-help
+<p>Velg nytt miljø i menyen. <code>~/KSM/env-config.env</code> oppdateres umiddelbart – neste <code>dbt</code>-kjøring bruker det nye miljøet.</p>
+<hr />
+<h2 id="ksmenv-configenv-nkkelvariabler"><code>~/KSM/env-config.env</code> – nøkkelvariabler<a class="headerlink" href="#ksmenv-configenv-nkkelvariabler" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>DVH_ENVIRONMENT=DVH_PROD     # Hvilken DVH-instans som er aktiv
+SCHEMA=mitt_schema            # dbt-schema (tom = auto-detect fra repo-navn)
+DBT_DB_HOST=dmv01-scan.adeo.no
+DBT_DB_PORT=1531
+DBT_ENV_SECRET_USER=a123456
+DBT_ENV_SERVICE=cccdwh01
+VENV_PATH=/opt/KSM/.dbtenv   # Python-venv som shell-integration aktiverer
 </code></pre></div>
-<h1 id="du-er-na-klar-til-a-jobbe-med-dbt-prosjektet-ditt-med-dvh-som-kilde">🎉 Du er nå klar til å jobbe med dbt-prosjektet ditt med DVH som kilde!<a class="headerlink" href="#du-er-na-klar-til-a-jobbe-med-dbt-prosjektet-ditt-med-dvh-som-kilde" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="feilsking">Feilsøking<a class="headerlink" href="#feilsking" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Sjekk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dbt</code> finner ikke database</td>
+<td><code>dvh</code> – er riktig miljø valgt? Se <code>~/KSM/logs/usage.log</code></td>
+</tr>
+<tr>
+<td>Credentials mangler</td>
+<td><code>echo $DVH_ENVIRONMENT</code> – er den satt?</td>
+</tr>
+<tr>
+<td><code>.pth</code>-fil ikke aktiv</td>
+<td>Er riktig venv aktivert? <code>which python</code></td>
+</tr>
+<tr>
+<td>TNS-feil</td>
+<td><code>/opt/KSM/tns.json</code> – finnes og er ikke tom?</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -2132,7 +2322,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 27, 2026 14:58:16 UTC">January 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 3, 2026 18:12:15 UTC">March 3, 2026</span>
   </span>
 
     
