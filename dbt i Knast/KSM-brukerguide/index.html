@@ -2244,15 +2244,33 @@
                                           ↳  installerer Oracle credential-hook
                                                 ↳  trigger: når dbt laster dbt.adapters.oracle.connections
 </code></pre></div>
-<p>Ingen manuell konfigurasjon i <code>profiles.yml</code> for credentials – KSM håndterer det.</p>
 <hr />
 <h2 id="kjre-dbt">Kjøre dbt<a class="headerlink" href="#kjre-dbt" title="Permanent link">&para;</a></h2>
+<p>Legg til følgende i <code>profiles.yml</code> under hver dbt prosjekt:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">knast</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_HOST&#39;)}}&quot;</span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">placeholder</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_PORT&#39;)}}&quot;</span>
+<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
+<span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;schema_name&gt;</span>
+<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_ENV_SERVICE&#39;)}}&quot;</span>
+<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_DB_NAME&#39;)}}&quot;</span>
+<span class="w">      </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{env_var(&#39;DBT_ENV_SECRET_USER&#39;)}}&quot;</span>
+</code></pre></div>
+<blockquote>
+<p>[!IMPORTANT]
+<code>schema</code> må spesifiseres av bruker i <code>profiles.yml</code> under hver dbt prosjekt.</p>
+</blockquote>
+<hr />
 <p>Med <code>dvh</code> kjørt og riktig venv aktivert:</p>
 <div class="highlight"><pre><span></span><code>dbt<span class="w"> </span>debug<span class="w">      </span><span class="c1"># Verifiser tilkobling</span>
 dbt<span class="w"> </span>run<span class="w">        </span><span class="c1"># Kjør modeller</span>
 dbt<span class="w"> </span><span class="nb">test</span><span class="w">       </span><span class="c1"># Kjør tester</span>
 </code></pre></div>
 <p>Credentials hentes fra keyring/sockets-backend og injiseres transparent.</p>
+<hr />
 <h3 id="logg">Logg<a class="headerlink" href="#logg" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-f<span class="w"> </span>~/KSM/logs/usage.log
 </code></pre></div>
@@ -2320,7 +2338,7 @@ VENV_PATH=/opt/KSM/.dbtenv   # Python-venv som shell-integration aktiverer
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 4, 2026 10:52:31 UTC">March 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 4, 2026 13:12:33 UTC">March 4, 2026</span>
   </span>
 
     
