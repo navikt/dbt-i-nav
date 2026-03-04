@@ -63,8 +63,9 @@ knast:
       type: oracle
       user: "{{env_var('DBT_ENV_SECRET_USER')}}"
 ```
-> [!IMPORTANT]
-> `schema` må spesifiseres av bruker i `profiles.yml` under hver dbt prosjekt.
+
+> **⚠️ Important:** `schema:` må spesifiseres av bruker i `profiles.yml` under hver dbt prosjekt.
+
 ---
 
 Med `dvh` kjørt og riktig venv aktivert:
