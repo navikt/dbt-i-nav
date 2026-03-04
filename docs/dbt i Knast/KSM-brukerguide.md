@@ -44,11 +44,28 @@ dbt-oracle-secure-activate.pth  →  import dbt_oracle_secure.auto
                                                 ↳  trigger: når dbt laster dbt.adapters.oracle.connections
 ```
 
-Ingen manuell konfigurasjon i `profiles.yml` for credentials – KSM håndterer det.
-
 ---
 
 ## Kjøre dbt
+
+Legg til følgende i `profiles.yml` under hver dbt prosjekt:
+
+```yaml
+knast:
+      host: "{{env_var('DBT_DB_HOST')}}"
+      password: placeholder
+      port: "{{env_var('DBT_DB_PORT')}}"
+      protocol: tcp
+      schema: <schema_name>
+      service: "{{env_var('DBT_ENV_SERVICE')}}"
+      database: "{{env_var('DBT_DB_NAME')}}"
+      threads: 1
+      type: oracle
+      user: "{{env_var('DBT_ENV_SECRET_USER')}}"
+```
+> [!IMPORTANT]
+> `schema` må spesifiseres av bruker i `profiles.yml` under hver dbt prosjekt.
+---
 
 Med `dvh` kjørt og riktig venv aktivert:
 
@@ -59,6 +76,8 @@ dbt test       # Kjør tester
 ```
 
 Credentials hentes fra keyring/sockets-backend og injiseres transparent.
+
+---
 
 ### Logg
 
