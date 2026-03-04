@@ -16,23 +16,18 @@ Knast Secret Manager (KSM) injiserer Oracle-credentials automatisk når `dbt` kj
 
 ---
 
-## Oppsett (én gang)
+## Oppsett
 
-### 1. Legg til shell-integrasjon i `.bashrc`
 
-```bash
-source ~/KSM/shell-integration.sh
-```
-
-### 2. Velg DVH-miljø med `dvh`
+### Velg DVH-miljø med `dvh`
 
 ```bash
 dvh
 ```
 
-Velg miljø (f.eks. `DVH_PROD`, `DVH_TEST`) og Python-venv. Valget lagres i `~/KSM/env-config.env`.
+Velg python miljø fra lista og deretter DVH miljø. Valget lagres i `~/KSM/env-config.env`.
 
-> `dvh` krever `gum` og `jq` installert, og at `/opt/KSM/tns.json` er tilgjengelig.
+> `dvh` krever at filen `/opt/KSM/tns.json` er tilgjengelig. Den lastes inn autmatisk ved oppstart.
 
 ---
 
@@ -85,9 +80,11 @@ Velg nytt miljø i menyen. `~/KSM/env-config.env` oppdateres umiddelbart – nes
 
 ## `~/KSM/env-config.env` – nøkkelvariabler
 
+Dette er miljøvariabler som skrives automatisk av dvh kommandoen
+
 ```dotenv
-DVH_ENVIRONMENT=DVH_PROD     # Hvilken DVH-instans som er aktiv
-SCHEMA=mitt_schema            # dbt-schema (tom = auto-detect fra repo-navn)
+DVH_ENVIRONMENT=DVH_P     # Hvilken DVH-instans som er aktiv
+SCHEMA= # dbt-schema, tom = harkode i din profiles.yml
 DBT_DB_HOST=dmv01-scan.adeo.no
 DBT_DB_PORT=1531
 DBT_ENV_SECRET_USER=a123456
