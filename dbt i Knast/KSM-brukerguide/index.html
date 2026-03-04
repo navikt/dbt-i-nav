@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -979,10 +979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oppsett-en-gang" class="md-nav__link">
+  <a href="#oppsett" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Oppsett (én gang)
+        Oppsett
       
     </span>
   </a>
@@ -2106,10 +2106,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oppsett-en-gang" class="md-nav__link">
+  <a href="#oppsett" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Oppsett (én gang)
+        Oppsett
       
     </span>
   </a>
@@ -2226,16 +2226,13 @@
 </tbody>
 </table>
 <hr />
-<h2 id="oppsett-en-gang">Oppsett (én gang)<a class="headerlink" href="#oppsett-en-gang" title="Permanent link">&para;</a></h2>
-<h3 id="1-legg-til-shell-integrasjon-i-bashrc">1. Legg til shell-integrasjon i <code>.bashrc</code><a class="headerlink" href="#1-legg-til-shell-integrasjon-i-bashrc" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/KSM/shell-integration.sh
-</code></pre></div>
-<h3 id="2-velg-dvh-milj-med-dvh">2. Velg DVH-miljø med <code>dvh</code><a class="headerlink" href="#2-velg-dvh-milj-med-dvh" title="Permanent link">&para;</a></h3>
+<h2 id="oppsett">Oppsett<a class="headerlink" href="#oppsett" title="Permanent link">&para;</a></h2>
+<h3 id="velg-dvh-milj-med-dvh">Velg DVH-miljø med <code>dvh</code><a class="headerlink" href="#velg-dvh-milj-med-dvh" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>dvh
 </code></pre></div>
-<p>Velg miljø (f.eks. <code>DVH_PROD</code>, <code>DVH_TEST</code>) og Python-venv. Valget lagres i <code>~/KSM/env-config.env</code>.</p>
+<p>Velg python miljø fra lista og deretter DVH miljø. Valget lagres i <code>~/KSM/env-config.env</code>.</p>
 <blockquote>
-<p><code>dvh</code> krever <code>gum</code> og <code>jq</code> installert, og at <code>/opt/KSM/tns.json</code> er tilgjengelig.</p>
+<p><code>dvh</code> krever at filen <code>/opt/KSM/tns.json</code> er tilgjengelig. Den lastes inn autmatisk ved oppstart.</p>
 </blockquote>
 <hr />
 <h2 id="hvordan-auto-aktivering-fungerer">Hvordan auto-aktivering fungerer<a class="headerlink" href="#hvordan-auto-aktivering-fungerer" title="Permanent link">&para;</a></h2>
@@ -2266,8 +2263,9 @@ dbt<span class="w"> </span><span class="nb">test</span><span class="w">       </
 <p>Velg nytt miljø i menyen. <code>~/KSM/env-config.env</code> oppdateres umiddelbart – neste <code>dbt</code>-kjøring bruker det nye miljøet.</p>
 <hr />
 <h2 id="ksmenv-configenv-nkkelvariabler"><code>~/KSM/env-config.env</code> – nøkkelvariabler<a class="headerlink" href="#ksmenv-configenv-nkkelvariabler" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>DVH_ENVIRONMENT=DVH_PROD     # Hvilken DVH-instans som er aktiv
-SCHEMA=mitt_schema            # dbt-schema (tom = auto-detect fra repo-navn)
+<p>Dette er miljøvariabler som skrives automatisk av dvh kommandoen</p>
+<div class="highlight"><pre><span></span><code>DVH_ENVIRONMENT=DVH_P     # Hvilken DVH-instans som er aktiv
+SCHEMA= # dbt-schema, tom = harkode i din profiles.yml
 DBT_DB_HOST=dmv01-scan.adeo.no
 DBT_DB_PORT=1531
 DBT_ENV_SECRET_USER=a123456
@@ -2322,7 +2320,7 @@ VENV_PATH=/opt/KSM/.dbtenv   # Python-venv som shell-integration aktiverer
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 3, 2026 18:12:15 UTC">March 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 4, 2026 10:52:31 UTC">March 4, 2026</span>
   </span>
 
     
