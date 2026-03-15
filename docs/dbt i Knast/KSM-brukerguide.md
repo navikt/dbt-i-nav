@@ -30,6 +30,18 @@ Velg python miljø fra lista og deretter DVH miljø. Valget lagres i `~/KSM/env-
 > `dvh` krever at filen `/opt/KSM/tns.json` er tilgjengelig. Den lastes inn autmatisk ved oppstart.
 
 ---
+## Bruke KSM i eget Python-miljø
+
+Dersom du bruker et eget virtuelt miljø (f.eks. med `dvh_tools` eller andre prosjektavhengigheter), må KSM installeres manuelt i dette miljøet.
+
+Kjør følgende kommando én gang per venv (installasjonen overlever oppdateringer i miljøet):
+
+```bash
+dvh ksm install
+```
+
+---
+
 
 ## Hvordan auto-aktivering fungerer
 
@@ -86,6 +98,7 @@ Credentials hentes fra keyring/sockets-backend og injiseres transparent.
 tail -f ~/KSM/logs/usage.log
 ```
 
+
 ---
 
 ## Bytte miljø
@@ -98,7 +111,7 @@ Velg nytt miljø i menyen. `~/KSM/env-config.env` oppdateres umiddelbart – nes
 
 ---
 
-## `~/KSM/env-config.env` – nøkkelvariabler
+\## `~/KSM/env-config.env` – nøkkelvariabler
 
 Dette er miljøvariabler som skrives automatisk av dvh kommandoen
 
