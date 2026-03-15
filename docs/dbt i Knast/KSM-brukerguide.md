@@ -39,6 +39,9 @@ Kjør følgende kommando én gang per venv (installasjonen overlever oppdatering
 ```bash
 dvh ksm install
 ```
+### Restart etter installasjon
+
+Etter at KSM er installert i et nytt miljø, må du restarte Knast for at VSCode-utvidelser som PowerUser skal plukke opp det nye miljøet.
 
 ---
 
