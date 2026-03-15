@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
@@ -990,6 +990,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#bruke-ksm-i-eget-python-milj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bruke KSM i eget Python-miljø
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hvordan-auto-aktivering-fungerer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1016,17 +1027,6 @@
     <span class="md-ellipsis">
       
         Bytte miljø
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ksmenv-configenv-nkkelvariabler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ~/KSM/env-config.env – nøkkelvariabler
       
     </span>
   </a>
@@ -2117,6 +2117,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#bruke-ksm-i-eget-python-milj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bruke KSM i eget Python-miljø
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hvordan-auto-aktivering-fungerer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2143,17 +2154,6 @@
     <span class="md-ellipsis">
       
         Bytte miljø
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ksmenv-configenv-nkkelvariabler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ~/KSM/env-config.env – nøkkelvariabler
       
     </span>
   </a>
@@ -2235,6 +2235,12 @@
 <p><code>dvh</code> krever at filen <code>/opt/KSM/tns.json</code> er tilgjengelig. Den lastes inn autmatisk ved oppstart.</p>
 </blockquote>
 <hr />
+<h2 id="bruke-ksm-i-eget-python-milj">Bruke KSM i eget Python-miljø<a class="headerlink" href="#bruke-ksm-i-eget-python-milj" title="Permanent link">&para;</a></h2>
+<p>Dersom du bruker et eget virtuelt miljø (f.eks. med <code>dvh_tools</code> eller andre prosjektavhengigheter), må KSM installeres manuelt i dette miljøet.</p>
+<p>Kjør følgende kommando én gang per venv (installasjonen overlever oppdateringer i miljøet):</p>
+<div class="highlight"><pre><span></span><code>dvh<span class="w"> </span>ksm<span class="w"> </span>install
+</code></pre></div>
+<hr />
 <h2 id="hvordan-auto-aktivering-fungerer">Hvordan auto-aktivering fungerer<a class="headerlink" href="#hvordan-auto-aktivering-fungerer" title="Permanent link">&para;</a></h2>
 <p>Når Python starter (i valgt venv), kjøres <code>.pth</code>-filene i site-packages automatisk:</p>
 <div class="highlight"><pre><span></span><code>dbt-oracle-secure-activate.pth  →  import dbt_oracle_secure.auto
@@ -2279,7 +2285,7 @@ dbt<span class="w"> </span><span class="nb">test</span><span class="w">       </
 </code></pre></div>
 <p>Velg nytt miljø i menyen. <code>~/KSM/env-config.env</code> oppdateres umiddelbart – neste <code>dbt</code>-kjøring bruker det nye miljøet.</p>
 <hr />
-<h2 id="ksmenv-configenv-nkkelvariabler"><code>~/KSM/env-config.env</code> – nøkkelvariabler<a class="headerlink" href="#ksmenv-configenv-nkkelvariabler" title="Permanent link">&para;</a></h2>
+<p>## <code>~/KSM/env-config.env</code> – nøkkelvariabler</p>
 <p>Dette er miljøvariabler som skrives automatisk av dvh kommandoen</p>
 <div class="highlight"><pre><span></span><code>DVH_ENVIRONMENT=DVH_P     # Hvilken DVH-instans som er aktiv
 SCHEMA= # dbt-schema, tom = harkode i din profiles.yml
@@ -2337,7 +2343,7 @@ VENV_PATH=/opt/KSM/.dbtenv   # Python-venv som shell-integration aktiverer
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 4, 2026 13:17:54 UTC">March 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 15, 2026 22:44:22 UTC">March 15, 2026</span>
   </span>
 
     
