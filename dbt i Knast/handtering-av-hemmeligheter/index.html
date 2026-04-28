@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/dbt%20i%20Knast/handtering-av-hemmeligheter/">
       
       
-        <link rel="prev" href="../utvikling-av-dbt-prosjekter/">
+        <link rel="prev" href="../../DVH/opprett-prosjekt/">
       
       
-        <link rel="next" href="../../arkitektur/materialisering/">
+        <link rel="next" href="../utvikling-av-dbt-prosjekter/">
       
       
         
@@ -619,7 +619,7 @@
   <span class="md-ellipsis">
     
   
-    dbt i Knast
+    Utvikle dbt i Knast
   
 
     
@@ -635,39 +635,11 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    dbt i Knast
+    Utvikle dbt i Knast
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../utvikling-av-dbt-prosjekter/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Utvikling av dbt-prosjekter i Knast
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -736,10 +708,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gjr-dette-frst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gjør dette først
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#kortversjonen" class="md-nav__link">
     <span class="md-ellipsis">
       
         Kortversjonen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nar-trenger-du-resten-av-denne-siden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Når trenger du resten av denne siden?
       
     </span>
   </a>
@@ -784,17 +789,6 @@
     <span class="md-ellipsis">
       
         Hva som lagres i miljøkonfigurasjonen
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hva-du-ma-ha-i-profilesyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hva du må ha i profiles.yml
       
     </span>
   </a>
@@ -882,6 +876,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utvikling-av-dbt-prosjekter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utvikling av dbt-prosjekter i Knast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2357,10 +2379,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gjr-dette-frst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gjør dette først
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#kortversjonen" class="md-nav__link">
     <span class="md-ellipsis">
       
         Kortversjonen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nar-trenger-du-resten-av-denne-siden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Når trenger du resten av denne siden?
       
     </span>
   </a>
@@ -2405,17 +2460,6 @@
     <span class="md-ellipsis">
       
         Hva som lagres i miljøkonfigurasjonen
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hva-du-ma-ha-i-profilesyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hva du må ha i profiles.yml
       
     </span>
   </a>
@@ -2520,8 +2564,53 @@
 
 
 <h1 id="handtering-av-hemmeligheter-i-knast">Håndtering av hemmeligheter i Knast<a class="headerlink" href="#handtering-av-hemmeligheter-i-knast" title="Permanent link">&para;</a></h1>
-<p>Denne siden samler det viktigste om hemmeligheter og Oracle-credentials for dbt i Knast.</p>
-<p>Målet er at du skal forstå nok til å bruke oppsettet trygt og kunne feilsøke når <code>dbt</code> ikke får riktig tilgang.</p>
+<p>Denne siden forklarer hvordan dbt får tilgang til Oracle-credentials i Knast.</p>
+<p>Hvis du bare vil komme i gang, holder det å lese de to første seksjonene. Resten av siden er mer detaljert bakgrunn og feilsøking.</p>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Kjør <code>dvh</code> og velg riktig miljø</li>
+<li>sørg for at <code>profiles.yml</code> bruker KSM-miljøvariablene</li>
+<li>kjør <code>dbt debug</code></li>
+<li>du skal normalt ikke skrive inn eller lagre Oracle-passord manuelt</li>
+</ul>
+<p>Hvis dette virker, trenger du ikke lese resten av siden før noe feiler.</p>
+<h2 id="gjr-dette-frst">Gjør dette først<a class="headerlink" href="#gjr-dette-frst" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Velg miljø:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>dvh
+</code></pre></div>
+<ol>
+<li>I <code>profiles.yml</code> må dbt-prosjektet bruke miljøvariablene som KSM setter for å fungere. Innholdet må være:</li>
+</ol>
+<p>Eksempel:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">knast</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_DB_HOST&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">placeholder</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_DB_PORT&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
+<span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;schema_name&gt;</span>
+<span class="w">  </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_ENV_SERVICE&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_DB_NAME&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
+<span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_ENV_SECRET_USER&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</code></pre></div>
+<p>Det viktigste her er at:</p>
+<ul>
+<li>host, port, service og user hentes fra miljøvariabler</li>
+<li><code>schema</code> må spesifiseres for prosjektet ditt</li>
+<li>
+<p><code>password</code> står som placeholder fordi credential-injeksjonen skjer utenfor selve filen</p>
+</li>
+<li>
+<p>Kjør:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>dbt<span class="w"> </span>debug
+dbt<span class="w"> </span>run
+</code></pre></div>
+<p>Hvis <code>dbt debug</code> går grønt, er hemmelighetsoppsettet i praksis på plass.</p>
 <h2 id="kortversjonen">Kortversjonen<a class="headerlink" href="#kortversjonen" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
   A[Velg miljo med dvh] --&gt; B[KSM leser konfigurasjon]
@@ -2529,6 +2618,14 @@
   C --&gt; D[dbt kjores]
   D --&gt; E[Credentials injiseres automatisk]</code></pre>
 <p>Du skal normalt ikke håndtere Oracle-passord manuelt når dbt kjører i Knast.</p>
+<h2 id="nar-trenger-du-resten-av-denne-siden">Når trenger du resten av denne siden?<a class="headerlink" href="#nar-trenger-du-resten-av-denne-siden" title="Permanent link">&para;</a></h2>
+<p>Les videre hvis:</p>
+<ul>
+<li><code>dbt debug</code> feiler</li>
+<li>miljøvariablene ikke ser riktige ut</li>
+<li>du bruker eget Python-miljø</li>
+<li>du må forstå hvordan KSM og <code>dvh</code> henger sammen</li>
+</ul>
 <h2 id="hva-ksm-gjr">Hva KSM gjør<a class="headerlink" href="#hva-ksm-gjr" title="Permanent link">&para;</a></h2>
 <p>Knast Secret Manager, forkortet KSM, injiserer Oracle-credentials automatisk når <code>dbt</code> kjører. Brukeren trenger derfor normalt ikke å lime inn eller lagre passord manuelt i prosjektet.</p>
 <p>KSM brukes for å:</p>
@@ -2545,7 +2642,7 @@
   D --&gt; E[dbt-oracle]
   E --&gt; F[Databaseforbindelse]</code></pre>
 <h2 id="velg-milj">Velg miljø<a class="headerlink" href="#velg-milj" title="Permanent link">&para;</a></h2>
-<p>Det viktigste første steget er å velge DVH-miljø:</p>
+<p>Det viktigste første steget er å velge DVH-miljø. Det er dette som bestemmer hvilke verdier KSM skal bruke videre:</p>
 <div class="highlight"><pre><span></span><code>dvh
 </code></pre></div>
 <p>Når du kjører denne kommandoen, velger du:</p>
@@ -2566,27 +2663,6 @@ DBT_ENV_SERVICE=cccdwh01
 VENV_PATH=/opt/KSM/.dbtenv
 </code></pre></div>
 <p>Disse skrives normalt automatisk av <code>dvh</code>.</p>
-<h2 id="hva-du-ma-ha-i-profilesyml">Hva du må ha i profiles.yml<a class="headerlink" href="#hva-du-ma-ha-i-profilesyml" title="Permanent link">&para;</a></h2>
-<p>I <code>profiles.yml</code> må dbt-prosjektet bruke miljøvariablene som KSM setter.</p>
-<p>Eksempel:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">knast</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_DB_HOST&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">placeholder</span>
-<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_DB_PORT&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">  </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
-<span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;schema_name&gt;</span>
-<span class="w">  </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_ENV_SERVICE&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_DB_NAME&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">  </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
-<span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">env_var(&#39;DBT_ENV_SECRET_USER&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-</code></pre></div>
-<p>Det viktigste her er at:</p>
-<ul>
-<li>host, port, service og user hentes fra miljøvariabler</li>
-<li><code>schema</code> må spesifiseres for prosjektet ditt</li>
-<li><code>password</code> står som placeholder fordi credential-injeksjonen skjer utenfor selve filen</li>
-</ul>
 <h2 id="kjr-dbt-nar-miljet-er-valgt">Kjør dbt når miljøet er valgt<a class="headerlink" href="#kjr-dbt-nar-miljet-er-valgt" title="Permanent link">&para;</a></h2>
 <p>Når <code>dvh</code> er kjørt og riktig miljø er aktivt, kan du kjøre:</p>
 <div class="highlight"><pre><span></span><code>dbt<span class="w"> </span>debug
@@ -2594,6 +2670,7 @@ dbt<span class="w"> </span>run
 dbt<span class="w"> </span><span class="nb">test</span>
 </code></pre></div>
 <p>Da skal credentials hentes og injiseres automatisk.</p>
+<p>Dette er den viktigste praktiske testen. Hvis dette virker, er du ferdig med oppsettet.</p>
 <h2 id="eget-python-milj">Eget Python-miljø<a class="headerlink" href="#eget-python-milj" title="Permanent link">&para;</a></h2>
 <p>Hvis du bruker et eget virtuelt miljø, må KSM installeres i dette miljøet én gang:</p>
 <div class="highlight"><pre><span></span><code>dvh<span class="w"> </span>ksm<span class="w"> </span>install
@@ -2609,14 +2686,14 @@ dbt<span class="w"> </span><span class="nb">test</span>
   -&gt; kobler på Oracle credential hook
   -&gt; dbt får tilgang ved kjøring
 </code></pre></div>
-<p>Du trenger normalt ikke å forstå detaljene for å bruke løsningen, men dette er nyttig å vite ved feilsøking.</p>
+<p>Du trenger normalt ikke å forstå detaljene for å bruke løsningen. Denne delen er mest relevant hvis du feilsøker eller jobber med egne Python-miljøer.</p>
 <h2 id="bytte-milj">Bytte miljø<a class="headerlink" href="#bytte-milj" title="Permanent link">&para;</a></h2>
 <p>Hvis du vil bytte DVH-miljø, kjør bare:</p>
 <div class="highlight"><pre><span></span><code>dvh
 </code></pre></div>
 <p>Velg nytt miljø i menyen. Neste dbt-kjøring bruker det oppdaterte oppsettet.</p>
 <h2 id="feilsking">Feilsøking<a class="headerlink" href="#feilsking" title="Permanent link">&para;</a></h2>
-<p>Hvis noe ikke fungerer, sjekk disse tingene først:</p>
+<p>Hvis noe ikke fungerer, sjekk disse tingene først i denne rekkefølgen:</p>
 <ul>
 <li>er riktig miljø valgt med <code>dvh</code></li>
 <li>er riktig Python-miljø aktivt</li>
@@ -2669,7 +2746,7 @@ tail<span class="w"> </span>-f<span class="w"> </span>~/KSM/logs/usage.log
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 28, 2026 13:34:01 UTC">April 28, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 28, 2026 13:47:49 UTC">April 28, 2026</span>
   </span>
 
     

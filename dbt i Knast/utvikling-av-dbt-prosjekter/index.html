@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/dbt%20i%20Knast/utvikling-av-dbt-prosjekter/">
       
       
-        <link rel="prev" href="../../DVH/opprett-prosjekt/">
+        <link rel="prev" href="../handtering-av-hemmeligheter/">
       
       
-        <link rel="next" href="../handtering-av-hemmeligheter/">
+        <link rel="next" href="../../arkitektur/materialisering/">
       
       
         
@@ -619,7 +619,7 @@
   <span class="md-ellipsis">
     
   
-    dbt i Knast
+    Utvikle dbt i Knast
   
 
     
@@ -635,11 +635,39 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    dbt i Knast
+    Utvikle dbt i Knast
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handtering-av-hemmeligheter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Håndtering av hemmeligheter i Knast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -708,10 +736,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gjr-dette-frst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gjør dette først
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#kortversjonen" class="md-nav__link">
     <span class="md-ellipsis">
       
         Kortversjonen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nar-trenger-du-resten-av-denne-siden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Når trenger du resten av denne siden?
       
     </span>
   </a>
@@ -843,34 +904,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../handtering-av-hemmeligheter/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Håndtering av hemmeligheter i Knast
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2346,10 +2379,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gjr-dette-frst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gjør dette først
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#kortversjonen" class="md-nav__link">
     <span class="md-ellipsis">
       
         Kortversjonen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nar-trenger-du-resten-av-denne-siden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Når trenger du resten av denne siden?
       
     </span>
   </a>
@@ -2498,8 +2564,30 @@
 
 
 <h1 id="utvikling-av-dbt-prosjekter-i-knast">Utvikling av dbt-prosjekter i Knast<a class="headerlink" href="#utvikling-av-dbt-prosjekter-i-knast" title="Permanent link">&para;</a></h1>
-<p>Denne siden samler det viktigste du trenger for å utvikle dbt-prosjekter i Knast.</p>
-<p>Målet er å beskrive den normale utviklingsflyten for dbt i DVH, uten å spre informasjon over mange små sider.</p>
+<p>Denne siden forklarer hvordan du faktisk jobber med dbt-prosjekter i Knast.</p>
+<p>Hvis du bare vil komme i gang, holder det å lese de to første seksjonene. Resten av siden er mer utfyllende bakgrunn og praktiske detaljer.</p>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<ul>
+<li>åpne repoet ditt i Knast</li>
+<li>kjør <code>dbt debug</code></li>
+<li>kjør <code>dbt build</code></li>
+<li>begynn å endre SQL, YAML og tester</li>
+<li>bruk GitHub og pull requests som vanlig utviklingsflyt</li>
+</ul>
+<p>Hvis dette fungerer, trenger du ikke lese resten av siden før du står fast.</p>
+<h2 id="gjr-dette-frst">Gjør dette først<a class="headerlink" href="#gjr-dette-frst" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Clone eller åpne repoet ditt i Knast</li>
+<li>Åpne prosjektet i editoren</li>
+<li>Kjør:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>dbt<span class="w"> </span>debug
+dbt<span class="w"> </span>build
+</code></pre></div>
+<ol>
+<li>Hvis dette går grønt, kan du begynne å utvikle modeller og tester</li>
+</ol>
+<p>Hvis <code>dbt debug</code> eller <code>dbt build</code> feiler, les først <a href="../handtering-av-hemmeligheter/">Håndtering av hemmeligheter i Knast</a> og deretter resten av denne siden.</p>
 <h2 id="kortversjonen">Kortversjonen<a class="headerlink" href="#kortversjonen" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
   A[Apne Knast] --&gt; B[Clone repo fra GitHub]
@@ -2507,6 +2595,14 @@
   C --&gt; D[Kjor dbt debug]
   D --&gt; E[Kjor dbt build]
   E --&gt; F[Utvikle modeller og tester]</code></pre>
+<h2 id="nar-trenger-du-resten-av-denne-siden">Når trenger du resten av denne siden?<a class="headerlink" href="#nar-trenger-du-resten-av-denne-siden" title="Permanent link">&para;</a></h2>
+<p>Les videre hvis:</p>
+<ul>
+<li>GitHub ikke fungerer som forventet i Knast</li>
+<li><code>dbt deps</code> eller <code>dbt build</code> feiler</li>
+<li>du er usikker på hvordan utviklingsflyten bør se ut</li>
+<li>du vil vite hvilke verktøy og regler som faktisk er relevante</li>
+</ul>
 <h2 id="hva-knast-er-i-denne-sammenhengen">Hva Knast er i denne sammenhengen<a class="headerlink" href="#hva-knast-er-i-denne-sammenhengen" title="Permanent link">&para;</a></h2>
 <p>Knast er standard utviklingsmiljø for dbt i DVH. Du jobber i nettleserbasert miljø med editor, terminal og nødvendige verktøy tilgjengelig.</p>
 <p>For dbt-utvikling betyr dette normalt at du allerede har:</p>
@@ -2518,6 +2614,7 @@
 <li>tilgang til relevante databaser og verktøy</li>
 </ul>
 <p>Du skal normalt ikke måtte bruke tid på lokal installasjon før du kan komme i gang.</p>
+<p>Det viktigste er at Knast skal være arbeidsflaten din, ikke et prosjekt i seg selv.</p>
 <h2 id="typisk-utviklingsflyt">Typisk utviklingsflyt<a class="headerlink" href="#typisk-utviklingsflyt" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart LR
   A[GitHub repo] --&gt; B[Knast]
@@ -2556,6 +2653,7 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 dbt<span class="w"> </span>build
 </code></pre></div>
 <p>Du kan også kjøre <code>dbt run</code> hvis du bare vil verifisere at modeller bygges, men <code>dbt build</code> er ofte et bedre startpunkt fordi det også inkluderer tester.</p>
+<p>For de fleste er dette hele startløypa: åpne repo, kjør <code>dbt debug</code>, kjør <code>dbt build</code>, begynn å endre modeller.</p>
 <h2 id="hva-du-br-forvente-av-miljet">Hva du bør forvente av miljøet<a class="headerlink" href="#hva-du-br-forvente-av-miljet" title="Permanent link">&para;</a></h2>
 <p>Du er godt i gang når du kan:</p>
 <ul>
@@ -2566,11 +2664,13 @@ dbt<span class="w"> </span>build
 <li>få en konkret dbt-feil eller et grønt resultat</li>
 </ul>
 <p>Hvis du må bruke mye tid på maskinoppsett eller installasjon, er det som regel oppstartsløpet og ikke dbt-prosjektet som er problemet.</p>
+<p>Det er en viktig tommelfingerregel: hvis utviklingsmiljøet krever mye manuelt arbeid før første dbt-kjøring, er noe feil.</p>
 <h2 id="dbt-avhengigheter">dbt-avhengigheter<a class="headerlink" href="#dbt-avhengigheter" title="Permanent link">&para;</a></h2>
 <p>Hvis prosjektet bruker pakker via <code>packages.yml</code>, må du kunne kjøre:</p>
 <div class="highlight"><pre><span></span><code>dbt<span class="w"> </span>deps
 </code></pre></div>
 <p>For dette kan det være nødvendig å åpne relevante GitHub- og dbt Hub-URL-er under Internettåpninger i Knast. Dette gjelder særlig hvis prosjektet bruker pakker som <code>dbt_utils</code>.</p>
+<p>Dette er mest relevant når et prosjekt faktisk bruker pakker. Hvis du ikke har <code>packages.yml</code>, trenger du ikke bruke tid på dette.</p>
 <p>Eksempel på <code>packages.yml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">packages</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbt-labs/dbt_utils</span>
@@ -2589,6 +2689,7 @@ dbt<span class="w"> </span>build
 <p><code>Power User for dbt</code> er allerede installert på relevante dbt-images og fungerer fint sammen med Knast.</p>
 <p>SQL Developer-utvidelsen finnes også, men kan kollidere med dbt Power User på hurtigtaster. Hvis du bruker SQL Developer-utvidelsen aktivt, bør du endre hurtigtastene slik at de ikke overlapper med dbt-flyten.</p>
 <p>Dette er nyttig, men ikke nødvendig for å komme i gang. Prioriter først at <code>dbt debug</code> og <code>dbt build</code> fungerer.</p>
+<p>Det betyr i praksis at editorverktøy er sekundære. Først må selve dbt-flyten være stabil.</p>
 <h2 id="regler-og-anbefalinger">Regler og anbefalinger<a class="headerlink" href="#regler-og-anbefalinger" title="Permanent link">&para;</a></h2>
 <p>For dbt-utvikling i DVH gjelder i praksis disse hovedreglene:</p>
 <ul>
@@ -2598,6 +2699,7 @@ dbt<span class="w"> </span>build
 <li>åpne eksterne URL-er bare ved tjenstlig behov</li>
 </ul>
 <p>Hvis du trenger ekstra Python-pakker i egne miljøer, bruk den anbefalte Knast-måten for dette. Ikke gjør tilfeldige lokale oppsett til en del av standard dbt-flyt.</p>
+<p>Kort sagt: hold utviklingsløpet enkelt og repeterbart.</p>
 <h2 id="nar-du-er-klar-til-a-utvikle">Når du er klar til å utvikle<a class="headerlink" href="#nar-du-er-klar-til-a-utvikle" title="Permanent link">&para;</a></h2>
 <p>Du er klar for vanlig dbt-utvikling når dette stemmer:</p>
 <ul>
@@ -2633,7 +2735,7 @@ dbt<span class="w"> </span>build
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 28, 2026 13:34:01 UTC">April 28, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 28, 2026 13:47:49 UTC">April 28, 2026</span>
   </span>
 
     
