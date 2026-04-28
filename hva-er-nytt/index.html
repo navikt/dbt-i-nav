@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/arkitektur/materialisering/">
+        <link rel="canonical" href="https://navikt.github.io/dbt-i-nav/hva-er-nytt/">
       
       
-        <link rel="prev" href="../../dbt%20i%20Knast/dbt-deps/">
+        <link rel="prev" href="../hvorfor-dbt/">
       
       
-        <link rel="next" href="../materialisering_spenn/">
+        <link rel="next" href="../Installasjon-p%C3%A5-VDI/installere/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Materialiseringsstrategier - dbt i NAV</title>
+        <title>Hva er nytt - dbt i NAV</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#materialiseringsstrategier" class="md-skip">
+        <a href="#hva-er-nytt-i-dbt" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="dbt i NAV" class="md-header__button md-logo" aria-label="dbt i NAV" data-md-component="logo">
+    <a href=".." title="dbt i NAV" class="md-header__button md-logo" aria-label="dbt i NAV" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Materialiseringsstrategier
+              Hva er nytt
             
           </span>
         </div>
@@ -228,7 +228,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="dbt i NAV" class="md-nav__button md-logo" aria-label="dbt i NAV" data-md-component="logo">
+    <a href=".." title="dbt i NAV" class="md-nav__button md-logo" aria-label="dbt i NAV" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -255,6 +255,8 @@
       
   
   
+    
+  
   
   
     
@@ -274,17 +276,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href=".." class="md-nav__link ">
               
   
   
@@ -308,7 +308,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -328,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fra-powercenter-til-dbt/" class="md-nav__link">
+      <a href="../fra-powercenter-til-dbt/" class="md-nav__link">
         
   
   
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hvorfor-dbt/" class="md-nav__link">
+      <a href="../hvorfor-dbt/" class="md-nav__link">
         
   
   
@@ -381,10 +381,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../hva-er-nytt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hva er nytt
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -400,6 +427,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v18-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.8 (2024)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v19-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.9 (2024)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v110-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.10 (2025)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v111-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.11 (2025)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v112-2026-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.12 (2026, beta)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -533,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/installere/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/installere/" class="md-nav__link">
         
   
   
@@ -618,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/python/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/python/" class="md-nav__link">
         
   
   
@@ -646,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/pip-og-oppsett/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/pip-og-oppsett/" class="md-nav__link">
         
   
   
@@ -674,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/git/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/git/" class="md-nav__link">
         
   
   
@@ -763,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/miljovariabler/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/miljovariabler/" class="md-nav__link">
         
   
   
@@ -799,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../feilsoking/feilsoking/" class="md-nav__link">
+      <a href="../feilsoking/feilsoking/" class="md-nav__link">
         
   
   
@@ -902,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/Hva-er-Knast/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/Hva-er-Knast/" class="md-nav__link">
         
   
   
@@ -930,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/kj%C3%B8re-regler/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/kj%C3%B8re-regler/" class="md-nav__link">
         
   
   
@@ -958,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/SQL-developer/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/SQL-developer/" class="md-nav__link">
         
   
   
@@ -986,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/installer-python-pakker/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/installer-python-pakker/" class="md-nav__link">
         
   
   
@@ -1014,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/dbt-power-user/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/dbt-power-user/" class="md-nav__link">
         
   
   
@@ -1042,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/KSM-brukerguide/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/KSM-brukerguide/" class="md-nav__link">
         
   
   
@@ -1070,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/Github-i-Knast/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/Github-i-Knast/" class="md-nav__link">
         
   
   
@@ -1098,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt%20i%20Knast/dbt-deps/" class="md-nav__link">
+      <a href="../dbt%20i%20Knast/dbt-deps/" class="md-nav__link">
         
   
   
@@ -1138,10 +1240,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1155,11 +1255,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -1180,7 +1282,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1195,37 +1297,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Materialiseringsstrategier
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../arkitektur/materialisering/" class="md-nav__link">
         
   
   
@@ -1241,37 +1316,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#typer-materialiseringer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Typer materialiseringer
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1284,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../materialisering_spenn/" class="md-nav__link">
+      <a href="../arkitektur/materialisering_spenn/" class="md-nav__link">
         
   
   
@@ -1312,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../style_guide/" class="md-nav__link">
+      <a href="../arkitektur/style_guide/" class="md-nav__link">
         
   
   
@@ -1371,7 +1415,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../dokumentasjon/" class="md-nav__link ">
+            <a href="../dokumentasjon/" class="md-nav__link ">
               
   
   
@@ -1415,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dokumentasjon/dokumentasjon/" class="md-nav__link">
+      <a href="../dokumentasjon/dokumentasjon/" class="md-nav__link">
         
   
   
@@ -1443,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dokumentasjon/overview/" class="md-nav__link">
+      <a href="../dokumentasjon/overview/" class="md-nav__link">
         
   
   
@@ -1535,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/vscode/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/vscode/" class="md-nav__link">
         
   
   
@@ -1563,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/dbt-power-user/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/dbt-power-user/" class="md-nav__link">
         
   
   
@@ -1591,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/sqlfluff/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/sqlfluff/" class="md-nav__link">
         
   
   
@@ -1660,7 +1704,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../prosjekter/" class="md-nav__link ">
+            <a href="../prosjekter/" class="md-nav__link ">
               
   
   
@@ -1704,7 +1748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prosjekter/dvh_arb_cv/" class="md-nav__link">
+      <a href="../prosjekter/dvh_arb_cv/" class="md-nav__link">
         
   
   
@@ -1732,7 +1776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prosjekter/dvh_arb_permittering/" class="md-nav__link">
+      <a href="../prosjekter/dvh_arb_permittering/" class="md-nav__link">
         
   
   
@@ -1760,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prosjekter/dvh_arb_person/" class="md-nav__link">
+      <a href="../prosjekter/dvh_arb_person/" class="md-nav__link">
         
   
   
@@ -1788,7 +1832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prosjekter/dvh_arb_styrke_ssb/" class="md-nav__link">
+      <a href="../prosjekter/dvh_arb_styrke_ssb/" class="md-nav__link">
         
   
   
@@ -1816,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prosjekter/dvh-sykefravar-dmx/" class="md-nav__link">
+      <a href="../prosjekter/dvh-sykefravar-dmx/" class="md-nav__link">
         
   
   
@@ -1844,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prosjekter/nystol/vdl-regnskapsdata/" class="md-nav__link">
+      <a href="../prosjekter/nystol/vdl-regnskapsdata/" class="md-nav__link">
         
   
   
@@ -1872,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prosjekter/bomlo-dbt/" class="md-nav__link">
+      <a href="../prosjekter/bomlo-dbt/" class="md-nav__link">
         
   
   
@@ -1960,7 +2004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installasjon-p%C3%A5-VDI/dbt/" class="md-nav__link">
+      <a href="../Installasjon-p%C3%A5-VDI/dbt/" class="md-nav__link">
         
   
   
@@ -2052,7 +2096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../airflow%20og%20dbt_run/airflow/" class="md-nav__link">
+      <a href="../airflow%20og%20dbt_run/airflow/" class="md-nav__link">
         
   
   
@@ -2080,7 +2124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../airflow%20og%20dbt_run/dbt_operator/" class="md-nav__link">
+      <a href="../airflow%20og%20dbt_run/dbt_operator/" class="md-nav__link">
         
   
   
@@ -2108,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../airflow%20og%20dbt_run/dbt_run/" class="md-nav__link">
+      <a href="../airflow%20og%20dbt_run/dbt_run/" class="md-nav__link">
         
   
   
@@ -2163,10 +2207,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#typer-materialiseringer" class="md-nav__link">
+  <a href="#v18-2024" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typer materialiseringer
+        v1.8 (2024)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v19-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.9 (2024)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v110-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.10 (2025)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v111-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.11 (2025)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v112-2026-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.12 (2026, beta)
       
     </span>
   </a>
@@ -2193,63 +2281,109 @@
   
 
 
-<h1 id="materialiseringsstrategier">Materialiseringsstrategier<a class="headerlink" href="#materialiseringsstrategier" title="Permanent link">&para;</a></h1>
-<p><a href="https://docs.getdbt.com/docs/build/materializations">Hva er materialiseringer i dbt?</a>. dbt-oracle støtter alle former for materialisering.</p>
-<h2 id="typer-materialiseringer">Typer materialiseringer<a class="headerlink" href="#typer-materialiseringer" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Beskrivelse</th>
-<th>Passer til</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>View</strong></td>
-<td>Spørringen kjøres på nytt ved hver bruk. Ingen fysisk lagring.</td>
-<td>Staging, enkle transformasjoner</td>
-</tr>
-<tr>
-<td><strong>Table</strong></td>
-<td>Forhåndsberegnet og lagret fysisk. Droppes og rekjøres ved hver kjøring (CTAS).</td>
-<td>Intermediate, mellomstore datamengder</td>
-</tr>
-<tr>
-<td><strong>Incremental</strong></td>
-<td>Bare nye/endrede rader behandles. Rader merges inn i eksisterende tabell.</td>
-<td>Store datamengder, hyppige oppdateringer</td>
-</tr>
-<tr>
-<td><strong>Ephemeral</strong></td>
-<td>Midlertidig CTE som kun eksisterer i kjøringen. Ingen fysisk lagring.</td>
-<td>Midlertidige transformasjoner</td>
-</tr>
-</tbody>
-</table>
-<p>Generelt er det en god ide å følge <a href="https://docs.getdbt.com/best-practices/materializations/5-best-practices">Best practices for materializations</a> fra dbt labs.</p>
-<p>Det er likevel noen avvik:</p>
-<ol>
-<li>Staging modeller bør hovedsakelig være views.<ul>
-<li>Men pseduonymisering skal skje så tidlig som mulig, og derfor er det nødvendig at kilder som inneholder personnøkler blir lastet inkrementelt. Det er ofte et krav om at rådata blir slettet etter 6 måneder.</li>
+<h1 id="hva-er-nytt-i-dbt">Hva er nytt i dbt?<a class="headerlink" href="#hva-er-nytt-i-dbt" title="Permanent link">&para;</a></h1>
+<p>Oversikt over de viktigste endringene i dbt-core fra versjon 1.7 og frem til i dag. Fokus er på funksjoner relevante for dbt-core-brukere med Oracle on-prem.</p>
+<p>Fullstendige endringslogger: <a href="https://docs.getdbt.com/docs/dbt-versions/core-upgrade">dbt Core upgrade guides</a></p>
+<hr />
+<h2 id="v18-2024">v1.8 (2024)<a class="headerlink" href="#v18-2024" title="Permanent link">&para;</a></h2>
+<h3 id="unit-tests">Unit tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
+<p>Den største nyheten i 1.8. Du kan nå skrive enhetstester som validerer SQL-logikken på et lite sett med statiske inputdata – uten å kjøre mot databasen. Dette støtter test-drevet utvikling og gjør det lettere å oppdage feil tidlig.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">unit_tests</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_is_valid_email_address</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dim_customers</span>
+<span class="w">    </span><span class="nt">given</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref(&#39;stg_customers&#39;)</span>
+<span class="w">        </span><span class="nt">rows</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;valid@example.com&quot;</span><span class="p p-Indicator">,</span><span class="nt"> expected</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">}</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p p-Indicator">,</span><span class="nt"> expected</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="nt">expect</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">rows</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;valid@example.com&quot;</span><span class="p p-Indicator">,</span><span class="nt"> is_valid_email</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">}</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p p-Indicator">,</span><span class="nt"> is_valid_email</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">}</span>
+</code></pre></div>
+<p>Kjør kun enhetstester:
+<div class="highlight"><pre><span></span><code>dbt test --select &quot;test_type:unit&quot;
+</code></pre></div></p>
+<h3 id="ny-data_tests-syntaks">Ny <code>data_tests:</code>-syntaks<a class="headerlink" href="#ny-data_tests-syntaks" title="Permanent link">&para;</a></h3>
+<p><code>tests:</code> i YAML-filer er omdøpt til <code>data_tests:</code> for å skille datatester fra enhetstester. Begge syntakser støttes foreløpig, men migrer til <code>data_tests:</code> for fremtidssikkerhet.</p>
+<h3 id="-empty-flagg-for-dry-runs"><code>--empty</code>-flagg for dry-runs<a class="headerlink" href="#-empty-flagg-for-dry-runs" title="Permanent link">&para;</a></h3>
+<p><code>dbt run --empty</code> og <code>dbt build --empty</code> kjører modell-SQL mot databasen, men begrenser refs og sources til null rader. Nyttig for å validere avhengigheter og at modeller kompilerer uten kostbare datalesninger.</p>
+<h3 id="eksplisitt-adapterinstallasjon">Eksplisitt adapterinstallasjon<a class="headerlink" href="#eksplisitt-adapterinstallasjon" title="Permanent link">&para;</a></h3>
+<p>Fra v1.8 anbefales det å installere adapter og core separat:
+<div class="highlight"><pre><span></span><code>pip install dbt-core dbt-oracle
+</code></pre></div></p>
+<hr />
+<h2 id="v19-2024">v1.9 (2024)<a class="headerlink" href="#v19-2024" title="Permanent link">&para;</a></h2>
+<h3 id="microbatch-incremental_strategy">Microbatch incremental_strategy<a class="headerlink" href="#microbatch-incremental_strategy" title="Permanent link">&para;</a></h3>
+<p>Ny strategi for svært store datasett. I stedet for én stor inkrementell spørring, bryter dbt opp lastet i diskrete tidsbatcher med egne SQL-spørringer. Konfigureres med <code>event_time</code>, <code>batch_size</code> og <code>lookback</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">models</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stg_events</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">materialized</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">incremental</span>
+<span class="w">      </span><span class="nt">incremental_strategy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microbatch</span>
+<span class="w">      </span><span class="nt">event_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">created_at</span>
+<span class="w">      </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">day</span>
+<span class="w">      </span><span class="nt">lookback</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div>
+<p>Særlig nyttig der én stor inkrementell spørring går i timeout. Mislykkede batcher kan kjøres på nytt isolert med <code>dbt retry</code>.</p>
+<blockquote>
+<p><strong>Merk:</strong> Sjekk om <code>dbt-oracle</code>-versjonen du bruker støtter microbatch.</p>
+</blockquote>
+<h3 id="forbedringer-for-snapshots">Forbedringer for snapshots<a class="headerlink" href="#forbedringer-for-snapshots" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Snapshots kan nå konfigureres i YAML-filer (i tillegg til SQL-filer)</li>
+<li>Nytt <code>hard_deletes</code>-config: velg mellom <code>ignore</code>, <code>invalidate</code> eller <code>new_record</code> for slettede kilderader</li>
+<li><code>snapshot_meta_column_names</code> lar deg tilpasse navn på metakolonner (<code>dbt_valid_from</code> etc.)</li>
+<li><code>target_schema</code> er ikke lenger påkrevd – snapshots arver da skjema fra miljøet</li>
 </ul>
-</li>
-<li>Intermediate ved kompleks logikk. Kjør views når du kan. Når views går for tregt, har du tre valg:<ol>
-<li>Kjøre table materialiseringer. tabeller blir droppet, purget og rekjørt med alt innhold fra spørringen i modellfilen. Ikke lurt ved ved større mengder data, både ytelsesmessig og lagring i flere lag.</li>
-<li>Incrememental. Tabellen bevares og nye endrede rader blir lagt til med merge.</li>
-<li>Delta last med table models ... trenger POC</li>
-</ol>
-</li>
-<li>Marts skal være stabil. Det er her alle spørringer fra konsumenter kjøres, og det er viktig for basen å opparbeide statistikk på spørringer som kjører ofte.<ul>
-<li>materialized_view er for MVP og små datamengder, jher er ikke ytelse noe problem.</li>
-<li>For løsninger med større datamenger, kjør inkrementell last med partisjonering og indeksering.</li>
-</ul>
-</li>
-<li>Skal du skrive om en gammel løsning til dbt? Ikke skriv om løpet og sats på at alt skal blir 100% likt. Du kan veære sikekr på at data (oppslag mot avhengigheter) har endret seg siden forrige gang dataene har blitt kjørt opp. Spesielt med tanke på at patching og rekjøring med forskjellig logikk har blitt gjort gjennom tidene.<ul>
-<li>Bruk tidligere target-tabell som kilde til dbt og kjør en union all. Ny last bør da være inkrementelt over en initlast fra gammel targettabell.</li>
-</ul>
-</li>
-</ol>
+<h3 id="statemodified-forbedringer"><code>state:modified</code>-forbedringer<a class="headerlink" href="#statemodified-forbedringer" title="Permanent link">&para;</a></h3>
+<p>Mer presis deteksjon av endringer ved bruk av <code>--state</code>, reduserer falske positive ved miljøavhengig logikk (f.eks. ulik materialisering i dev vs prod).</p>
+<hr />
+<h2 id="v110-2025">v1.10 (2025)<a class="headerlink" href="#v110-2025" title="Permanent link">&para;</a></h2>
+<h3 id="-sample-flagg-for-raskere-utvikling"><code>--sample</code>-flagg for raskere utvikling<a class="headerlink" href="#-sample-flagg-for-raskere-utvikling" title="Permanent link">&para;</a></h3>
+<p><code>dbt run --sample</code> eller <code>dbt build --sample</code> kjører modeller med et tidsbasert utvalg av data. Gir raskere bygg under utvikling uten å prosessere hele datasett.</p>
+<h3 id="anchors-nkkel-for-yaml-gjenbruk"><code>anchors:</code>-nøkkel for YAML-gjenbruk<a class="headerlink" href="#anchors-nkkel-for-yaml-gjenbruk" title="Permanent link">&para;</a></h3>
+<p>Felles konfigurasjonsbokser kan nå samles under en dedikert <code>anchors:</code>-nøkkel i YAML-filer, i stedet for å ligge løst på toppnivå.</p>
+<h3 id="properties-flyttes-til-configs">Properties flyttes til configs<a class="headerlink" href="#properties-flyttes-til-configs" title="Permanent link">&para;</a></h3>
+<p>Disse er nå tilgjengelige under <code>config:</code> (i tillegg til som properties):
+<code>freshness</code>, <code>meta</code>, <code>tags</code>, <code>docs</code>, <code>group</code>, <code>access</code></p>
+<p>Dette er en del av en pågående opprydning mot et mer konsistent konfigurasjonsspråk.</p>
+<h3 id="deprecation-advarsler-for-egendefinerte-nkler">Deprecation-advarsler for egendefinerte nøkler<a class="headerlink" href="#deprecation-advarsler-for-egendefinerte-nkler" title="Permanent link">&para;</a></h3>
+<p>Fra v1.10 gir dbt advarsler hvis du bruker egendefinerte attributter direkte under et ressursobjekt. Disse må nå ligge under <code>meta</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Gammel syntaks - gir nå advarsel</span>
+<span class="nt">models</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_model</span>
+<span class="w">    </span><span class="nt">my_custom_field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># ⚠️ Advarsel!</span>
+
+<span class="c1"># Ny syntaks</span>
+<span class="nt">models</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_model</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">meta</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">my_custom_field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>Bruk <a href="https://github.com/dbt-labs/dbt-autofix">dbt-autofix</a> for å migrere automatisk.</p>
+<hr />
+<h2 id="v111-2025">v1.11 (2025)<a class="headerlink" href="#v111-2025" title="Permanent link">&para;</a></h2>
+<h3 id="user-defined-functions-udfs">User-defined functions (UDFs)<a class="headerlink" href="#user-defined-functions-udfs" title="Permanent link">&para;</a></h3>
+<p>dbt støtter nå definisjon og registrering av egendefinerte databasefunksjoner som egne ressurser i DAG-en. Defineres i en <code>functions/</code>-mappe og refereres med <code>{{ function('navn') }}</code> i modeller.</p>
+<blockquote>
+<p><strong>Merk:</strong> Støtte avhenger av adapteren – sjekk <code>dbt-oracle</code>-dokumentasjonen.</p>
+</blockquote>
+<h3 id="deprecation-advarsler-er-na-paslatt-som-standard">Deprecation-advarsler er nå påslått som standard<a class="headerlink" href="#deprecation-advarsler-er-na-paslatt-som-standard" title="Permanent link">&para;</a></h3>
+<p>Advarslene fra v1.10 for ugyldig YAML-konfigurasjon er nå aktivert som standard for de fleste adaptere. Kjør <code>dbt parse</code> og rett opp eventuelle advarsler.</p>
+<hr />
+<h2 id="v112-2026-beta">v1.12 (2026, beta)<a class="headerlink" href="#v112-2026-beta" title="Permanent link">&para;</a></h2>
+<h3 id="env-fil"><code>.env</code>-fil<a class="headerlink" href="#env-fil" title="Permanent link">&para;</a></h3>
+<p>dbt laster nå automatisk miljøvariabler fra en <code>.env</code>-fil i prosjektmappen. Shell-variabler overstyrer <code>.env</code>-verdier. Nye prosjekter får <code>.env</code> i <code>.gitignore</code> automatisk.</p>
+<h3 id="varsyml"><code>vars.yml</code><a class="headerlink" href="#varsyml" title="Permanent link">&para;</a></h3>
+<p>Prosjektvariabler kan nå defineres i en egen <code>vars.yml</code>-fil ved prosjektroten, i stedet for i <code>dbt_project.yml</code>. Holder <code>dbt_project.yml</code> ryddig.</p>
+<h3 id="selector-metode-for-navngitte-selektorer"><code>selector:</code>-metode for navngitte selektorer<a class="headerlink" href="#selector-metode-for-navngitte-selektorer" title="Permanent link">&para;</a></h3>
+<p>Navngitte selektorer fra <code>selectors.yml</code> kan nå brukes direkte i <code>--select</code>:
+<div class="highlight"><pre><span></span><code>dbt run --select &quot;selector:my_selector+,tag:nightly&quot;
+</code></pre></div></p>
+<h3 id="bedre-feilmeldinger">Bedre feilmeldinger<a class="headerlink" href="#bedre-feilmeldinger" title="Permanent link">&para;</a></h3>
+<p>Interne Python-feil erstattes med tydelige dbt-feil (<code>CompilationError</code>, <code>ParsingError</code>). Bruk <code>--debug</code> hvis du trenger full stack trace.</p>
 
 
 
@@ -2320,14 +2454,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.indexes", "navigation.expand", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../javascripts/mermaid-init.js"></script>
       
     
   </body>
