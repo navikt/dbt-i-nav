@@ -14,14 +14,8 @@ nav:
         - 'DVH/komme-i-gang.md'
         - 'DVH/opprett-prosjekt.md'
     - dbt i Knast:
-        - dbt i Knast/Hva-er-Knast.md
-        - dbt i Knast/kjøre-regler.md
-        - dbt i Knast/SQL-developer.md
-        - dbt i Knast/installer-python-pakker.md
-        - dbt i Knast/dbt-power-user.md
-        - dbt i Knast/KSM-brukerguide.md
-        - dbt i Knast/Github-i-Knast.md
-        - dbt i Knast/dbt-deps.md
+      - dbt i Knast/utvikling-av-dbt-prosjekter.md
+      - dbt i Knast/handtering-av-hemmeligheter.md
   - Arkitektur:
       - arkitektur/materialisering.md
       - arkitektur/materialisering_spenn.md
@@ -40,6 +34,15 @@ nav:
       - prosjekter/nystol/vdl-regnskapsdata.md
       - prosjekter/bomlo-dbt.md
   - Arkiv:
+      - Eldre Knast-sider:
+        - dbt i Knast/Hva-er-Knast.md
+        - dbt i Knast/kjøre-regler.md
+        - dbt i Knast/SQL-developer.md
+        - dbt i Knast/installer-python-pakker.md
+        - dbt i Knast/dbt-power-user.md
+        - dbt i Knast/KSM-brukerguide.md
+        - dbt i Knast/Github-i-Knast.md
+        - dbt i Knast/dbt-deps.md
       - VDI oppsett:
         - Installasjon-på-VDI/installere.md
         - Installasjon-på-VDI/python.md
