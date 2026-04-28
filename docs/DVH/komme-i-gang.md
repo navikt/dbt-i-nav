@@ -49,8 +49,8 @@ flowchart LR
 Hvis du er ny, anbefales denne rekkefølgen:
 
 1. Les [Opprett nytt dbt-prosjekt](opprett-prosjekt.md)
-2. Les [Utvikling av dbt-prosjekter i Knast](../dbt%20i%20Knast/utvikling-av-dbt-prosjekter.md)
-3. Les [Håndtering av hemmeligheter i Knast](../dbt%20i%20Knast/handtering-av-hemmeligheter.md)
+2. Les [Håndtering av hemmeligheter i Knast](../dbt%20i%20Knast/handtering-av-hemmeligheter.md)
+3. Les [Utvikling av dbt-prosjekter i Knast](../dbt%20i%20Knast/utvikling-av-dbt-prosjekter.md)
 4. Kjør første `dbt debug`
 5. Kjør første `dbt build`
 
@@ -104,5 +104,5 @@ Hvis du starter nytt arbeid i dag, skal du tenke:
 ## Neste sider å lese
 
 - [Opprett nytt dbt-prosjekt](opprett-prosjekt.md)
-- [Utvikling av dbt-prosjekter i Knast](../dbt%20i%20Knast/utvikling-av-dbt-prosjekter.md)
 - [Håndtering av hemmeligheter i Knast](../dbt%20i%20Knast/handtering-av-hemmeligheter.md)
+- [Utvikling av dbt-prosjekter i Knast](../dbt%20i%20Knast/utvikling-av-dbt-prosjekter.md)

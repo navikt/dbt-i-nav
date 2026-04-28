@@ -13,9 +13,9 @@ nav:
     - Komme i gang:
         - 'DVH/komme-i-gang.md'
         - 'DVH/opprett-prosjekt.md'
-    - dbt i Knast:
-      - dbt i Knast/utvikling-av-dbt-prosjekter.md
+    - Utvikle dbt i Knast:
       - dbt i Knast/handtering-av-hemmeligheter.md
+      - dbt i Knast/utvikling-av-dbt-prosjekter.md
   - Arkitektur:
       - arkitektur/materialisering.md
       - arkitektur/materialisering_spenn.md

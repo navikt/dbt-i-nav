@@ -1,8 +1,33 @@
 # Utvikling av dbt-prosjekter i Knast
 
-Denne siden samler det viktigste du trenger for å utvikle dbt-prosjekter i Knast.
+Denne siden forklarer hvordan du faktisk jobber med dbt-prosjekter i Knast.
 
-Målet er å beskrive den normale utviklingsflyten for dbt i DVH, uten å spre informasjon over mange små sider.
+Hvis du bare vil komme i gang, holder det å lese de to første seksjonene. Resten av siden er mer utfyllende bakgrunn og praktiske detaljer.
+
+## TL;DR
+
+- åpne repoet ditt i Knast
+- kjør `dbt debug`
+- kjør `dbt build`
+- begynn å endre SQL, YAML og tester
+- bruk GitHub og pull requests som vanlig utviklingsflyt
+
+Hvis dette fungerer, trenger du ikke lese resten av siden før du står fast.
+
+## Gjør dette først
+
+1. Clone eller åpne repoet ditt i Knast
+2. Åpne prosjektet i editoren
+3. Kjør:
+
+```shell
+dbt debug
+dbt build
+```
+
+4. Hvis dette går grønt, kan du begynne å utvikle modeller og tester
+
+Hvis `dbt debug` eller `dbt build` feiler, les først [Håndtering av hemmeligheter i Knast](handtering-av-hemmeligheter.md) og deretter resten av denne siden.
 
 ## Kortversjonen
 
@@ -14,6 +39,15 @@ flowchart TD
   D --> E[Kjor dbt build]
   E --> F[Utvikle modeller og tester]
 ```
+
+## Når trenger du resten av denne siden?
+
+Les videre hvis:
+
+- GitHub ikke fungerer som forventet i Knast
+- `dbt deps` eller `dbt build` feiler
+- du er usikker på hvordan utviklingsflyten bør se ut
+- du vil vite hvilke verktøy og regler som faktisk er relevante
 
 ## Hva Knast er i denne sammenhengen
 
@@ -28,6 +62,8 @@ For dbt-utvikling betyr dette normalt at du allerede har:
 - tilgang til relevante databaser og verktøy
 
 Du skal normalt ikke måtte bruke tid på lokal installasjon før du kan komme i gang.
+
+Det viktigste er at Knast skal være arbeidsflaten din, ikke et prosjekt i seg selv.
 
 ## Typisk utviklingsflyt
 
@@ -84,6 +120,8 @@ dbt build
 
 Du kan også kjøre `dbt run` hvis du bare vil verifisere at modeller bygges, men `dbt build` er ofte et bedre startpunkt fordi det også inkluderer tester.
 
+For de fleste er dette hele startløypa: åpne repo, kjør `dbt debug`, kjør `dbt build`, begynn å endre modeller.
+
 ## Hva du bør forvente av miljøet
 
 Du er godt i gang når du kan:
@@ -96,6 +134,8 @@ Du er godt i gang når du kan:
 
 Hvis du må bruke mye tid på maskinoppsett eller installasjon, er det som regel oppstartsløpet og ikke dbt-prosjektet som er problemet.
 
+Det er en viktig tommelfingerregel: hvis utviklingsmiljøet krever mye manuelt arbeid før første dbt-kjøring, er noe feil.
+
 ## dbt-avhengigheter
 
 Hvis prosjektet bruker pakker via `packages.yml`, må du kunne kjøre:
@@ -105,6 +145,8 @@ dbt deps
 ```
 
 For dette kan det være nødvendig å åpne relevante GitHub- og dbt Hub-URL-er under Internettåpninger i Knast. Dette gjelder særlig hvis prosjektet bruker pakker som `dbt_utils`.
+
+Dette er mest relevant når et prosjekt faktisk bruker pakker. Hvis du ikke har `packages.yml`, trenger du ikke bruke tid på dette.
 
 Eksempel på `packages.yml`:
 
@@ -134,6 +176,8 @@ SQL Developer-utvidelsen finnes også, men kan kollidere med dbt Power User på 
 
 Dette er nyttig, men ikke nødvendig for å komme i gang. Prioriter først at `dbt debug` og `dbt build` fungerer.
 
+Det betyr i praksis at editorverktøy er sekundære. Først må selve dbt-flyten være stabil.
+
 ## Regler og anbefalinger
 
 For dbt-utvikling i DVH gjelder i praksis disse hovedreglene:
@@ -144,6 +188,8 @@ For dbt-utvikling i DVH gjelder i praksis disse hovedreglene:
 - åpne eksterne URL-er bare ved tjenstlig behov
 
 Hvis du trenger ekstra Python-pakker i egne miljøer, bruk den anbefalte Knast-måten for dette. Ikke gjør tilfeldige lokale oppsett til en del av standard dbt-flyt.
+
+Kort sagt: hold utviklingsløpet enkelt og repeterbart.
 
 ## Når du er klar til å utvikle
 

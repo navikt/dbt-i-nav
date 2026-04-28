@@ -1,8 +1,58 @@
 # Håndtering av hemmeligheter i Knast
 
-Denne siden samler det viktigste om hemmeligheter og Oracle-credentials for dbt i Knast.
+Denne siden forklarer hvordan dbt får tilgang til Oracle-credentials i Knast.
 
-Målet er at du skal forstå nok til å bruke oppsettet trygt og kunne feilsøke når `dbt` ikke får riktig tilgang.
+Hvis du bare vil komme i gang, holder det å lese de to første seksjonene. Resten av siden er mer detaljert bakgrunn og feilsøking.
+
+## TL;DR
+
+- Kjør `dvh` og velg riktig miljø
+- sørg for at `profiles.yml` bruker KSM-miljøvariablene
+- kjør `dbt debug`
+- du skal normalt ikke skrive inn eller lagre Oracle-passord manuelt
+
+Hvis dette virker, trenger du ikke lese resten av siden før noe feiler.
+
+## Gjør dette først
+
+1. Velg miljø:
+
+```bash
+dvh
+```
+
+2. I `profiles.yml` må dbt-prosjektet bruke miljøvariablene som KSM setter for å fungere. Innholdet må være:
+
+Eksempel:
+
+```yaml
+knast:
+  host: "{{ env_var('DBT_DB_HOST') }}"
+  password: placeholder
+  port: "{{ env_var('DBT_DB_PORT') }}"
+  protocol: tcp
+  schema: <schema_name>
+  service: "{{ env_var('DBT_ENV_SERVICE') }}"
+  database: "{{ env_var('DBT_DB_NAME') }}"
+  threads: 1
+  type: oracle
+  user: "{{ env_var('DBT_ENV_SECRET_USER') }}"
+```
+
+Det viktigste her er at:
+
+- host, port, service og user hentes fra miljøvariabler
+- `schema` må spesifiseres for prosjektet ditt
+- `password` står som placeholder fordi credential-injeksjonen skjer utenfor selve filen
+
+3. Kjør:
+
+```bash
+dbt debug
+dbt run
+```
+
+Hvis `dbt debug` går grønt, er hemmelighetsoppsettet i praksis på plass.
 
 ## Kortversjonen
 
@@ -15,6 +65,15 @@ flowchart TD
 ```
 
 Du skal normalt ikke håndtere Oracle-passord manuelt når dbt kjører i Knast.
+
+## Når trenger du resten av denne siden?
+
+Les videre hvis:
+
+- `dbt debug` feiler
+- miljøvariablene ikke ser riktige ut
+- du bruker eget Python-miljø
+- du må forstå hvordan KSM og `dvh` henger sammen
 
 ## Hva KSM gjør
 
@@ -39,7 +98,7 @@ flowchart LR
 
 ## Velg miljø
 
-Det viktigste første steget er å velge DVH-miljø:
+Det viktigste første steget er å velge DVH-miljø. Det er dette som bestemmer hvilke verdier KSM skal bruke videre:
 
 ```bash
 dvh
@@ -70,32 +129,6 @@ VENV_PATH=/opt/KSM/.dbtenv
 
 Disse skrives normalt automatisk av `dvh`.
 
-## Hva du må ha i profiles.yml
-
-I `profiles.yml` må dbt-prosjektet bruke miljøvariablene som KSM setter.
-
-Eksempel:
-
-```yaml
-knast:
-  host: "{{ env_var('DBT_DB_HOST') }}"
-  password: placeholder
-  port: "{{ env_var('DBT_DB_PORT') }}"
-  protocol: tcp
-  schema: <schema_name>
-  service: "{{ env_var('DBT_ENV_SERVICE') }}"
-  database: "{{ env_var('DBT_DB_NAME') }}"
-  threads: 1
-  type: oracle
-  user: "{{ env_var('DBT_ENV_SECRET_USER') }}"
-```
-
-Det viktigste her er at:
-
-- host, port, service og user hentes fra miljøvariabler
-- `schema` må spesifiseres for prosjektet ditt
-- `password` står som placeholder fordi credential-injeksjonen skjer utenfor selve filen
-
 ## Kjør dbt når miljøet er valgt
 
 Når `dvh` er kjørt og riktig miljø er aktivt, kan du kjøre:
@@ -107,6 +140,8 @@ dbt test
 ```
 
 Da skal credentials hentes og injiseres automatisk.
+
+Dette er den viktigste praktiske testen. Hvis dette virker, er du ferdig med oppsettet.
 
 ## Eget Python-miljø
 
@@ -133,7 +168,7 @@ Forenklet flyt:
   -> dbt får tilgang ved kjøring
 ```
 
-Du trenger normalt ikke å forstå detaljene for å bruke løsningen, men dette er nyttig å vite ved feilsøking.
+Du trenger normalt ikke å forstå detaljene for å bruke løsningen. Denne delen er mest relevant hvis du feilsøker eller jobber med egne Python-miljøer.
 
 ## Bytte miljø
 
@@ -147,7 +182,7 @@ Velg nytt miljø i menyen. Neste dbt-kjøring bruker det oppdaterte oppsettet.
 
 ## Feilsøking
 
-Hvis noe ikke fungerer, sjekk disse tingene først:
+Hvis noe ikke fungerer, sjekk disse tingene først i denne rekkefølgen:
 
 - er riktig miljø valgt med `dvh`
 - er riktig Python-miljø aktivt
