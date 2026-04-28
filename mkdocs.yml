@@ -4,7 +4,11 @@ repo_url: https://github.com/navikt/dbt-i-nav
 edit_uri: edit/main/docs/
 
 nav:
-  - Introduksjon til dbt: 'index.md'
+  - Introduksjon:
+    - Hva er dbt: 'index.md'
+    - Fra Powercenter til dbt: 'fra-powercenter-til-dbt.md'
+    - Hvorfor dbt: 'hvorfor-dbt.md'
+    - Hva er nytt: 'hva-er-nytt.md'
   - Oracle:
     - Installasjon på VDI:
         - 'Installasjon-på-VDI/installere.md'

@@ -1,3 +1,8 @@
+# dbt-i-nav
+
+Her finner du dokomentasjon og retningslinjer ofr hvordan vi jobber med dbt i Nav.
+
+
 # Welcome to MkDocs
 
 The documentation is hosted in [navikt.github.io/dbt-i-nav](https://navikt.github.io/dbt-i-nav)

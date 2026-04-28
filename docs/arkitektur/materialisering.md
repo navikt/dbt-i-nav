@@ -2,6 +2,16 @@
 
 [Hva er materialiseringer i dbt?](https://docs.getdbt.com/docs/build/materializations). dbt-oracle støtter alle former for materialisering.
 
+## Typer materialiseringer
+
+| Type | Beskrivelse | Passer til |
+|---|---|---|
+| **View** | Spørringen kjøres på nytt ved hver bruk. Ingen fysisk lagring. | Staging, enkle transformasjoner |
+| **Table** | Forhåndsberegnet og lagret fysisk. Droppes og rekjøres ved hver kjøring (CTAS). | Intermediate, mellomstore datamengder |
+| **Incremental** | Bare nye/endrede rader behandles. Rader merges inn i eksisterende tabell. | Store datamengder, hyppige oppdateringer |
+| **Ephemeral** | Midlertidig CTE som kun eksisterer i kjøringen. Ingen fysisk lagring. | Midlertidige transformasjoner |
+
+
 Generelt er det en god ide å følge [Best practices for materializations](https://docs.getdbt.com/best-practices/materializations/5-best-practices) fra dbt labs.
 
 Det er likevel noen avvik:
