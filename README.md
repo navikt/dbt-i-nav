@@ -3,11 +3,12 @@
 Her finner du dokomentasjon og retningslinjer ofr hvordan vi jobber med dbt i Nav.
 
 
-# Welcome to MkDocs
 
-The documentation is hosted in [navikt.github.io/dbt-i-nav](https://navikt.github.io/dbt-i-nav)
+# Dokumentasjon med Zensical
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org) and [material](https://squidfunk.github.io/mkdocs-material/).
+Dokumentasjonen er hostet på [navikt.github.io/dbt-i-nav](https://navikt.github.io/dbt-i-nav)
+
+For full dokumentasjon om Zensical, se [zensical.org](https://zensical.org/).
 
 ## Installation
 
@@ -27,19 +28,20 @@ make
 pip install -r requirements-doc.txt
 ```
 
-## Commands
 
-* `source .venv/bin/activate` - Activates venv on macOS / Linux
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Kommandoer
+
+* `source .venv/bin/activate` - Aktiverer venv på macOS / Linux
+* `zensical new .` - Opprett et nytt prosjekt.
+* `zensical serve` - Start lokal server med live-reload.
+* `zensical build` - Bygg dokumentasjonssiden.
+* `zensical -h` - Print hjelpetekst.
 
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
+    zensical.toml    # Konfigurasjonsfilen.
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
-When creating a new site you need to add it under `nav` in `mkdocs.yml`. See [doc](https://www.mkdocs.org/user-guide/configuration/#nav) for more info.
+Når du oppretter nye sider, må du legge dem til i `nav` i `zensical.toml`. Se [zensical.org/docs/setup/basics/](https://zensical.org/docs/setup/basics/) for mer info.
