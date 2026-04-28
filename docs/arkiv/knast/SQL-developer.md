@@ -1,4 +1,8 @@
 # SQL Developer i Knast
+
+!!! warning "Arkiv"
+    Denne siden er arkivert og er ikke del av anbefalt oppsett lenger. Innholdet beholdes kun for historikk og overgangsbehov. For nytt arbeid, bruk de aktive sidene for Knast og DVH.
+
 SQL Developer Extension er ferdig installert i VSCode og Data Build Tool (DBT) imaget men spiller ikke så godt på lag med dbt PowerUser, da begge har Hotkey Ctrl+Enter for å kjøre SQL
 
 Endre HotKey for å kjøre SQL:

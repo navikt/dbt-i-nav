@@ -1,5 +1,8 @@
 # KSM – Brukerguide
 
+!!! warning "Arkiv"
+      Denne siden er arkivert og er ikke del av anbefalt oppsett lenger. Innholdet beholdes kun for historikk og overgangsbehov. For nytt arbeid, bruk de aktive sidene for Knast og DVH.
+
 Knast Secret Manager (KSM) injiserer Oracle-credentials automatisk når `dbt` kjører, uten at brukeren trenger å håndtere passord manuelt.
 
 ---

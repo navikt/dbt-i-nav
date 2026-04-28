@@ -1,5 +1,8 @@
 # dbt Power User
 
+!!! warning "Arkiv"
+    Denne siden er arkivert og beskriver gammel VDI-basert bruk. Den er ikke del av anbefalt oppsett lenger. For nytt arbeid, bruk Knast og de aktive DVH-sidene.
+
 dbt Power User er en VS Code extension, og gir oss en rekke nyttige verktøy, som f.eks.:
 
 - Lekker lineage vist i VS Code 

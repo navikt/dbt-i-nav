@@ -1,5 +1,8 @@
 # DBT
 
+!!! warning "Arkiv"
+  Denne siden er arkivert og beskriver gammel VDI-basert bruk. Den er ikke del av anbefalt oppsett lenger. For nytt arbeid, bruk Knast og de aktive DVH-sidene.
+
 
 ## Oppsett av dbt prosjekter
 Vi har laget et ferdig [oppsett](https://github.com/navikt/dbt-template) av et dbt prosjekt tilpasset NAV dvh. Enten lag et nytt repo basert på [dvh_template](https://github.com/navikt/dvh_template). Deretter må [dbt_template](https://github.com/navikt/dbt-template) kopieres inn for å få integrert dbt prosjektet.
@@ -123,7 +126,7 @@ Når profilen er på plass i prosjektmappen kan du [teste at dbt fungerer](#test
 
 Etter at dbt er på plass kan du verifisere at dbt fungerer ved å kjøre `.\setup_db_user.ps1`
 etterfulgt av `dbt debug` fra prosjektmappen. Er det et nytt prosjekt må du
-[opprette profiles.yml](#opprettelse-av-profilesyml-i-et-nytt-dbt-prosjekt) først.
+[opprette profiles.yml](#opprette-nytt-dbt-prosjekt-for-oracle-fra-scratc) først.
 
 `.\setup_db_user.ps1` må kjøres hver gang en starter en ny terminal eller
 ønsker å bytte target (db). Scriptet vill midlertidlig opprette miljøvariablene

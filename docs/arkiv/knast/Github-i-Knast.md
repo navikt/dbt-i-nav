@@ -1,4 +1,8 @@
 # Github i Knast
+
+!!! warning "Arkiv"
+    Denne siden er arkivert og er ikke del av anbefalt oppsett lenger. Innholdet beholdes kun for historikk og overgangsbehov. For nytt arbeid, bruk de aktive sidene for Knast og DVH.
+
 Git og gh (github CLI) kommer preinstallert i Knast.
 Det anbefales å bruke `gh` for å jobbe mot Github.
 

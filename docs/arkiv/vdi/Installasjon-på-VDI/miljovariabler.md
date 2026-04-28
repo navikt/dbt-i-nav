@@ -1,5 +1,8 @@
 # Legge til miljøvariabler
 
+!!! warning "Arkiv"
+    Denne siden er arkivert og beskriver gammel VDI-basert bruk. Den er ikke del av anbefalt oppsett lenger. For nytt arbeid, bruk Knast og de aktive DVH-sidene.
+
 1. Søk etter `miljøvariabler`
 2. Klikk på: `Rediger miljøbariabler for kontoen din`
 

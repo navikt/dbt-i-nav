@@ -1,5 +1,8 @@
 # Feilsøking
 
+!!! warning "Arkiv"
+	Denne siden er arkivert og beskriver gammel VDI-basert bruk. Den er ikke del av anbefalt oppsett lenger. For nytt arbeid, bruk Knast og de aktive DVH-sidene.
+
 Samleside for vanlige feilsistuasjoner som kan oppstå med dbt og Oracle i NAV
 
 ## Incremental
@@ -10,7 +13,7 @@ Samleside for vanlige feilsistuasjoner som kan oppstå med dbt og Oracle i NAV
 
 ### ORA-00904: "KOLONNE": invalid identifier
 
-Dersom `persist_docs` er aktivert i dbt_project.yml, ta en titt på siden om [Dokumentasjon](../dokumentasjon/dokumentasjon.md).
+Dersom `persist_docs` er aktivert i dbt_project.yml, ta en titt på siden om [Dokumentasjon](../../../dokumentasjon/dokumentasjon.md).
 
 ## Kobling mot oracle database
 

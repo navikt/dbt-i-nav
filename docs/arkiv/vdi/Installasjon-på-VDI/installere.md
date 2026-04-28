@@ -1,5 +1,8 @@
 # Installere dbt-oracle på VDI
 
+!!! warning "Arkiv"
+    Denne siden er arkivert og beskriver gammel VDI-basert bruk. Den er ikke del av anbefalt oppsett lenger. For nytt arbeid, bruk Knast og de aktive DVH-sidene.
+
 ## Forutsetninger
 
 For å kunne utvikle dbt mot oracle må man ha tilgang til utviklerimage som er et VDI som kjører i i NAV datahall. Dette er for å kunne få kontakt med Oracle databaser. Du må også har fått en eller felere databasebrukere og det er nyttig å kunne koble seg opp mot databasene med SQL Developer. Se følgende lenker:

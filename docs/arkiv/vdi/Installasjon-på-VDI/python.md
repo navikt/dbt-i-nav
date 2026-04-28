@@ -1,5 +1,8 @@
 # Python
 
+!!! warning "Arkiv"
+    Denne siden er arkivert og beskriver gammel VDI-basert bruk. Den er ikke del av anbefalt oppsett lenger. For nytt arbeid, bruk Knast og de aktive DVH-sidene.
+
 
 
 Sjekk om Python er installert med `py --version`. dbt-versjon 1.4 og senere støtter Python-versjon 3.11, for en tidligere dbt-versjon må Python-versjon være >= 3.8 og < 3.11.

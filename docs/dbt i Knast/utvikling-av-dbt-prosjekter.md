@@ -146,6 +146,12 @@ dbt deps
 
 For dette kan det være nødvendig å åpne relevante GitHub- og dbt Hub-URL-er under Internettåpninger i Knast. Dette gjelder særlig hvis prosjektet bruker pakker som `dbt_utils`.
 
+Hvis `dbt deps` ikke fungerer i Knast, sjekk først om disse URL-ene er åpnet:
+
+- `codeload.github.com/dbt-labs/dbt-utils/tar.gz/*`
+- `hub.getdbt.com/api/v1/*`
+- `github.com/dbt-labs/dbt-utils.git`
+
 Dette er mest relevant når et prosjekt faktisk bruker pakker. Hvis du ikke har `packages.yml`, trenger du ikke bruke tid på dette.
 
 Eksempel på `packages.yml`:

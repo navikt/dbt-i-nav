@@ -1,4 +1,8 @@
 # Regler ved bruk av Knast for jobbe på DWH
+
+!!! warning "Arkiv"
+    Denne siden er arkivert og er ikke del av anbefalt oppsett lenger. Innholdet beholdes kun for historikk og overgangsbehov. For nytt arbeid, bruk de aktive sidene for Knast og DVH.
+
 - Kun nettleser basert Knast image (dvs Data Build Tool (dbt) imager, VSCode og Notebook image) er godkjent å bruke mot DVH baser. Andre imager blir sperret av basen.
 - Alle har mulighet å åpne mot externe URLer i Knast. Disse er tidsbegreset og må aktiveres ved start av Knast.
 - Det anbefales sterkt at bruker unngår å lagre data på sin Knast-image. Også anbefales det å rydde i gamle filer som inneholder sensitiv data. 

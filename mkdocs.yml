@@ -35,25 +35,26 @@ nav:
       - prosjekter/bomlo-dbt.md
   - Arkiv:
       - Eldre Knast-sider:
-        - dbt i Knast/Hva-er-Knast.md
-        - dbt i Knast/kjøre-regler.md
-        - dbt i Knast/SQL-developer.md
-        - dbt i Knast/installer-python-pakker.md
-        - dbt i Knast/dbt-power-user.md
-        - dbt i Knast/KSM-brukerguide.md
-        - dbt i Knast/Github-i-Knast.md
-        - dbt i Knast/dbt-deps.md
+        - arkiv/knast/Hva-er-Knast.md
+        - arkiv/knast/kjøre-regler.md
+        - arkiv/knast/SQL-developer.md
+        - arkiv/knast/installer-python-pakker.md
+        - arkiv/knast/dbt-power-user.md
+        - arkiv/knast/KSM-brukerguide.md
+        - arkiv/knast/Github-i-Knast.md
+        - arkiv/knast/dbt-deps.md
       - VDI oppsett:
-        - Installasjon-på-VDI/installere.md
-        - Installasjon-på-VDI/python.md
-        - Installasjon-på-VDI/pip-og-oppsett.md
-        - Installasjon-på-VDI/git.md
-        - Installasjon-på-VDI/miljovariabler.md
-        - Installasjon-på-VDI/vscode.md
-        - Installasjon-på-VDI/dbt-power-user.md
-        - Installasjon-på-VDI/sqlfluff.md
-        - feilsoking/feilsoking.md
-        - Installasjon-på-VDI/dbt.md
+        - arkiv/vdi/Installasjon-på-VDI/installere.md
+        - arkiv/vdi/Installasjon-på-VDI/python.md
+        - arkiv/vdi/Installasjon-på-VDI/oracle-client-library.md
+        - arkiv/vdi/Installasjon-på-VDI/pip-og-oppsett.md
+        - arkiv/vdi/Installasjon-på-VDI/git.md
+        - arkiv/vdi/Installasjon-på-VDI/miljovariabler.md
+        - arkiv/vdi/Installasjon-på-VDI/vscode.md
+        - arkiv/vdi/Installasjon-på-VDI/dbt-power-user.md
+        - arkiv/vdi/Installasjon-på-VDI/sqlfluff.md
+        - arkiv/vdi/feilsoking/feilsoking.md
+        - arkiv/vdi/Installasjon-på-VDI/dbt.md
   - Airflow:
       - airflow og dbt_run/airflow.md
       - airflow og dbt_run/dbt_operator.md
