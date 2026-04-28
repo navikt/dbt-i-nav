@@ -14,8 +14,10 @@ nav:
         - 'DVH/komme-i-gang.md'
         - 'DVH/opprett-prosjekt.md'
     - Utvikle dbt i Knast:
-      - dbt i Knast/handtering-av-hemmeligheter.md
-      - dbt i Knast/utvikling-av-dbt-prosjekter.md
+        - 'dbt i Knast/handtering-av-hemmeligheter.md'
+        - 'dbt i Knast/utvikling-av-dbt-prosjekter.md'
+    - Feilsøking:
+        - 'DVH/feilsoking.md'
   - Arkitektur:
       - arkitektur/materialisering.md
       - arkitektur/materialisering_spenn.md
@@ -42,7 +44,6 @@ nav:
         - arkiv/knast/dbt-power-user.md
         - arkiv/knast/KSM-brukerguide.md
         - arkiv/knast/Github-i-Knast.md
-        - arkiv/knast/dbt-deps.md
       - VDI oppsett:
         - arkiv/vdi/Installasjon-på-VDI/installere.md
         - arkiv/vdi/Installasjon-på-VDI/python.md
