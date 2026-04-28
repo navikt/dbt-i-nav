@@ -9,17 +9,10 @@ nav:
     - Fra Powercenter til dbt: 'fra-powercenter-til-dbt.md'
     - Hvorfor dbt: 'hvorfor-dbt.md'
     - Hva er nytt: 'hva-er-nytt.md'
-  - Oracle:
-    - Installasjon på VDI:
-        - 'Installasjon-på-VDI/installere.md'
-        - Forutsetninger:
-            - Installasjon-på-VDI/python.md
-            - Installasjon-på-VDI/pip-og-oppsett.md
-            - Installasjon-på-VDI/git.md
-
-        - Tips og triks:
-            - Installasjon-på-VDI/miljovariabler.md
-        - feilsoking/feilsoking.md
+  - DVH:
+    - Komme i gang:
+        - 'DVH/komme-i-gang.md'
+        - 'DVH/opprett-prosjekt.md'
     - dbt i Knast:
         - dbt i Knast/Hva-er-Knast.md
         - dbt i Knast/kjøre-regler.md
@@ -37,10 +30,6 @@ nav:
       - dokumentasjon/index.md
       - dokumentasjon/dokumentasjon.md
       - dokumentasjon/overview.md
-  - Anbefalinger:
-      - Installasjon-på-VDI/vscode.md
-      - Installasjon-på-VDI/dbt-power-user.md
-      - Installasjon-på-VDI/sqlfluff.md
   - Prosjekter som bruker dbt:
       - prosjekter/index.md
       - prosjekter/dvh_arb_cv.md
@@ -51,7 +40,17 @@ nav:
       - prosjekter/nystol/vdl-regnskapsdata.md
       - prosjekter/bomlo-dbt.md
   - Arkiv:
-      - Installasjon-på-VDI/dbt.md
+      - VDI oppsett:
+        - Installasjon-på-VDI/installere.md
+        - Installasjon-på-VDI/python.md
+        - Installasjon-på-VDI/pip-og-oppsett.md
+        - Installasjon-på-VDI/git.md
+        - Installasjon-på-VDI/miljovariabler.md
+        - Installasjon-på-VDI/vscode.md
+        - Installasjon-på-VDI/dbt-power-user.md
+        - Installasjon-på-VDI/sqlfluff.md
+        - feilsoking/feilsoking.md
+        - Installasjon-på-VDI/dbt.md
   - Airflow:
       - airflow og dbt_run/airflow.md
       - airflow og dbt_run/dbt_operator.md

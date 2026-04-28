@@ -34,15 +34,27 @@ Du kan tenke på dbt som en kombinasjon av:
 
 ## PowerCenter-verden vs NAV sin dbt-verden
 
-```text
-PowerCenter                                     dbt hos NAV
------------                                     ----------
-Designer / Workflow Manager                     VS Code / Knast / GitHub
-Mapping                                         SQL-modeller i repo
-Session / Workflow                              dbt build / dbt run
-GUI-basert endring                              kodeendring i branch
-Deploy i ETL-verktøy                            merge til main + vanlig leveranseflyt
-Teknisk logikk i verktøyobjekter                logikk i SQL, YAML og tester
+```mermaid
+flowchart LR
+  subgraph P[PowerCenter]
+    P1[Designer og Workflow Manager]
+    P2[Mapping]
+    P3[Session og Workflow]
+    P4[GUI endring]
+    P5[Deploy i ETL verktøy]
+  end
+  subgraph D[dbt hos NAV]
+    D1[VS Code og Knast og GitHub]
+    D2[SQL modeller i repo]
+    D3[dbt build og dbt run]
+    D4[Kodeendring i branch]
+    D5[Merge til main]
+  end
+  P1 --> D1
+  P2 --> D2
+  P3 --> D3
+  P4 --> D4
+  P5 --> D5
 ```
 
 For en PowerCenter-utvikler er dette ofte den største endringen: du jobber mindre i verktøyets metadata og mer direkte i kodebasen.
@@ -62,14 +74,12 @@ Hvis du prøver å gjenskape en PowerCenter-mapping 1:1 i dbt, blir resultatet o
 
 ## Tenk slik når du oversetter en PowerCenter-jobb
 
-```text
-PowerCenter-spørsmål                            dbt-spørsmål
---------------------                            ------------
-Hvilke transformasjoner ligger i mappingen?     Hvilke modeller bør vi dele dette opp i?
-Hvor går neste connector?                       Hvilken modell skal bruke ref() til denne?
-Hvor skal filteret ligge?                       Hører filteret hjemme i staging eller intermediate?
-Hvor gjør vi oppslag?                           Bør dette være join i modell eller egen modell?
-Hva er target?                                  Hva er sluttmodellen konsumentene skal lese fra?
+```mermaid
+flowchart TD
+  A[Les mappingen] --> B[Del opp i modeller]
+  B --> C[Plasser filter i riktig lag]
+  C --> D[Velg join eller egen modell]
+  D --> E[Definer sluttmodell for konsumenter]
 ```
 
 ## PowerCenter-begreper oversatt til dbt
@@ -101,13 +111,20 @@ Hos NAV er dbt typisk ansvarlig for SQL-transformasjonene i databasen. dbt er va
 
 Tenk derfor slik:
 
-```text
-Ansvar utenfor dbt                     Ansvar i dbt
-------------------                    -------------
-lasting til Oracle                    transformasjon i Oracle
-jobbstart / orkestrering              modellavhengigheter
-miljøoppsett                          tester og dokumentasjon
-tilgang og runtime                    materialisering av modeller
+```mermaid
+flowchart LR
+  subgraph U[Utenfor dbt]
+    U1[Lasting til Oracle]
+    U2[Jobbstart og orkestrering]
+    U3[Miljøoppsett]
+    U4[Tilgang og runtime]
+  end
+  subgraph I[I dbt]
+    I1[Transformasjon i Oracle]
+    I2[Modellavhengigheter]
+    I3[Tester og dokumentasjon]
+    I4[Materialisering av modeller]
+  end
 ```
 
 Dette gjør også at mange PowerCenter-løsninger må deles opp mentalt i to: det som er ren transformasjon, og det som egentlig er orkestrering eller innlasting.
@@ -116,16 +133,16 @@ Dette gjør også at mange PowerCenter-løsninger må deles opp mentalt i to: de
 
 I dbt deler vi ofte logikken inn i lag:
 
-```text
-models/
-├── staging/
-│   ├── stg_kilde_a.sql
-│   └── stg_kilde_b.sql
-├── intermediate/
-│   ├── int_sammenstilling.sql
-│   └── int_regler.sql
-└── marts/
-  └── dim_eller_faktatabell.sql
+```mermaid
+flowchart TD
+  M[models] --> S[staging]
+  M --> I[intermediate]
+  M --> R[marts]
+  S --> S1[stg kilde a]
+  S --> S2[stg kilde b]
+  I --> I1[int sammenstilling]
+  I --> I2[int regler]
+  R --> R1[dim eller faktatabell]
 ```
 
 ### 1. Staging
@@ -219,17 +236,16 @@ Tenk deg en gammel PowerCenter-flyt som gjør dette:
 
 I dbt vil du ofte tenke slik:
 
-```text
-raw Oracle-tabell
-  |
-  v
-stg_*  -> rydding, navngiving, enkel filtrering
-  |
-  v
-int_*  -> joins, kodeverk, pseudonymisering, regler
-  |
-  v
-mart_* -> stabil leveranseflate
+```mermaid
+flowchart TD
+  A[Raw Oracle tabell] --> B[stg modeller]
+  B --> B2[Pseudonymisering]
+  B --> C[int modeller]
+  B --> B1[Rydding og navngiving]
+  C --> C1[Joins og kodeverk]
+  C --> D[mart modeller]
+  C --> C2[regler]
+  D --> D1[Stabil leveranseflate]
 ```
 
 Dette passer godt med anbefalingene ellers i denne dokumentasjonen om å gjøre sensitiv håndtering tidlig og å holde konsumentnære modeller stabile.
@@ -299,15 +315,15 @@ Dette er en av de største styrkene i dbt: logikk, tester og dokumentasjon ligge
 
 ## Slik ser en vanlig arbeidsdag ut
 
-```text
-1. Opprett branch i GitHub
-2. Åpne repo i Knast / VS Code
-3. Finn modellen du skal endre
-4. Les upstream-modeller med ref()
-5. Endre SQL eller YAML
-6. Kjør dbt build --select modellen
-7. Sjekk resultat og tester
-8. Lag pull request
+```mermaid
+flowchart TD
+  A[Opprett branch] --> B[Apne repo i Knast eller VS Code]
+  B --> C[Finn modellen]
+  C --> D[Les upstream modeller]
+  D --> E[Endre SQL eller YAML]
+  E --> F[Kjor dbt build]
+  F --> G[Sjekk resultat og tester]
+  G --> H[Lag pull request]
 ```
 
 For mange PowerCenter-utviklere er dette uvant i starten. Etter kort tid oppleves det ofte som enklere, fordi logikken blir søkbar, versjonert og lettere å lese i sammenheng.
@@ -327,14 +343,14 @@ Det er bedre å lage små, lesbare modeller enn å prøve å få alt riktig i é
 
 ## Fra PowerCenter-mapping til dbt-modeller: en enkel oppskrift
 
-```text
-Steg 1: Beskriv mappingen med ord
-Steg 2: Marker hvilke deler som er kilde, filter, oppslag, regler og target
-Steg 3: Legg enkel rydding i stg_*
-Steg 4: Legg sammensatt logikk i int_*
-Steg 5: Legg sluttresultatet i mart_*
-Steg 6: Legg på not_null / unique / relasjonstester
-Steg 7: Sammenlign mot eksisterende resultat
+```mermaid
+flowchart TD
+  A[Beskriv mappingen med ord] --> B[Marker kilde filter oppslag regler og target]
+  B --> C[Legg enkel rydding i stg]
+  C --> D[Legg sammensatt logikk i int]
+  D --> E[Legg sluttresultatet i mart]
+  E --> F[Legg pa tester]
+  F --> G[Sammenlign mot eksisterende resultat]
 ```
 
 Dette er ofte en bedre start enn å åpne PowerCenter og prøve å oversette komponent for komponent.
