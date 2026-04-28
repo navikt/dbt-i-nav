@@ -13,7 +13,7 @@ Hvis du bare vil komme i gang, holder det å lese de to første seksjonene. Rest
 
 Hvis dette virker, trenger du ikke lese resten av siden før noe feiler.
 
-## Gjør dette først
+## TL;DR
 
 1. Velg miljø:
 
@@ -23,27 +23,27 @@ dvh
 
 2. I `profiles.yml` må dbt-prosjektet bruke miljøvariablene som KSM setter for å fungere. Innholdet må være:
 
-Eksempel:
-
 ```yaml
-knast:
-  host: "{{ env_var('DBT_DB_HOST') }}"
-  password: placeholder
-  port: "{{ env_var('DBT_DB_PORT') }}"
-  protocol: tcp
-  schema: <schema_name>
-  service: "{{ env_var('DBT_ENV_SERVICE') }}"
-  database: "{{ env_var('DBT_DB_NAME') }}"
-  threads: 1
-  type: oracle
-  user: "{{ env_var('DBT_ENV_SECRET_USER') }}"
+"fyll inn profiles-navn fra dbt_project.yml":
+  target: "{{env_var('DBT_DB_TARGET')}}"
+  outputs:
+    knast:
+        host: "{{ env_var('DBT_DB_HOST') }}"
+        password: placeholder
+        port: "{{ env_var('DBT_DB_PORT') }}"
+        protocol: tcp
+        schema: <schema_name>
+        service: "{{ env_var('DBT_ENV_SERVICE') }}"
+        database: "{{ env_var('DBT_DB_NAME') }}"
+        threads: 1
+        type: oracle
+        user: "{{ env_var('DBT_ENV_SECRET_USER') }}"
 ```
-
-Det viktigste her er at:
 
 - host, port, service og user hentes fra miljøvariabler
 - `schema` må spesifiseres for prosjektet ditt
 - `password` står som placeholder fordi credential-injeksjonen skjer utenfor selve filen
+- `knast` er targeten som velges automatisk når du kjører i Knast.
 
 3. Kjør:
 
