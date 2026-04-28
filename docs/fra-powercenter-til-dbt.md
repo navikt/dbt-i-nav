@@ -6,38 +6,12 @@ Hos NAV betyr dette som regel at du går fra et GUI-basert ETL-verktøy til SQL-
 
 ## Slik ser det typisk ut hos NAV
 
-```text
-  +-------------------+
-  |   Kildetabeller   |
-  |   i Oracle        |
-  +---------+---------+
-      |
-      v
-  +-------------------+
-  |   dbt sources     |
-  |   YAML + source() |
-  +---------+---------+
-      |
-      v
-  +-------------------+
-  |  staging-modeller |
-  |  rydder og        |
-  |  standardiserer   |
-  +---------+---------+
-      |
-      v
-  +-------------------+
-  | intermediate      |
-  | joins, oppslag,   |
-  | forretningslogikk |
-  +---------+---------+
-      |
-      v
-  +-------------------+
-  | marts / target    |
-  | tabeller for      |
-  | konsumenter       |
-  +-------------------+
+```mermaid
+flowchart TD
+  A[Oracle kildetabeller] --> B[dbt sources]
+  B --> C[staging modeller]
+  C --> D[intermediate modeller]
+  D --> E[marts for konsumenter]
 ```
 
 Det viktigste å se her er at dbt hos NAV normalt ikke henter data fra kildesystemer selv. Data er allerede lastet til Oracle. dbt brukes til å strukturere og kjøre transformasjonene videre.
