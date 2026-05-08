@@ -9,7 +9,7 @@ nav:
     - Fra Powercenter til dbt: 'fra-powercenter-til-dbt.md'
     - Hvorfor dbt: 'hvorfor-dbt.md'
     - Hva er nytt: 'hva-er-nytt.md'
-  - DVH:
+  - Kom i gang:
     - Komme i gang:
         - 'DVH/komme-i-gang.md'
         - 'DVH/opprett-prosjekt.md'
@@ -18,10 +18,10 @@ nav:
         - 'dbt i Knast/utvikling-av-dbt-prosjekter.md'
     - Feilsøking:
         - 'DVH/feilsoking.md'
-  - Arkitektur:
-      - arkitektur/materialisering.md
-      - arkitektur/materialisering_spenn.md
-      - arkitektur/style_guide.md
+  - God praksis:
+      - Materialiseringsstrategier: arkitektur/materialisering.md
+      - Navnestandard og stilguide: arkitektur/style_guide.md
+      - Eksempel - Team Spenn: arkitektur/materialisering_spenn.md
   - Dokumentasjon:
       - dokumentasjon/index.md
       - dokumentasjon/dokumentasjon.md
