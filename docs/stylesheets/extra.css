@@ -1,0 +1,41 @@
+/* dbt-inspirert fargepalett */
+
+/* dbt signatur-oransje: #FF694A */
+
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #FF694A;
+  --md-primary-fg-color--light: #FF8A72;
+  --md-primary-fg-color--dark:  #E04E32;
+  --md-accent-fg-color:         #FF694A;
+  --md-accent-fg-color--transparent: #FF694A1a;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #FF694A;
+  --md-primary-fg-color--light: #FF8A72;
+  --md-primary-fg-color--dark:  #E04E32;
+  --md-accent-fg-color:         #FF8A72;
+  --md-accent-fg-color--transparent: #FF8A721a;
+
+  /* Mørk bakgrunn tett på dbt docs */
+  --md-default-bg-color:        #1a1f2e;
+  --md-default-bg-color--light: #1f2537;
+  --md-default-bg-color--lighter: #242a3d;
+  --md-default-bg-color--lightest: #2a3147;
+
+  /* Sidepanel */
+  --md-code-bg-color:           #242a3d;
+  --md-footer-bg-color:         #141820;
+  --md-footer-bg-color--dark:   #0f1218;
+}
+
+/* Kodeblokker med litt mer kontrast */
+[data-md-color-scheme="slate"] .highlight {
+  background-color: #1e2438;
+}
+
+/* Navigasjonslenker aktiv */
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #FF8A72;
+}
