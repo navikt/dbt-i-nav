@@ -2,7 +2,7 @@
 
 Denne siden er for deg som kan PowerCenter godt, men som skal begynne å jobbe med dbt. Målet er ikke å lære alt på en gang, men å gi deg et praktisk mentalt kart: hva som er likt, hva som er annerledes, og hvordan du kommer i gang uten å måtte forstå hele dbt-økosystemet først.
 
-Hos NAV betyr dette som regel at du går fra et GUI-basert ETL-verktøy til SQL-utvikling i GitHub, med kjøring mot Oracle via `dbt-core` og `dbt-oracle`, ofte fra Knast.
+Hos NAV betyr dette ofte  at du går fra Powercenter til SQL-utvikling i GitHub, med kjøring mot Oracle via `dbt-core` og `dbt-oracle`, ofte fra Knast.
 
 ## Slik ser det typisk ut hos NAV
 
@@ -14,7 +14,7 @@ flowchart TD
   D --> E[marts for konsumenter]
 ```
 
-Det viktigste å se her er at dbt hos NAV normalt ikke henter data fra kildesystemer selv. Data er allerede lastet til Oracle. dbt brukes til å strukturere og kjøre transformasjonene videre.
+Det viktigste å se her er at dbt ikke henter data fra kildesystemer selv. Data er allerede lastet til Oracle. dbt brukes til å strukturere og kjøre transformasjonene videre.
 
 ## Kortversjonen
 
@@ -22,7 +22,7 @@ Hvis du kommer fra PowerCenter, er den viktigste forskjellen dette:
 
 - I PowerCenter bygger du flyt i et grafisk ETL-verktøy.
 - I dbt bygger du transformasjoner som SQL-modeller i kode.
-- I PowerCenter flyttes og transformeres data ofte i samme verktøy.
+- I PowerCenter flyttes og transformeres data i samme verktøy.
 - I dbt antar vi at data allerede finnes i databasen, og at dbt kun tar seg av transformasjonen.
 
 Du kan tenke på dbt som en kombinasjon av:
@@ -127,7 +127,7 @@ flowchart LR
   end
 ```
 
-Dette gjør også at mange PowerCenter-løsninger må deles opp mentalt i to: det som er ren transformasjon, og det som egentlig er orkestrering eller innlasting.
+Dette gjør også at mange PowerCenter-løsninger må deles opp i to: innlastingsjobber g transformasjoner.
 
 ## Hvordan en typisk løsning ser ut i dbt
 
@@ -151,6 +151,7 @@ Her rydder du opp i rådata:
 
 - gir kolonner bedre navn
 - normaliserer datatyper
+- pseudonymiserer og filtrerer kode 6/7
 - filtrerer bort åpenbart irrelevante rader
 - gjør kildelogikk lettere å lese videre nedstrøms
 
