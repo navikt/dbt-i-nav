@@ -1,6 +1,6 @@
 # dbt-i-nav
 
-Her finner du dokomentasjon og retningslinjer ofr hvordan vi jobber med dbt i Nav.
+Her finner du dokumentasjon og retningslinjer for hvordan vi jobber med dbt i NAV.
 
 
 
@@ -39,9 +39,9 @@ pip install -r requirements-doc.txt
 
 ## Project layout
 
-    zensical.toml    # Konfigurasjonsfilen.
+    zensical.toml    # Konfigurasjonsfilen (inkl. nav-struktur).
     docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        index.md  # Forsiden.
+        ...       # Andre markdown-sider, bilder og andre filer.
 
-Når du oppretter nye sider, må du legge dem til i `nav` i `zensical.toml`. Se [zensical.org/docs/setup/basics/](https://zensical.org/docs/setup/basics/) for mer info.
+Når du oppretter nye sider, må du legge dem til i `nav`-blokken i `zensical.toml`. Se [zensical.org/docs/setup/basics/](https://zensical.org/docs/setup/basics/) for mer info.
