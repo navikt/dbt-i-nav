@@ -1,15 +1,10 @@
----
-title: Style guide
-slug: /style_guide
-sidebar_position: 2
----
+# Navnestandard og stilguide
 
+Basert på [dbt Labs sin stilguide](https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md).
 
-# DBT Stil Guide
-forket fra https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md
+## Modellnavn
 
-## Modell Naming
-Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/intermediate. See følgnede [diskusjon](https://discourse.getdbt.com/t/how-we-structure-our-dbt-projects/355). The navngiving blir som følger:
+Modeller organiseres i tre hovedgrupper: `staging`, `intermediate` og `marts`. Se [denne diskusjonen](https://discourse.getdbt.com/t/how-we-structure-our-dbt-projects/355). Navngivingen blir som følger:
 ```
 ├── dbt_project.yml
 └── models
@@ -43,13 +38,13 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
             |   ├── stg_oebs__budjsett_balanser.yml
             |   └── stg_oebs__budjsett_balanser.sql
 ```
-- All objekter oppgis på flertallsform, slik som: `stg_oebs__hovedbok_posteringslinjer`, `stg_oebs__artskonti`, etc.
+- Alle objekter oppgis på flertallsform, slik som: `stg_oebs__hovedbok_posteringslinjer`, `stg_oebs__artskonti`, etc.
 - Basetabeller prefikses med `base__`, slik som: `base__<source>_<object>`
 - Mellomlagringstabeller skal avsluttes med et fortidsverb som indikerer hvilken handling som er gjort på objektet, slik som: `hovedbok_posteringslinjer__filtrert_budsjett`
 - Datatorg, eller marter, er fordelt mellom faktaer (uforandelig, verb) og dimensjoner (foranderlig, subjekt) og prefikses med `fak_` og `dim_`, henholdvis. 
 - Staged strukter inneholder alle kolonner fra rå-tabellen og utvides med avledede kolonner, for å angi naturlig nøkler, hashed nøkler, omdøping av kolonnenavn, etc. 
 
-## Model konfigurasjon
+## Modellkonfigurasjon
 
 - Model-spesifike attributer (som sort/dist keys) skal spesifiseres i modellen.
 - Hvis en spesifikk konfigurasjon som gjelder alle modeller i en folder, burde dette spesifiseres i `dbt_project.yml`.
@@ -66,7 +61,7 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
 ```
 - Marter bør alltid configureres som tabeller - med mindre det er svært gode grunner til å ikke gjøre det. 
 
-## DBT konvensjoner
+## dbt-konvensjoner
 * Kun `stg_`og `base_` spør mot `source`er.
 * Alle andre `ref` andre modeller.
 
@@ -74,30 +69,31 @@ Vår modellere organiserers inn i tre hovedgrupper: staging, marts, base/interme
 - Hver underfolder inneholder en `.yml` fil som tester alle modeller i folderen. Navnestandarden skal være `<folder-navn>.yml`. 
 - Som et minimum, skal `unique` og `not_null` være testet på primær nøkkeler
 
-## Navngivining og felt konvensjoner
+## Navngiving og feltkonvensjoner
 
-* Skjema, tabell og kolonne nanv skal være `snake_case`.
-* Bruk navn basert på _business_ terminologien, i stedet for kilde terminology.
-* Hver model skal ha en primær nøkkel.
-* Primær nøkkeler i modellen navngis som `pk_<objekt>`, altså `pk_dim_person`. 
-* Fremmed nøkkeler angis som `fk_<objekt>`, tidsløse enhets nøkkeler angis som `ek_<objekt>` og naturlige nøkkeler angis som `lk_<objekt>`. 
-* For base og stage modeller skal felter være ordnet inne kategorier, fra identifikatorer til tidsstempler tilslutt. 
-* Tidsstempel kolonner skal væver navngitt som `<hendelse>_ts`, e.g. `lastet_ts`, og skal være på UTC. for avvikende tidszoner skal tidzonen indikeres ved suffiks, e.g `lastet_ts_pt`.
-* Boolean verdier og skal oppgis mot `er_` eller `har_` og uttrykkes med 1 for `Ja` og 0 for `Nei`.
-* Beløps kolonner skal ha suffiks `_nok`for, flyttalls, beløp i kroner, og `_orer` for heltall beløp i ører.
-* Sær norske bokstaver som Æ, Ø, Å skal angis som `ae`, `o` og `a`.
-* Unngår reservert word som kolonne navn. 
-* Bruk samme feltnavn gjennom alle modellene hvor mulig, e.g. nøkkelen til `dim_person` skal være `pk_dim_person`og ikke `pk_bruker`.
+* Skjema, tabell og kolonnenavn skal være `snake_case`.
+* Bruk navn basert på _business_-terminologi, ikke kildeterminologi.
+* Hver modell skal ha en primærnøkkel.
+* Primærnøkler navngis som `pk_<objekt>`, f.eks. `pk_dim_person`.
+* Fremmednøkler angis som `fk_<objekt>`, tidsløse enhetsnøkler som `ek_<objekt>` og naturlige nøkler som `lk_<objekt>`.
+* For base og stage-modeller skal felter ordnes fra identifikatorer til tidsstempler sist.
+* Tidsstempelkolonner navngis `<hendelse>_ts`, f.eks. `lastet_ts`, og skal være UTC. For avvikende tidssoner angis dette med suffiks, f.eks. `lastet_ts_pt`.
+* Booleanske verdier prefikses med `er_` eller `har_` og uttrykkes med 1 for ja og 0 for nei.
+* Beløpskolonner har suffiks `_nok` for desimalbeløp i kroner og `_orer` for heltallsbeløp i ører.
+* Norske bokstaver Æ, Ø, Å skrives som `ae`, `o` og `a` i kolonnenavn.
+* Unngå reserverte ord som kolonnenavn.
+* Bruk samme feltnavn på tvers av alle modeller der mulig, f.eks. skal nøkkelen til `dim_person` hete `pk_dim_person`, ikke `pk_bruker`.
 
 ## CTEer
 
-For mer informasjon om hvorfor vi bruker CTEer, see følgende [post](https://discourse.getdbt.com/t/why-the-fishtown-sql-style-guide-uses-so-many-ctes/1091). Kortversjonen er at det hjelper oss å samle kildene øverst, gjøre enkle transformasjoner og joiner i midten og se resultatet nederst. Oracle skal støtte passthrough slik at masse wither på rad ikke påvirker ytelsen.
+For mer om hvorfor vi bruker CTEer, se denne [posten](https://discourse.getdbt.com/t/why-the-fishtown-sql-style-guide-uses-so-many-ctes/1091). Kortversjonen er at det hjelper oss å samle kildene øverst, gjøre enkle transformasjoner og joins i midten, og se resultatet nederst. Oracle støtter passthrough slik at mange WITH-ledd på rad ikke påvirker ytelsen.
 
 - Alle `{{ ref('...') }}` settning skal plasseres i en egen CTE, ved toppen av fila. 
 - Hvor det er mulig, skal en CTE gjøre en og kun en logisk mengde arbeid. 
 - CTE navn skal være ordrike og beskrive hva denne faktisk gjør. 
-- CTE er med forvirrende eller avansert logik skal kommenteres like etter at den er definert. 
-``` sql
+- CTE-er med forvirrende eller avansert logikk skal kommenteres rett etter at den er definert.
+
+```sql
 with
 
 hendelser_vask as (
@@ -105,14 +101,15 @@ hendelser_vask as (
     -- Kommentarer
     -- mer kommentarer
     ...
+
 )
 ```
-),
-- CTEer som gjenbrukes i feller modeller skal tas ut og bli egne modeller. 
-- Modeller bør avsluttest med en  `endelig` CTE som selekterer hele det endelig produktet før modelen avslutted `SELECT * FROM endelig`. 
-- CTEene skal formatere som følger:
 
-``` sql
+- CTEer som gjenbrukes i flere modeller skal tas ut og bli egne modeller.
+- Modeller bør avsluttes med en `endelig` CTE som selekterer hele det endelige produktet: `SELECT * FROM endelig`.
+- CTEene skal formateres som følger:
+
+```sql
 WITH
 
 hendelser AS (
@@ -121,7 +118,7 @@ hendelser AS (
 
 ),
 
--- CTE comments go here
+-- CTE-kommentarer her
 filtrerte_hendelser AS (
 
     ...
@@ -132,29 +129,28 @@ endelig AS (
 
     SELECT * FROM filtrerte_hendelser
 
-),
-
+)
 
 SELECT * FROM endelig
 ```
 
-## SQL stil guide
+## SQL-stilguide
 
-- Sett komma på slutten setningen
-- Bruke fire mellom rom for å indentere koden, uten om ved predikatet, som skal være på linje med `WHERE`
-- Ingen linjer skal være lenger enn 80 tegn
-- All felt navn skal være skrevet med små bokstaver, og alle funksjonsnavn (`SELECT`, `WHERE`, `LEAD`, etc.) med STORE. 
-- Bruk alltid `AS`for å aliase tabeller og felt. 
-- Alle felt skal angis før alle aggregater og vindu funskjoner. 
-- Aggregering skal skal løses så tidlig som mulig, før en joiner med andre tabeller. 
-- `ORDER BY`og `GROUP BY` skal vær angitt med nummer i stedet for kolonne navn (se [følgende](https://blog.getdbt.com/write-better-sql-a-defense-of-group-by-1/) for why). Gruppering bør gjøres på kun noen få kolonne verdier. 
-- Bruk helst `UNION ALL` fremfor `UNION` [*](http://docs.aws.amazon.com/redshift/latest/dg/c_example_unionall_query.html)
-- Unngå bruk tabell alias i `JOIN` criterer. Det er ofte vanskelig å forstå hvor tabellen "c" kommer fra.
-- Hvis en joiner to eller flere tabeller, _alltid_ prefiks kolonenne med et table alias. Hvis en selekterer fra kun en tabell trengs ingen prefiks. 
-- Skriv eksplisite joins, altså skriv `INNER JOIN` instead of `JOIN`). 
-- Bruk `LEFT JOIN` fremfor `RIGHT JOIN` 
+- Sett komma på slutten av setningen.
+- Bruk fire mellomrom for innrykk, unntatt ved predikat som skal ligge på linje med `WHERE`.
+- Ingen linjer skal være lenger enn 80 tegn.
+- Alle feltnavn skrives med små bokstaver, og alle funksjonsnavn (`SELECT`, `WHERE`, `LEAD` osv.) med STORE bokstaver.
+- Bruk alltid `AS` for å aliase tabeller og felt.
+- Alle felt skal angis før aggregater og vindusfunksjoner.
+- Aggregering bør gjøres så tidlig som mulig, før join med andre tabeller.
+- `ORDER BY` og `GROUP BY` kan angis med nummer i stedet for kolonnenavn (se [denne posten](https://blog.getdbt.com/write-better-sql-a-defense-of-group-by-1/)). Gruppering bør gjøres på kun noen få kolonneverdier.
+- Bruk `UNION ALL` fremfor `UNION`.
+- Unngå tabellalias i `JOIN`-kriterier – det er ofte vanskelig å forstå hvor tabellen `c` kommer fra.
+- Hvis du joiner to eller flere tabeller, prefiks alltid kolonner med tabellalias. Selekterer du fra kun én tabell, er prefiks ikke nødvendig.
+- Skriv eksplisitte joins, altså `INNER JOIN` i stedet for bare `JOIN`.
+- Bruk `LEFT JOIN` fremfor `RIGHT JOIN`.
 
-- *Ikke optimaliserer for få linjer kode. Nye linjer er billig, hjerner er dyre*
+_Ikke optimaliser for få kodelinjer. Nye linjer er billige, hjerner er dyre._
 
 ### Eksempel SQL
 ```sql
@@ -235,14 +231,14 @@ LEFT JOIN personer AS passasjerer
 
 ```
 
-## YAML stil guide
+## YAML-stilguide
 
-* Setning indenteres med to mellomrom 
-* Lister skal være indentert 
-* Bruk linjeskift for å separere lister når nødvendig. 
-* Linjer skal ikke være lenger en 80 karakterer 
+* Innrykk med to mellomrom.
+* Lister skal innrykkes.
+* Bruk linjeskift for å separere lister når nødvendig.
+* Linjer skal ikke være lenger enn 80 tegn.
 
-### Eksample YAML
+### Eksempel YAML
 ```yaml
 version: 2
 
@@ -270,10 +266,10 @@ models:
 ```
 
 
-## Jinja stil guide
+## Jinja-stilguide
 
-* Ved inklusjon av Jinja kode bruk mellomrom på iden av klammene `{{ slik }}` istedefor `{{slik}}`
-* Bruk ny linje for å dele opp logik i Jinja blokker
+* Bruk mellomrom på innsiden av klammene: `{{ slik }}` i stedet for `{{slik}}`.
+* Bruk ny linje for å dele opp logikk i Jinja-blokker.
 
 
 ## Visuell skille på modeller med tags og farger i lineage
