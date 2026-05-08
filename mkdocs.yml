@@ -21,6 +21,8 @@ nav:
   - God praksis:
       - Materialiseringsstrategier: arkitektur/materialisering.md
       - Navnestandard og stilguide: arkitektur/style_guide.md
+      - Testoppsett: arkitektur/testing.md
+      - SQL-formattering med SQLFluff: arkitektur/sqlfluff.md
       - Eksempel - Team Spenn: arkitektur/materialisering_spenn.md
   - Dokumentasjon:
       - dokumentasjon/index.md

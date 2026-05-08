@@ -66,8 +66,9 @@ Modeller organiseres i tre hovedgrupper: `staging`, `intermediate` og `marts`. S
 * Alle andre `ref` andre modeller.
 
 ## Tester
-- Hver underfolder inneholder en `.yml` fil som tester alle modeller i folderen. Navnestandarden skal være `<folder-navn>.yml`. 
-- Som et minimum, skal `unique` og `not_null` være testet på primær nøkkeler
+- Hver underfolder inneholder en `.yml`-fil som tester alle modeller i folderen. Navnestandarden er `<folder-navn>.yml`.
+- Som et minimum skal `unique` og `not_null` testes på primærnøkkelen i hver modell.
+- Se [Testoppsett](testing.md) for fullstendig oversikt over testtyper og anbefalte tester.
 
 ## Navngiving og feltkonvensjoner
 
@@ -75,9 +76,18 @@ Modeller organiseres i tre hovedgrupper: `staging`, `intermediate` og `marts`. S
 * Bruk navn basert på _business_-terminologi, ikke kildeterminologi.
 * Hver modell skal ha en primærnøkkel.
 * Primærnøkler navngis som `pk_<objekt>`, f.eks. `pk_dim_person`.
+
+    !!! note "NAV-avvik fra dbt Labs"
+        dbt Labs anbefaler `<objekt>_id` som primærnøkkel (f.eks. `customer_id`). NAV bruker `pk_<objekt>` for å tydelig skille primærnøkler fra andre id-kolonner.
+
 * Fremmednøkler angis som `fk_<objekt>`, tidsløse enhetsnøkler som `ek_<objekt>` og naturlige nøkler som `lk_<objekt>`.
 * For base og stage-modeller skal felter ordnes fra identifikatorer til tidsstempler sist.
 * Tidsstempelkolonner navngis `<hendelse>_ts`, f.eks. `lastet_ts`, og skal være UTC. For avvikende tidssoner angis dette med suffiks, f.eks. `lastet_ts_pt`.
+
+    !!! note "NAV-avvik fra dbt Labs"
+        dbt Labs anbefaler `<hendelse>_at` (f.eks. `created_at`) og et eget mønster for datokolonner: `<hendelse>_date`. NAV bruker `_ts` som suffix for å tydeliggjøre at det er et tidsstempel.
+
+* Datokolonner (uten klokkeslett) navngis `<hendelse>_dato`, f.eks. `opprettet_dato`.
 * Booleanske verdier prefikses med `er_` eller `har_` og uttrykkes med 1 for ja og 0 for nei.
 * Beløpskolonner har suffiks `_nok` for desimalbeløp i kroner og `_orer` for heltallsbeløp i ører.
 * Norske bokstaver Æ, Ø, Å skrives som `ae`, `o` og `a` i kolonnenavn.
@@ -143,7 +153,7 @@ SELECT * FROM endelig
 - Bruk alltid `AS` for å aliase tabeller og felt.
 - Alle felt skal angis før aggregater og vindusfunksjoner.
 - Aggregering bør gjøres så tidlig som mulig, før join med andre tabeller.
-- `ORDER BY` og `GROUP BY` kan angis med nummer i stedet for kolonnenavn (se [denne posten](https://blog.getdbt.com/write-better-sql-a-defense-of-group-by-1/)). Gruppering bør gjøres på kun noen få kolonneverdier.
+- Bruk eksplisitte kolonnenavn i `ORDER BY` og `GROUP BY`, ikke nummere. Eksplisitte navn gjør koden mer lesbar og robust ved endringer.
 - Bruk `UNION ALL` fremfor `UNION`.
 - Unngå tabellalias i `JOIN`-kriterier – det er ofte vanskelig å forstå hvor tabellen `c` kommer fra.
 - Hvis du joiner to eller flere tabeller, prefiks alltid kolonner med tabellalias. Selekterer du fra kun én tabell, er prefiks ikke nødvendig.
@@ -176,7 +186,7 @@ en_cte_agg AS (
         MAX(felt_5) AS max_felt_5
 
     FROM en_cte
-    GROUP BY 1
+    GROUP BY id
 
 ),
 
@@ -240,30 +250,31 @@ LEFT JOIN personer AS passasjerer
 
 ### Eksempel YAML
 ```yaml
-version: 2
-
 models:
   - name: hendelser
     columns:
       - name: pk_hendelser
-        description: Dette er n primærnøkkel
-        tests:
+        description: Primærnøkkel for hendelser.
+        data_tests:
           - unique
           - not_null
 
-      - name: hendelse_ts 
-        description: "Når hendelse skjedde i UTC (eg. 2018-01-01 12:00:00)"
-        tests:
+      - name: hendelse_ts
+        description: Tidspunkt for hendelsen i UTC.
+        data_tests:
           - not_null
 
       - name: fk_brukere
-        description: Brukeren som stå for hendelsen 
-        tests:
+        description: Bruker tilknyttet hendelsen.
+        data_tests:
           - not_null
           - relationships:
               to: ref('brukere')
               field: pk_brukere
 ```
+
+!!! warning "Bruk `data_tests`, ikke `tests`"
+    Fra dbt 1.8 er `tests:` i YAML erstattet av `data_tests:`. Bruk `data_tests:` i alle nye og oppdaterte filer.
 
 
 ## Jinja-stilguide
