@@ -18,6 +18,35 @@ nav:
         - 'dbt i Knast/utvikling-av-dbt-prosjekter.md'
     - Feilsøking:
         - 'DVH/feilsoking.md'
+  - dbt standarder:
+      - Arkitektur og design:
+        - Oversikt og formål: 'dbt-kodestandard/index.md'
+        - Lagdeling: 'dbt-kodestandard/lagdeling.md'
+        - Grain: 'dbt-kodestandard/grain.md'
+        - Navnestandard: 'dbt-kodestandard/navnestandard.md'
+        - Mappe- og prosjektstruktur: 'dbt-kodestandard/struktur.md'
+      - SQL og kode standarder:
+        - Konvensjoner: 'dbt-kodestandard/konvensjoner.md'
+        - JOIN-strategi: 'dbt-kodestandard/JOINstrategi.md'
+        - SQLFluff: 'dbt-kodestandard/SQLFluff.md'
+        - Kommentarer: 'dbt-kodestandard/kommentarer.md'
+      - Testing og dokumentasjon:
+        - Teststrategi: 'dbt-kodestandard/teststrategi.md'
+        - Dokumentasjonsstandard: 'dbt-kodestandard/dokumentasjonsstandard.md'
+      - Historikk og avhengigheter:
+        - Historikk: 'dbt-kodestandard/historikk.md'
+        - Incremental og Volum: 'dbt-kodestandard/incrementalOgVolum.md'
+        - One Big Table: 'dbt-kodestandard/OBT.md'
+        - Avhengigheter: 'dbt-kodestandard/avhengigheter.md'
+
+      - Drift og stabilitet:
+        - Modellkontrakter: 'dbt-kodestandard/modellkontrakter.md'
+        - Feilhåndtering: 'dbt-kodestandard/feilhåndtering.md'
+        - Ytelse: 'dbt-kodestandard/ytelse.md'
+      - Prosess og verktøy:
+        - Versjonskontroll: 'dbt-kodestandard/versjonskontroll.md'
+        - CI: 'dbt-kodestandard/CI.md'
+        - Eksempler: 'dbt-kodestandard/eksempler.md'
   - God praksis:
       - Materialiseringsstrategier: arkitektur/materialisering.md
       - Navnestandard og stilguide: arkitektur/style_guide.md
