@@ -32,7 +32,7 @@ Det finnes også et kursmiljø basert på GitHub Codespaces og dbt-core: [dbt-i-
 
 ### Designprinsipper
 
-[How to design a dbt model from scratch](https://towardsdatascience.com/how-to-design-a-dbt-model-from-scratch-8c72c7684203) – hvordan tenke når du designer nye modeller.
+[How to design a dbt model from scratch](https://medium.com/data-science/how-to-design-a-dbt-model-from-scratch-8c72c7684203) – hvordan tenke når du designer nye modeller.
 
 ### Dimensjonsmodellering
 
