@@ -9,7 +9,8 @@ Kontekst for AI-assistenter som jobber i dette repoet.
 1. Introduksjon til dbt for nye brukere
 2. Overgang fra PowerCenter til dbt
 3. Komme i gang med dbt-prosjekt fra template i Knast
-4. God praksis for dbt-prosjekter (navnestandard, testing, formattering, lagdeling)
+4. Essensielle kodestandarder for å få data mesh til å fungere enhetlig.
+5. God praksis for dbt-prosjekter
 
 ## Tech stack
 
