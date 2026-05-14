@@ -225,6 +225,115 @@ where neste_fom is not null
 
 Om testen skal se etter overlapp eller hull avhenger av historikkprinsippet i modellen.
 
+## Eksempel: etterregistreringer med mer enn 24 timers forskyvning
+
+Når et dataprodukt både har kildegyldighet og observasjonstid eller lastetid, bør vi som standard ha en test som fanger opp store etterregistreringer.
+
+Hensikten er ikke nødvendigvis å stoppe alle slike rader, men å gjøre dem synlige. For mange produkter vil dette være et viktig varsel om at publisert historie kan bli ustabil hvis data brukes ukritisk tilbake i tid.
+
+Typisk regel:
+
+- flagg rader der observasjonstid ligger mer enn 24 timer etter start på kildegyldigheten
+
+Dette forutsetter at modellen har begge typer tid tilgjengelig, for eksempel:
+
+- `gyldig_fom_tid` eller `gyldig_fom_dato`
+- `lastet_tid`, `lastet_ts` eller annen observasjonstid
+
+Eksempel som singular test:
+
+```sql
+select *
+from {{ ref('dim_person') }}
+where lastet_tid > gyldig_fom_tid + interval '24' hour
+```
+
+Ved døgnoppløsning kan samme idé uttrykkes slik:
+
+```sql
+select *
+from {{ ref('dim_person') }}
+where lastet_dato > gyldig_fom_dato + 1
+```
+
+Hvis disse testene returnerer rader, har modellen etterregistreringer som ligger mer enn ett døgn etter kildegyldigheten.
+
+## Hvorfor dette er nyttig
+
+Denne testen hjelper oss å oppdage modeller der:
+
+- kilden registrerer hendelser sent
+- dataproduktet mottar data lenge etter at de egentlig gjaldt
+- historiske tall kan bli omskrevet bakover i tid
+
+Det gjør testen spesielt nyttig for statistikk, perioderapportering og andre produkter der stabile tall er viktigere enn full retroaktiv korreksjon i standardvisningen.
+
+## Som generisk standardtest
+
+Dette egner seg godt som en generisk test med parameterisering av:
+
+- modell
+- kolonne for gyldig start
+- kolonne for observasjonstid eller lastetid
+- terskel i timer
+
+Konseptuelt:
+
+```yaml
+models:
+  - name: dim_person
+    tests:
+      - etterregistrering_lag_maks:
+          valid_from_column: gyldig_fom_tid
+          observed_at_column: lastet_tid
+          max_lag_hours: 24
+```
+
+Et mulig utgangspunkt for en slik generic test-makro kan se slik ut:
+
+```sql
+{% test etterregistrering_lag_maks(model, valid_from_column, observed_at_column, max_lag_hours) %}
+
+select *
+from {{ model }}
+where {{ observed_at_column }} is not null
+  and {{ valid_from_column }} is not null
+  and {{ observed_at_column }} > {{ valid_from_column }} + interval '{{ max_lag_hours }}' hour
+
+{% endtest %}
+```
+
+Hvis dere ønsker en variant for døgnoppløsning, kan den lages som en egen test eller som en parameterisert variant som bruker dager i stedet for timer.
+
+For eksempel:
+
+```sql
+{% test etterregistrering_lag_maks_dager(model, valid_from_column, observed_at_column, max_lag_days) %}
+
+select *
+from {{ model }}
+where {{ observed_at_column }} is not null
+  and {{ valid_from_column }} is not null
+  and {{ observed_at_column }} > {{ valid_from_column }} + {{ max_lag_days }}
+
+{% endtest %}
+```
+
+Disse testene bør sees som standardmønstre.
+
+Poenget er ikke at alle modeller skal feile på etterregistreringer, men at dette skal være en bevisst vurdering. For noen modeller bør testen være feilende. For andre kan den brukes som overvåking eller avviksrapportering.
+
+## Når testen bør være standard
+
+Denne testen bør være standard for modeller der:
+
+- historiske tall brukes i rapportering
+- data kommer fra kilder med kjent etterslep
+- etterregistreringer kan endre aggregater bakover i tid
+- modellen eksponeres bredt til konsumenter som forventer stabile tall
+
+Hvis en modell bevisst tillater store etterregistreringer uten at dette er et problem, bør det dokumenteres eksplisitt i kontrakten.
+
 ## OBT-er må også testes på grain
 
 OBT-er er ofte spesielt sårbare fordi de bygges ved å kombinere flere modeller.

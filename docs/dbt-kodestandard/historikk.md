@@ -29,6 +29,8 @@ Det betyr:
 - Lastetidspunkt og oppdatertidspunkt i dataproduktet skal ikke forveksles med funksjonell eller teknisk gyldighet i kilden.
 - Hvis kilden ikke har gode nok tidspunkter, må dataproduktet etablere en konsistent erstatning og være tydelig på det.
 
+For dataprodukter som brukes til rapportering og statistikk, må dette balanseres mot behovet for stabile tall over tid.
+
 ## Hva gyldighetsintervallet betyr
 
 Gyldighetsintervallet skal gjenspeile den perioden raden var riktig og gyldig i kilden.
@@ -40,6 +42,67 @@ Dette gjelder uavhengig av:
 - om endringen ble oppdaget sent
 
 Hvis vi blander sammen kildegyldighet og dataprodukttid, blir historikken vanskelig å bruke på tvers av produkter.
+
+## Etterregistreringer og stabile tall
+
+En viktig nyanse er etterregistreringer: en rad kan dukke opp i morgen, men ha en kildegyldighet som starter langt tilbake i tid.
+
+Hvis dataproduktet da ukritisk oppdaterer gyldighetsintervall tilbake i tid, kan tall i rapporter og statistikk endre seg for perioder som allerede er publisert eller brukt. Det gir ustabile tall og svekker tilliten til produktet.
+
+For eksponerte dataprodukter som brukes til statistikk og rapportering gjelder derfor følgende hovedregel:
+
+- Vi skal som utgangspunkt ikke omskrive publisert historie tilbake i tid bare fordi en etterregistrering blir kjent senere.
+
+Det betyr i praksis at vi må holde to ting fra hverandre:
+
+- Hva som var gyldig i kilden.
+- Når dataproduktet faktisk fikk kjennskap til det.
+
+Begge kan være sanne samtidig, men de dekker ulike behov.
+
+## Anbefalt håndtering
+
+Når etterregistreringer forekommer, bør dataproduktet som minimum bevare informasjon om observasjonstid i tillegg til kildegyldighet.
+
+Da kan vi:
+
+- bevare kildens historikk for analyseformål
+- forklare når opplysningen faktisk ble kjent i dataproduktet
+- unngå at standard rapportering omskrives bakover i tid uten at det er et bevisst valg
+
+Som hovedregel bør eksponerte rapporteringsprodukter styres etter tidspunktet informasjonen ble kjent eller publisert hos oss, ikke bare etter retroaktiv kildegyldighet.
+
+## To gyldige behov
+
+I praksis finnes det ofte to ulike behov:
+
+- Kildekorrekt historikk: hva som egentlig gjaldt i kilden på et gitt tidspunkt.
+- Stabil rapporthistorikk: hva som var kjent og rapportert på et gitt tidspunkt.
+
+Disse behovene bør ikke presses inn i samme felt eller samme tolkning.
+
+Hvis begge behov finnes, bør de modelleres eksplisitt i stedet for å blandes sammen.
+
+## Praktisk modellvalg
+
+For de fleste dataprodukter er følgende en god pragmatisk løsning:
+
+- behold kildegyldighet som egen historikk
+- behold lastetid eller observasjonstid som egen teknisk tidslinje
+- bruk den tekniske tidslinjen når målet er stabile rapporter og reproduserbar statistikk
+
+Hvis et produkt skal støtte full rekonstruksjon av hva som var kjent på et gitt tidspunkt, beveger man seg i praksis mot en bi-temporal modell. Det er mulig, men mer komplekst, og skal være et bevisst valg.
+
+## Når vi må være ekstra forsiktige
+
+Etterregistreringer er spesielt kritiske når:
+
+- tall publiseres periodisk og ikke skal endres i ettertid
+- rapporter brukes som offisiell statistikk
+- ulike dataprodukter sammenlignes over tid
+- konsumenter forventer at samme spørring gir samme historiske svar senere
+
+I slike tilfeller skal ikke tilbakevirkende oppdatering av gyldighetsintervall være default.
 
 ## Valg av oppløsning
 
