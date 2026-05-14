@@ -114,7 +114,6 @@ theme:
   features:
     - navigation.tracking
     - navigation.indexes
-    - navigation.expand
     - toc.follow
 
 markdown_extensions:
