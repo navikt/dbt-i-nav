@@ -407,3 +407,146 @@ Og i tillegg en unikhetstest på kombinasjonen som faktisk representerer grain.
 - Hvis modellen er historisert, test også historikkreglene.
 - Hvis modellen er en OBT, test at joins ikke har ødelagt grain.
 - Hvis testen ikke kan forklare hvilken kontrakt den beskytter, er den ofte for svak.
+
+## Standard testpakke
+
+Siden dette er standarder som skal følges, må det være tydelig hvilke tester som er obligatoriske.
+
+For hver modelltype under beskriver vi derfor:
+
+- tester som SKAL brukes
+- tester som BØR brukes når modellen har bestemte egenskaper eller brukes i bestemte sammenhenger
+
+SKAL betyr at modellen ikke er ferdig standardisert uten disse testene.
+
+BØR betyr at testen normalt skal brukes, men at det kan finnes bevisste unntak som må dokumenteres i kontrakten.
+
+### 1. Enkel `fak_`
+
+Bruk denne pakken når grain er én rad per hendelse eller én rad per nøkkel.
+
+Typisk eksempel:
+
+- `fak_vedtak`
+- grain: én rad per vedtak
+
+SKAL:
+
+- `not_null` på nøkkelkolonnen
+- `unique` på nøkkelkolonnen
+
+BØR:
+
+- `relationships` til sentrale dimensjoner når disse er en del av kontrakten
+
+Eksempel:
+
+```yaml
+models:
+  - name: fak_vedtak
+    columns:
+      - name: vedtak_id
+        tests:
+          - not_null
+          - unique
+      - name: person_id
+        tests:
+          - not_null
+```
+
+### 2. Historisert `dim_`
+
+Bruk denne pakken når grain er én rad per identitet per gyldighetsintervall.
+
+Typisk eksempel:
+
+- `dim_person`
+- grain: én rad per person per gyldighetsintervall
+
+SKAL:
+
+- `not_null` på identitet
+- `not_null` på start av gyldighetsintervall
+- unikhet på kombinasjonen av identitet og start av intervall
+- test for maks én gjeldende rad
+
+BØR:
+
+- test for overlapp i historikk når modellen skal være uten overlapp
+- test for hull i historikk når modellen skal være sammenhengende
+
+SKAL for rapporteringsprodukter og andre modeller med krav om stabile historiske tall:
+
+- test for etterregistreringer over definert terskel, for eksempel 24 timer
+
+Eksempel:
+
+```yaml
+models:
+  - name: dim_person
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - person_id
+            - gyldig_fom_dato
+      - etterregistrering_lag_maks:
+          valid_from_column: gyldig_fom_tid
+          observed_at_column: lastet_tid
+          max_lag_hours: 24
+    columns:
+      - name: person_id
+        tests:
+          - not_null
+      - name: gyldig_fom_dato
+        tests:
+          - not_null
+```
+
+### 3. `obt_` med joins
+
+Bruk denne pakken når modellen settes sammen av flere kilder eller modeller og det er risiko for radmultiplikasjon.
+
+Typisk eksempel:
+
+- `obt_oppfolging_person`
+- grain: én rad per person
+
+SKAL:
+
+- `not_null` på grain-identiteten
+- `unique` eller kombinasjonsunikhet på grain
+
+Dette betyr i praksis at OBT-en må ha en test som bekrefter at resultatet fortsatt holder lovet grain. For en enkel OBT med én identitet kan `unique` på denne kolonnen være tilstrekkelig. For sammensatt grain skal kombinasjonen testes eksplisitt.
+
+BØR:
+
+- test for at kun én gjeldende rad per identitet er med i grunnlaget
+
+Eksempel:
+
+```yaml
+models:
+  - name: obt_oppfolging_person
+    columns:
+      - name: person_id
+        tests:
+          - not_null
+          - unique
+```
+
+## Praktisk valg av pakke
+
+Bruk denne enkle beslutningen:
+
+- Hvis modellen har én rad per enkel nøkkel: bruk pakken for enkel `fak_`.
+- Hvis modellen har historikk i grain: bruk pakken for historisert `dim_`.
+- Hvis modellen er bygget ved brede joins: bruk pakken for `obt_` med joins.
+
+Hvis modellen både er historisert og bredt eksponert, bør testpakken kombineres.
+
+## Kort oppsummert
+
+- En enkel `fak_` SKAL ha `not_null` og `unique` på grain-nøkkelen.
+- En historisert `dim_` SKAL ha `not_null` på identitet og start på intervall, unikhet på grain-kombinasjonen og test for maks én gjeldende rad.
+- En `obt_` SKAL ha tester som beviser at joins ikke har ødelagt grain.
+- Test for etterregistreringer SKAL brukes når modellen inngår i rapportering eller statistikk med krav om stabile tall.
