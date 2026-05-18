@@ -1,104 +1,45 @@
 
-# Formål
+# dbt standarder
 
-I Nav har vi **mange team**, **enda flere produkter** og dermed **kryssavhengigheter** som gjør datalandskapet komplekst.
+Denne seksjonen beskriver hvordan reglene for dataprodukter skal implementeres i dbt.
 
-Begreper som «god praksis» og «autonomi» blir ofte tolket som «dette kan du gjøre hvis du vil».
+Den svarer ikke først og fremst på hva et dataprodukt bør love. Det er beskrevet i seksjonen [Dataprodukt](../dataprodukt/index.md).
 
-Her må vi være tydeligere. Denne seksjonen beskriver standarder som **må følges** for at data mesh-arkitektur med dataprodukter skal fungere på tvers av domener i dbt. Standardene finnes for å sikre interoperabilitet, tydelig eierskap, kvalitet og endringsevne.
+Denne seksjonen svarer i stedet på:
 
-Vi innfører derfor standardene i fase 1 først. Andre temaer er ikke etablert som god praksis ennå, men kan beskrives senere som anbefalinger når vi har mer erfaring og en tydeligere felles retning.
+- hvordan reglene uttrykkes i dbt-prosjektet
+- hvordan de dokumenteres i yml og dbt docs
+- hvordan de gjøres maskinlesbare i `meta`
+- hvordan de verifiseres med dbt-tester
 
-Manglende standarder fører til smerter i det daglige:
+## Skillet vi bruker
 
-- **Team divergerer** ⟶ Vanskelig å kjenne seg igjen når man bytter team.
-- **Ulike SCD-strategier** ⟶ Historikk i produktene oppfører seg forskjellig og det blir vanskelig å joine produkter på tvers.
-- **Ulike antagelser om granularitet** ⟶ Koblinger på tvers gir mindre mening enn man tror fordi det ikke er tydelig hva en rad i tabellen skal bety
-- **Uforenlige modeller** ⟶ Ulik og kreativ modellering øker kognitiv last og krever kanskje mappingtabeller for å koble rett.
+Bruk seksjonen `Dataprodukt` når du skal definere:
 
-## En tommelfingerregel
+- granularitet
+- historikkprinsipp
+- kontrakt
+- dokumentasjonskrav
+- hva som skal testes
 
-- Alt som påvirker kontrakter mellom domener = kodestandarder som alle må følge.
-- Alt som primært påvirker intern implementasjon i ett domene = temaer vi eventuelt kan beskrive som god praksis senere.
+Bruk seksjonen `dbt standarder` når du skal implementere disse valgene i dbt med:
 
-## Faseplan for datamesh med mange domener
+- modellnavn og kolonnenavn
+- `description` og `meta`
+- prefiks og prosjektstruktur
+- generiske tester og singular tester
 
-Målet er å starte med et lite sett felles standarder. Når dette sitter, kan vi vurdere å beskrive flere temaer som god praksis.
+## Sider i denne seksjonen
 
-### Fase 1: Standarder vi innfører nå
+- [Granularitet i dbt](grain.md)
+- [Historikk i dbt](historikk.md)
+- [Navnestandard i dbt](navnestandard.md)
+- [Kontrakter i dbt](modellkontrakter.md)
+- [Dokumentasjon i dbt](dokumentasjon.md)
+- [Testing i dbt](testing.md)
 
-Dette er det viktigste minimumet for at datadomener skal kunne publisere stabile dataprodukter med tydelig kontrakt:
+## Hovedregel
 
-- [Granularitet](grain.md)
-- [Historikk](historikk.md)
-- [Navnestandard](navnestandard.md)
-- [Teststrategi](teststrategi.md)
-- [Dokumentasjonsstandard](dokumentasjonsstandard.md)
-- [Modellkontrakter](modellkontrakter.md)
+Et valg som påvirker kontrakten til dataproduktet skal defineres i `Dataprodukt` først og implementeres i dbt etterpå.
 
-### Fase 2: Neste kandidater for standardisering
-
-Dette er temaer som kan bli standarder senere hvis behovet blir tydelig nok:
-
-- [Lagdeling](lagdeling.md)
-- [Mappe- og prosjektstruktur](struktur.md)
-- [Konvensjoner](konvensjoner.md)
-- [JOIN-strategi](JOINstrategi.md)
-- [Avhengigheter](avhengigheter.md)
-- [Feilhåndtering](feilhåndtering.md)
-- [Versjonskontroll](versjonskontroll.md)
-- [CI](CI.md)
-
-### Fase 3: Temaer for senere god praksis
-
-Dette er temaer som kan beskrives som god praksis når vi har mer modenhet og flere felles erfaringer:
-
-- [SQLFluff](SQLFluff.md)
-- [Incremental og Volum](incrementalOgVolum.md)
-- [Ytelse](ytelse.md)
-
-Typiske tegn på at slike anbefalinger blir viktige:
-
-- Flere oppstrøms eller nedstrøms avhengigheter
-- Merkbar økning i kjøretid eller kostnad
-- Hyppige endringer i produktets skjema eller logikk
-
-### Fase 4: Avanserte temaer
-
-Dette er temaer som bare blir relevante for enkelte domener, og som eventuelt kan beskrives som god praksis senere:
-
-- [One Big Table](OBT.md)
-- [Kommentarer](kommentarer.md)
-- [Eksempler](eksempler.md)
-
-Typiske utløsere:
-
-- Komplekse analytiske use case med tunge spørringer
-- Høy turnover i team eller behov for rask onboarding
-- Behov for standardiserte referanseimplementasjoner på tvers av mange team
-
-## Status per side
-
-| Side | Status nå | Neste steg |
-|---|---|---|
-| Oversikt og formål | Standard | Fase 1 |
-| Lagdeling | Ikke standardisert ennå | Vurderes i fase 2 |
-| Granularitet | Standard | Fase 1 |
-| Navnestandard | Standard | Fase 1 |
-| Mappe- og prosjektstruktur | Ikke standardisert ennå | Vurderes i fase 2 |
-| Konvensjoner | Ikke standardisert ennå | Vurderes i fase 2 |
-| JOIN-strategi | Ikke standardisert ennå | Vurderes i fase 2 |
-| Teststrategi | Standard | Fase 1 |
-| Dokumentasjonsstandard | Standard | Fase 1 |
-| Avhengigheter | Ikke standardisert ennå | Vurderes i fase 2 |
-| Modellkontrakter | Standard | Fase 1 |
-| Feilhåndtering | Ikke standardisert ennå | Vurderes i fase 2 |
-| Versjonskontroll | Ikke standardisert ennå | Vurderes i fase 2 |
-| CI | Ikke standardisert ennå | Vurderes i fase 2 |
-| SQLFluff | Ikke standardisert ennå | Kan bli god praksis i fase 3 |
-| Historikk | Standard | Fase 1 |
-| Incremental og Volum | Ikke standardisert ennå | Kan bli god praksis i fase 3 |
-| Ytelse | Ikke standardisert ennå | Kan bli god praksis i fase 3 |
-| One Big Table | Ikke standardisert ennå | Kan bli god praksis i fase 4 |
-| Kommentarer | Ikke standardisert ennå | Kan bli god praksis i fase 4 |
-| Eksempler | Ikke standardisert ennå | Kan bli god praksis i fase 4 |
+Hvis en side i `dbt standarder` begynner å forklare hva produktet bør love på et konseptuelt nivå, er det som regel et tegn på at innholdet hører hjemme i `Dataprodukt` i stedet.

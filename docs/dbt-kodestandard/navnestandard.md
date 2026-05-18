@@ -1,33 +1,18 @@
-# Navnestandard
+# Navnestandard i dbt
 
-Dette er noe av det vanskeligste å standardisere på tvers. Det er mye enklere å bli enige om navn innenfor ett team enn på tvers av mange domener. Uten en navnestandard ender vi fort opp med flere varianter av det samme begrepet, og da blir både gjenbruk, forståelse og kobling av data vanskeligere.
+Denne siden beskriver hvordan navnestandarden skal implementeres i dbt-prosjektet.
 
-Team kan være fleksible internt, men modeller som eksponeres for andre skal følge denne standarden.
+Selve navneprinsippene for dataproduktet er beskrevet i [../dataprodukt/navnestandard.md](../dataprodukt/navnestandard.md).
 
-## Formål
+## Formål i dbt
 
-Navnestandarden skal sikre at:
+Navnestandarden i dbt skal sikre at:
 
-- samme konsept heter det samme på tvers av komponenter
-- granulariteten er mulig å forstå uten å lese SQL-en
-- dimensjoner, fakta og OBT-er er lette å kjenne igjen
-- kolonner kan gjenbrukes og joines på tvers uten unødvendig oversettelse
+- eksponerte modeller får tydelige og gjenkjennelige prefiks
+- interne modeller følger et enkelt og konsistent prosjektmønster
+- kolonnenavn blir enkle å koble, dokumentere og teste
 
-I dbt betyr dette at vi går bort fra mye av den gamle Oracle- og PowerCenter-arven i navnene. Vi navngir først og fremst etter forretningsbetydning, ikke etter teknisk implementasjon.
-
-## Prinsipper
-
-- Navn skal være meningsbærende og stabile over tid.
-- Navn skal beskrive forretningsinnhold, ikke hvilket verktøy eller hvilken jobb som har laget modellen.
-- Samme begrep skal ha samme navn overalt, med mindre det faktisk betyr noe forskjellig.
-- Eksponerte modeller skal ha norsk eller domeneforankret begrepsbruk som brukerne kjenner igjen.
-- Tekniske forkortelser skal begrenses til etablerte prefiks som gir verdi i dbt-modellen.
-
-## Navngivning av tabeller
-
-Vi tar utgangspunkt i smale stjernemodeller i hver komponent, og OBT-er på toppen der det gir mening.
-
-### Eksponerte modeller
+## Navngivning av eksponerte modeller
 
 For modeller som andre skal lese og bygge videre på, bruker vi følgende hovedmønstre:
 
@@ -45,7 +30,7 @@ Eksempler:
 - `kobling_person_organisasjon`
 - `obt_oppfolging_person`
 
-### Når komponent eller domene skal inn i navnet
+## Når komponent eller domene skal inn i navnet
 
 Hvis et navn ellers blir for generelt eller kolliderer med andre komponenter, skal komponent eller domene inn i navnet.
 
@@ -63,7 +48,7 @@ Eksempler:
 
 Komponentnavn skal bare tas med når det gir faktisk avklaring. Vi skal ikke legge på domene-prefiks av gammel vane.
 
-### Hva vi ikke gjør
+## Hva vi ikke gjør
 
 - Vi bruker ikke `DIM_`, `FAK_` og `AGG_` i store bokstaver.
 - Vi bruker ikke tekniske prefiks som sier noe om fysisk databaseobjekt.
@@ -146,97 +131,33 @@ For boolske verdier foretrekkes navn som leses naturlig:
 - `er_gjeldende`
 - `har_vedtak`
 
-### Historikkolonner
+## Historikkolonner
 
-Siden historikk er grunnleggende i datavarehuset vårt, skal historikk også være tydelig i navnene.
-
-Prinsippene for hvordan historikk skal forstås og brukes er beskrevet i [historikk.md](historikk.md).
-
-### Definisjoner
-
-- Funksjonell dato eller tid: dato- og tidspunktfelter definert hos kilden, som kan settes eller endres manuelt av brukere, og som ikke er koblet direkte til systemklokken.
-- Tekniske tidspunkt hos kilde: tidsstempler i kildesystemet som settes automatisk og ikke kan endres manuelt, for eksempel når raden ble opprettet eller endret.
-- Tekniske dataproduktstidspunkt: datoer eller tidspunkt som settes i dataproduktet, for eksempel `lastet_dato`, `lastet_tid`, `oppdatert_dato` eller `oppdatert_tid`.
-
-### Grunnregel for gyldighetsintervall
-
-Gyldighetsintervallet skal gjenspeile perioden da raden eksisterte og så slik ut i kilden, uavhengig av når løsningen observerte eller lastet raden.
-
-Hvis kilden ikke tilbyr en god tidsangivelse, kan tidspunktet oppstå i transformasjonsløpet. For kodeverk og dimensjoner er det tillatt å sette start på historikk til `01.01.1900` når opprinnelig startdato ikke er kjent, slik at eldre datasett fortsatt kan få treff.
-
-### Historikk med døgnoppløsning
-
-Når historikken føres per døgn, bruker vi suffikset `_dato`.
-
-For lukkede intervaller bruker vi:
+Når historikken føres per døgn, bruker vi normalt:
 
 - `gyldig_fom_dato`
 - `gyldig_tom_dato`
-
-Regler:
-
-- `gyldig_fom_dato` trunkeres til dagen raden oppstod eller ble oppdatert i kilden.
-- `gyldig_tom_dato` settes til dagen før neste rad blir gyldig.
-- Siste rad settes til `31.12.9999`.
-
-Tekniske dataproduktdatoer ved døgnoppløsning navngis:
 
 - `oppdatert_dato`
 - `lastet_dato`
 
-### Historikk med sekundoppløsning
-
-Når flere hendelser kan skje samme dag, bruker vi suffikset `_tid`.
-
-For halvåpne intervaller bruker vi:
+Når historikken føres med sekundoppløsning, bruker vi normalt:
 
 - `gyldig_fom_tid`
 - `gyldig_til_tid`
 
-Regler:
-
-- `gyldig_fom_tid` trunkeres til sekundet raden oppstod eller ble endret i kilden.
-- `gyldig_til_tid` får samme verdi som neste rads `gyldig_fom_tid`.
-- Siste rad settes til `31.12.9999`.
-
-Tekniske dataprodukttider ved sekundoppløsning navngis:
-
 - `oppdatert_tid`
 - `lastet_tid`
 
-### Historikk med millisekund eller høyere oppløsning
-
-Når kilden leverer hendelser innenfor samme sekund, bruker vi suffikset `_ts`.
-
-For slike intervaller bruker vi:
+Når historikken føres med timestamp-oppløsning, bruker vi normalt:
 
 - `gyldig_fom_ts`
 - `gyldig_til_ts`
 
-Regler:
-
-- `gyldig_fom_ts` settes til timestamp for når raden oppstod eller ble endret i kilden.
-- `gyldig_til_ts` får samme verdi som neste rads `gyldig_fom_ts`.
-- Siste rad settes til `31.12.9999`.
-
-Tekniske dataprodukttidspunkter ved slik oppløsning navngis:
-
 - `oppdatert_ts`
 - `lastet_ts`
 
-### Tilpassede felt
-
-I spesielle tilfeller kan det være nødvendig å kombinere åpne og lukkede intervaller eller blande dato og timestamp. Da skal navnet fortsatt være eksplisitt og følge mønsteret:
-
-- `gyldig_fra_dato`
-- `gyldig_fom_dato`
-- `gyldig_til_tid`
-- `gyldig_tom_dato`
-- `gyldig_fom_ts`
-
-Valget mellom `fra` og `fom`, og mellom `til` og `tom`, skal speile om intervallet forstås som åpent eller lukket.
-
-### Andre historikkolonner
+Andre vanlige historikkolonner er:
 
 I tillegg til gyldighetsintervall bruker vi ofte:
 
@@ -248,7 +169,7 @@ Hvis modellen uttrykker funksjonell gyldighet i tillegg til teknisk gyldighet, s
 - `funksjonell_fra_dato`
 - `funksjonell_til_dato`
 
-### Kolonner i OBT-er
+## Kolonner i OBT-er
 
 I OBT-er skal kolonnenavn være ekstra tydelige, fordi disse modellene ofte brukes direkte av analytikere og rapporter.
 
@@ -263,21 +184,6 @@ Eksempler:
 - `arbeidsgiver_navn`
 - `vedtak_status`
 - `utbetaling_belop`
-
-## Anbefalt struktur for smale stjernemodeller
-
-Per komponent bør vi som hovedregel sikte mot:
-
-- noen få tydelige `dim_`-modeller med stabile nøkler og beskrivende attributter
-- en eller flere `fak_`-modeller med tydelig definert granularitet
-- eventuelle `kobling_`-modeller der relasjonene faktisk er mange-til-mange
-- én eller flere `obt_`-modeller kun når det gir en klar gevinst for konsum
-
-Det betyr i praksis at navngivningen skal støtte følgende lesemåte:
-
-- `dim_person` beskriver hvem noe gjelder
-- `fak_vedtak` beskriver hva som har skjedd
-- `obt_oppfolging_person` beskriver en ferdig konsumflate
 
 ## Konkrete regler
 
@@ -314,8 +220,7 @@ Med tilhørende kolonner:
 ## Kort oppsummert
 
 - Bruk `dim_`, `fak_`, `kobling_` og `obt_` for eksponerte modeller.
-- Bruk forretningsnavn, ikke tekniske Oracle-navn.
+- Bruk `stg_`, `int_` og eventuelt `base_` for interne modeller.
 - Bruk `<entitet>_key` for surrogate nøkler og `<entitet>_id` for forretningsnøkler.
-- Sørg for at samme begrep heter det samme på tvers av komponenter.
-- Gjør OBT-er ekstra eksplisitte, fordi de blir konsumert direkte.
+- La historikkfeltene følge ett tydelig mønster i prosjektet.
 

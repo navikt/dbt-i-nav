@@ -1,86 +1,18 @@
-# Modellkontrakter
+# Kontrakter i dbt
 
-Eksponerte modeller, det være seg interne, mellom dataprodusenter, eller eksternt mot sluttbrukere, må ha tydelige metadata landet i en kontrakt.
+Denne siden beskriver hvordan kontrakter skal implementeres i dbt.
 
-Kontrakten skal gjøre det mulig å forstå og bruke modellen uten å lese SQL-en.
+Selve kravene til kontrakten er beskrevet i [../dataprodukt/kontrakter.md](../dataprodukt/kontrakter.md).
 
-## Formål
+## Formål i dbt
 
-En modellkontrakt skal gjøre det tydelig:
+I dbt skal kontrakten gjøre det tydelig:
 
-- hva modellen representerer
-- hva én rad i modellen representerer
-- hvilke kolonner som identifiserer raden
-- hvordan historikk skal forstås
-- hvilke felter som er stabile og trygge å bruke videre
-
-Hvis dette ikke er dokumentert, er modellen ikke godt nok eksponert.
-
-## Hovedregel
-
-Alle eksponerte modeller skal ha en modellkontrakt.
-
-Dette gjelder for:
-
-- `dim_`-modeller
-- `fak_`-modeller
-- `obt_`-modeller
-- andre modeller som deles på tvers av team eller brukes som konsumflate
-
-## Minimumskrav i kontrakten
-
-Følgende metadata er obligatoriske i kontrakten for alle eksponerte modeller:
-
-- formål: hva modellen brukes til
-- granularitet: hva én rad representerer
-- nøkkelkolonner: hvilke kolonner som identifiserer granulariteten
-- historikk: om modellen er historisert, og hvordan historikken skal forstås
-- sentrale forretningskolonner: hvilke felt konsumenter forventes å bruke
-
-## Granularitet er obligatorisk
-
-Granularitet skal alltid beskrives eksplisitt i kontrakten.
-
-Det holder ikke å skrive at modellen er en dimensjon, faktamodell eller OBT. Kontrakten skal si hva én rad faktisk representerer.
-
-Eksempler:
-
-- En rad per person
-- En rad per vedtak
-- En rad per person per gyldighetsintervall
-- En rad per person per måned
-
-Se også [Granularitet](grain.md).
-
-## Historikk er obligatorisk når modellen er historisert
-
-Hvis modellen inneholder historikk, skal kontrakten beskrive dette eksplisitt.
-
-Det skal minst fremgå:
-
-- om modellen er historisert
-- hva gyldighetsintervallet betyr
-- hvilken oppløsning historikken bruker, for eksempel dato, tid eller timestamp
-- hvilke kolonner som uttrykker historikken
-
-Kontrakten skal gjøre det mulig å forstå forskjellen på:
-
-- når noe gjaldt i kilden
-- når det ble lastet eller oppdatert i dataproduktet
-
-Se også [historikk.md](historikk.md) og [navnestandard.md](navnestandard.md).
-
-## Nøkkelkolonner er obligatoriske
-
-Kontrakten skal alltid gjøre det tydelig hvilke kolonner som identifiserer granulariteten.
-
-Dette gjelder både:
-
-- forretningsnøkler, for eksempel `person_id` eller `vedtak_id`
-- tekniske nøkler, for eksempel surrogate nøkler som `person_key`
-- sammensatte nøkler der granulariteten avhenger av flere kolonner
-
-Hvis granulariteten identifiseres av en kombinasjon av kolonner, skal hele kombinasjonen dokumenteres.
+- hva modellen representerer gjennom `description`
+- hva én rad representerer gjennom `description` og `meta.grain`
+- hvilke kolonner som identifiserer raden gjennom `meta.grain_keys`
+- hvordan historikk skal forstås gjennom `description` og eventuelt `meta`
+- hvordan kontrakten verifiseres med tester
 
 ## Hvor kontrakten skal ligge
 
@@ -159,14 +91,4 @@ Derfor skal kontrakten så langt som mulig støttes av tester, for eksempel:
 - sammensatte unikhetstester når granulariteten består av flere kolonner
 - egne tester for historikk når modellen er historisert
 
-## Praktisk minimum
-
-Før en modell eksponeres, skal følgende være på plass:
-
-- modellbeskrivelse
-- eksplisitt granularitet
-- identifiserte nøkkelkolonner
-- historikkbeskrivelse hvis relevant
-- grunnleggende tester som støtter kontrakten
-
-Hvis dette ikke finnes i yml, er kontrakten ikke ferdig.
+Hvis dette ikke finnes i yml og tester, er kontrakten ikke godt nok implementert i dbt.

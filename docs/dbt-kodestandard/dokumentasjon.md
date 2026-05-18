@@ -1,10 +1,10 @@
-# Dokumentasjon
+# Dokumentasjon i dbt
 
-Dokumentasjon i dbt skal ikke være pynt. Den skal gjøre det mulig å forstå, bruke og forvalte et dataprodukt uten å lese SQL-en.
+Denne siden beskriver hvordan dokumentasjonskravene for dataproduktet skal implementeres i dbt.
 
-Målet med denne siden er å beskrive minimumsstandarden for dokumentasjon av modeller i dbt.
+Selve dokumentasjonskravene er beskrevet i [../dataprodukt/dokumentasjon.md](../dataprodukt/dokumentasjon.md).
 
-## Formål
+## Formål i dbt
 
 Dokumentasjonen skal gjøre det mulig å forstå:
 
@@ -15,33 +15,7 @@ Dokumentasjonen skal gjøre det mulig å forstå:
 - hvilke kolonner som er sentrale for konsum
 - hvem som eier modellen
 
-Hvis dette ikke er dokumentert, er modellen ikke godt nok delt.
-
-## Hovedregel
-
-Alle eksponerte modeller skal dokumenteres i yml.
-
-Dette gjelder for:
-
-- `dim_`-modeller
-- `fak_`-modeller
-- `obt_`-modeller
-- andre modeller som deles på tvers av team
-
-I praksis betyr dette at dokumentasjonen skal ligge tett på modellen, versjoneres sammen med koden og publiseres i dbt docs.
-
-## Minimumskrav for en eksponert modell
-
-For hver eksponert modell skal følgende være dokumentert:
-
-- modellbeskrivelse
-- granularitet
-- nøkkelkolonner som identifiserer granulariteten
-- historikk, hvis modellen er historisert
-- beskrivelse av sentrale kolonner
-- grunnleggende tester som støtter dokumentasjonen
-
-Dette henger tett sammen med [Granularitet](grain.md), [historikk.md](historikk.md), [navnestandard.md](navnestandard.md) og [modellkontrakter.md](modellkontrakter.md).
+Dette henger tett sammen med [grain.md](grain.md), [historikk.md](historikk.md), [navnestandard.md](navnestandard.md) og [modellkontrakter.md](modellkontrakter.md).
 
 ## Hva som skal stå i modellbeskrivelsen
 
@@ -68,17 +42,17 @@ models:
       Historikk: Modellen er ikke historisert.
 ```
 
-    ## Granularitet skal dokumenteres eksplisitt
+  ## Granularitet skal dokumenteres eksplisitt
 
-    Granularitet skal stå i modellens dokumentasjon, ikke bare være implisitt i navn eller tester.
+  Granularitet skal stå i modellens dokumentasjon, ikke bare være implisitt i navn eller tester.
 
 Eksempel:
 
-    - `Granularitet: En rad per person.`
-    - `Granularitet: En rad per person per gyldighetsintervall.`
-    - `Granularitet: En rad per person per måned.`
+- `Granularitet: En rad per person.`
+- `Granularitet: En rad per person per gyldighetsintervall.`
+- `Granularitet: En rad per person per måned.`
 
-    Hvis granulariteten er sammensatt eller historisert, skal dette komme tydelig frem.
+Hvis granulariteten er sammensatt eller historisert, skal dette komme tydelig frem.
 
 ## Historikk skal dokumenteres eksplisitt
 
@@ -177,17 +151,6 @@ Det betyr at en konsument skal kunne åpne modellen i dbt docs og forstå:
 - hvilke kolonner som er sentrale
 
 Hvis man fortsatt må lese SQL for å forstå modellen, er dokumentasjonen for svak.
-
-## Praktisk minimum før en modell deles
-
-Før en modell regnes som delt eller eksponert, skal følgende være på plass:
-
-- beskrivelse i yml
-- eksplisitt granularitet
-- dokumenterte nøkkelkolonner
-- historikkbeskrivelse hvis relevant
-- dokumentasjon av sentrale kolonner
-- grunnleggende tester
 
 ## Tommelfingerregel
 

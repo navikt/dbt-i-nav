@@ -1,18 +1,20 @@
-# Testing
+# Testing i dbt
 
-Testing skal bekrefte at modellen faktisk oppfører seg slik kontrakten sier. For granularitet betyr det at vi tester at én rad virkelig representerer det modellen sier at den representerer.
+Denne siden beskriver hvordan kontraktskravene til et dataprodukt skal verifiseres i dbt.
 
-Det holder ikke å skrive granularitet i dokumentasjonen. Granularitet må også bevises i test.
+Selve testkravene for dataproduktet er beskrevet i [../dataprodukt/testing.md](../dataprodukt/testing.md).
 
-## Hva det betyr å teste granularitet
+Testing i dbt skal bekrefte at modellen faktisk oppfører seg slik kontrakten sier.
 
-Når vi tester granularitet, tester vi i praksis tre ting:
+## Hva det betyr å teste i dbt
+
+I praksis bruker vi dbt til å verifisere tre ting:
 
 - at nøkkelkolonnene som identifiserer granulariteten ikke er `null`
 - at kombinasjonen av disse kolonnene er unik på riktig nivå
 - at eventuelle historikkregler eller forretningsregler ikke bryter granulariteten
 
-Hvis granulariteten er feil, får vi ofte disse symptomene:
+Hvis implementasjonen er feil, får vi ofte disse symptomene:
 
 - joins som multipliserer rader
 - aggregater som blir for høye
@@ -21,7 +23,7 @@ Hvis granulariteten er feil, får vi ofte disse symptomene:
 
 ## Hovedregel
 
-Granularitet for alle eksponerte modeller skal være testet.
+Eksponerte modeller skal ha dbt-tester som støtter kontrakten.
 
 Det betyr:
 
@@ -29,7 +31,7 @@ Det betyr:
 - `fak_`-modeller skal ha tester som bekrefter sin granularitet
 - `obt_`-modeller skal ha tester som bekrefter sin granularitet
 
-Se også [Granularitet](grain.md) og [modellkontrakter.md](modellkontrakter.md).
+Se også [grain.md](grain.md) og [modellkontrakter.md](modellkontrakter.md).
 
 ## Start alltid med nøkkelkolonnene
 
@@ -56,7 +58,7 @@ models:
           - unique
 ```
 
-Dette er den enkleste formen for test av granularitet, og den bør alltid brukes når én kolonne alene identifiserer modellen.
+Dette er den enkleste formen for dbt-test av granularitet, og den bør alltid brukes når én kolonne alene identifiserer modellen.
 
 ## Sammensatt granularitet
 

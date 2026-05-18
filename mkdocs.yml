@@ -18,6 +18,14 @@ nav:
         - 'dbt i Knast/utvikling-av-dbt-prosjekter.md'
     - Feilsøking:
         - 'DVH/feilsoking.md'
+  - Dataprodukt:
+    - Oversikt: 'dataprodukt/index.md'
+    - Granularitet: 'dataprodukt/granularitet.md'
+    - Historikk: 'dataprodukt/historikk.md'
+    - Navnestandard: 'dataprodukt/navnestandard.md'
+    - Kontrakter: 'dataprodukt/kontrakter.md'
+    - Dokumentasjon: 'dataprodukt/dokumentasjon.md'
+    - Testing: 'dataprodukt/testing.md'
   - dbt standarder: 
     - Standarder: 'dbt-kodestandard/standarder.md'
     - Navnestandard: 'dbt-kodestandard/navnestandard.md'
