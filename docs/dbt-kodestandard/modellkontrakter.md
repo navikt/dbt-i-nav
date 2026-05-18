@@ -1,18 +1,8 @@
 # Kontrakter i dbt
 
-Denne siden beskriver hvordan kontrakter skal implementeres i dbt.
+Denne siden beskriver hvordan kontrakter implementeres i dbt.
 
-Selve kravene til kontrakten er beskrevet i [../dataprodukt/kontrakter.md](../dataprodukt/kontrakter.md).
-
-## Formål i dbt
-
-I dbt skal kontrakten gjøre det tydelig:
-
-- hva modellen representerer gjennom `description`
-- hva én rad representerer gjennom `description` og `meta.grain`
-- hvilke kolonner som identifiserer raden gjennom `meta.grain_keys`
-- hvordan historikk skal forstås gjennom `description` og eventuelt `meta`
-- hvordan kontrakten verifiseres med tester
+For bakgrunn og produktregler, se [../dataprodukt/kontrakter.md](../dataprodukt/kontrakter.md).
 
 ## Hvor kontrakten skal ligge
 
@@ -24,11 +14,9 @@ Som minimum bør kontrakten uttrykkes i:
 - `meta`, for maskinlesbare metadata
 - tester, for å verifisere at kontrakten faktisk holder
 
-I denne dokumentasjonen bruker vi `granularitet` i løpende tekst, men `grain` og `grain_keys` i `meta`. Det er en bevisst regel for å holde kontraktene koordinerte.
+I denne dokumentasjonen bruker vi `granularitet` i løpende tekst, men `grain` og `grain_keys` i `meta`.
 
 ## Anbefalt struktur i yml
-
-Eksempel:
 
 ```yaml
 models:
@@ -80,15 +68,11 @@ models:
           - not_null
 ```
 
-## Kontrakten skal kunne testes
+## Hvordan kontrakten verifiseres
 
-En kontrakt som bare finnes i fritekst er ikke sterk nok.
-
-Derfor skal kontrakten så langt som mulig støttes av tester, for eksempel:
+Kontrakten bør i dbt støttes av tester, for eksempel:
 
 - `not_null` på nøkkelkolonner
 - `unique` når granulariteten er én rad per nøkkel
 - sammensatte unikhetstester når granulariteten består av flere kolonner
 - egne tester for historikk når modellen er historisert
-
-Hvis dette ikke finnes i yml og tester, er kontrakten ikke godt nok implementert i dbt.

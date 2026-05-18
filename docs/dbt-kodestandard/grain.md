@@ -1,13 +1,13 @@
 
 # Granularitet i dbt
 
-Denne siden beskriver hvordan reglene for granularitet skal implementeres i dbt.
+Denne siden beskriver hvordan granularitet uttrykkes i dbt.
 
-Selve regelen for hva et dataprodukt skal love om granularitet er beskrevet i [../dataprodukt/granularitet.md](../dataprodukt/granularitet.md).
+For bakgrunn og produktregler, se [../dataprodukt/granularitet.md](../dataprodukt/granularitet.md).
 
 ## Hovedregel i dbt
 
-Når en modell er eksponert, skal granulariteten uttrykkes på en måte som er både lesbar for mennesker og maskinlesbar for videre bruk.
+Når en modell er eksponert, skal granulariteten uttrykkes både som lesbar tekst og som strukturert metadata.
 
 I praksis betyr det:
 
@@ -16,17 +16,7 @@ I praksis betyr det:
 - `grain_keys` i `meta`
 - tester som verifiserer samme forståelse
 
-## Hvordan skrive dette i yml
-
-Anbefalt minimum for en eksponert modell er:
-
-- en kort modellbeskrivelse
-- en eksplisitt setning om granularitet i `description`
-- `meta.grain`
-- `meta.grain_keys`
-- relevante tester på kolonnene som identifiserer granulariteten
-
-Eksempel:
+## Anbefalt struktur i yml
 
 ```yaml
 models:
@@ -67,15 +57,7 @@ models:
           - not_null
 ```
 
-## Hvorfor vi bruker `grain` i `meta`
-
-I løpende norsk tekst bruker vi `granularitet`.
-
-I `meta` bruker vi `grain` og `grain_keys` konsekvent. Det gjør kontraktene enklere å koordinere på tvers av produkter og ligger tett på innarbeidet språkbruk i dbt-miljøer.
-
-## Hva som skal henge sammen
-
-Følgende skal peke på samme forståelse:
+## Hva som skal henge sammen i dbt
 
 - teksten i `description`
 - `meta.grain`

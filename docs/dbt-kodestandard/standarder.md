@@ -1,33 +1,26 @@
 
 # dbt standarder
 
-Denne seksjonen beskriver hvordan reglene for dataprodukter skal implementeres i dbt.
+Denne seksjonen beskriver bare dbt-spesifikke konsepter og hvordan regler fra `Dataprodukt` skal implementeres i dbt.
 
-Den svarer ikke først og fremst på hva et dataprodukt bør love. Det er beskrevet i seksjonen [Dataprodukt](../dataprodukt/index.md).
+For bakgrunn, prinsipper og produktregler, se [../dataprodukt/index.md](../dataprodukt/index.md).
 
-Denne seksjonen svarer i stedet på:
+## Denne seksjonen dekker
 
-- hvordan reglene uttrykkes i dbt-prosjektet
-- hvordan de dokumenteres i yml og dbt docs
-- hvordan de gjøres maskinlesbare i `meta`
-- hvordan de verifiseres med dbt-tester
+- modelltyper og navnekonvensjoner i dbt
+- hvordan metadata uttrykkes i `description` og `meta`
+- hvordan kontrakter gjøres maskinlesbare
+- hvordan kontrakter verifiseres med dbt-tester
+- hvilke prosjektmønstre vi bruker for eksponerte og interne modeller
 
-## Skillet vi bruker
+## Denne seksjonen dekker ikke
 
-Bruk seksjonen `Dataprodukt` når du skal definere:
+- hvilke løfter dataproduktet bør gi
+- hvorfor produktet bør velge en bestemt granularitet
+- hvilket historikkprinsipp som er riktig
+- hvilke forretningsregler som skal inngå i kontrakten
 
-- granularitet
-- historikkprinsipp
-- kontrakt
-- dokumentasjonskrav
-- hva som skal testes
-
-Bruk seksjonen `dbt standarder` når du skal implementere disse valgene i dbt med:
-
-- modellnavn og kolonnenavn
-- `description` og `meta`
-- prefiks og prosjektstruktur
-- generiske tester og singular tester
+Slike spørsmål hører hjemme i `Dataprodukt`.
 
 ## Sider i denne seksjonen
 
@@ -37,9 +30,3 @@ Bruk seksjonen `dbt standarder` når du skal implementere disse valgene i dbt me
 - [Kontrakter i dbt](modellkontrakter.md)
 - [Dokumentasjon i dbt](dokumentasjon.md)
 - [Testing i dbt](testing.md)
-
-## Hovedregel
-
-Et valg som påvirker kontrakten til dataproduktet skal defineres i `Dataprodukt` først og implementeres i dbt etterpå.
-
-Hvis en side i `dbt standarder` begynner å forklare hva produktet bør love på et konseptuelt nivå, er det som regel et tegn på at innholdet hører hjemme i `Dataprodukt` i stedet.

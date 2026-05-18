@@ -1,34 +1,17 @@
 # Dokumentasjon i dbt
 
-Denne siden beskriver hvordan dokumentasjonskravene for dataproduktet skal implementeres i dbt.
+Denne siden beskriver hvordan dokumentasjon uttrykkes i dbt.
 
-Selve dokumentasjonskravene er beskrevet i [../dataprodukt/dokumentasjon.md](../dataprodukt/dokumentasjon.md).
-
-## Formål i dbt
-
-Dokumentasjonen skal gjøre det mulig å forstå:
-
-- hva modellen representerer
-- hva én rad representerer
-- hvilke nøkkelkolonner som identifiserer granulariteten
-- hvordan historikk skal tolkes
-- hvilke kolonner som er sentrale for konsum
-- hvem som eier modellen
-
-Dette henger tett sammen med [grain.md](grain.md), [historikk.md](historikk.md), [navnestandard.md](navnestandard.md) og [modellkontrakter.md](modellkontrakter.md).
+For bakgrunn og produktregler, se [../dataprodukt/dokumentasjon.md](../dataprodukt/dokumentasjon.md).
 
 ## Hva som skal stå i modellbeskrivelsen
 
-Beskrivelsen av modellen skal være kort, men presis.
-
-Den bør minst svare på:
+Beskrivelsen av modellen bør minst svare på:
 
 - hva modellen inneholder
 - hvem eller hva modellen beskriver
 - om modellen er historisert
 - hva granulariteten er
-
-En god modellbeskrivelse er ofte 3 til 6 linjer, ikke én vag setning.
 
 Eksempel:
 
@@ -42,65 +25,11 @@ models:
       Historikk: Modellen er ikke historisert.
 ```
 
-  ## Granularitet skal dokumenteres eksplisitt
-
-  Granularitet skal stå i modellens dokumentasjon, ikke bare være implisitt i navn eller tester.
-
-Eksempel:
-
-- `Granularitet: En rad per person.`
-- `Granularitet: En rad per person per gyldighetsintervall.`
-- `Granularitet: En rad per person per måned.`
-
-Hvis granulariteten er sammensatt eller historisert, skal dette komme tydelig frem.
-
-## Historikk skal dokumenteres eksplisitt
-
-Hvis modellen er historisert, skal dokumentasjonen forklare:
-
-- at modellen er historisert
-- hva gyldighetsintervallet betyr
-- hvilken oppløsning som brukes
-- hvilke kolonner som uttrykker historikken
-
-Eksempel:
-
-```yaml
-models:
-  - name: dim_person
-    description: |
-      Persondimensjon med historikk.
-      Granularitet: En rad per person per gyldighetsintervall.
-      Historikk: Gyldighetsintervallet beskriver perioden raden var gyldig i kilden.
-```
-
-## Kolonner skal dokumenteres selektivt, men tydelig
-
-Ikke alle kolonner trenger lange beskrivelser, men alle sentrale kolonner skal ha dokumentasjon.
-
-Særlig viktig er:
-
-- nøkler
-- forretningskritiske felter
-- historikkfelter
-- felter som ofte misforstås
-- felter med kodeverdier eller avledet logikk
-
-En kolonnebeskrivelse bør forklare hva feltet betyr, ikke bare gjenta navnet.
-
-Dårlig eksempel:
-
-- `person_id: Id for person`
-
-Bedre eksempel:
-
-- `person_id: Stabil identifikator for personen slik den brukes i dataproduktet.`
-
-## Meta skal brukes for strukturert dokumentasjon
+## Meta for strukturert dokumentasjon
 
 Der det er nyttig, skal dokumentasjonen også legges i `meta`, slik at den blir maskinlesbar.
 
-I løpende tekst bruker vi `granularitet`, men i `meta` skal vi bruke `grain` og `grain_keys`. Det er en bevisst standard for å unngå sprik i kontraktene.
+I løpende tekst bruker vi `granularitet`, men i `meta` bruker vi `grain` og `grain_keys`.
 
 Anbefalte metadata for eksponerte modeller:
 
@@ -128,34 +57,13 @@ models:
         - er_gjeldende
 ```
 
-## Dokumentasjon og tester skal henge sammen
-
-Dokumentasjon uten tester blir fort foreldet. Tester uten dokumentasjon er vanskelige å forstå.
-
-Derfor skal sentrale påstander i dokumentasjonen normalt støttes av tester, for eksempel:
-
-- `not_null` på nøkkelkolonner
-- `unique` når granulariteten er én rad per nøkkel
-- sammensatte unikhetstester for sammensatt granularitet
-- egne tester for historikk når modellen er historisert
-
 ## Dokumentasjon i dbt docs
 
 Det som ligger i yml skal være nok til at dbt docs blir nyttig for andre team.
 
-Det betyr at en konsument skal kunne åpne modellen i dbt docs og forstå:
+En konsument skal kunne åpne modellen i dbt docs og forstå:
 
 - hva modellen er
 - hva granulariteten er
 - om modellen er historisert
 - hvilke kolonner som er sentrale
-
-Hvis man fortsatt må lese SQL for å forstå modellen, er dokumentasjonen for svak.
-
-## Tommelfingerregel
-
-- Dokumentasjon skal bo i yml.
-- Granularitet og historikk skal stå i klartekst.
-- Viktige kolonner skal beskrives, ikke bare listes.
-- dbt docs skal være nok til å forstå modellen på høyt nivå.
-- Hvis dokumentasjonen ikke hjelper en annen produsent eller konsument, er den ikke god nok.

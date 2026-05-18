@@ -1,28 +1,19 @@
 # Historikk i dbt
 
-Denne siden beskriver hvordan historikkregler skal implementeres i dbt.
+Denne siden beskriver hvordan historikk uttrykkes i dbt.
 
-Selve historikkprinsippene for dataproduktet er beskrevet i [../dataprodukt/historikk.md](../dataprodukt/historikk.md).
-
-## Formål i dbt
-
-Historikk-implementasjonen i dbt skal gjøre det mulig å:
-
-- uttrykke valgt historikkprinsipp med tydelige kolonnenavn
-- dokumentere historikk i `description` og `meta`
-- teste at historikkreglene faktisk holder
-- skille mellom kildegyldighet og dataprodukttid i modellen
+For bakgrunn og produktregler, se [../dataprodukt/historikk.md](../dataprodukt/historikk.md).
 
 ## Hovedregel i dbt
 
-Historikk som er definert på dataproduktnivå skal uttrykkes eksplisitt i dbt-modellen.
+Historikk som allerede er valgt for dataproduktet skal uttrykkes eksplisitt i dbt-modellen.
 
 Det betyr:
 
-- historikkfelter skal ha tydelige navn
-- `description` skal forklare historikkprinsippet
-- `meta` skal kunne bære strukturert historikkinformasjon når det er nyttig
-- testene skal verifisere valgt historikkmønster
+- tydelige historikkfelter i modellen
+- historikk forklart i `description`
+- strukturert metadata i `meta` når det er nyttig
+- tester som verifiserer valgt historikkmønster
 
 ## Anbefalte kolonnenavn
 
@@ -49,8 +40,6 @@ Når kilden krever høyere oppløsning, bruk normalt:
 
 ## Hvordan dokumentere historikk i yml
 
-Eksempel:
-
 ```yaml
 models:
 	- name: dim_person
@@ -66,9 +55,7 @@ models:
 				- er_gjeldende
 ```
 
-## Hva som bør testes
-
-Historikk bør i dbt normalt verifiseres med tester for:
+## Hva som bør testes i dbt
 
 - `not_null` på identitet og startkolonne
 - unikhet på kombinasjonen som identifiserer historikken
@@ -77,10 +64,3 @@ Historikk bør i dbt normalt verifiseres med tester for:
 - etterregistreringer når produktet har krav om stabile historiske tall
 
 For konkrete testmønstre, se [testing.md](testing.md).
-
-## Praktisk tommelfingerregel
-
-- Velg navn og felter som passer historikkprinsippet som allerede er definert for dataproduktet.
-- Dokumenter historikk eksplisitt i `description`.
-- Bruk `meta` når historikken skal være maskinlesbar.
-- Test historikkreglene, ikke bare kolonnenes eksistens.

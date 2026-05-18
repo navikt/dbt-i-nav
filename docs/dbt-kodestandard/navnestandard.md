@@ -1,18 +1,10 @@
 # Navnestandard i dbt
 
-Denne siden beskriver hvordan navnestandarden skal implementeres i dbt-prosjektet.
+Denne siden beskriver hvordan navnestandarden implementeres i dbt-prosjektet.
 
-Selve navneprinsippene for dataproduktet er beskrevet i [../dataprodukt/navnestandard.md](../dataprodukt/navnestandard.md).
+For bakgrunn og produktregler, se [../dataprodukt/navnestandard.md](../dataprodukt/navnestandard.md).
 
-## Formål i dbt
-
-Navnestandarden i dbt skal sikre at:
-
-- eksponerte modeller får tydelige og gjenkjennelige prefiks
-- interne modeller følger et enkelt og konsistent prosjektmønster
-- kolonnenavn blir enkle å koble, dokumentere og teste
-
-## Navngivning av eksponerte modeller
+## Modellprefiks for eksponerte modeller
 
 For modeller som andre skal lese og bygge videre på, bruker vi følgende hovedmønstre:
 
