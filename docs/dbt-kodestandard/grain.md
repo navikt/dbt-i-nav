@@ -3,7 +3,7 @@
 
 Granularitet er den viktigste egenskapen ved et dataprodukt etter innhold og historikk. Hvis granulariteten er uklar, blir joins, filtrering, aggregering og testing uforutsigbart.
 
-I dbt-miljøer brukes ofte ordet `grain` om det samme. I denne dokumentasjonen bruker vi `granularitet` i løpende tekst, fordi det er mer presist og lettere å lese på norsk.
+I dbt-miljøer brukes ofte ordet `grain` om det samme. I denne dokumentasjonen bruker vi `granularitet` i løpende tekst, men `grain` i `meta`, kontraktsfelt og andre maskinlesbare nøkler. Det gjør teksten mer naturlig på norsk uten å skape kluss i kontraktene.
 
 Målet med denne siden er å beskrive hva granularitet er, hvordan den skal velges, og hvordan den skal dokumenteres og deles i dbt.
 
@@ -118,7 +118,7 @@ Det bør gjøres på to nivåer:
 - i `description`, slik at det er synlig i dbt docs og lett å lese for konsumenter
 - i tester, slik at granulariteten også er verifiserbar
 
-I `meta` kan dere fortsatt bruke `grain` og `grain_keys` som korte, maskinlesbare feltnavn.
+I `meta` skal vi bruke `grain` og `grain_keys`, slik at kontrakter og maskinlesbare metadata er koordinerte på tvers av produkter. Det er ikke et krav fra dbt, men det er kravet i denne dokumentasjonen.
 
 ## Anbefalt praksis i yml
 

@@ -376,6 +376,8 @@ Bruk denne tommelfingerregelen:
 
 For en eksponert modell bør yml og tester peke på samme forståelse av granularitet.
 
+I `description` skriver vi derfor `Granularitet: ...`, mens vi i `meta` skal bruke `grain` og `grain_keys` for å holde kontraktene konsistente.
+
 Eksempel:
 
 ```yaml

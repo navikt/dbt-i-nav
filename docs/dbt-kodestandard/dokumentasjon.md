@@ -126,6 +126,8 @@ Bedre eksempel:
 
 Der det er nyttig, skal dokumentasjonen også legges i `meta`, slik at den blir maskinlesbar.
 
+I løpende tekst bruker vi `granularitet`, men i `meta` skal vi bruke `grain` og `grain_keys`. Det er en bevisst standard for å unngå sprik i kontraktene.
+
 Anbefalte metadata for eksponerte modeller:
 
 - `owner`

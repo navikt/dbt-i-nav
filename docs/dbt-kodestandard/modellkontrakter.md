@@ -92,6 +92,8 @@ Som minimum bør kontrakten uttrykkes i:
 - `meta`, for maskinlesbare metadata
 - tester, for å verifisere at kontrakten faktisk holder
 
+I denne dokumentasjonen bruker vi `granularitet` i løpende tekst, men `grain` og `grain_keys` i `meta`. Det er en bevisst regel for å holde kontraktene koordinerte.
+
 ## Anbefalt struktur i yml
 
 Eksempel:
