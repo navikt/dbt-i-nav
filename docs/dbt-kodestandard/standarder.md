@@ -13,7 +13,7 @@ Manglende standarder fører til smerter i det daglige:
 
 - **Team divergerer** ⟶ Vanskelig å kjenne seg igjen når man bytter team.
 - **Ulike SCD-strategier** ⟶ Historikk i produktene oppfører seg forskjellig og det blir vanskelig å joine produkter på tvers.
-- **Ulike grain-antagelser** ⟶ Koblinger på tvers gir mindre mening enn man tror fordi det ikke er tydelig hva en rad i tabellen skal bety
+- **Ulike antagelser om granularitet** ⟶ Koblinger på tvers gir mindre mening enn man tror fordi det ikke er tydelig hva en rad i tabellen skal bety
 - **Uforenlige modeller** ⟶ Ulik og kreativ modellering øker kognitiv last og krever kanskje mappingtabeller for å koble rett.
 
 ## En tommelfingerregel
@@ -29,7 +29,7 @@ Målet er å starte med et lite sett felles standarder. Når dette sitter, kan v
 
 Dette er det viktigste minimumet for at datadomener skal kunne publisere stabile dataprodukter med tydelig kontrakt:
 
-- [Grain](grain.md)
+- [Granularitet](grain.md)
 - [Historikk](historikk.md)
 - [Navnestandard](navnestandard.md)
 - [Teststrategi](teststrategi.md)
@@ -83,7 +83,7 @@ Typiske utløsere:
 |---|---|---|
 | Oversikt og formål | Standard | Fase 1 |
 | Lagdeling | Ikke standardisert ennå | Vurderes i fase 2 |
-| Grain | Standard | Fase 1 |
+| Granularitet | Standard | Fase 1 |
 | Navnestandard | Standard | Fase 1 |
 | Mappe- og prosjektstruktur | Ikke standardisert ennå | Vurderes i fase 2 |
 | Konvensjoner | Ikke standardisert ennå | Vurderes i fase 2 |

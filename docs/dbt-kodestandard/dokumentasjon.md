@@ -10,7 +10,7 @@ Dokumentasjonen skal gjøre det mulig å forstå:
 
 - hva modellen representerer
 - hva én rad representerer
-- hvilke nøkkelkolonner som identifiserer grain
+- hvilke nøkkelkolonner som identifiserer granulariteten
 - hvordan historikk skal tolkes
 - hvilke kolonner som er sentrale for konsum
 - hvem som eier modellen
@@ -35,13 +35,13 @@ I praksis betyr dette at dokumentasjonen skal ligge tett på modellen, versjoner
 For hver eksponert modell skal følgende være dokumentert:
 
 - modellbeskrivelse
-- grain
-- nøkkelkolonner som identifiserer grain
+- granularitet
+- nøkkelkolonner som identifiserer granulariteten
 - historikk, hvis modellen er historisert
 - beskrivelse av sentrale kolonner
 - grunnleggende tester som støtter dokumentasjonen
 
-Dette henger tett sammen med [grain.md](grain.md), [historikk.md](historikk.md), [navnestandard.md](navnestandard.md) og [modellkontrakter.md](modellkontrakter.md).
+Dette henger tett sammen med [Granularitet](grain.md), [historikk.md](historikk.md), [navnestandard.md](navnestandard.md) og [modellkontrakter.md](modellkontrakter.md).
 
 ## Hva som skal stå i modellbeskrivelsen
 
@@ -52,7 +52,7 @@ Den bør minst svare på:
 - hva modellen inneholder
 - hvem eller hva modellen beskriver
 - om modellen er historisert
-- hva grain er
+- hva granulariteten er
 
 En god modellbeskrivelse er ofte 3 til 6 linjer, ikke én vag setning.
 
@@ -64,21 +64,21 @@ models:
     description: |
       Vedtak i komponenten arbeid.
       Modellen brukes som grunnlag for analyse av vedtak og vedtaksstatus.
-      Grain: En rad per vedtak.
+      Granularitet: En rad per vedtak.
       Historikk: Modellen er ikke historisert.
 ```
 
-## Grain skal dokumenteres eksplisitt
+    ## Granularitet skal dokumenteres eksplisitt
 
-Grain skal stå i modellens dokumentasjon, ikke bare være implisitt i navn eller tester.
+    Granularitet skal stå i modellens dokumentasjon, ikke bare være implisitt i navn eller tester.
 
 Eksempel:
 
-- `Grain: En rad per person.`
-- `Grain: En rad per person per gyldighetsintervall.`
-- `Grain: En rad per person per måned.`
+    - `Granularitet: En rad per person.`
+    - `Granularitet: En rad per person per gyldighetsintervall.`
+    - `Granularitet: En rad per person per måned.`
 
-Hvis grain er sammensatt eller historisert, skal dette komme tydelig frem.
+    Hvis granulariteten er sammensatt eller historisert, skal dette komme tydelig frem.
 
 ## Historikk skal dokumenteres eksplisitt
 
@@ -96,7 +96,7 @@ models:
   - name: dim_person
     description: |
       Persondimensjon med historikk.
-      Grain: En rad per person per gyldighetsintervall.
+      Granularitet: En rad per person per gyldighetsintervall.
       Historikk: Gyldighetsintervallet beskriver perioden raden var gyldig i kilden.
 ```
 
@@ -159,8 +159,8 @@ Dokumentasjon uten tester blir fort foreldet. Tester uten dokumentasjon er vansk
 Derfor skal sentrale påstander i dokumentasjonen normalt støttes av tester, for eksempel:
 
 - `not_null` på nøkkelkolonner
-- `unique` når grain er én rad per nøkkel
-- sammensatte unikhetstester for sammensatt grain
+- `unique` når granulariteten er én rad per nøkkel
+- sammensatte unikhetstester for sammensatt granularitet
 - egne tester for historikk når modellen er historisert
 
 ## Dokumentasjon i dbt docs
@@ -170,7 +170,7 @@ Det som ligger i yml skal være nok til at dbt docs blir nyttig for andre team.
 Det betyr at en konsument skal kunne åpne modellen i dbt docs og forstå:
 
 - hva modellen er
-- hva grain er
+- hva granulariteten er
 - om modellen er historisert
 - hvilke kolonner som er sentrale
 
@@ -181,7 +181,7 @@ Hvis man fortsatt må lese SQL for å forstå modellen, er dokumentasjonen for s
 Før en modell regnes som delt eller eksponert, skal følgende være på plass:
 
 - beskrivelse i yml
-- eksplisitt grain
+- eksplisitt granularitet
 - dokumenterte nøkkelkolonner
 - historikkbeskrivelse hvis relevant
 - dokumentasjon av sentrale kolonner
@@ -190,7 +190,7 @@ Før en modell regnes som delt eller eksponert, skal følgende være på plass:
 ## Tommelfingerregel
 
 - Dokumentasjon skal bo i yml.
-- Grain og historikk skal stå i klartekst.
+- Granularitet og historikk skal stå i klartekst.
 - Viktige kolonner skal beskrives, ikke bare listes.
 - dbt docs skal være nok til å forstå modellen på høyt nivå.
 - Hvis dokumentasjonen ikke hjelper en annen produsent eller konsument, er den ikke god nok.

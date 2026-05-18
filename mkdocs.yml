@@ -22,7 +22,7 @@ nav:
     - Standarder: 'dbt-kodestandard/standarder.md'
     - Navnestandard: 'dbt-kodestandard/navnestandard.md'
     - Historikk: 'dbt-kodestandard/historikk.md'
-    - Grain: 'dbt-kodestandard/grain.md'
+    - Granularitet: 'dbt-kodestandard/grain.md'
     - Kontrakter: 'dbt-kodestandard/modellkontrakter.md'
     - Dokumentasjon: 'dbt-kodestandard/dokumentasjon.md'
     - Testing: 'dbt-kodestandard/testing.md'

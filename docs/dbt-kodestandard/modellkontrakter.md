@@ -32,14 +32,14 @@ Dette gjelder for:
 Følgende metadata er obligatoriske i kontrakten for alle eksponerte modeller:
 
 - formål: hva modellen brukes til
-- grain: hva én rad representerer
-- nøkkelkolonner: hvilke kolonner som identifiserer grain
+- granularitet: hva én rad representerer
+- nøkkelkolonner: hvilke kolonner som identifiserer granulariteten
 - historikk: om modellen er historisert, og hvordan historikken skal forstås
 - sentrale forretningskolonner: hvilke felt konsumenter forventes å bruke
 
-## Grain er obligatorisk
+## Granularitet er obligatorisk
 
-Grain skal alltid beskrives eksplisitt i kontrakten.
+Granularitet skal alltid beskrives eksplisitt i kontrakten.
 
 Det holder ikke å skrive at modellen er en dimensjon, faktamodell eller OBT. Kontrakten skal si hva én rad faktisk representerer.
 
@@ -50,7 +50,7 @@ Eksempler:
 - En rad per person per gyldighetsintervall
 - En rad per person per måned
 
-Se også [grain.md](grain.md).
+Se også [Granularitet](grain.md).
 
 ## Historikk er obligatorisk når modellen er historisert
 
@@ -72,15 +72,15 @@ Se også [historikk.md](historikk.md) og [navnestandard.md](navnestandard.md).
 
 ## Nøkkelkolonner er obligatoriske
 
-Kontrakten skal alltid gjøre det tydelig hvilke kolonner som identifiserer grain.
+Kontrakten skal alltid gjøre det tydelig hvilke kolonner som identifiserer granulariteten.
 
 Dette gjelder både:
 
 - forretningsnøkler, for eksempel `person_id` eller `vedtak_id`
 - tekniske nøkler, for eksempel surrogate nøkler som `person_key`
-- sammensatte nøkler der grain avhenger av flere kolonner
+- sammensatte nøkler der granulariteten avhenger av flere kolonner
 
-Hvis grain identifiseres av en kombinasjon av kolonner, skal hele kombinasjonen dokumenteres.
+Hvis granulariteten identifiseres av en kombinasjon av kolonner, skal hele kombinasjonen dokumenteres.
 
 ## Hvor kontrakten skal ligge
 
@@ -101,7 +101,7 @@ models:
   - name: fak_vedtak
     description: |
       Vedtak i komponenten arbeid.
-      Grain: En rad per vedtak.
+      Granularitet: En rad per vedtak.
       Historikk: Modellen er ikke historisert.
     meta:
       owner: arbeid
@@ -124,7 +124,7 @@ models:
   - name: dim_person
     description: |
       Persondimensjon med historikk.
-      Grain: En rad per person per gyldighetsintervall.
+      Granularitet: En rad per person per gyldighetsintervall.
       Historikk: Gyldighetsintervallet beskriver perioden raden var gyldig i kilden.
     meta:
       owner: arbeid
@@ -153,8 +153,8 @@ En kontrakt som bare finnes i fritekst er ikke sterk nok.
 Derfor skal kontrakten så langt som mulig støttes av tester, for eksempel:
 
 - `not_null` på nøkkelkolonner
-- `unique` når grain er én rad per nøkkel
-- sammensatte unikhetstester når grain består av flere kolonner
+- `unique` når granulariteten er én rad per nøkkel
+- sammensatte unikhetstester når granulariteten består av flere kolonner
 - egne tester for historikk når modellen er historisert
 
 ## Praktisk minimum
@@ -162,7 +162,7 @@ Derfor skal kontrakten så langt som mulig støttes av tester, for eksempel:
 Før en modell eksponeres, skal følgende være på plass:
 
 - modellbeskrivelse
-- eksplisitt grain
+- eksplisitt granularitet
 - identifiserte nøkkelkolonner
 - historikkbeskrivelse hvis relevant
 - grunnleggende tester som støtter kontrakten

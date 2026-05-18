@@ -9,7 +9,7 @@ Team kan være fleksible internt, men modeller som eksponeres for andre skal fø
 Navnestandarden skal sikre at:
 
 - samme konsept heter det samme på tvers av komponenter
-- grain er mulig å forstå uten å lese SQL-en
+- granulariteten er mulig å forstå uten å lese SQL-en
 - dimensjoner, fakta og OBT-er er lette å kjenne igjen
 - kolonner kan gjenbrukes og joines på tvers uten unødvendig oversettelse
 
@@ -269,7 +269,7 @@ Eksempler:
 Per komponent bør vi som hovedregel sikte mot:
 
 - noen få tydelige `dim_`-modeller med stabile nøkler og beskrivende attributter
-- en eller flere `fak_`-modeller med tydelig definert grain
+- en eller flere `fak_`-modeller med tydelig definert granularitet
 - eventuelle `kobling_`-modeller der relasjonene faktisk er mange-til-mange
 - én eller flere `obt_`-modeller kun når det gir en klar gevinst for konsum
 
@@ -282,7 +282,7 @@ Det betyr i praksis at navngivningen skal støtte følgende lesemåte:
 ## Konkrete regler
 
 - Modellnavn skrives med små bokstaver og underscore.
-- Modellnavn skrives i entall når grain er én forekomst per rad.
+- Modellnavn skrives i entall når granulariteten er én forekomst per rad.
 - Kolonnenavn skrives med små bokstaver og underscore.
 - Forkortelser brukes bare når de er allment forstått i domenet.
 - Samme kolonne skal hete det samme i dimensjon, fakta og OBT når den betyr det samme.

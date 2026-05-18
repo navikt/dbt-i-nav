@@ -1,18 +1,18 @@
 # Testing
 
-Testing skal bekrefte at modellen faktisk oppfører seg slik kontrakten sier. For grain betyr det at vi tester at én rad virkelig representerer det modellen sier at den representerer.
+Testing skal bekrefte at modellen faktisk oppfører seg slik kontrakten sier. For granularitet betyr det at vi tester at én rad virkelig representerer det modellen sier at den representerer.
 
-Det holder ikke å skrive grain i dokumentasjonen. Grain må også bevises i test.
+Det holder ikke å skrive granularitet i dokumentasjonen. Granularitet må også bevises i test.
 
-## Hva det betyr å teste grain
+## Hva det betyr å teste granularitet
 
-Når vi tester grain, tester vi i praksis tre ting:
+Når vi tester granularitet, tester vi i praksis tre ting:
 
-- at nøkkelkolonnene som identifiserer grain ikke er `null`
+- at nøkkelkolonnene som identifiserer granulariteten ikke er `null`
 - at kombinasjonen av disse kolonnene er unik på riktig nivå
-- at eventuelle historikkregler eller forretningsregler ikke bryter grain
+- at eventuelle historikkregler eller forretningsregler ikke bryter granulariteten
 
-Hvis grain er feil, får vi ofte disse symptomene:
+Hvis granulariteten er feil, får vi ofte disse symptomene:
 
 - joins som multipliserer rader
 - aggregater som blir for høye
@@ -21,21 +21,21 @@ Hvis grain er feil, får vi ofte disse symptomene:
 
 ## Hovedregel
 
-Grain for alle eksponerte modeller skal være testet.
+Granularitet for alle eksponerte modeller skal være testet.
 
 Det betyr:
 
-- `dim_`-modeller skal ha tester som bekrefter sitt grain
-- `fak_`-modeller skal ha tester som bekrefter sitt grain
-- `obt_`-modeller skal ha tester som bekrefter sitt grain
+- `dim_`-modeller skal ha tester som bekrefter sin granularitet
+- `fak_`-modeller skal ha tester som bekrefter sin granularitet
+- `obt_`-modeller skal ha tester som bekrefter sin granularitet
 
-Se også [grain.md](grain.md) og [modellkontrakter.md](modellkontrakter.md).
+Se også [Granularitet](grain.md) og [modellkontrakter.md](modellkontrakter.md).
 
 ## Start alltid med nøkkelkolonnene
 
-Den enkleste og viktigste starten er å teste nøkkelkolonnene som identifiserer grain.
+Den enkleste og viktigste starten er å teste nøkkelkolonnene som identifiserer granulariteten.
 
-Hvis grain er:
+Hvis granulariteten er:
 
 - én rad per vedtak
 
@@ -56,11 +56,11 @@ models:
           - unique
 ```
 
-Dette er den enkleste formen for grain-test, og den bør alltid brukes når én kolonne alene identifiserer modellen.
+Dette er den enkleste formen for test av granularitet, og den bør alltid brukes når én kolonne alene identifiserer modellen.
 
-## Sammensatt grain
+## Sammensatt granularitet
 
-Mange modeller har grain som består av flere kolonner.
+Mange modeller har granularitet som består av flere kolonner.
 
 Eksempel:
 
@@ -123,13 +123,13 @@ group by 1, 2
 having count(*) > 1
 ```
 
-Hvis denne testen returnerer rader, er grain brutt.
+Hvis denne testen returnerer rader, er granulariteten brutt.
 
-## Historisert grain
+## Historisert granularitet
 
-Historiserte modeller er stedet der grain-testing oftest blir for svak.
+Historiserte modeller er stedet der testing av granularitet oftest blir for svak.
 
-Hvis grain er:
+Hvis granulariteten er:
 
 - én rad per person per gyldighetsintervall
 
@@ -167,7 +167,7 @@ group by 1, 2
 having count(*) > 1
 ```
 
-## Grain-test er ikke alltid nok alene
+## Test av granularitet er ikke alltid nok alene
 
 For historiserte modeller er unikhet ofte nødvendig, men ikke tilstrekkelig.
 
@@ -334,11 +334,11 @@ Denne testen bør være standard for modeller der:
 
 Hvis en modell bevisst tillater store etterregistreringer uten at dette er et problem, bør det dokumenteres eksplisitt i kontrakten.
 
-## OBT-er må også testes på grain
+## OBT-er må også testes på granularitet
 
 OBT-er er ofte spesielt sårbare fordi de bygges ved å kombinere flere modeller.
 
-Hvis grain er:
+Hvis granulariteten er:
 
 - én rad per person
 
@@ -347,7 +347,7 @@ så skal resultatet fortsatt være én rad per person, selv om modellen joiner f
 Et godt minimum er derfor:
 
 - `not_null` på identiteten
-- `unique` eller kombinasjonsunikhet på grain-kolonnene
+- `unique` eller kombinasjonsunikhet på kolonnene som definerer granulariteten
 
 Eksempel:
 
@@ -368,13 +368,13 @@ Dette er viktig fordi OBT-er ofte ser riktige ut i små utvalg, men får skjulte
 Bruk denne tommelfingerregelen:
 
 - Én nøkkelkolonne: `not_null` + `unique`
-- Sammensatt grain: `not_null` på hver kolonne + kombinasjonsunikhet
-- Historisert grain: som over, pluss egne tester for gjeldende rad, overlapp eller hull når relevant
-- OBT: test alltid at resultatet fortsatt har det grain modellen lover
+- Sammensatt granularitet: `not_null` på hver kolonne + kombinasjonsunikhet
+- Historisert granularitet: som over, pluss egne tester for gjeldende rad, overlapp eller hull når relevant
+- OBT: test alltid at resultatet fortsatt har den granulariteten modellen lover
 
 ## Hva som bør stå i yml
 
-For en eksponert modell bør yml og tester peke på samme forståelse av grain.
+For en eksponert modell bør yml og tester peke på samme forståelse av granularitet.
 
 Eksempel:
 
@@ -383,7 +383,7 @@ models:
   - name: dim_person
     description: |
       Persondimensjon med historikk.
-      Grain: En rad per person per gyldighetsintervall.
+      Granularitet: En rad per person per gyldighetsintervall.
     meta:
       grain: En rad per person per gyldighetsintervall
       grain_keys:
@@ -398,14 +398,14 @@ models:
           - not_null
 ```
 
-Og i tillegg en unikhetstest på kombinasjonen som faktisk representerer grain.
+Og i tillegg en unikhetstest på kombinasjonen som faktisk representerer granulariteten.
 
 ## Praktisk tommelfingerregel
 
 - Start med å teste nøkkelkolonnene.
-- Test så at grain-kombinasjonen faktisk er unik.
+- Test så at kombinasjonen som uttrykker granulariteten faktisk er unik.
 - Hvis modellen er historisert, test også historikkreglene.
-- Hvis modellen er en OBT, test at joins ikke har ødelagt grain.
+- Hvis modellen er en OBT, test at joins ikke har ødelagt granulariteten.
 - Hvis testen ikke kan forklare hvilken kontrakt den beskytter, er den ofte for svak.
 
 ## Standard testpakke
@@ -423,12 +423,12 @@ BØR betyr at testen normalt skal brukes, men at det kan finnes bevisste unntak 
 
 ### 1. Enkel `fak_`
 
-Bruk denne pakken når grain er én rad per hendelse eller én rad per nøkkel.
+Bruk denne pakken når granulariteten er én rad per hendelse eller én rad per nøkkel.
 
 Typisk eksempel:
 
 - `fak_vedtak`
-- grain: én rad per vedtak
+- granularitet: én rad per vedtak
 
 SKAL:
 
@@ -456,12 +456,12 @@ models:
 
 ### 2. Historisert `dim_`
 
-Bruk denne pakken når grain er én rad per identitet per gyldighetsintervall.
+Bruk denne pakken når granulariteten er én rad per identitet per gyldighetsintervall.
 
 Typisk eksempel:
 
 - `dim_person`
-- grain: én rad per person per gyldighetsintervall
+- granularitet: én rad per person per gyldighetsintervall
 
 SKAL:
 
@@ -509,14 +509,14 @@ Bruk denne pakken når modellen settes sammen av flere kilder eller modeller og 
 Typisk eksempel:
 
 - `obt_oppfolging_person`
-- grain: én rad per person
+- granularitet: én rad per person
 
 SKAL:
 
-- `not_null` på grain-identiteten
-- `unique` eller kombinasjonsunikhet på grain
+- `not_null` på identiteten som definerer granulariteten
+- `unique` eller kombinasjonsunikhet på granulariteten
 
-Dette betyr i praksis at OBT-en må ha en test som bekrefter at resultatet fortsatt holder lovet grain. For en enkel OBT med én identitet kan `unique` på denne kolonnen være tilstrekkelig. For sammensatt grain skal kombinasjonen testes eksplisitt.
+Dette betyr i praksis at OBT-en må ha en test som bekrefter at resultatet fortsatt holder lovet granularitet. For en enkel OBT med én identitet kan `unique` på denne kolonnen være tilstrekkelig. For sammensatt granularitet skal kombinasjonen testes eksplisitt.
 
 BØR:
 
@@ -539,14 +539,14 @@ models:
 Bruk denne enkle beslutningen:
 
 - Hvis modellen har én rad per enkel nøkkel: bruk pakken for enkel `fak_`.
-- Hvis modellen har historikk i grain: bruk pakken for historisert `dim_`.
+- Hvis modellen har historikk i granulariteten: bruk pakken for historisert `dim_`.
 - Hvis modellen er bygget ved brede joins: bruk pakken for `obt_` med joins.
 
 Hvis modellen både er historisert og bredt eksponert, bør testpakken kombineres.
 
 ## Kort oppsummert
 
-- En enkel `fak_` SKAL ha `not_null` og `unique` på grain-nøkkelen.
-- En historisert `dim_` SKAL ha `not_null` på identitet og start på intervall, unikhet på grain-kombinasjonen og test for maks én gjeldende rad.
-- En `obt_` SKAL ha tester som beviser at joins ikke har ødelagt grain.
+- En enkel `fak_` SKAL ha `not_null` og `unique` på nøkkelen som definerer granulariteten.
+- En historisert `dim_` SKAL ha `not_null` på identitet og start på intervall, unikhet på kombinasjonen som definerer granulariteten og test for maks én gjeldende rad.
+- En `obt_` SKAL ha tester som beviser at joins ikke har ødelagt granulariteten.
 - Test for etterregistreringer SKAL brukes når modellen inngår i rapportering eller statistikk med krav om stabile tall.
