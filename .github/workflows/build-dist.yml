@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-and-package:
@@ -35,9 +35,13 @@ jobs:
           cd site
           zip -r ../dbt-i-nav-dist.zip .
 
-      - name: Upload dist artifact
-        uses: actions/upload-artifact@v4
+      - name: Publish GitHub Release
+        uses: ncipollo/release-action@v1
         with:
-          name: dbt-i-nav-dist
-          path: dbt-i-nav-dist.zip
-          if-no-files-found: error
+          tag: docs-dist
+          name: Docs dist
+          artifacts: dbt-i-nav-dist.zip
+          artifactErrorsFailBuild: true
+          allowUpdates: true
+          replacesArtifacts: true
+          makeLatest: true
