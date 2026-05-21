@@ -66,6 +66,30 @@ flowchart TD
 
 Du skal normalt ikke håndtere Oracle-passord manuelt når dbt kjører i Knast.
 
+## Bruke hemmeligheter i Python og Notebooks
+For å bruke samme datavarehus hemmeligheter man har lagret med `dvh`, bruk følgende kobling strengen:
+
+```python
+import os
+import oracledb
+
+conn = oracledb.connect(
+    user=os.environ["DBT_ENV_SECRET_USER"],
+    dsn=f"{os.environ['DBT_DB_HOST']}:{os.environ['DBT_DB_PORT']}/{os.environ['DBT_ENV_SERVICE']}"
+)
+
+conn.close()
+```
+Ved bruk av `dvh-tools`, legg følgende sjekk i `_create_connection()`:
+```python
+in_knast = os.environ["DBT_DB_TARGET"]  # To execute on Knast machines
+    if in_knast == "knast":
+        oracle_client = oracledb.connect(
+            user=os.environ["DBT_ENV_SECRET_USER"],
+            dsn=f"{os.environ['DBT_DB_HOST']}:{os.environ['DBT_DB_PORT']}/{os.environ['DBT_ENV_SERVICE']}")
+    elif secret:
+         . . . . .
+```
 ## Når trenger du resten av denne siden?
 
 Les videre hvis:
