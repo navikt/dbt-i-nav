@@ -16,6 +16,7 @@ nav:
     - Utvikle dbt i Knast:
         - 'dbt i Knast/handtering-av-hemmeligheter.md'
         - 'dbt i Knast/utvikling-av-dbt-prosjekter.md'
+        - 'dbt i Knast/nls-settings.md'
     - Feilsøking:
         - 'DVH/feilsoking.md'
   - Dataprodukt:
