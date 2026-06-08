@@ -54,7 +54,7 @@ For at resultatene i VS Code skal være konsistente med det som skjer i dbt, anb
   "sqldeveloper.database.nls.length": "CHAR",
   "sqldeveloper.database.nls.sort": "CHAR",
   "sqldeveloper.database.nls.comparison": "BINARY",
-  ```
+```
   
 ## Hvordan sette nls settings i dbt?
 For å sikre at nls settings er satt riktig når du kjører dbt i Knast, må du legge til følgende konfigurasjon i `dbt_project.yml`:
