@@ -16,29 +16,35 @@ NLS settings er innstillinger i Oracle som påvirker hvordan data håndteres, sp
 
 3. ???`NLS_COMP = BINARY`. Sammenligninger bør gjøres basert på binærverdiene av dataene. Dette er spesielt viktig når `NLS_SORT` ikke er satt til `BINARY`.
 
-Med dette så vil et typisk oppsett for dbt se slik ut:
+## Hvordan sette nls settings i dbt?
+For å sikre at nls settings er satt riktig når du kjører dbt i Knast, må du legge til følgende konfigurasjon i `dbt_project.yml`:
 
-```yaml
-+pre-hook:
-  - "ALTER SESSION SET NLS_LANGUAGE = NORWEGIAN"
-  - "ALTER SESSION SET NLS_TERRITORY = NORWAY"
-  - "ALTER SESSION SET NLS_SORT = BINARY"
-  - "ALTER SESSION SET NLS_COMP = 'BINARY'"
-  - "ALTER SESSION SET NLS_DATE_LANGUAGE = NORWEGIAN"
-  - "ALTER SESSION SET NLS_DATE_FORMAT = 'DD.MM.YYYY HH24:MI:SS'"
-  - "ALTER SESSION SET NLS_TIME_FORMAT = 'HH24:MI:SSXFF'"
-  - "ALTER SESSION SET NLS_TIME_TZ_FORMAT = 'HH24:MI:SSXFF TZR'"
-  - "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'DD.MM.YYYY HH24:MI:SSXFF'"
-  - "ALTER SESSION SET NLS_TIMESTAMP_TZ_FORMAT = 'DD.MM.YYYY HH24:MI:SSXFF TZR'"
-  - "ALTER SESSION SET NLS_CURRENCY = NOK"
-  - "ALTER SESSION SET NLS_DUAL_CURRENCY = 'Kr.'"
-  - "ALTER SESSION SET NLS_ISO_CURRENCY = NORWAY"
-  - "ALTER SESSION SET NLS_CALENDAR = GREGORIAN"
-  - "ALTER SESSION SET NLS_LENGTH_SEMANTICS = CHAR"
+```yaml 
+  +pre-hook:
+    - "ALTER SESSION SET NLS_LANGUAGE = NORWEGIAN"
+    - "ALTER SESSION SET NLS_TERRITORY = NORWAY"
+    - "ALTER SESSION SET NLS_SORT = BINARY"
+    - "ALTER SESSION SET NLS_COMP = 'BINARY'"
+    - "ALTER SESSION SET NLS_DATE_LANGUAGE = NORWEGIAN"
+    - "ALTER SESSION SET NLS_DATE_FORMAT = 'DD.MM.YYYY HH24:MI:SS'"
+    - "ALTER SESSION SET NLS_TIME_FORMAT = 'HH24:MI:SSXFF'"
+    - "ALTER SESSION SET NLS_TIME_TZ_FORMAT = 'HH24:MI:SSXFF TZR'"
+    - "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'DD.MM.YYYY HH24:MI:SSXFF'"
+    - "ALTER SESSION SET NLS_TIMESTAMP_TZ_FORMAT = 'DD.MM.YYYY HH24:MI:SSXFF TZR'"
+    - "ALTER SESSION SET NLS_CURRENCY = NOK"
+    - "ALTER SESSION SET NLS_DUAL_CURRENCY = 'Kr.'"
+    - "ALTER SESSION SET NLS_ISO_CURRENCY = NORWAY"
+    - "ALTER SESSION SET NLS_CALENDAR = GREGORIAN"
+    - "ALTER SESSION SET NLS_LENGTH_SEMANTICS = CHAR"
 ```
 
-## Anbefalinger for VS Code
-For at resultatene i VS Code skal være konsistente med det som skjer i dbt, anbefales det å sette følgende nls settings i VS Code:
+Bare vær klar over at dette ikke fungerer for tester.
+
+
+## Anbefalinger for SQL Developer extension i VS Code
+For at resultatene i SQL Developer skal være konsistente med det som skjer i dbt, anbefales det å sette følgende nls settings i VS Code:
+
+Dette kan gjøres ved å legge til følgende innstillinger i `settings.json` i VS Code. Du finner `settings.json` ved å åpne Command Palette (Ctrl+Shift+P), skrive "Preferences: Open User Settings (JSON)" og trykke Enter. Legg deretter til følgende konfigurasjon:
 
 ```json
   "sqldeveloper.database.nls.language": "NORWEGIAN",
@@ -46,24 +52,16 @@ For at resultatene i VS Code skal være konsistente med det som skjer i dbt, anb
   "sqldeveloper.database.nls.dateLanguage": "NORWEGIAN",
   "sqldeveloper.database.nls.dateFormat": "DD.MM.YYYY HH24:MI:SS",
   "sqldeveloper.database.nls.timestampFormat": "DD.MM.YYYY HH24:MI:SSXFF",
-  "sqldeveloper.database.nls.timestampTZ Format": "DD.MM.YYYY HH24:MI:SSXFF TZR",
+  "sqldeveloper.database.nls.timestampTZFormat": "DD.MM.YYYY HH24:MI:SSXFF TZR",
   "sqldeveloper.database.nls.currency": "NOK",
   "sqldeveloper.database.nls.ISOCurrency": "NORWAY",
   "sqldeveloper.database.nls.groupSeparator": "",
-  "sqldeveloper.database.nls.decimalSeparator": ".",
+  "sqldeveloper.database.nls.decimalSeparator": ",",
   "sqldeveloper.database.nls.length": "CHAR",
-  "sqldeveloper.database.nls.sort": "CHAR",
+  "sqldeveloper.database.nls.sort": "BINARY",
   "sqldeveloper.database.nls.comparison": "BINARY",
 ```
   
-## Hvordan sette nls settings i dbt?
-For å sikre at nls settings er satt riktig når du kjører dbt i Knast, må du legge til følgende konfigurasjon i `dbt_project.yml`:
-
-```yaml 
-models:
-  +pre_hook: "ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI:SS'"
-```
-
 ## TL;DR
 
 - åpne repoet ditt i Knast
