@@ -61,9 +61,3 @@ Dette kan gjøres ved å legge til følgende innstillinger i `settings.json` i V
   "sqldeveloper.database.nls.sort": "BINARY",
   "sqldeveloper.database.nls.comparison": "BINARY",
 ```
-  
-## TL;DR
-
-- åpne repoet ditt i Knast
-
-Hvis dette fungerer, trenger du ikke lese resten av siden før du står fast.
