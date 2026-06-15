@@ -27,7 +27,7 @@ Unngå:
 | ----------- | ----------- |
 | `stg_aareg_arbeidsforhold`      | `key_person`       |
 | `int_arbeid_arbeidsforhold_historisert`   | `id_person`        |
-|`dim_arbeidsgiver`   | `flg_gjeldende`        |
+|`dim_arbeidsgiver`   | `flagg_gjeldende`        |
 |`dim_person`   | `dato_gyldig_fom`        |
 |`fak_arbeidsforhold`   | `dato_gyldig_tom`        |
 |`obt_arbeid_personstatus`   | `arbeidsforhold_status`        |
@@ -101,7 +101,7 @@ Kolonner skal navngis etter hva de betyr, ikke hvor de kommer fra. Da det kan v�
 - dato_ som prefiks for datoer.
 - tid_ som prefiks for tidspunkt.
 - ts_ som prefiks for timestamps (dato og tid)
-- flg_ som prefiks for flagg-kolonner, enten med true/false eller med enten/eller kategoriseringsinnhold.
+- flagg_ som prefiks for flagg-kolonner, enten med true/false eller med enten/eller kategoriseringsinnhold.
 - lastet_ som prefiks for systemfelt, for når dataene sist ble lastet i modellen. ?
 - _navn som suffiks for å spesifisere tekstkolonner hvis beskrivelsen ikke er god nok alene. For eks "land" kan være en god nok beskrivelse istedenfor land_navn?
 - kildesystem som kolonnenavn hvis det er viktig å spesifisere kilde
@@ -152,9 +152,9 @@ Anbefalte suffiks når de gir mening:
 
 For boolske verdier foretrekkes navn som er enkle å forstå:
 
-- `flg_aktiv`
-- `flg_gjeldende`
-- `flg_vedtak`
+- `flagg_aktiv`
+- `flagg_gjeldende`
+- `flagg_vedtak`
 
 ### Historikkolonner
 Tidsstempel: 
