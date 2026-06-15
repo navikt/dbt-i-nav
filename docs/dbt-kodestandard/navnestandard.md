@@ -153,7 +153,7 @@ Anbefalte suffiks når de gir mening:
 For boolske verdier foretrekkes navn som er enkle å forstå:
 
 - `flagg_aktiv`
-- `flagg_gjeldende`
+- `flagg_gyldig`
 - `flagg_vedtak`
 
 ### Historikkolonner
