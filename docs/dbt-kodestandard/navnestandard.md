@@ -27,7 +27,7 @@ Unngå:
 | ----------- | ----------- |
 | `stg_aareg_arbeidsforhold`      | `key_person`       |
 | `int_arbeid_arbeidsforhold_historisert`   | `id_person`        |
-|`dim_arbeidsgiver`   | `flagg_gjeldende`        |
+|`dim_arbeidsgiver`   | `flagg_gyldig`        |
 |`dim_person`   | `dato_gyldig_fom`        |
 |`fak_arbeidsforhold`   | `dato_gyldig_tom`        |
 |`obt_arbeid_personstatus`   | `arbeidsforhold_status`        |
