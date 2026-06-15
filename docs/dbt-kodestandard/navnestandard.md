@@ -98,10 +98,10 @@ Kolonner skal navngis etter hva de betyr, ikke hvor de kommer fra. Da det kan v�
 - id_ som prefiks for naturlige id-felter.
 - key_ som prefiks for surrogate/syntetiske nøkler.
 - dato_ som prefiks for datoer.
-- tid_ som prefiks for dato med tidspunkt med millisekunder.
-- ts_ som prefiks for dato med timestamps med nanosekunder.?
+- tid_ som prefiks for dato med tidspunkt med millisekunder presisjon.
+- ts_ som prefiks for dato med timestamps med opptil nanosekunder presisjon.
 - flagg_ som prefiks for flagg-kolonner, enten med true/false eller med enten/eller kategoriseringsinnhold.
-- lastet_ som prefiks for systemfelt, for når dataene sist ble lastet i modellen. ?
+- lastet_ som prefiks for systemfelt, for når dataene sist ble lastet i modellen.
 - _navn som suffiks for å spesifisere tekstkolonner hvis beskrivelsen ikke er god nok alene. For eks "land" kan være en god nok beskrivelse istedenfor land_navn?
 - kildesystem som kolonnenavn hvis det er viktig å spesifisere kilde
 
