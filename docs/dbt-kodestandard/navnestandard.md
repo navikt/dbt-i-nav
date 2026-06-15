@@ -73,16 +73,16 @@ Komponentnavn skal bare tas med når det bidrar til avklaring. Vi skal ikke legg
 
 ## Navngivning av interne dbt-modeller
 
-For interne modeller i dbt anbefaler vi følgende mønster, hvor stg og base har dobbel underscore for å enklere skille mellom kildesystem og objekt i kildesystem, når man ser på objekter i databasen.:
+For interne modeller i dbt anbefaler vi følgende mønster, hvor stg og base har dobbel underscore for å enklere skille mellom kildesystem og objekt i kildesystem, når man ser på objekter i databasen:
 
 - `stg_<kilde>__<objekt>` for stagingmodeller
-- `int_<tema>_<formaal>` for interne mellommodeller
 - `base_<kilde>__<objekt>` kun der det er behov for et eksplisitt base-lag
+- `int_<tema>_<formaal>` for interne mellommodeller
 
 Eksempler:
 
-- `stg_aareg_arbeidsforhold`
-- `stg_pp01_vedtak`
+- `stg_aareg__arbeidsforhold`
+- `stg_pp01__vedtak`
 - `int_oppfolging_person_beriket`
 
 Disse modellene er interne arbeidsflater. Her er det lov å være mer teknisk, men navnene skal fortsatt være forståelige.
