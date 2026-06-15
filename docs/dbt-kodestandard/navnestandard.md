@@ -33,7 +33,7 @@ Unngå:
 |`obt_arbeid_personstatus`   | `arbeidsforhold_status`        |
 
 
-## Modellprefiks for eksponerte modeller
+## Modellprefiks for eksponerte modeller i marts
 
 For modeller som andre skal lese og bygge videre på, bruker vi følgende hovedmønstre:
 
@@ -73,12 +73,11 @@ Komponentnavn skal bare tas med når det bidrar til avklaring. Vi skal ikke legg
 
 ## Navngivning av interne dbt-modeller
 
-For interne modeller i dbt anbefaler vi et enklere og velkjent mønster:
+For interne modeller i dbt anbefaler vi følgende mønster, hvor stg og base har dobbel underscore for å enklere skille mellom kildesystem og objekt i kildesystem, når man ser på objekter i databasen.:
 
-- `stg_<kilde>_<objekt>` for stagingmodeller
+- `stg_<kilde>__<objekt>` for stagingmodeller
 - `int_<tema>_<formaal>` for interne mellommodeller
-- `base_<kilde>_<objekt>` kun der det er behov for et eksplisitt base-lag
-- `<tema>_<formaal>` for mart? 
+- `base_<kilde>__<objekt>` kun der det er behov for et eksplisitt base-lag
 
 Eksempler:
 
