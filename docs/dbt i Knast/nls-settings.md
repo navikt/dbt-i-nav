@@ -23,18 +23,19 @@ For å sikre at nls settings er satt riktig når du kjører dbt i Knast, må du 
   +pre-hook:
     - "ALTER SESSION SET NLS_LANGUAGE = NORWEGIAN"
     - "ALTER SESSION SET NLS_TERRITORY = NORWAY"
-    - "ALTER SESSION SET NLS_SORT = BINARY"
-    - "ALTER SESSION SET NLS_COMP = 'BINARY'"
-    - "ALTER SESSION SET NLS_DATE_LANGUAGE = NORWEGIAN"
+    - "ALTER SESSION SET NLS_CURRENCY = kr"
+    - "ALTER SESSION SET NLS_ISO_CURRENCY = NORWAY"
+    - "ALTER SESSION SET NLS_NUMERIC_CHARACTERS = ', '"
+    - "ALTER SESSION SET NLS_CALENDAR = 'GREGORIAN'"
     - "ALTER SESSION SET NLS_DATE_FORMAT = 'DD.MM.YYYY HH24:MI:SS'"
+    - "ALTER SESSION SET NLS_DATE_LANGUAGE = NORWEGIAN"
+    - "ALTER SESSION SET NLS_SORT = NORWEGIAN"
+    - "ALTER SESSION SET NLS_COMP = 'LINGUISTIC'"
     - "ALTER SESSION SET NLS_TIME_FORMAT = 'HH24:MI:SSXFF'"
     - "ALTER SESSION SET NLS_TIME_TZ_FORMAT = 'HH24:MI:SSXFF TZR'"
     - "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'DD.MM.YYYY HH24:MI:SSXFF'"
     - "ALTER SESSION SET NLS_TIMESTAMP_TZ_FORMAT = 'DD.MM.YYYY HH24:MI:SSXFF TZR'"
-    - "ALTER SESSION SET NLS_CURRENCY = NOK"
-    - "ALTER SESSION SET NLS_DUAL_CURRENCY = 'Kr.'"
-    - "ALTER SESSION SET NLS_ISO_CURRENCY = NORWAY"
-    - "ALTER SESSION SET NLS_CALENDAR = GREGORIAN"
+    - "ALTER SESSION SET NLS_DUAL_CURRENCY = 'kroner'"
     - "ALTER SESSION SET NLS_LENGTH_SEMANTICS = CHAR"
 ```
 
@@ -49,15 +50,18 @@ Dette kan gjøres ved å legge til følgende innstillinger i `settings.json` i V
 ```json
   "sqldeveloper.database.nls.language": "NORWEGIAN",
   "sqldeveloper.database.nls.territory": "NORWAY",
-  "sqldeveloper.database.nls.dateLanguage": "NORWEGIAN",
+  "sqldeveloper.database.nls.currency": "kr",
+  "sqldeveloper.database.nls.ISOCurrency": "NORWAY",
+  "sqldeveloper.database.nls.decimalSeparator": ",",
+  "sqldeveloper.database.nls.groupSeparator": "",
+  "sqldeveloper.database.nls.calendar": "GREGORIAN",
   "sqldeveloper.database.nls.dateFormat": "DD.MM.YYYY HH24:MI:SS",
+  "sqldeveloper.database.nls.dateLanguage": "NORWEGIAN",
+  "sqldeveloper.database.nls.sort": "NORWEGIAN",
+  "sqldeveloper.database.nls.comparison": "LINGUISTIC",
+  "sqldeveloper.database.nls.timeFormat": "HH24:MI:SSXFF",
+  "sqldeveloper.database.nls.timeTZFormat": "HH24:MI:SSXFF TZR",
   "sqldeveloper.database.nls.timestampFormat": "DD.MM.YYYY HH24:MI:SSXFF",
   "sqldeveloper.database.nls.timestampTZFormat": "DD.MM.YYYY HH24:MI:SSXFF TZR",
-  "sqldeveloper.database.nls.currency": "NOK",
-  "sqldeveloper.database.nls.ISOCurrency": "NORWAY",
-  "sqldeveloper.database.nls.groupSeparator": "",
-  "sqldeveloper.database.nls.decimalSeparator": ",",
   "sqldeveloper.database.nls.length": "CHAR",
-  "sqldeveloper.database.nls.sort": "BINARY",
-  "sqldeveloper.database.nls.comparison": "BINARY",
 ```
