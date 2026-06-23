@@ -36,14 +36,41 @@ Det betyr at vi må holde to ting fra hverandre:
 - hva som var gyldig i kilden
 - når dataproduktet faktisk fikk kjennskap til det
 
-## To gyldige behov
+## En standardisert løsning
 
-I praksis finnes det ofte to ulike behov:
+I praksis må vi ha én standard historikkmodell som kan brukes til begge behov, uten to parallelle gyldighetsintervaller.
 
-- kildekorrekt historikk: hva som egentlig gjaldt i kilden på et gitt tidspunkt
-- stabil rapporthistorikk: hva som var kjent og rapportert på et gitt tidspunkt
+- kildekorrekt historikk: ett gyldighetsintervall som beskriver hva som faktisk gjaldt i kilden
+- stabil rapporthistorikk: ett observasjonspunkt som beskriver når dataproduktet fikk kjennskap til endringen
 
-Disse behovene bør ikke presses inn i samme felt eller samme tolkning.
+Da kan vi bruke gyldighetsintervallet til å svare på hva som var gyldig i kilden, og observasjonspunktet til å gjenskape hva som var kjent og publisert på et gitt tidspunkt. For stabile rapporter holder det ikke med dagens versjon av raden alene, fordi en etterregistrering kan flytte `gyldig_tom` bakover og gjøre den gamle raden usynlig. Derfor må dataproduktet også bevare publiserte versjoner, slik at rapportering kan spørre på «hva visste vi da?», uten at selve forretningshistorikken får et eget sett med gyldighetsintervaller.
+
+## Hvordan spørre
+
+Det er nyttig å skille mellom to spørsmål:
+
+- hva var gyldig i kilden på et gitt tidspunkt?
+- hva var publisert og kjent i dataproduktet på et gitt tidspunkt?
+
+For kildekorrekt historikk spør vi på gyldighetsintervallet:
+
+```sql
+select *
+from tabell
+where :dato between gyldig_fom and coalesce(gyldig_tom, date '9999-12-31')
+```
+
+For stabil rapporthistorikk må vi spørre i en bevart publiseringshistorikk, ikke bare i dagens rad. Det kan være en snapshot, en append-only historikktabell eller en annen versjonert modell:
+
+```sql
+select *
+from tabell_historikk
+where publisert_fom <= :rapportdato
+	and coalesce(publisert_til, date '9999-12-31') > :rapportdato
+	and :dato between gyldig_fom and coalesce(gyldig_tom, date '9999-12-31')
+```
+
+Hvis modellen bare lagrer siste kjente versjon av raden, kan den ikke svare stabilt på «hva visste vi da?» etter en etterregistrering. Da må publiserte versjoner lagres eksplisitt.
 
 ## Valg av oppløsning
 
