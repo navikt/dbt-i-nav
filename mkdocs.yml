@@ -52,11 +52,11 @@ nav:
     # - CI: 'dbt-kodestandard/CI.md'
     # - Eksempler: 'dbt-kodestandard/eksempler.md'
   - God praksis:
-      - Materialiseringsstrategier: arkitektur/materialisering.md
-      - Navnestandard og stilguide: arkitektur/style_guide.md
-      - Testoppsett: arkitektur/testing.md
-      - SQL-formattering med SQLFluff: arkitektur/sqlfluff.md
-      - Eksempel - Team Spenn: arkitektur/materialisering_spenn.md
+      - Materialiseringsstrategier: god_praksis/materialisering.md
+      - Navnestandard og stilguide: god_praksis/style_guide.md
+      - Testoppsett: god_praksis/testing.md
+      - SQL-formattering med SQLFluff: god_praksis/sqlfluff.md
+      - Eksempel - Team Spenn: god_praksis/materialisering_spenn.md
   - Dokumentasjon:
       - dokumentasjon/index.md
       - dokumentasjon/dokumentasjon.md

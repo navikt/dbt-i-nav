@@ -32,7 +32,7 @@ The only runtime dependency is `zensical` (listed in `requirements-doc.txt`).
 | Kom i gang | `docs/DVH/`, `docs/dbt i Knast/` |
 | Dataprodukt | `docs/dataprodukt/` |
 | dbt standarder | `docs/dbt-kodestandard/` |
-| God praksis | `docs/arkitektur/` |
+| God praksis | `docs/god_praksis/` |
 | Dokumentasjon | `docs/dokumentasjon/` |
 | Prosjekter som bruker dbt | `docs/prosjekter/` |
 | Arkiv | `docs/arkiv/` |
@@ -41,7 +41,7 @@ The only runtime dependency is `zensical` (listed in `requirements-doc.txt`).
 ## Key conventions
 
 - **All content is written in Norwegian.**
-- New "God praksis" pages belong in `docs/arkitektur/` and must be added under `God praksis` in `mkdocs.yml`.
+- New "God praksis" pages belong in `docs/god_praksis/` and must be added under `God praksis` in `mkdocs.yml`.
 - Mermaid diagrams are supported via `pymdownx.superfences` — use fenced code blocks with ` ```mermaid `.
 - The `toc_depth` is set to 2, so only `##` headings appear in the table of contents.
 - The site deploys automatically on push to `main` via the `ci` workflow (`.github/workflows/deploy.yml`).
