@@ -20,7 +20,7 @@ dbt finnes som open source ([`dbt-core`](https://docs.getdbt.com/docs/core/insta
 
 For Oracle on-prem bruker vi [`dbt-oracle`](https://docs.getdbt.com/docs/core/connect-data-platform/oracle-setup) – en community-connector vedlikeholdt av Oracle, basert på dbt-core. Utviklingsmiljøet er Knast.
 
-For materialisering og arkitekturvalg, se [Materialiseringsstrategier](arkitektur/materialisering.md).
+For materialisering og arkitekturvalg, se [Materialiseringsstrategier](god-praksis/materialisering.md).
 
 ## Lenker
 

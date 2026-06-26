@@ -58,5 +58,5 @@ Når noe feiler, gå gjennom dette i rekkefølge:
 
 - [Komme i gang med dbt i DVH](komme-i-gang.md)
 - [Opprett nytt dbt-prosjekt](opprett-prosjekt.md)
-- [Håndtering av hemmeligheter i Knast](../dbt%20i%20Knast/handtering-av-hemmeligheter.md)
-- [Utvikling av dbt-prosjekter i Knast](../dbt%20i%20Knast/utvikling-av-dbt-prosjekter.md)
+- [Håndtering av hemmeligheter i Knast](../dbt-i-knast/handtering-av-hemmeligheter.md)
+- [Utvikling av dbt-prosjekter i Knast](../dbt-i-knast/utvikling-av-dbt-prosjekter.md)

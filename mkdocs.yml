@@ -14,9 +14,9 @@ nav:
         - 'DVH/komme-i-gang.md'
         - 'DVH/opprett-prosjekt.md'
     - Utvikle dbt i Knast:
-        - 'dbt i Knast/handtering-av-hemmeligheter.md'
-        - 'dbt i Knast/utvikling-av-dbt-prosjekter.md'
-        - 'dbt i Knast/nls-settings.md'
+        - 'dbt-i-knast/handtering-av-hemmeligheter.md'
+        - 'dbt-i-knast/utvikling-av-dbt-prosjekter.md'
+        - 'dbt-i-knast/nls-settings.md'
     - Feilsøking:
         - 'DVH/feilsoking.md'
   - Dataprodukt:
@@ -52,22 +52,22 @@ nav:
     # - CI: 'dbt-kodestandard/CI.md'
     # - Eksempler: 'dbt-kodestandard/eksempler.md'
   - God praksis:
-      - Materialiseringsstrategier: god_praksis/materialisering.md
-      - Navnestandard og stilguide: god_praksis/style_guide.md
-      - Testoppsett: god_praksis/testing.md
-      - SQL-formattering med SQLFluff: god_praksis/sqlfluff.md
-      - Eksempel - Team Spenn: god_praksis/materialisering_spenn.md
+      - Materialiseringsstrategier: god-praksis/materialisering.md
+      - Navnestandard og stilguide: god-praksis/style-guide.md
+      - Testoppsett: god-praksis/testing.md
+      - SQL-formattering med SQLFluff: god-praksis/sqlfluff.md
+      - Eksempel - Team Spenn: god-praksis/materialisering-spenn.md
   - Dokumentasjon:
       - dokumentasjon/index.md
       - dokumentasjon/dokumentasjon.md
       - dokumentasjon/overview.md
   - Prosjekter som bruker dbt:
       - prosjekter/index.md
-      - prosjekter/dvh_arb_cv.md
-      - prosjekter/dvh_arb_permittering.md
-      - prosjekter/dvh_arb_person.md
-      - prosjekter/dvh_arb_tiltak.md
-      - prosjekter/dvh_arb_styrke_ssb.md
+      - prosjekter/dvh-arb-cv.md
+      - prosjekter/dvh-arb-permittering.md
+      - prosjekter/dvh-arb-person.md
+      - prosjekter/dvh-arb-tiltak.md
+      - prosjekter/dvh-arb-styrke-ssb.md
       - prosjekter/dvh-sykefravar-dmx.md
       - prosjekter/nystol/vdl-regnskapsdata.md
       - prosjekter/bomlo-dbt.md
@@ -93,9 +93,9 @@ nav:
         - arkiv/vdi/feilsoking/feilsoking.md
         - arkiv/vdi/Installasjon-på-VDI/dbt.md
   - Airflow:
-      - airflow og dbt_run/airflow.md
-      - airflow og dbt_run/dbt_operator.md
-      - airflow og dbt_run/dbt_run.md
+      - airflow-og-dbt-run/airflow.md
+      - airflow-og-dbt-run/dbt-operator.md
+      - airflow-og-dbt-run/dbt-run.md
 
 theme:
   name: material

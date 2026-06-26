@@ -26,7 +26,7 @@ Følg denne guiden for å sette opp Visual Studio Code med riktige miljøvariabl
 1. Klon dette repoet: https://github.com/navikt/dbt-i-nav/ til en lokal mappe på utivklerimage/VDI
 
 2. Lag en snarvei på skrivebordet til [start_vscode_dbt.ps1](https://github.com/navikt/dbt-i-nav/blob/main/start_vscode_dbt.ps1) som nå ligger lokalt på VDI (inne i mappen du nettopp klonet) slik:
-    ![Lag snarvei](vscode/lag_snarvei.png)
+    ![Lag snarvei](vscode/lag-snarvei.png)
 
 3. Høyreklikk på den nye snarveien og velg `Egenskaper`
     ![Høyreklikk](vscode/egenskaper.png)

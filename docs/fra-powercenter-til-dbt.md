@@ -481,5 +481,5 @@ Når du har lest denne siden, er det naturlig å gå videre til:
 
 - [Hva er dbt](index.md)
 - [Hvorfor dbt](hvorfor-dbt.md)
-- [Materialiseringsstrategier](arkitektur/materialisering.md)
+- [Materialiseringsstrategier](god-praksis/materialisering.md)
 - [Hva er nytt i dbt](hva-er-nytt.md)

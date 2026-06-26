@@ -8,14 +8,15 @@
 
 ```shell
 make                        # Create .venv and install dependencies (uses uv if available, else pip)
-source .venv/bin/activate
-zensical serve              # Local dev server with live-reload
-zensical build --clean      # Build static output to site/
+make serve                  # Start local dev server with live-reload (wraps zensical serve)
+make build                  # Build static output to site/ (wraps zensical build --clean)
 ```
 
 On Windows: `pip install -r requirements-doc.txt`, then `zensical serve`.
 
 The only runtime dependency is `zensical` (listed in `requirements-doc.txt`).
+
+**After renaming or moving files, always run `make build` to catch broken internal links before committing.**
 
 ## Architecture
 
@@ -29,19 +30,19 @@ The only runtime dependency is `zensical` (listed in `requirements-doc.txt`).
 | Section in nav | Source directory |
 |---|---|
 | Introduksjon | `docs/` (root-level files) |
-| Kom i gang | `docs/DVH/`, `docs/dbt i Knast/` |
+| Kom i gang | `docs/DVH/`, `docs/dbt-i-knast/` |
 | Dataprodukt | `docs/dataprodukt/` |
 | dbt standarder | `docs/dbt-kodestandard/` |
-| God praksis | `docs/god_praksis/` |
+| God praksis | `docs/god-praksis/` |
 | Dokumentasjon | `docs/dokumentasjon/` |
 | Prosjekter som bruker dbt | `docs/prosjekter/` |
 | Arkiv | `docs/arkiv/` |
-| Airflow | `docs/airflow og dbt_run/` |
+| Airflow | `docs/airflow-og-dbt-run/` |
 
 ## Key conventions
 
 - **All content is written in Norwegian.**
-- New "God praksis" pages belong in `docs/god_praksis/` and must be added under `God praksis` in `mkdocs.yml`.
+- New "God praksis" pages belong in `docs/god-praksis/` and must be added under `God praksis` in `mkdocs.yml`.
 - Mermaid diagrams are supported via `pymdownx.superfences` — use fenced code blocks with ` ```mermaid `.
 - The `toc_depth` is set to 2, so only `##` headings appear in the table of contents.
 - The site deploys automatically on push to `main` via the `ci` workflow (`.github/workflows/deploy.yml`).
