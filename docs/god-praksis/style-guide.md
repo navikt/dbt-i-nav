@@ -64,6 +64,15 @@ Modeller organiseres i tre hovedgrupper: `staging`, `intermediate` og `marts`. S
 ## dbt-konvensjoner
 * Kun `stg_`og `base_` spør mot `source`er.
 * Alle andre `ref` andre modeller.
+* `intermediate`-laget er **valgfritt** — bruk det kun ved kompleks logikk og mellomregninger. Tabeller fra `marts` kan hente direkte fra `staging` der det gir mening.
+
+## Hva hører hjemme i marts?
+
+Marts er det eksponerte laget — fakta- og dimensjonstabeller som er klare til bruk. Noen avklaringer:
+
+- **Aggregeringer hører hjemme i marts.** Månedlig aggregering og lignende er ikke et eget lag *over* marts — det er en mart-tabell. Lag ikke unødvendige ekstra lag.
+- **Sensitive tabeller kan ligge i marts**, men tilgangsstyres strengt. En tabell med f.eks. saksnr, vedtaksid og fk_person1 trenger ikke flyttes ut av marts — den begrenses heller til feilsøkingsformål med riktig tilgangskontroll.
+- **Unngå tomme kopier.** En mart-tabell som er identisk med intermediate tilføyer ingen verdi — flytt modellen til marts.
 
 ## Tester
 - Hver underfolder inneholder en `.yml`-fil som tester alle modeller i folderen. Navnestandarden er `<folder-navn>.yml`.
