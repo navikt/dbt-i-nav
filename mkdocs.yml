@@ -28,7 +28,7 @@ nav:
     - Dokumentasjon: 'dataprodukt/dokumentasjon.md'
     - Testing: 'dataprodukt/testing.md'
   - dbt standarder: 
-    - Standarder: 'dbt-kodestandard/standarder.md'
+    - Standarder: 'dbt-kodestandard/index.md'
     - Navnestandard: 'dbt-kodestandard/navnestandard.md'
     - Historikk: 'dbt-kodestandard/historikk.md'
     - Granularitet: 'dbt-kodestandard/grain.md'
