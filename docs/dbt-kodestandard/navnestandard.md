@@ -109,7 +109,7 @@ Vær presis med navngivning, slik at kolonnenavnet representerer faktisk innhold
 Eksempler:
 
 - bruk `person_id`, ikke `aktorid` hvis kolonnen faktisk representerer personens identifikator i modellen
-- bruk `vedtak_dato`, ikke `behandlingsdato`, hvis det er vedtakstidspunkt modellen uttrykker
+- bruk `dato_vedtak`, ikke `behandlingsdato`, hvis det er vedtakstidspunkt modellen uttrykker
 - bruk `arbeidsgiver_navn`, ikke `navn`, når kolonnen ellers blir tvetydig
 
 ### Nøkler
