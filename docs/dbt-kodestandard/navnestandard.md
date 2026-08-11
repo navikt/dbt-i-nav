@@ -26,10 +26,10 @@ Unngå:
 | Komponenter      | Kolonnenavn |
 | ----------- | ----------- |
 | `stg_aareg_arbeidsforhold`      | `key_aareg_arbeidsforhold`       |
-| `int_arbeid_arbeidsforhold_historisert`   | `person_id`        |
+| `int_arbeid_arbeidsforhold_historisert`   | `vedtak_id`        |
 |`dim_arbeidsgiver`   | `gyldig_flagg`        |
-|`dim_person`   | `dato_gyldig_fom`        |
-|`fak_arbeidsforhold`   | `dato_gyldig_tom`        |
+|`dim_person`   | `gyldig_fom_dato`        |
+|`fak_arbeidsforhold`   | `gyldig_tom_dato`        |
 |`obt_arbeid_personstatus`   | `arbeidsforhold_status`        |
 
 
@@ -44,7 +44,7 @@ For modeller som andre skal lese og bygge videre på, bruker vi følgende hovedm
 
 Eksempler:
 
-- `dim_person`
+- `dim_vedtak`
 - `dim_arbeidsgiver`
 - `fak_vedtak`
 - `fak_utbetaling`
@@ -97,9 +97,9 @@ Kolonner skal navngis etter hva de betyr, ikke hvor de kommer fra. Grunnleggende
 
 - _id som suffiks for naturlige id-felter.
 - key_ som prefiks for surrogate/syntetiske nøkler.
-- dato_ som prefiks for datoer.
-- tid_ som prefiks for dato med tidspunkt med millisekunder presisjon.
-- ts_ som prefiks for dato med timestamps med opptil nanosekunder presisjon.
+- _dato som suffiks for datoer.
+- _tid som suffiks for dato med tidspunkt med millisekunder presisjon.
+- _ts som suffiks for dato med timestamps med opptil nanosekunder presisjon.
 - _flagg som suffiks for flagg-kolonner, enten med true/false eller med enten/eller kategoriseringsinnhold.
 - lastet_ som prefiks for systemfelt, for når dataene sist ble lastet i modellen.
 - _navn som suffiks for å spesifisere tekstkolonner hvis beskrivelsen ikke er god nok alene. For eks "land" kan være en god nok beskrivelse istedenfor land_navn?
@@ -108,8 +108,7 @@ Kolonner skal navngis etter hva de betyr, ikke hvor de kommer fra. Grunnleggende
 Vær presis med navngivning, slik at kolonnenavnet representerer faktisk innhold.
 Eksempler:
 
-- bruk `person_id`, ikke `aktorid` hvis kolonnen faktisk representerer personens identifikator i modellen
-- bruk `dato_vedtak`, ikke `behandlingsdato`, hvis det er vedtakstidspunkt modellen uttrykker
+- bruk `vedtak_dato`, ikke `behandlingsdato`, hvis det er vedtakstidspunkt modellen uttrykker
 - bruk `arbeidsgiver_navn`, ikke `navn`, når kolonnen ellers blir tvetydig
 
 ### Nøkler
@@ -123,9 +122,9 @@ Vi skiller tydelig mellom forretningsnøkler og surrogate nøkler.
 
 Eksempler:
 
-- `key_person`
+- `key_vedtak`
 - `key_arbeidsgiver`
-- `person_id`
+- `vedtak_id`
 - `organisasjon_id`
 - `vedtak_id`
 
@@ -160,8 +159,8 @@ Tidsstempel:
 
 | Kolonneinnhold      | dato | tid     | timestamp     |
 | ----------- | ----------- | ----------- | ----------- |
-| Gyldig fra og med   | `dato_gyldig_fom` | `tid_gyldig_fom`       | `ts_gyldig_fom`       |
-| Gyldig til og med  | `dato_gyldig_tom` | `tid_gyldig_til`        |`ts_gyldig_til`        |
-| Oppdatert dato  | `dato_oppdatert` | `tid_oppdatert`        | `ts_oppdatert`        |
-| Funksjonell/teknisk gyldighet fra  | `dato_funksjonell_fra` | `tid_funksjonell_fra`        | `ts_funksjonell_fra`        |
-| Funksjonell/teknisk gyldighet til  | `dato_funksjonell_til` | `tid_funksjonell_til`        | `ts_funksjonell_til`        |
+| Gyldig fra og med   | `gyldig_fom_dato` | `gyldig_fom_tid`       | `gyldig_fom_ts`       |
+| Gyldig til og med  | `gyldig_tom_dato` | `gyldig_til_tid`        |`gyldig_til_ts`        |
+| Oppdatert dato  | `oppdatert_dato` | `oppdatert_tid`        | `oppdatert_ts`        |
+| Funksjonell/teknisk gyldighet fra  | `funksjonell_fra_dato` | `funksjonell_fra_tid`        | `funksjonell_fra_ts`        |
+| Funksjonell/teknisk gyldighet til  | `funksjonell_til_dato` | `funksjonell_til_tid`        | `funksjonell_til_ts`        |
