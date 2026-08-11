@@ -25,9 +25,9 @@ Unngå:
 
 | Komponenter      | Kolonnenavn |
 | ----------- | ----------- |
-| `stg_aareg_arbeidsforhold`      | `key_person`       |
-| `int_arbeid_arbeidsforhold_historisert`   | `id_person`        |
-|`dim_arbeidsgiver`   | `flagg_gyldig`        |
+| `stg_aareg_arbeidsforhold`      | `key_aareg_arbeidsforhold`       |
+| `int_arbeid_arbeidsforhold_historisert`   | `person_id`        |
+|`dim_arbeidsgiver`   | `gyldig_flagg`        |
 |`dim_person`   | `dato_gyldig_fom`        |
 |`fak_arbeidsforhold`   | `dato_gyldig_tom`        |
 |`obt_arbeid_personstatus`   | `arbeidsforhold_status`        |
@@ -93,14 +93,14 @@ Kolonnenavn er viktigere enn tabellnavn. Det er kolonnene som faktisk blir brukt
 
 ### Grunnregel
 
-Kolonner skal navngis etter hva de betyr, ikke hvor de kommer fra. Da det kan være lettere å søke frem kolonner basert på grunnleggende prefix, samt at flere systemer alfabetiserer kolonner, benyttes disse grunnleggende kolonnenavn/prefiks for velbrukte kolonner:
+Kolonner skal navngis etter hva de betyr, ikke hvor de kommer fra. Grunnleggende kolonnenavn/prefiks for velbrukte kolonner:
 
-- id_ som prefiks for naturlige id-felter.
+- _id som suffiks for naturlige id-felter.
 - key_ som prefiks for surrogate/syntetiske nøkler.
 - dato_ som prefiks for datoer.
 - tid_ som prefiks for dato med tidspunkt med millisekunder presisjon.
 - ts_ som prefiks for dato med timestamps med opptil nanosekunder presisjon.
-- flagg_ som prefiks for flagg-kolonner, enten med true/false eller med enten/eller kategoriseringsinnhold.
+- _flagg som suffiks for flagg-kolonner, enten med true/false eller med enten/eller kategoriseringsinnhold.
 - lastet_ som prefiks for systemfelt, for når dataene sist ble lastet i modellen.
 - _navn som suffiks for å spesifisere tekstkolonner hvis beskrivelsen ikke er god nok alene. For eks "land" kan være en god nok beskrivelse istedenfor land_navn?
 - kildesystem som kolonnenavn hvis det er viktig å spesifisere kilde
@@ -108,7 +108,7 @@ Kolonner skal navngis etter hva de betyr, ikke hvor de kommer fra. Da det kan v�
 Vær presis med navngivning, slik at kolonnenavnet representerer faktisk innhold.
 Eksempler:
 
-- bruk `id_person`, ikke `aktorid` hvis kolonnen faktisk representerer personens identifikator i modellen
+- bruk `person_id`, ikke `aktorid` hvis kolonnen faktisk representerer personens identifikator i modellen
 - bruk `dato_vedtak`, ikke `behandlingsdato`, hvis det er vedtakstidspunkt modellen uttrykker
 - bruk `arbeidsgiver_navn`, ikke `navn`, når kolonnen ellers blir tvetydig
 
@@ -118,16 +118,16 @@ Vi skiller tydelig mellom forretningsnøkler og surrogate nøkler.
 
 - Surrogate nøkler i dimensjoner navngis `key_<entitet>`
 - Fremmednøkler i fakta bruker samme navn som dimensjonen peker på
-- Forretningsnøkler navngis `id_<entitet>` eller `<entitet>_<kode/navn>` når det er mer presist
+- Forretningsnøkler navngis `<entitet>_id` eller `<entitet>_<kode/navn>` når det er mer presist
 - Vi bruker ikke `pk_`, `fk_` eller `ek_` som kolonneprefiks i eksponerte dbt-modeller. Slike navn beskriver databaseimplementasjon, ikke informasjonen brukeren forholder seg til. 
 
 Eksempler:
 
 - `key_person`
 - `key_arbeidsgiver`
-- `id_person`
-- `id_organisasjon`
-- `id_vedtak`
+- `person_id`
+- `organisasjon_id`
+- `vedtak_id`
 
 
 
