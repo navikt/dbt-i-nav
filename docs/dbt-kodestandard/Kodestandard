@@ -1,0 +1,9 @@
+Kodestandard
+
+Fellesdimensjoner
+
+https://confluence.adeo.no/spaces/DVH/pages/385080641/dvh_kodeverk
+
+Benytt kodeverk for ukjente verdier:
+select * from DT_KODEVERK.DIM_UKJENT_VERDI
+For eks blir "skjermet" kode -5
