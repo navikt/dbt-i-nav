@@ -1,4 +1,4 @@
-## Regler og anbefalinger
+# Regler og anbefalinger
 
 For dbt-utvikling i DVH gjelder i praksis disse hovedreglene:
 
