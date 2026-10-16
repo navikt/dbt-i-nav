@@ -14,7 +14,7 @@ nav:
         - 'DVH/komme-i-gang.md'
         - 'DVH/opprett-prosjekt.md'
     - dbt i Knast:
-        - 'dbt-i-knast/01-00-Hva-er-Knast.md'
+        - 'dbt-i-knast/01-00-hva-er-Knast.md'
         - 'dbt-i-knast/01-01-regler-og-anbefalinger.md'
         - 'dbt-i-knast/02-kom-i-gang.md'
         - 'dbt-i-knast/03-handtering-av-dvh-hemmeligheter.md'

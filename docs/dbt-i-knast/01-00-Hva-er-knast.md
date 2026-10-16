@@ -1,4 +1,4 @@
-# Hva er Knast?
+# Hva er Knast
 Knast er ditt eget personlige utviklingsmiljø for analyse og behandling av data som bygges på toppen av Cloud Workstations i Google Cloud Platform. Det Linux basert utviklingsmiljø som kjører Docker-images i containere. Det er kun en IDE per Docker-image, og flere images er tilgjengelig i Knast.
 
 Knast gir brukere firhet å velge fra utvalgte hardware resurser, åpening mot internet og interne Nav kilder.

@@ -65,9 +65,3 @@ Dette kan gjøres ved å legge til følgende innstillinger i `settings.json` i V
   "sqldeveloper.database.nls.timestampTZFormat": "DD.MM.YYYY HH24:MI:SSXFF TZR",
   "sqldeveloper.database.nls.length": "CHAR",
 ```
-
-![A descriptive description of the image](../images/min-knast.png)
-
-
-<!-- Min Knast landing page -->
-<img src="../images/min-knast.png" alt="Alt text" width="40%"/>
