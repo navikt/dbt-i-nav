@@ -7,12 +7,12 @@ Gjør følgende:
 1. I nettleseren, gå til (https://data.ansatt.nav.no/). Login med din Nav-ident hvis det er behov.
 2. Velg "KNAST" overst til høyre. Se bilde.
 
-  ![datamarkedsplassen homepage](../images/01-dmp-home.png)
+    ![datamarkedsplassen homepage](../images/01-dmp-home.png)
 
 3. Velg `dbt-stable` fra dropdown som utviklingsmiljø. Se punkt 1 i bilde nedenfor.
 4. Velg maskintype. Hvis usikker, gjerne start med minste type maskin. Se punkt 2 i bilde nedenfor.
 
-  ![knast oppsett](../images/02-knast-oppsett-1.png)
+    ![knast oppsett](../images/02-knast-oppsett-1.png)
 
 5. Trykk `Opprett min Knast` knapp. Se punkt 3 i bilde over.
 
