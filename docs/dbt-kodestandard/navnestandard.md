@@ -8,6 +8,7 @@ For bakgrunn og produktregler, se [../dataprodukt/navnestandard.md](../dataprodu
 - Benytt små bokstaver.
 - Benytt snake_case.
 - Oversett æ med ae, ø med o, å med aa.
+- I navn skal det ikke brukes genitiv s.
 - Modellnavn skrives i entall når granulariteten er én forekomst per rad.
 - Forkortelser brukes bare når de er allment forstått i domenet.
 - Samme kolonne skal hete det samme i dimensjon, fakta og OBT når den betyr det samme.
@@ -122,8 +123,8 @@ Vi skiller tydelig mellom forretningsnøkler og surrogate nøkler.
 
 Eksempler:
 
-- `key_vedtak`
-- `key_arbeidsgiver`
+- `key_dim_tid`
+- `key_dim_geografi`
 - `vedtak_id`
 - `organisasjon_id`
 - `vedtak_id`
@@ -143,19 +144,26 @@ Anbefalte suffiks når de gir mening:
 
 - `_kode` for kodeverdier
 - `_navn` for lesbare navn
-- `_tidspunkt` for tidspunkt med klokkeslett
 - `_belop` for beløp
 - `_antall` for tellinger
 - `_andel` eller `_prosent` for forholdstall
 
 For boolske verdier foretrekkes navn som er enkle å forstå:
 
-- `flagg_aktiv`
-- `flagg_gyldig`
-- `flagg_vedtak`
+- `aktiv_flagg`
+- `gyldig_flagg`
+- `vedtak_flagg`
 
-### Historikkolonner
-Tidsstempel: 
+### Dato tid
+Følg DIM_TID det det er mulig.
+- utbet_aar_mnd, number
+- utbet_dato, date -- dagsoppløsning
+- utbet_mnd, date -- månedsoppløsning
+- utbet_tid, date -- Sekundoppløsning
+- utbet_ts, timestamp -- (Nav-tid).
+- utbet_utc, timestamp -- UTC mikrosekund. Hovedsaktlig for staging og maskinfelter.
+- 
+Eksempler: 
 
 | Kolonneinnhold      | dato | tid     | timestamp     |
 | ----------- | ----------- | ----------- | ----------- |
