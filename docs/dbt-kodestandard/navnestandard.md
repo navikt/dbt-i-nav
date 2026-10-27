@@ -123,8 +123,8 @@ Vi skiller tydelig mellom forretningsnøkler og surrogate nøkler.
 
 Eksempler:
 
-- `key_vedtak`
-- `key_arbeidsgiver`
+- `key_dim_tid`
+- `key_dim_geografi`
 - `vedtak_id`
 - `organisasjon_id`
 - `vedtak_id`
@@ -144,16 +144,15 @@ Anbefalte suffiks når de gir mening:
 
 - `_kode` for kodeverdier
 - `_navn` for lesbare navn
-- `_tidspunkt` for tidspunkt med klokkeslett
 - `_belop` for beløp
 - `_antall` for tellinger
 - `_andel` eller `_prosent` for forholdstall
 
 For boolske verdier foretrekkes navn som er enkle å forstå:
 
-- `flagg_aktiv`
-- `flagg_gyldig`
-- `flagg_vedtak`
+- `aktiv_flagg`
+- `gyldig_flagg`
+- `vedtak_flagg`
 
 ### Dato tid
 Følg DIM_TID det det er mulig.
