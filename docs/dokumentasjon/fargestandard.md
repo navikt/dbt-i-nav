@@ -66,20 +66,20 @@ dbt docs serve
 
 ## Fargestandard
 
-Fargeprøvene viser hvit tekst på nodefargen. Kontrasttallene er beregnet fra de oppgitte hex-kodene etter WCAGs metode for relativ luminans og er avrundet til to desimaler. Vurdering av krav skal gjøres med uavrundede verdier.
+Fargeprøvene viser hvit tekst på nodefargen. Kontrasttallene står under [fargevalg og kontrast](#fargevalg-og-kontrast).
 
-| Modelltype | Visning | Fargekode (hex) | Fargereferanse i Aksel | Hvit tekst | Mot canvas | Vurdering
-| --- | --- | --- | --- | --- | --- | --- |
-| Kildetabeller (fast) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#60b825;color:#ffffff">src_</span> | `#60b825` | Fast i dbt Docs-visningen | 2,51:1 | 2,87:1 | Tilfredsstiller ikke krav, men er fastlåst i dbt Docs-visningen |
-| Staging-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#007629;color:#ffffff">stg_</span> | `#007629` | Success700 | 5,80:1 | 1,24:1 | En mørk grønntone. Sikrer lovlig kontrast for den hvite teksten.
-| Intermediate-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#995139;color:#ffffff">int_</span> | `#995139` | BrandBeige700 | 5,85:1 | 1,23:1 | En dempet, rødbrun tone. Skiller seg klart fra grønn, selv ved rød-grønn fargeblindhet.
-| Faktamodeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#7c4abf;color:#ffffff">fak_</span> | `#7c4abf` | MetaPurple700 | 5,85:1 | 1,23:1 | Lilla bevarer kontrast og er lett gjenkjennelig på tvers av alle typer fargeblindhet.
-| Brede aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#0063c1;color:#ffffff">obt_</span> | `#0063c1` | Accent700 | 5,91:1 | 1,22:1 | En dyp, klar blå. Skiller seg kraftig fra både lilla og rødbrun.
-| Smale aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#457c9d;color:#ffffff">agg_</span> | `#457c9d` | BrandBlue600 | 4,54:1 | 1,58:1 | Middels lys, klar blåtone. Viser at den tilhører aggregat-familien, men skiller seg fra de brede.
-| Øvrige modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#5d6573;color:#ffffff">mdl_</span> | `#5d6573` | Neutral700 | 5,88:1 | 1,22:1 | Nøytral grå for modeller som ikke passer i hovedkategoriene.
-| Snapshots | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#ca5000;color:#ffffff">snap_</span> | `#ca5000` | Warning600 | 4,51:1 | 1,60:1 | En frisk, klar oransje som tåler hvit tekst.
-| Tester (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#e22948;color:#ffffff">test_</span> | `#e22948` | Danger600 | 4,52:1 | 1,59:1 | Ren rød er den universelle og gjenkjennelige fargen for feil og tester.
-| Exposures (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#a93d70;color:#ffffff">exp_</span> | `#a93d70` | BrandMagenta700 | 5,85:1 | 1,23:1 | Rosa, dekker behovet for eksponeringer ut av dbt.
+| Modelltype | Visning | Fargekode og Aksel-referanse |
+| --- | --- | --- |
+| Kildetabeller (fast) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#60b825;color:#ffffff">src_</span> | `#60b825`|
+| Staging-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#007629;color:#ffffff">stg_</span> | `#007629`<br>Success700 |
+| Intermediate-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#995139;color:#ffffff">int_</span> | `#995139`<br>BrandBeige700 |
+| Faktamodeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#7c4abf;color:#ffffff">fak_</span> | `#7c4abf`<br>MetaPurple700 |
+| Brede aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#0063c1;color:#ffffff">obt_</span> | `#0063c1`<br>Accent700 |
+| Smale aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#457c9d;color:#ffffff">agg_</span> | `#457c9d`<br>BrandBlue600 |
+| Øvrige modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#5d6573;color:#ffffff">mdl_</span> | `#5d6573`<br>Neutral700 |
+| Snapshots | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#ca5000;color:#ffffff">snap_</span> | `#ca5000`<br>Warning600 |
+| Tester (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#e22948;color:#ffffff">test_</span> | `#e22948`<br>Danger600 |
+| Exposures (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#a93d70;color:#ffffff">exp_</span> | `#a93d70`<br>BrandMagenta700 |
 
 Grønn markerer staging, rødbrun markerer intermediate, og lilla markerer fakta. Blåtonene samler aggregater i en fargefamilie. Grå brukes for modeller utenfor disse kategoriene.
 
@@ -94,7 +94,7 @@ Standarden tar utgangspunkt i dbt Docs-visningen med disse faste egenskapene:
 | Tekststørrelse og nodeform | Kan ikke endres gjennom `docs.node_color` |
 | Kildetabeller | Grønn, `#60b825`, i visningen som utkastet bygger på |
 
-Ifølge [dbts dokumentasjon om nodefarger](https://docs.getdbt.com/reference/resource-configs/docs#custom-node-colors) støttes `docs.node_color` for modeller, seeds, snapshots og analyser. Kilder, tester og exposures støttes ikke. Fargene for tester og exposures nedenfor er derfor bare referansefarger i utkastet, ikke innstillinger som kan tas i bruk med denne konfigurasjonen.
+Ifølge [dbts dokumentasjon om nodefarger](https://docs.getdbt.com/reference/resource-configs/docs#custom-node-colors) støttes `docs.node_color` for modeller, seeds, snapshots og analyser. Kilder, tester og exposures støttes ikke. Fargene for tester og exposures i tabellen er derfor bare referansefarger i utkastet, ikke innstillinger som kan tas i bruk med denne konfigurasjonen.
 
 Dette gjelder dbt Docs, ikke Catalog/Explorer. Kontroller den faktiske visningen når dbt eller publiseringsløsningen oppgraderes.
 
@@ -109,6 +109,21 @@ Hex-kodene i denne standarden er verdiene som skal brukes i dbt. Fargereferansen
 [WCAG 2.2, kriterium 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) krever minst 4,5:1 i kontrast for vanlig tekst. Alle de foreslåtte fargene for modeller og snapshots oppfyller dette mot hvitt. Kildetabellenes faste grønnfarge gjør det ikke.
 
 [Kriterium 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) krever minst 3:1 for grafiske deler som er nødvendige for å forstå innholdet. Det betyr ikke at enhver nodeflate automatisk må ha 3:1 mot bakgrunnen dersom informasjonen også formidles med lesbar tekst. Nodegrenser, forbindelser og tilstander som er nødvendige for å forstå grafen, må likevel vurderes i den faktiske visningen.
+
+Kontrasttallene er beregnet fra hex-kodene etter WCAGs metode for relativ luminans og avrundet til to desimaler. Vurdering av krav skal gjøres med uavrundede verdier.
+
+| Modelltype | Mot hvit tekst | Mot canvas |
+| --- | --- | --- |
+| Kildetabeller (fast) | 2,51:1 | 2,87:1 |
+| Staging-modeller | 5,80:1 | 1,24:1 |
+| Intermediate-modeller | 5,85:1 | 1,23:1 |
+| Faktamodeller | 5,85:1 | 1,23:1 |
+| Brede aggregater | 5,91:1 | 1,22:1 |
+| Smale aggregater | 4,54:1 | 1,58:1 |
+| Øvrige modeller | 5,88:1 | 1,22:1 |
+| Snapshots | 4,51:1 | 1,60:1 |
+| Tester (kun referanse) | 4,52:1 | 1,59:1 |
+| Exposures (kun referanse) | 5,85:1 | 1,23:1 |
 
 ### Begrensningen ved den mørkeblå bakgrunnen
 
