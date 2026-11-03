@@ -1,4 +1,4 @@
-# Fargestandard for dbt Docs
+# Fargestandard i dbt Docs
 
 Denne siden beskriver en felles fargepalett for noder i dbt Docs. Fargene viser hvilken type modell en node representerer i [lineage-grafen](https://www.getdbt.com/blog/getting-started-with-data-lineage), slik at det blir lettere å lese både egne og andres prosjekter.
 
