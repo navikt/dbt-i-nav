@@ -15,6 +15,25 @@ En felles fargestandard skal gjøre det enklere å:
 - vedlikeholde prosjekter med en felles visuell referanse
 - lese grafen uten å være avhengig av å skille fargene fra hverandre
 
+## Fargestandard
+
+Fargeprøvene viser hvit tekst på nodefargen. Kontrasttallene står under [fargevalg og kontrast](#fargevalg-og-kontrast).
+
+| Modelltype | Visning | Fargekode og Aksel-referanse |
+| --- | --- | --- |
+| Kildetabeller (fast) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#60b825;color:#ffffff">src_</span> | `#60b825`|
+| Staging-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#007629;color:#ffffff">stg_</span> | `#007629`<br>Success700 |
+| Intermediate-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#995139;color:#ffffff">int_</span> | `#995139`<br>BrandBeige700 |
+| Faktamodeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#7c4abf;color:#ffffff">fak_</span> | `#7c4abf`<br>MetaPurple700 |
+| Brede aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#0063c1;color:#ffffff">obt_</span> | `#0063c1`<br>Accent700 |
+| Smale aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#457c9d;color:#ffffff">agg_</span> | `#457c9d`<br>BrandBlue600 |
+| Øvrige modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#5d6573;color:#ffffff">mdl_</span> | `#5d6573`<br>Neutral700 |
+| Snapshots | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#ca5000;color:#ffffff">snap_</span> | `#ca5000`<br>Warning600 |
+| Tester (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#e22948;color:#ffffff">test_</span> | `#e22948`<br>Danger600 |
+| Exposures (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#a93d70;color:#ffffff">exp_</span> | `#a93d70`<br>BrandMagenta700 |
+
+Grønn markerer staging, rødbrun markerer intermediate, og lilla markerer fakta. Blåtonene samler aggregater i en fargefamilie. Grå brukes for modeller utenfor disse kategoriene.
+
 ## Konfigurer fargene i dbt
 
 Sett fargene per mappe i `dbt_project.yml`, slik at nye modeller arver riktig farge. Tilpass mappenavnene til prosjektstrukturen. dbt velger ikke farge automatisk ut fra prefikset i modellnavnet.
@@ -64,24 +83,6 @@ dbt docs generate
 dbt docs serve
 ```
 
-## Fargestandard
-
-Fargeprøvene viser hvit tekst på nodefargen. Kontrasttallene står under [fargevalg og kontrast](#fargevalg-og-kontrast).
-
-| Modelltype | Visning | Fargekode og Aksel-referanse |
-| --- | --- | --- |
-| Kildetabeller (fast) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#60b825;color:#ffffff">src_</span> | `#60b825`|
-| Staging-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#007629;color:#ffffff">stg_</span> | `#007629`<br>Success700 |
-| Intermediate-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#995139;color:#ffffff">int_</span> | `#995139`<br>BrandBeige700 |
-| Faktamodeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#7c4abf;color:#ffffff">fak_</span> | `#7c4abf`<br>MetaPurple700 |
-| Brede aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#0063c1;color:#ffffff">obt_</span> | `#0063c1`<br>Accent700 |
-| Smale aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#457c9d;color:#ffffff">agg_</span> | `#457c9d`<br>BrandBlue600 |
-| Øvrige modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#5d6573;color:#ffffff">mdl_</span> | `#5d6573`<br>Neutral700 |
-| Snapshots | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#ca5000;color:#ffffff">snap_</span> | `#ca5000`<br>Warning600 |
-| Tester (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#e22948;color:#ffffff">test_</span> | `#e22948`<br>Danger600 |
-| Exposures (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#a93d70;color:#ffffff">exp_</span> | `#a93d70`<br>BrandMagenta700 |
-
-Grønn markerer staging, rødbrun markerer intermediate, og lilla markerer fakta. Blåtonene samler aggregater i en fargefamilie. Grå brukes for modeller utenfor disse kategoriene.
 
 ## Tekniske rammer
 
