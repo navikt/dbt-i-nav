@@ -37,7 +37,7 @@ nav:
     - Granularitet: 'dbt-kodestandard/grain.md'
     - Kontrakter: 'dbt-kodestandard/modellkontrakter.md'
     - Dokumentasjon: 'dbt-kodestandard/dokumentasjon.md'
-    - Fargestandard i dbt Docs: 'dokumentasjon/fargestandard.md'
+    - Fargestandard i dbt Docs: 'dbt-kodestandard/fargestandard.md'
     - Testing: 'dbt-kodestandard/testing.md'
     # - Lagdeling: 'dbt-kodestandard/lagdeling.md'
     # - Mappe- og prosjektstruktur: 'dbt-kodestandard/struktur.md'
