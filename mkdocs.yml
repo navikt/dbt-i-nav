@@ -63,6 +63,7 @@ nav:
   - Dokumentasjon:
       - dokumentasjon/index.md
       - dokumentasjon/dokumentasjon.md
+      - Fargestandard for dbt Docs: dokumentasjon/fargestandard.md
       - dokumentasjon/overview.md
   - Prosjekter som bruker dbt:
       - prosjekter/index.md
