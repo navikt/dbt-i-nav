@@ -25,6 +25,7 @@ Fargeprøvene viser hvit tekst på nodefargen. Kontrasttallene står under [farg
 | Staging-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#007629;color:#ffffff">stg_</span> | `#007629`<br>Success700 |
 | Intermediate-modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#995139;color:#ffffff">int_</span> | `#995139`<br>BrandBeige700 |
 | Faktamodeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#7c4abf;color:#ffffff">fak_</span> | `#7c4abf`<br>MetaPurple700 |
+| Dimensjonsmodeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#905bd3;color:#ffffff">dim_</span> | `#905bd3`<br>MetaPurple600 |
 | Brede aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#0063c1;color:#ffffff">obt_</span> | `#0063c1`<br>Accent700 |
 | Smale aggregater | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#457c9d;color:#ffffff">agg_</span> | `#457c9d`<br>BrandBlue600 |
 | Øvrige modeller | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#5d6573;color:#ffffff">mdl_</span> | `#5d6573`<br>Neutral700 |
@@ -32,7 +33,7 @@ Fargeprøvene viser hvit tekst på nodefargen. Kontrasttallene står under [farg
 | Tester (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#e22948;color:#ffffff">test_</span> | `#e22948`<br>Danger600 |
 | Exposures (kun referanse) | <span style="display:inline-block;min-width:5rem;padding:0.1rem 0.4rem;background-color:#a93d70;color:#ffffff">exp_</span> | `#a93d70`<br>BrandMagenta700 |
 
-Grønn markerer staging, rødbrun markerer intermediate, og lilla markerer fakta. Blåtonene samler aggregater i en fargefamilie. Grå brukes for modeller utenfor disse kategoriene.
+Grønn markerer staging, rødbrun markerer intermediate, og ulike lillatoner markerer fakta og dimensjoner. Blåtonene samler aggregater i en fargefamilie. Grå brukes for modeller utenfor disse kategoriene.
 
 ## Konfigurer fargene i dbt
 
@@ -53,6 +54,9 @@ models:
       fakta:
         +docs:
           node_color: "#7c4abf"
+      dimensjoner:
+        +docs:
+          node_color: "#905bd3"
       brede_aggregater:
         +docs:
           node_color: "#0063c1"
@@ -101,7 +105,7 @@ Dette gjelder dbt Docs, ikke Catalog/Explorer. Kontroller den faktiske visningen
 
 ## Fargevalg og kontrast
 
-Utkastet bygger på farger fra [Aksel](https://aksel.nav.no/) og referanser til globale fargenivåer 600 og 700. Se også [Aksels dokumentasjon om designtokens](https://aksel.nav.no/grunnleggende/styling/design-tokens).
+Utkastet bygger på farger fra [Aksel](https://aksel.nav.no/), fra globale fargenivåer 600 og 700. Se også [Aksels dokumentasjon om designtokens](https://aksel.nav.no/grunnleggende/styling/design-tokens).
 
 Hex-kodene i denne standarden er verdiene som skal brukes i dbt. Fargereferansene i tabellen er navnene fra utkastet, ikke dbt-konfigurasjon eller en garanti for at verdiene er identiske i alle Aksel-versjoner. Eksempelvis avviker utkastets `BrandBeige700` (`#995139`) fra dagens `--ax-bg-brand-beige-strong-hover` (`#915541`).
 
@@ -119,6 +123,7 @@ Kontrasttallene er beregnet fra hex-kodene etter WCAGs metode for relativ lumina
 | Staging-modeller | 5,80:1 | 1,24:1 |
 | Intermediate-modeller | 5,85:1 | 1,23:1 |
 | Faktamodeller | 5,85:1 | 1,23:1 |
+| Dimensjonsmodeller | 4,54:1 | 1,58:1 |
 | Brede aggregater | 5,91:1 | 1,22:1 |
 | Smale aggregater | 4,54:1 | 1,58:1 |
 | Øvrige modeller | 5,88:1 | 1,22:1 |
@@ -130,7 +135,7 @@ Kontrasttallene er beregnet fra hex-kodene etter WCAGs metode for relativ lumina
 
 Hvit tekst har omtrent 7,20:1 i kontrast mot bakgrunnen `#275d77`. En node som er lysere enn denne bakgrunnen og samtidig har minst 4,5:1 mot hvitt, kan høyst få omtrent 1,60:1 mot bakgrunnen. Fargevalg alene kan derfor ikke gi både lesbar hvit tekst og 3:1 mellom en lysere nodeflate og denne bakgrunnen.
 
-Nivå 600 og 700 løser dermed tekstkontrasten for de oppgitte fargene, men ikke kontrasten mellom nodeflaten og bakgrunnen. Påstanden om at disse nivåene alene sikrer universell utforming, kan ikke brukes.
+Fargene gir tilstrekkelig tekstkontrast, men lav kontrast mellom nodeflaten og bakgrunnen. Fargene alene sikrer ikke universell utforming.
 
 
 
